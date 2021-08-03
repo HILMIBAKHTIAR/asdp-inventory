@@ -1046,7 +1046,7 @@
                 "illuminate/console": "^7.0",
                 "illuminate/filesystem": "^7.0",
                 "illuminate/support": "^7.0",
-                "php": "^7.2.5"
+                "php": "^8.0"
             },
             "require-dev": {
                 "mockery/mockery": "^1.0",
@@ -4979,7 +4979,7 @@
                 "filp/whoops": "^2.4",
                 "illuminate/support": "^7.0|^8.0",
                 "monolog/monolog": "^2.0",
-                "php": "^7.2.5",
+                "php": "^8.0",
                 "scrivo/highlight.php": "^9.15",
                 "symfony/console": "^5.0",
                 "symfony/var-dumper": "^5.0"
@@ -5050,7 +5050,7 @@
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1"
+                "php": "^8.0"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^2.14",
@@ -5419,7 +5419,7 @@
             "require": {
                 "facade/ignition-contracts": "^1.0",
                 "filp/whoops": "^2.4",
-                "php": "^7.2.5 || ^8.0",
+                "php": "^8.0",
                 "symfony/console": "^5.0"
             },
             "require-dev": {
@@ -7141,7 +7141,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.2.5|^8.0"
+        "php": "^7.2.5||^8.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
