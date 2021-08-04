@@ -46,11 +46,6 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{''}}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>His</span></a>
-            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -85,8 +80,7 @@
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
@@ -113,7 +107,7 @@
                                     <!-- judul form-->
 
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Formulir Permintaan Pengadaan <br> Barang/Jasa</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Formulir Surat Pernyataan <br> Kebenaran harga</h1>
                                     </div>
 
                                     <!-- isi form input -->
@@ -121,46 +115,38 @@
                                         <div class="form-group">
                                             <div class="form-row">
                                                 <div class="col-md-6">
-                                                    <label>Dari</label>
+                                                    <label>Nama</label>
                                                     <input type="text" class="form-control" />
-                                                    <label>Nama Pengadaan</label>
+                                                    <label>NIK</label>
                                                     <input type="text" class="form-control" />
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label>Mata Anggaran</label>
+                                                    <label>Alamat</label>
                                                     <input type="text" class="form-control">
-                                                    <label>Tanggal Dibutuhkan</label>
-                                                    <input type="date" class="form-control" />
+                                                    <label>No Telpon</label>
+                                                    <input type="text" class="form-control" />
                                                 </div>
                                             </div>
 
                                             <br>
                                             <!-- Pengadaan Barang -->
                                             <div class="text-center">
-                                                <h1 class="h4 text-gray-900 mb-4">Form Barang/Jasa</h1>
+                                                <h1 class="h4 text-gray-900 mb-4">Tabel Barang/Jasa</h1>
                                             </div>
                                             <div class="form-row">
                                                 <div class="table-responsive">
                                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                                         <thead>
                                                             <tr>
-                                                                <th>Jumlah</th>
                                                                 <th>Satuan</th>
-                                                                <th>Nama Barang</th>
-                                                                <th>Spesifikasi</th>
-                                                                <th>Harga Satuan</th>
-                                                                <th>Action</th>
+                                                                <th>Jumlah</th>
+                                                                <th>Nama Barang/Uraian</th>
+                                                                <th>Harga satuan</th>
+                                                                <th>jumlah</th>
+                                                                <th>Keterangan</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <td><input type="text" class="form-control"></td>
-                                                                <td><input type="text" class="form-control"></td>
-                                                                <td><input type="text" class="form-control"></td>
-                                                                <td><input type="text" class="form-control"></td>
-                                                                <td><input type="text" class="form-control"></td>
-                                                                <td class=""><input href="" class="btn btn-primary mr-2" type="button" name="tambah" id="tambah" value="Tambah"></input></td>
-                                                            </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -172,22 +158,10 @@
                                             </div>
                                             <div class="form-row">
                                                 <div class="col-md-6">
-                                                    <label>Catatan Peminta Barang/Jasa</label>
-                                                    <input type="text" class="form-control" />
-                                                    <label>Catatan</label>
-                                                    <input type="text" class="form-control" />
-                                                    <label>Catatan Ketersediaan Anggaran</label>
-                                                    <input type="text" class="form-control" />
-                                                    <label>Catatan Ketersediaan Stok</label>
+                                                    <label>General/Manager</label>
                                                     <input type="text" class="form-control" />
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label>Peminta Barang/Jasa</label>
-                                                    <input type="text" class="form-control">
-                                                    <label>General Manager Cabang Ketapang</label>
-                                                    <input type="text" class="form-control">
-                                                    <label>Manager Keuangan</label>
-                                                    <input type="text" class="form-control">
                                                     <label>Manager SDM & Umum</label>
                                                     <input type="text" class="form-control">
                                                 </div>
