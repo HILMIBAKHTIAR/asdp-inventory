@@ -188,13 +188,15 @@
                                                 <h1 class="h4 text-gray-900 mb-4">Form Tanda Tangan</h1>
                                             </div>
                                             <div class="form-row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <label>General Manager</label>
                                                     <input type="text" class="form-control" />
+                                                </div>
+                                                <div class="col-md-4">
                                                     <label>Manager SDM & Umum</label>
                                                     <input type="text" class="form-control" />
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <label>Staf SDM & Umum</label>
                                                     <input type="text" class="form-control">
                                                 </div>
