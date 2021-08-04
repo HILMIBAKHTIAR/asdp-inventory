@@ -175,7 +175,7 @@
                                                     <input type="text" class="form-control" />
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label>Nomor Rek</label>
+                                                    <label>Nomor Rekening</label>
                                                     <input type="text" class="form-control">
                                                     <label>Bank</label>
                                                     <input type="text" class="form-control" />
@@ -189,23 +189,13 @@
                                             </div>
                                             <div class="form-row">
                                                 <div class="col-md-6">
-                                                    <label>Catatan Peminta Barang/Jasa</label>
+                                                    <label>General Manager</label>
                                                     <input type="text" class="form-control" />
-                                                    <label>Catatan</label>
-                                                    <input type="text" class="form-control" />
-                                                    <label>Catatan Ketersediaan Anggaran</label>
-                                                    <input type="text" class="form-control" />
-                                                    <label>Catatan Ketersediaan Stok</label>
+                                                    <label>Manager SDM & Umum</label>
                                                     <input type="text" class="form-control" />
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label>Peminta Barang/Jasa</label>
-                                                    <input type="text" class="form-control">
-                                                    <label>General Manager Cabang Ketapang</label>
-                                                    <input type="text" class="form-control">
-                                                    <label>Manager Keuangan</label>
-                                                    <input type="text" class="form-control">
-                                                    <label>Manager SDM & Umum</label>
+                                                    <label>Staf SDM & Umum</label>
                                                     <input type="text" class="form-control">
                                                 </div>
                                             </div>
