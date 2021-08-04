@@ -12,7 +12,7 @@
     <title>Dashboard</title>
 
     <link href="{{url('backend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{url('backend/https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i')}}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
@@ -74,13 +74,12 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
                                 <img class="img-profile rounded-circle" src="{{url('backend/img/undraw_profile.svg')}}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
@@ -107,7 +106,7 @@
                                     <!-- judul form-->
 
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">FORMULIR VERIFIKASI PEMBELIAN TUNAI UNIT KERJA</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Formulir Verifikasi Pembelian <br> Tunai Unit Kerja</h1>
                                     </div>
 
                                     <!-- isi form input -->
@@ -146,7 +145,7 @@
                                                                 <th>Nomor Dokumen</th>
                                                                 <th>Tanggal</th>
                                                                 <th>Harga</th>
-                                                                <th>Keterangan  </th>
+                                                                <th>Keterangan </th>
                                                                 <th>Action</th>
                                                             </tr>
                                                         </thead>
@@ -250,16 +249,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{url('backend/js/sb-admin-2.min.js')}}">
-    </script>
-
-    <!-- Page level plugins -->
-    <script src="{{url('backend/vendor/chart.js/Chart.min.js')}}">
-    </script>
-
-    <!-- Page level custom scripts -->
-    <script src="{{url('backend/js/demo/chart-area-demo.js')}}">
-    </script>
-    <script src="{{url('backend/js/demo/chart-pie-demo.js')}}">
     </script>
 
     <script>

@@ -12,7 +12,7 @@
     <title>Dashboard</title>
 
     <link href="{{url('backend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{url('backend/https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i')}}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
@@ -80,8 +80,7 @@
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
@@ -259,16 +258,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{url('backend/js/sb-admin-2.min.js')}}">
-    </script>
-
-    <!-- Page level plugins -->
-    <script src="{{url('backend/vendor/chart.js/Chart.min.js')}}">
-    </script>
-
-    <!-- Page level custom scripts -->
-    <script src="{{url('backend/js/demo/chart-area-demo.js')}}">
-    </script>
-    <script src="{{url('backend/js/demo/chart-pie-demo.js')}}">
     </script>
 
     <script>
