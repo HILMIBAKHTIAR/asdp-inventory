@@ -46,12 +46,6 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{''}}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>His</span></a>
-            </li>
-
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -113,7 +107,7 @@
                                     <!-- judul form-->
 
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Formulir Permintaan Pengadaan <br> Barang/Jasa</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">FORMULIR PERINTAH MEMBAYAR</h1>
                                     </div>
 
                                     <!-- isi form input -->
@@ -121,16 +115,20 @@
                                         <div class="form-group">
                                             <div class="form-row">
                                                 <div class="col-md-6">
-                                                    <label>Dari</label>
+                                                    <label>Tanggal</label>
                                                     <input type="text" class="form-control" />
-                                                    <label>Nama Pengadaan</label>
+                                                    <label>Jenis Tranksaksi</label>
+                                                    <input type="text" class="form-control" />
+                                                    <label>program</label>
                                                     <input type="text" class="form-control" />
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label>Mata Anggaran</label>
-                                                    <input type="text" class="form-control">
-                                                    <label>Tanggal Dibutuhkan</label>
-                                                    <input type="date" class="form-control" />
+                                                    <label>Tahun Anggaran</label>
+                                                    <input type="date" class="form-control">
+                                                    <label>Penanggung Jawab Unit Fungsi</label>
+                                                    <input type="text" class="form-control" />
+                                                    <label>Pembebanan Anggaran</label>
+                                                    <input type="text" class="form-control" />
                                                 </div>
                                             </div>
 
@@ -144,11 +142,10 @@
                                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                                         <thead>
                                                             <tr>
-                                                                <th>Jumlah</th>
-                                                                <th>Satuan</th>
-                                                                <th>Nama Barang</th>
-                                                                <th>Spesifikasi</th>
-                                                                <th>Harga Satuan</th>
+                                                                <th>Urian Kegiatan</th>
+                                                                <th>MA</th>
+                                                                <th>Permohonan Dana</th>
+                                                                <th>Keterangan</th>
                                                                 <th>Action</th>
                                                             </tr>
                                                         </thead>
@@ -158,14 +155,35 @@
                                                                 <td><input type="text" class="form-control"></td>
                                                                 <td><input type="text" class="form-control"></td>
                                                                 <td><input type="text" class="form-control"></td>
-                                                                <td><input type="text" class="form-control"></td>
-                                                                <td class=""><input href="" class="btn btn-primary mr-2" type="button" name="tambah" id="tambah" value="Tambah"></input></td>
+                                                                <td class=""><input href="" class="btn btn-primary mr-2" name="tambah" id="tambah" value="Tambah"></input></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
                                             </div>
 
+                                            <br>
+                                            {{-- form isi  --}}
+
+                                            <div class="text-center">
+                                                <h1 class="h4 text-gray-900 mb-4">Form isi Bank</h1>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-md-6">
+                                                    <label>Terbilang</label>
+                                                    <input type="text" class="form-control" />
+                                                    <label>Penerima Dana</label>
+                                                    <input type="text" class="form-control" />
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>Nomor Rek</label>
+                                                    <input type="text" class="form-control">
+                                                    <label>Bank</label>
+                                                    <input type="text" class="form-control" />
+                                                </div>
+                                            </div>
+
+                                            <br>
                                             <!-- FORM TTD -->
                                             <div class="text-center">
                                                 <h1 class="h4 text-gray-900 mb-4">Form Tanda Tangan</h1>
@@ -280,7 +298,7 @@
         $(document).ready(function() {
             var x = 1;
             $("#tambah").click(function() {
-                $("#dataTable").append('<tr><td><input type = "text" class = "form-control" /></td><td><input type = "text" class = "form-control" /></td><td><input type = "text" class = "form-control" /></td><td><input type = "text" class = "form-control" /></td><td><input type = "text" class = "form-control" /></td><td class = "" ><input href = "" class = "btn btn-danger mr-2"type = "button"name = "hapus" id = "hapus" value = "Hapus" /></input></td></tr>');
+                $("#dataTable").append('<tr> <td><input type="text" class="form-control"></td><td><input type="text" class="form-control"></td><td><input type="text" class="form-control"></td><td><input type="text" class="form-control"></td><td class=""><input href="" class="btn btn-danger mr-2" name="Hapus" id="hapus" value="Hapus"></input></td> </tr>');
                 $("#dataTable").on('click', '#hapus', function() {
                     $(this).closest('tr').remove();
                 })

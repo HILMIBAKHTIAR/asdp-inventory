@@ -46,11 +46,6 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{''}}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>His</span></a>
-            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -113,7 +108,7 @@
                                     <!-- judul form-->
 
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Formulir Permintaan Pengadaan <br> Barang/Jasa</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Formulir Verifikasi Membayar</h1>
                                     </div>
 
                                     <!-- isi form input -->

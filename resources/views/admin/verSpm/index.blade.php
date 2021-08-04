@@ -46,12 +46,6 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{''}}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>His</span></a>
-            </li>
-
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -113,7 +107,7 @@
                                     <!-- judul form-->
 
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Formulir Permintaan Pengadaan <br> Barang/Jasa</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">FORMULIR VERIFIKASI PEMBELIAN TUNAI UNIT KERJA</h1>
                                     </div>
 
                                     <!-- isi form input -->
@@ -121,16 +115,20 @@
                                         <div class="form-group">
                                             <div class="form-row">
                                                 <div class="col-md-6">
-                                                    <label>Dari</label>
+                                                    <label>Nama</label>
                                                     <input type="text" class="form-control" />
-                                                    <label>Nama Pengadaan</label>
+                                                    <label>Jenis Pekerjaan</label>
+                                                    <input type="text" class="form-control" />
+                                                    <label>Uraian Pekerjaan</label>
                                                     <input type="text" class="form-control" />
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label>Mata Anggaran</label>
                                                     <input type="text" class="form-control">
-                                                    <label>Tanggal Dibutuhkan</label>
+                                                    <label>Anggaran Tahun</label>
                                                     <input type="date" class="form-control" />
+                                                    <label>Penanggung Jawab Anggaran</label>
+                                                    <input type="text" class="form-control" />
                                                 </div>
                                             </div>
 
@@ -144,11 +142,11 @@
                                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                                         <thead>
                                                             <tr>
-                                                                <th>Jumlah</th>
-                                                                <th>Satuan</th>
-                                                                <th>Nama Barang</th>
-                                                                <th>Spesifikasi</th>
-                                                                <th>Harga Satuan</th>
+                                                                <th>Jenis Dokumen</th>
+                                                                <th>Nomor Dokumen</th>
+                                                                <th>Tanggal</th>
+                                                                <th>Harga</th>
+                                                                <th>Keterangan  </th>
                                                                 <th>Action</th>
                                                             </tr>
                                                         </thead>
@@ -172,23 +170,11 @@
                                             </div>
                                             <div class="form-row">
                                                 <div class="col-md-6">
-                                                    <label>Catatan Peminta Barang/Jasa</label>
-                                                    <input type="text" class="form-control" />
-                                                    <label>Catatan</label>
-                                                    <input type="text" class="form-control" />
-                                                    <label>Catatan Ketersediaan Anggaran</label>
-                                                    <input type="text" class="form-control" />
-                                                    <label>Catatan Ketersediaan Stok</label>
+                                                    <label>Manager SDM & Umum</label>
                                                     <input type="text" class="form-control" />
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label>Peminta Barang/Jasa</label>
-                                                    <input type="text" class="form-control">
-                                                    <label>General Manager Cabang Ketapang</label>
-                                                    <input type="text" class="form-control">
-                                                    <label>Manager Keuangan</label>
-                                                    <input type="text" class="form-control">
-                                                    <label>Manager SDM & Umum</label>
+                                                    <label>Pembuat Verifikator</label>
                                                     <input type="text" class="form-control">
                                                 </div>
                                             </div>
