@@ -176,7 +176,7 @@
                                                     <input type="text" class="form-control" />
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label>Nomor Rek</label>
+                                                    <label>Nomor Rekening</label>
                                                     <input type="text" class="form-control">
                                                     <label>Bank</label>
                                                     <input type="text" class="form-control" />
