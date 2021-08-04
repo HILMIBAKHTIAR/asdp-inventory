@@ -21,6 +21,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin', 'Admincontroller@index')->name('admin');
+Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
+    Route::get('/', 'Admin\Admincontroller@index');
+    Route::resource('/berita', 'Admin\BeritaController');
+    Route::resource('/skb', 'Admin\SkbController');
+    Route::resource('/spm', 'Admin\SpmController');
+    Route::resource('/verspm', 'Admin\VerspmController');
+
+});
+
+
 
 
