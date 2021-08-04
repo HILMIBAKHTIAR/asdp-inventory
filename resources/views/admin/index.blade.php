@@ -14,6 +14,8 @@
     <link href="{{url('backend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{url('backend/https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i')}}" rel="stylesheet">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!-- Custom styles for this template-->
     <link href="{{url('backend/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
@@ -48,18 +50,6 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
-
-
-            <!-- Nav Item - Pages Collapse Menu -->
-
-            <!-- Divider -->
-            <!-- <hr class="sidebar-divider d-none d-md-block"> -->
-
-            <!-- Sidebar Toggler (Sidebar) -->
-
-            <!-- Sidebar Message -->
-
         </ul>
         <!-- End of Sidebar -->
 
@@ -89,24 +79,15 @@
                                 <img class="img-profile rounded-circle" src="{{url('backend/img/undraw_profile.svg')}}">
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
                             </div>
                         </li>
 
@@ -117,13 +98,108 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    <!-- Content Row -->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="card mb-4">
+                                <div class="card-footer">
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                                    <!-- judul form-->
+
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Formulir Permintaan Pengadaan <br> Barang/Jasa</h1>
+                                    </div>
+
+                                    <!-- isi form input -->
+                                    <form class="sppbj">
+                                        <div class="form-group">
+                                            <div class="form-row">
+                                                <div class="col-md-6">
+                                                    <label>Dari</label>
+                                                    <input type="text" class="form-control" />
+                                                    <label>Nama Pengadaan</label>
+                                                    <input type="text" class="form-control" />
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>Mata Anggaran</label>
+                                                    <input type="text" class="form-control">
+                                                    <label>Tanggal Dibutuhkan</label>
+                                                    <input type="date" class="form-control" />
+                                                </div>
+                                            </div>
+
+                                            <br>
+                                            <!-- Pengadaan Barang -->
+                                            <div class="text-center">
+                                                <h1 class="h4 text-gray-900 mb-4">Form Barang/Jasa</h1>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Jumlah</th>
+                                                                <th>Satuan</th>
+                                                                <th>Nama Barang</th>
+                                                                <th>Spesifikasi</th>
+                                                                <th>Harga Satuan</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td><input type="text" class="form-control"></td>
+                                                                <td><input type="text" class="form-control"></td>
+                                                                <td><input type="text" class="form-control"></td>
+                                                                <td><input type="text" class="form-control"></td>
+                                                                <td><input type="text" class="form-control"></td>
+                                                                <td class=""><input href="" class="btn btn-primary mr-2" type="button" name="tambah" id="tambah" value="Tambah"></input></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <!-- FORM TTD -->
+                                            <div class="text-center">
+                                                <h1 class="h4 text-gray-900 mb-4">Form Tanda Tangan</h1>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-md-6">
+                                                    <label>Catatan Peminta Barang/Jasa</label>
+                                                    <input type="text" class="form-control" />
+                                                    <label>Catatan</label>
+                                                    <input type="text" class="form-control" />
+                                                    <label>Catatan Ketersediaan Anggaran</label>
+                                                    <input type="text" class="form-control" />
+                                                    <label>Catatan Ketersediaan Stok</label>
+                                                    <input type="text" class="form-control" />
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>Peminta Barang/Jasa</label>
+                                                    <input type="text" class="form-control">
+                                                    <label>General Manager Cabang Ketapang</label>
+                                                    <input type="text" class="form-control">
+                                                    <label>Manager Keuangan</label>
+                                                    <input type="text" class="form-control">
+                                                    <label>Manager SDM & Umum</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <center>
+                                                <input type="submit" class="btn btn-success" name="print" id="print" value="Print">
+                                                <input type="button" class="btn btn-primary" name="selanjutnya" id="selanjutnya" value="Selanjutnya">
+                                            </center>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Content Row -->
                 </div>
                 <!-- /.container-fluid -->
 
@@ -164,7 +240,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="">Logout</a>
                 </div>
             </div>
         </div>
@@ -192,6 +268,18 @@
     <script src="{{url('backend/js/demo/chart-area-demo.js')}}">
     </script>
     <script src="{{url('backend/js/demo/chart-pie-demo.js')}}">
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            var x = 1;
+            $("#tambah").click(function() {
+                $("#dataTable").append('<tr><td><input type = "text" class = "form-control" /></td><td><input type = "text" class = "form-control" /></td><td><input type = "text" class = "form-control" /></td><td><input type = "text" class = "form-control" /></td><td><input type = "text" class = "form-control" /></td><td class = "" ><input href = "" class = "btn btn-danger mr-2"type = "button"name = "hapus" id = "hapus" value = "Hapus" /></input></td></tr>');
+                $("#dataTable").on('click', '#hapus', function() {
+                    $(this).closest('tr').remove();
+                })
+            });
+        });
     </script>
 
 </body>
