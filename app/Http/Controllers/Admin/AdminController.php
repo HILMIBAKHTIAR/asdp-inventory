@@ -16,7 +16,7 @@ class AdminController extends Controller
     public function index()
     {
         //
-        return view('admin.index');
+        return view('admin.sp2bj.index');
     }
 
     /**
@@ -53,7 +53,7 @@ class AdminController extends Controller
         ]);
 
         $data_sp2bj->save();
-        return view('admin.index');
+        return view('admin.sp2bj.index');
     }
 
     /**

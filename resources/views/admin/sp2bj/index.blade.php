@@ -16,7 +16,7 @@
                     </div>
 
                     <!-- isi form input -->
-                    <form action="{{route('admin.store')}}" method="post">
+                    <form action="{{route('sp2bj.store')}}" method="post">
                         @csrf
                         <div class="form-group">
                             <div class="form-row">
