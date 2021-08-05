@@ -16,20 +16,21 @@
                     </div>
 
                     <!-- isi form input -->
-                    <form class="sppbj">
+                    <form action="{{route('admin.store')}}" method="post">
+                        @csrf
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label>Dari</label>
-                                    <input type="text" class="form-control" />
+                                    <input type="text" name="dari" class="form-control" />
                                     <label>Nama Pengadaan</label>
-                                    <input type="text" class="form-control" />
+                                    <input type="text" name="nama_pengadaan" class="form-control" />
                                 </div>
                                 <div class="col-md-6">
                                     <label>Mata Anggaran</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" name="mata_anggaran" class="form-control">
                                     <label>Tanggal Dibutuhkan</label>
-                                    <input type="date" class="form-control" />
+                                    <input type="date" name="tanggal_dibutuhkan" class="form-control" />
                                 </div>
                             </div>
 
