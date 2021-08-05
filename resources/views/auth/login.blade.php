@@ -119,7 +119,7 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block"> <center> <img src="https://i.ibb.co/dQW93Xn/logo-asdp.jpg" alt=""></center></div>
+                            <div class="col-lg-6 d-none d-lg-block"> <center> <img src="https://i.ibb.co/dQW93Xn/logo-asdp.jpg" alt="" style="margin-left: 55px;"></center></div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
@@ -156,17 +156,17 @@
                                             </div>
                                         </div>
                                         <div class="form-group row mb-0">
-                                            <div class="col-md-8 offset-md-4">
+                                            <div class="col-md-6 offset-md-4">
+                                                
                                                 <button type="submit" class="btn btn-primary btn-user btn-block">
                                                     {{ __('Login') }}
                                                 </button>
-                
-                                                {{-- @if (Route::has('register'))
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                                </li>
-                                            @endif --}}
                                             </div>
+                                        </div>
+                                        <div style="margin-left: 60px; margin-top: 10px;" class="text-center">
+                                        @if (Route::has('register'))
+                                            <a class="small" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                        @endif
                                         </div>
                                     </form>
                                     <hr>
