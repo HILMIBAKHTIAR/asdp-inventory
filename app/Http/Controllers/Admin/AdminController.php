@@ -53,7 +53,7 @@ class AdminController extends Controller
         ]);
 
         $data_sp2bj->save();
-        return view('admin.sp2bj.index');
+        return view('admin.sp2bj.cetak');
     }
 
     /**
