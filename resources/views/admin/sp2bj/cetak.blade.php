@@ -79,13 +79,13 @@
     <tbody>
     <tr style="height: 23px;">
     <td style="width: 213.719px; height: 23px;"><strong>Kepada</strong></td>
-    <td style="width: 474.281px; height: 23px;"><strong>General Cabang Ketapang</strong></td>
+    <td style="width: 474.281px; height: 23px;"><strong>&nbsp;General Cabang Ketapang</strong></td>
     <td style="width: 313px; height: 23px;"><strong>No.SPPB/J : 213/UM/ASDP-KTP/2021</strong></td>
     </tr>
         
     <tr style="height: 23px;">
         <td style="width: 213.719px; height: 23px;"><strong>Dari</strong></td>
-        <td style="width: 474.281px; height: 23px;"><strong>&nbsp; {{$sp2bj->dari}}</strong></td>
+        <td style="width: 474.281px; height: 23px;"><strong>&nbsp;{{$sp2bj->dari}}</strong></td>
         <td style="width: 313px; height: 23px;"><strong>Tanggal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?=date('d-M-Y')?></strong></td>
     </tr>
     <tr style="height: 23px;">
@@ -98,15 +98,15 @@
     </tr>
     <tr style="height: 23.5px;">
     <td style="width: 213.719px; height: 23.5px;"><strong>Nama Pengadaan</strong></td>
-    <td style="width: 787.281px; height: 23.5px;" colspan="2"><strong>&nbsp; {{$sp2bj->nama_pengadaan}}</strong></td>
+    <td style="width: 787.281px; height: 23.5px;" colspan="2"><strong>&nbsp;{{$sp2bj->nama_pengadaan}}</strong></td>
     </tr>
     <tr style="height: 23px;">
     <td style="width: 213.719px; height: 23px;"><strong>Mata Anggaran</strong></td>
-    <td style="width: 787.281px; height: 23px;" colspan="2"><strong>&nbsp; {{$sp2bj->mata_anggaran}}(Pemeliharaan Alat Kerja Perkantoran)</strong></td>
+    <td style="width: 787.281px; height: 23px;" colspan="2"><strong>&nbsp;{{$sp2bj->mata_anggaran}}</strong></td>
     </tr>
     <tr style="height: 23px;">
     <td style="width: 213.719px; height: 23px;"><strong>Tanggal Dibutuhkan</strong></td>
-    <td style="width: 787.281px; height: 23px;" colspan="2"><strong>{{$sp2bj->tanggal_dibutuhkan}}</strong></td>
+    <td style="width: 787.281px; height: 23px;" colspan="2"><strong>&nbsp;{{$sp2bj->tanggal_dibutuhkan}}</strong></td>
     </tr>
     </tbody>
     </table>
@@ -119,7 +119,7 @@
     <tr>
     <td style="width: 613.266px;"><strong>Catatan Peminta Barang &amp; Jasa :</strong></td>
     <td style="width: 394.734px;">
-    <p>Tgl&nbsp; <?=date('d-M-Y')?></p>
+    <p>Tgl&nbsp; <?=date('d-F-Y')?></p>
     <p align='center'>Peminta Barang/Jasa</p>
     <p>&nbsp;</p>
     <p align='center'>( OKE SANTIKA )</p>
@@ -129,7 +129,7 @@
     <tr>
     <td style="width: 613.266px;"><strong>Catatan :</strong></td>
     <td style="width: 394.734px;">
-    <p>Tgl&nbsp; <?=date('d-M-Y')?></p>
+    <p>Tgl&nbsp; <?=date('d-F-Y')?></p>
     <p>&nbsp;</p>
     <p align='center'>( SUHARTO )</p>
     <p align='center'>General Manager Cabang Ketapang</p>
@@ -138,7 +138,7 @@
     <tr>
     <td style="width: 613.266px;"><strong>Catatan Ketersediaan Anggaran :</strong></td>
     <td style="width: 394.734px;">
-    <p>Tgl&nbsp; <?=date('d-M-Y')?></p>
+    <p>Tgl&nbsp; <?=date('d-F-Y')?></p>
     <p>&nbsp;</p>
     <p align='center'>( ANDHIE ARIESTIANO)</p>
     <p align='center'>Manager Keuangan</p>
@@ -147,7 +147,7 @@
     <tr>
     <td style="width: 613.266px;"><strong>Catatan Ketersediaan Stok :</strong></td>
     <td style="width: 394.734px;">
-    <p>Tgl&nbsp; <?=date('d-M-Y')?></p>
+    <p>Tgl&nbsp; <?=date('d-F-Y')?></p>
     <p>&nbsp;</p>
     <p align='center'>( OKE SANTIKA )</p>
     <p align='center'>Manager SDM &amp; Umum</p>
