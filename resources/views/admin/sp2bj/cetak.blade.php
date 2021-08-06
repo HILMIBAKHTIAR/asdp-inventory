@@ -64,7 +64,7 @@
       </tr>
       <tr>
       <td style="width: 133px;"><strong>Berlaku Efektif</strong></td>
-      <td style="width: 198px;">:&nbsp;<strong>4 September 2019</strong></td>
+      <td style="width: 198px;">:&nbsp;<strong>4 September 2021</strong></td>
       </tr>
       <tr>
       <td style="width: 133px;"><strong>Halaman</strong></td>
@@ -86,7 +86,7 @@
     <tr style="height: 23px;">
         <td style="width: 213.719px; height: 23px;"><strong>Dari</strong></td>
         <td style="width: 474.281px; height: 23px;"><strong>&nbsp;{{$sp2bj->dari}}</strong></td>
-        <td style="width: 313px; height: 23px;"><strong>Tanggal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?=date('d-M-Y')?></strong></td>
+        <td style="width: 313px; height: 23px;"><strong>Tanggal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?=date('d-F-Y')?></strong></td>
     </tr>
     <tr style="height: 23px;">
     <td style="width: 213.719px; height: 23px;"><strong>Klasifikasi</strong></td>
@@ -160,8 +160,11 @@
   </form>
 </div>
 
-<button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary">cetak</button>
-<button name="Selanjutnya">Selanjutnya</button>
+<div class="container-lg text-center mt-4 mb-4">
+  <button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary" style="margin-right: 4cm;">cetak</button>
+  <button name="Selanjutnya" class="btn btn-success">Selanjutnya</button>
+</div>
+
 <script>
 function Cetakan()
     {
@@ -171,7 +174,7 @@ function Cetakan()
             x[i].style.visibility = "hidden";
     }
     window.print();
-    alert("Jangan di tekan tombol OK sebelum dokumen selesai tercetak!");
+    alert("Jangan di tekan tombol Selanjutnya sebelum dokumen selesai tercetak!");
     for(i = 0; i < x.length ; i++)
     {
             x[i].style.visibility = "visible";
