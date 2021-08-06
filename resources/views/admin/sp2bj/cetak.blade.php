@@ -1,10 +1,3 @@
-<?php
-
-use Illuminate\Support\Facades\DB;
-
-$sp2bj = DB::table('admins')->orderBy('id', 'DESC')->first();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

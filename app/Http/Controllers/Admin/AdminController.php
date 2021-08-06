@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\admin;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -15,9 +16,14 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
-        return view('admin.sp2bj.index');
+        $sp2bj = DB::table('admins')->orderBy('id', 'DESC')->first();
+        return view('admin.sp2bj.cetak', compact('sp2bj'));
     }
+
+
+    // public function viewPrint(){
+
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -26,7 +32,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.sp2bj.input');
     }
 
     /**
@@ -53,7 +59,7 @@ class AdminController extends Controller
         ]);
 
         $data_sp2bj->save();
-        return view('admin.sp2bj.cetak');
+        return redirect('admin/sp2bj/');
     }
 
     /**
