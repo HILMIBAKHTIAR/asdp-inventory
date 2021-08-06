@@ -16,10 +16,23 @@
       </style>
 </head>
 <body data-new-gr-c-s-check-loaded="14.1024.0" data-gr-ext-installed="">
-  <div id="print">
 
-  </div>
-  <form>
+  <style>
+    @media print{
+      body *{
+        visibility: hidden;
+      }
+
+      .print-area * {
+        visibility: visible;
+      }
+    }
+  </style>
+
+  <div class="print-area">
+
+  
+    <form>
 
 
     <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1011px;">
@@ -62,7 +75,7 @@
     </tr>
     <tr style="height: 23px;">
     <td style="width: 213.719px; height: 23px;"><strong>Klasifikasi</strong></td>
-    <td style="width: 787.281px; height: 23px;" colspan="2"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Normal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Emergency&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Urgent</strong></td>
+    <td style="width: 787.281px; height: 23px;" colspan="2"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="checkbox"> Normal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="checkbox"> Emergency&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="checkbox"> Urgent</strong></td>
     </tr>
     <tr style="height: 23px;">
     <td style="width: 213.719px; height: 23px;"><strong>Dasar Pelimpahan* (*Jika ada)</strong></td>
@@ -129,9 +142,11 @@
     </table>
 
   
-</form>
+  </form>
+</div>
 
-<button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" style="visibility: visible;">cetak</button>
+<button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()">cetak</button>
+<button name="Selanjutnya">Selanjutnya</button>
 <script>
 function Cetakan()
     {
