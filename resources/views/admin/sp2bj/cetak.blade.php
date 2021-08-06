@@ -91,7 +91,7 @@
     <tr>
     <td style="width: 613.266px;"><strong>Catatan Peminta Barang &amp; Jasa :</strong></td>
     <td style="width: 394.734px;">
-    <p>Tgl 15 Juli 2021</p>
+    <p>Tgl&nbsp; <?=date('d-M-Y')?></p>
     <p align='center'>Peminta Barang/Jasa</p>
     <p>&nbsp;</p>
     <p align='center'>( OKE SANTIKA )</p>
@@ -101,7 +101,7 @@
     <tr>
     <td style="width: 613.266px;"><strong>Catatan :</strong></td>
     <td style="width: 394.734px;">
-    <p>Tgl 15 Juli 2021</p>
+    <p>Tgl&nbsp; <?=date('d-M-Y')?></p>
     <p>&nbsp;</p>
     <p align='center'>( SUHARTO )</p>
     <p align='center'>General Manager Cabang Ketapang</p>
@@ -110,7 +110,7 @@
     <tr>
     <td style="width: 613.266px;"><strong>Catatan Ketersediaan Anggaran :</strong></td>
     <td style="width: 394.734px;">
-    <p>Tgl 15 Juli 2021</p>
+    <p>Tgl&nbsp; <?=date('d-M-Y')?></p>
     <p>&nbsp;</p>
     <p align='center'>( ANDHIE ARIESTIANO)</p>
     <p align='center'>Manager Keuangan</p>
@@ -119,7 +119,7 @@
     <tr>
     <td style="width: 613.266px;"><strong>Catatan Ketersediaan Stok :</strong></td>
     <td style="width: 394.734px;">
-    <p>Tgl 15 Juli 2021</p>
+    <p>Tgl&nbsp; <?=date('d-M-Y')?></p>
     <p>&nbsp;</p>
     <p align='center'>( OKE SANTIKA )</p>
     <p align='center'>Manager SDM &amp; Umum</p>
