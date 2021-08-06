@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cetak SPPBJ</title>
+    {{-- <title>Cetak SPPBJ</title> --}}
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
     <style>
       table, th, td {
@@ -28,6 +29,20 @@
       }
     }
   </style>
+
+<style type="text/css" media="print">
+  @media print
+  {
+     @page {
+       margin-top: 0;
+       margin-bottom: 0;
+     }
+     body  {
+       padding-top: 60px;
+       padding-bottom: 60px ;
+     }
+  } 
+</style>
 
   <div class="print-area">
 
@@ -145,7 +160,7 @@
   </form>
 </div>
 
-<button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()">cetak</button>
+<button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary">cetak</button>
 <button name="Selanjutnya">Selanjutnya</button>
 <script>
 function Cetakan()
