@@ -70,15 +70,15 @@
     </tr>
     <tr style="height: 23.5px;">
     <td style="width: 213.719px; height: 23.5px;"><strong>Nama Pengadaan</strong></td>
-    <td style="width: 787.281px; height: 23.5px;" colspan="2"><strong>Pengadaan Peralatan pendukung pindah ruangan usaha</strong></td>
+    <td style="width: 787.281px; height: 23.5px;" colspan="2"><strong>&nbsp; {{$sp2bj->nama_pengadaan}}</strong></td>
     </tr>
     <tr style="height: 23px;">
     <td style="width: 213.719px; height: 23px;"><strong>Mata Anggaran</strong></td>
-    <td style="width: 787.281px; height: 23px;" colspan="2"><strong>5030406002 (Pemeliharaan Alat Kerja Perkantoran)</strong></td>
+    <td style="width: 787.281px; height: 23px;" colspan="2"><strong>&nbsp; {{$sp2bj->mata_anggaran}}(Pemeliharaan Alat Kerja Perkantoran)</strong></td>
     </tr>
     <tr style="height: 23px;">
     <td style="width: 213.719px; height: 23px;"><strong>Tanggal Dibutuhkan</strong></td>
-    <td style="width: 787.281px; height: 23px;" colspan="2"><strong>Segera</strong></td>
+    <td style="width: 787.281px; height: 23px;" colspan="2"><strong>{{$sp2bj->tanggal_dibutuhkan}}</strong></td>
     </tr>
     </tbody>
     </table>
