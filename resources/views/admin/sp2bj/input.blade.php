@@ -96,8 +96,7 @@
 
                         <div>
                             <center>
-                                <input type="submit" class="btn btn-success" name="print" id="print" value="Print">
-                                <input type="button" class="btn btn-primary" name="selanjutnya" id="selanjutnya" value="Selanjutnya">
+                                <input type="submit" class="btn btn-success btn-lg" name="print" id="print" value="Print" style="padding: 5px 50px; margin-top: 10px;">
                             </center>
                         </div>
                     </form>

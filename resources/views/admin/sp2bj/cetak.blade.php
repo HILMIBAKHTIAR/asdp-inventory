@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cetak SPPBJ</title>
+    {{-- <title>Cetak SPPBJ</title> --}}
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
     <style>
       table, th, td {
@@ -16,10 +17,37 @@
       </style>
 </head>
 <body data-new-gr-c-s-check-loaded="14.1024.0" data-gr-ext-installed="">
-  <div id="print">
 
-  </div>
-  <form>
+  <style>
+    @media print{
+      body *{
+        visibility: hidden;
+      }
+
+      .print-area * {
+        visibility: visible;
+      }
+    }
+  </style>
+
+<style type="text/css" media="print">
+  @media print
+  {
+     @page {
+       margin-top: 0;
+       margin-bottom: 0;
+     }
+     body  {
+       padding-top: 60px;
+       padding-bottom: 60px ;
+     }
+  } 
+</style>
+
+  <div class="print-area">
+
+  
+    <form>
 
 
     <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1011px;">
@@ -62,7 +90,7 @@
     </tr>
     <tr style="height: 23px;">
     <td style="width: 213.719px; height: 23px;"><strong>Klasifikasi</strong></td>
-    <td style="width: 787.281px; height: 23px;" colspan="2"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Normal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Emergency&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Urgent</strong></td>
+    <td style="width: 787.281px; height: 23px;" colspan="2"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="checkbox"> Normal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="checkbox"> Emergency&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="checkbox"> Urgent</strong></td>
     </tr>
     <tr style="height: 23px;">
     <td style="width: 213.719px; height: 23px;"><strong>Dasar Pelimpahan* (*Jika ada)</strong></td>
@@ -129,9 +157,11 @@
     </table>
 
   
-</form>
+  </form>
+</div>
 
-<button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" style="visibility: visible;">cetak</button>
+<button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary">cetak</button>
+<button name="Selanjutnya">Selanjutnya</button>
 <script>
 function Cetakan()
     {
