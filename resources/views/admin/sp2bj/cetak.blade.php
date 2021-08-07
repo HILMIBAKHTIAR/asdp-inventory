@@ -111,9 +111,9 @@
     </tbody>
     </table>
 
-    <table>
+    <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1014px; border-color: black;">
       <thead>
-        <tr>
+        <tr class="text-center">
           <th>No</th>
           <th>Jumlah</th>
           <th>Satuan</th>
