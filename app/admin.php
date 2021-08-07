@@ -13,4 +13,8 @@ class admin extends Model
         'nama_pengadaan',
         'tanggal_dibutuhkan',
     ];
+
+    public function barang(){
+        return $this->hasMany(barang::class);
+    }
 }

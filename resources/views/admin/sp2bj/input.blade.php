@@ -54,11 +54,15 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><input type="text" class="form-control"></td>
-                                                <td><input type="text" class="form-control"></td>
-                                                <td><input type="text" class="form-control"></td>
-                                                <td><input type="text" class="form-control"></td>
-                                                <td><input type="text" class="form-control"></td>
+                                                <td><input name="jumlah[]" type="text" class="form-control"></td>
+                                                <td><select class="form-control" name="satuan[]">
+                                                    <option value="roll">Roll</option>
+                                                    <option value="pcs">Pcs</option>  
+                                                    <option value="unit">Unit</option>      
+                                                </select></td>
+                                                <td><input name="nama_barang[]" type="text" class="form-control"></td>
+                                                <td><input name="spesifikasi[]" type="text" class="form-control"></td>
+                                                <td><input name="harga_satuan[]" type="text" class="form-control"></td>
                                                 <td class=""><input href="" class="btn btn-primary mr-2" type="button" name="tambah" id="tambah" value="Tambah"></input></td>
                                             </tr>
                                         </tbody>
@@ -112,7 +116,22 @@
     $(document).ready(function() {
         var x = 1;
         $("#tambah").click(function() {
-            $("#dataTable").append('<tr><td><input type = "text" class = "form-control" /></td><td><input type = "text" class = "form-control" /></td><td><input type = "text" class = "form-control" /></td><td><input type = "text" class = "form-control" /></td><td><input type = "text" class = "form-control" /></td><td class = "" ><input href = "" class = "btn btn-danger mr-2"type = "button"name = "hapus" id = "hapus" value = "Hapus" /></input></td></tr>');
+            $("#dataTable").append(`
+            <tr>
+                <td>
+                <input name="jumlah[]" type="text" class="form-control"></td>
+                <td><select class="form-control" name="satuan[]" id="">
+                    <option value="roll">Roll</option>
+                    <option value="pcs">Pcs</option>  
+                    <option value="unit">Unit</option>      
+                </select></td>
+                <td><input name="nama_barang[]" type="text" class="form-control"></td>
+                <td><input name="spesifikasi[]" type="text" class="form-control"></td>
+                <td><input name="harga_satuan[]" type="text" class="form-control"></td>
+                <td class=""><input href="" class="btn btn-danger mr-2" type="button" name="hapus" id="hapus" value="hapus">
+                </input>
+            </td>
+            </tr>`);
             $("#dataTable").on('click', '#hapus', function() {
                 $(this).closest('tr').remove();
             })
