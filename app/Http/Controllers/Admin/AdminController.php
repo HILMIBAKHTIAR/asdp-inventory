@@ -21,7 +21,7 @@ class AdminController extends Controller
 
         // $sp2bj = DB::table('admins')->orderBy('id', 'DESC')->first();
 
-        $sp2bj= admin::orderBy('id','DESC')->first();
+        $sp2bj = admin::orderBy('id', 'DESC')->first();
         return view('admin.sp2bj.cetak', compact('sp2bj'));
     }
 
@@ -65,14 +65,14 @@ class AdminController extends Controller
 
         // return dd($data_sp2bj);
 
-        for($i=0;$i<count($request->jumlah);$i++){
+        for ($i = 0; $i < count($request->jumlah); $i++) {
             barang::create([
-                'admin_id'=>$data_sp2bj->id,
-                'jumlah'=> $request->jumlah[$i],
-                'satuan'=> $request->satuan[$i],
-                'nama_barang'=> $request->nama_barang[$i],
-                'spesifikasi'=> $request->spesifikasi[$i],
-                'harga_satuan'=> $request->harga_satuan[$i]
+                'admin_id' => $data_sp2bj->id,
+                'jumlah' => $request->jumlah[$i],
+                'satuan' => $request->satuan[$i],
+                'nama_barang' => $request->nama_barang[$i],
+                'spesifikasi' => $request->spesifikasi[$i],
+                'harga_satuan' => $request->harga_satuan[$i]
             ]);
         }
 
