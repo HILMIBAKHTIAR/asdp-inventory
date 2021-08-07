@@ -111,37 +111,43 @@
     </tbody>
     </table>
 
-    <table>
+    <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1014px; border-color: black;">
       <thead>
-        <tr>
-          <th>No</th>
-          <th>Jumlah</th>
-          <th>Satuan</th>
-          <th>Nama Barang</th>
-          <th>Spesifikasi</th>
-          <th>Harga Satuan</th>
-          <th>Jumlah</th>
+        <tr class="text-center">
+          <th>&nbsp;No&nbsp;</th>
+          <th>&nbsp;Jumlah&nbsp;</th>
+          <th>&nbsp;Satuan&nbsp;</th>
+          <th>&nbsp;Nama Barang&nbsp;</th>
+          <th>&nbsp;Spesifikasi&nbsp;</th>
+          <th>&nbsp;Harga Satuan&nbsp;</th>
+          <th>&nbsp;Jumlah&nbsp;</th>
         </tr>
       </thead>
       <tbody>
         @foreach ($sp2bj->barang as $item)
             <tr>
-              <td>{{$loop->iteration}}</td>
-              <td>{{$item->jumlah}}</td>
-              <td>{{$item->satuan}}</td>
-              <td>{{$item->nama_barang}}</td>
-              <td>{{$item->Spesifikasi}}</td>
-              <td>{{$item->harga_satuan}}</td>
-              <td>{{$item->harga_satuan * $item->jumlah}}</td>
+              <td class="text-center">&nbsp;{{$loop->iteration}}</td>
+              <td>&nbsp;{{$item->jumlah}}</td>
+              <td>&nbsp;{{$item->satuan}}</td>
+              <td>&nbsp;{{$item->nama_barang}}</td>
+              <td>&nbsp;{{$item->Spesifikasi}}</td>
+              <td>&nbsp; Rp {{$item->harga_satuan}}</td>
+              <td>&nbsp; Rp {{$item->harga_satuan * $item->jumlah}}</td>
             </tr>
             @endforeach
             <tr>
               <td  colspan="6" class="text-end">
                   &nbsp;Jumlah Rp&nbsp;
               </td>
-              <td>{{$sp2bj->barang->map(function($el){
-                return $el->harga_satuan * $el->jumlah;
-              })->sum()}}</td>
+              <td>&nbsp;&nbsp; Rp 
+                {{
+                $sp2bj->barang->map(function($el){
+
+                  return $el->harga_satuan * $el->jumlah;
+
+                })->sum()
+                }}
+              </td>
             </tr>
       </tbody>
     </table>
