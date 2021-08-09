@@ -60,17 +60,17 @@ class AdminController extends Controller
 
 
         $data_sp2bj = admin::create([
-            'karyawan_id' => $request->karyawan_id,
-            'mata_anggaran' => $request->mata_anggaran,
-            'nama_pengadaan' => $request->nama_pengadaan,
-            'tanggal_dibutuhkan' => $request->tanggal_dibutuhkan,
-            'catatan_peminta' => $request->catatan_peminta,
-            'catatan' => $request->catatan,
-            'catatan_anggaran' => $request->catatan_anggaran,
-            'catatan_stok' => $request->catatan_stok,
+            'karyawan_id' => $request->get('karyawan_id'),
+            'mata_anggaran' => $request->get('mata_anggaran'),
+            'nama_pengadaan' => $request->get('nama_pengadaan'),
+            'tanggal_dibutuhkan' => $request->get('tanggal_dibutuhkan'),
+            'catatan_peminta' => $request->get('catatan_peminta'),
+            'catatan' => $request->get('catatan'),
+            'catatan_anggaran' => $request->get('catatan_anggaran'),
+            'catatan_stok' => $request->get('catatan_stok'),
         ]);
 
-        return dd($data_sp2bj);
+        // return dd($data_sp2bj);
 
         for ($i = 0; $i < count($request->jumlah); $i++) {
             barang::create([

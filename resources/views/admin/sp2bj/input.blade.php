@@ -22,7 +22,7 @@
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label>Dari</label>
-                                    <select name="karyawan_id[]" id="" class="form-control">
+                                    <select name="karyawan_id" id="" class="form-control">
                                         <option value="">-Pilih-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}">
@@ -31,13 +31,13 @@
                                         @endforeach
                                     </select>
                                     <label>Nama Pengadaan</label>
-                                    <input type="text" name="nama_pengadaan[]" class="form-control" />
+                                    <input type="text" name="nama_pengadaan" class="form-control" />
                                 </div>
                                 <div class="col-md-6">
                                     <label>Mata Anggaran</label>
-                                    <input type="text" name="mata_anggaran[]" class="form-control">
+                                    <input type="text" name="mata_anggaran" class="form-control">
                                     <label>Tanggal Dibutuhkan</label>
-                                    <input type="date" name="tanggal_dibutuhkan[]" class="form-control" />
+                                    <input type="date" name="tanggal_dibutuhkan" class="form-control" />
                                 </div>
                             </div>
 
@@ -84,17 +84,17 @@
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label>Catatan Peminta Barang/Jasa</label>
-                                    <input name="catatan_peminta[]" type="text" class="form-control" placeholder="Boleh Tidak Diisi" />
+                                    <input name="catatan_peminta" type="text" class="form-control" placeholder="Boleh Tidak Diisi" />
                                     <label>Catatan</label>
-                                    <input name="catatan[]" type="text" class="form-control" placeholder="Boleh Tidak Diisi" />
+                                    <input name="catatan" type="text" class="form-control" placeholder="Boleh Tidak Diisi" />
                                     <label>Catatan Ketersediaan Anggaran</label>
-                                    <input name="catatan_anggaran[]" type="text" class="form-control" placeholder="Boleh Tidak Diisi" />
+                                    <input name="catatan_anggaran" type="text" class="form-control" placeholder="Boleh Tidak Diisi" />
                                     <label>Catatan Ketersediaan Stok</label>
-                                    <input name="catatan_stok[]" type="text" class="form-control" placeholder="Boleh Tidak Diisi" />
+                                    <input name="catatan_stok" type="text" class="form-control" placeholder="Boleh Tidak Diisi" />
                                 </div>
                                 <div class="col-md-6">
                                     <label>Peminta Barang/Jasa</label>
-                                    <select name="karyawan_id[]" id="" class="form-control">
+                                    <select name="karyawan_id" id="" class="form-control">
                                         <option value="">-Pilih Peminta Barang/Jasa-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}">
@@ -103,7 +103,7 @@
                                         @endforeach
                                     </select>
                                     <label>General Manager Cabang Ketapang</label>
-                                    <select name="karyawan_id[]" id="" class="form-control">
+                                    <select name="karyawan_id" id="" class="form-control">
                                         <option value="">-Pilih Nama General Manager Cabang-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}">
@@ -112,7 +112,7 @@
                                         @endforeach
                                     </select>
                                     <label>Manager Keuangan</label>
-                                    <select name="karyawan_id[]" id="" class="form-control">
+                                    <select name="karyawan_id" id="" class="form-control">
                                         <option value="">-Pilih Manager Keuangan-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}">
@@ -121,7 +121,7 @@
                                         @endforeach
                                     </select>
                                     <label>Manager SDM & Umum</label>
-                                    <select name="karyawan_id[]" id="" class="form-control">
+                                    <select name="karyawan_id" id="" class="form-control">
                                         <option value="">-Pilih Manager SDM & Umum-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}">
