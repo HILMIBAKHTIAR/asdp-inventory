@@ -14,8 +14,13 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{url('/admin')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dasboard</span></a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{{route('sp2bj.create')}}">
+            <i class="fas fa-fw fa fa-book"></i>
             <span>Pengadaan</span></a>
     </li>
 

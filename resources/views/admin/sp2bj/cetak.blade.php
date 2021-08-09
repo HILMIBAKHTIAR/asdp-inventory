@@ -114,7 +114,7 @@
           </tr>
         </tbody>
       </table>
-
+      
       <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1014px; border-color: black;">
         <thead>
           <tr class="text-center">
@@ -205,16 +205,18 @@
   <script>
     function Cetakan() {
       var x = document.getElementsByName("cetak");
-      for (i = 0; i < x.length; i++) {
-        x[i].style.visibility = "hidden";
+      for(i = 0; i < x.length ; i++)
+      {
+              x[i].style.visibility = "hidden";
       }
       window.print();
       alert("Jangan di tekan tombol Selanjutnya sebelum dokumen selesai tercetak!");
-      for (i = 0; i < x.length; i++) {
-        x[i].style.visibility = "visible";
+      for(i = 0; i < x.length ; i++)
+      {
+              x[i].style.visibility = "visible";
       }
     }
-  </script>
+</script>
 
 
 </body>
