@@ -56,10 +56,10 @@
                                             <tr>
                                                 <td><input name="jumlah[]" type="text" class="form-control"></td>
                                                 <td><select class="form-control" name="satuan[]">
-                                                    <option value="roll">Roll</option>
-                                                    <option value="pcs">Pcs</option>  
-                                                    <option value="unit">Unit</option>      
-                                                </select></td>
+                                                        <option value="roll">Roll</option>
+                                                        <option value="pcs">Pcs</option>
+                                                        <option value="unit">Unit</option>
+                                                    </select></td>
                                                 <td><input name="nama_barang[]" type="text" class="form-control"></td>
                                                 <td><input name="spesifikasi[]" type="text" class="form-control"></td>
                                                 <td><input name="harga_satuan[]" type="text" class="form-control"></td>
@@ -100,7 +100,7 @@
 
                         <div>
                             <center>
-                                <input type="submit" class="btn btn-success btn-lg" name="print" id="print" value="Print" style="padding: 5px 50px; margin-top: 10px;">
+                                <input type="submit" class="btn btn-success btn-lg" name="selanjutnya" id="selanjutnya" value="Selanjutnya" style="padding: 5px 50px; margin-top: 10px;">
                             </center>
                         </div>
                     </form>
