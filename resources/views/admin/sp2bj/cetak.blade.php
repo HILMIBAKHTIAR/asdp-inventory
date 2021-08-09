@@ -114,43 +114,6 @@
           </tr>
         </tbody>
       </table>
-  <br>
-
-  <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1014px; border-color: black;">
-    <tbody>
-    <tr style="height: 23px;">
-    <td style="width: 213.719px; height: 23px;"><strong>Kepada</strong></td>
-    <td style="width: 474.281px; height: 23px;"><strong>&nbsp;General Cabang Ketapang</strong></td>
-    <td style="width: 313px; height: 23px;"><strong>No.SPPB/J : 213/UM/ASDP-KTP/2021</strong></td>
-    </tr>
-        
-    <tr style="height: 23px;">
-        <td style="width: 213.719px; height: 23px;"><strong>Dari</strong></td>
-        <td style="width: 474.281px; height: 23px;"><strong>&nbsp;{{$sp2bj->dari}}</strong></td>
-        <td style="width: 313px; height: 23px;"><strong>Tanggal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?=date('d-F-Y')?></strong></td>
-    </tr>
-    <tr style="height: 23px;">
-    <td style="width: 213.719px; height: 23px;"><strong>Klasifikasi</strong></td>
-    <td style="width: 787.281px; height: 23px;" colspan="2"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="checkbox"> Normal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="checkbox"> Emergency&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="checkbox"> Urgent</strong></td>
-    </tr>
-    <tr style="height: 23px;">
-    <td style="width: 213.719px; height: 23px;"><strong>Dasar Pelimpahan* (*Jika ada)</strong></td>
-    <td style="width: 787.281px; height: 23px;" colspan="2">&nbsp;</td>
-    </tr>
-    <tr style="height: 23.5px;">
-    <td style="width: 213.719px; height: 23.5px;"><strong>Nama Pengadaan</strong></td>
-    <td style="width: 787.281px; height: 23.5px;" colspan="2"><strong>&nbsp;{{$sp2bj->nama_pengadaan}}</strong></td>
-    </tr>
-    <tr style="height: 23px;">
-    <td style="width: 213.719px; height: 23px;"><strong>Mata Anggaran</strong></td>
-    <td style="width: 787.281px; height: 23px;" colspan="2"><strong>&nbsp;{{$sp2bj->mata_anggaran}}</strong></td>
-    </tr>
-    <tr style="height: 23px;">
-    <td style="width: 213.719px; height: 23px;"><strong>Tanggal Dibutuhkan</strong></td>
-    <td style="width: 787.281px; height: 23px;" colspan="2"><strong>&nbsp;{{$sp2bj->tanggal_dibutuhkan}}</strong></td>
-    </tr>
-    </tbody>
-    </table>
 
     <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1014px; border-color: black;">
       <thead>
@@ -193,6 +156,7 @@
       </tbody>
     </table>
     
+    <br>
 
     <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1012px;">
     <tbody>
