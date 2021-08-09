@@ -16,7 +16,7 @@ class CreateAdminsTable extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
-            $table->integer('karyawan_id');
+            $table->unsignedBigInteger('karyawan_id');
             $table->string('mata_anggaran');
             $table->string('nama_pengadaan');
             $table->date('tanggal_dibutuhkan');
@@ -25,6 +25,7 @@ class CreateAdminsTable extends Migration
             $table->string('catatan_anggaran')->nullable();
             $table->string('catatan_stok')->nullable();
             $table->timestamps();
+            $table->foreign('karyawan_id')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
