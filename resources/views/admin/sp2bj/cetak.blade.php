@@ -89,7 +89,7 @@
 
           <tr style="height: 23px;">
             <td style="width: 213.719px; height: 23px;"><strong>Dari</strong></td>
-            <td style="width: 474.281px; height: 23px;"><strong>&nbsp;{{$sp2bj->dari}}</strong></td>
+            <td style="width: 474.281px; height: 23px;"><strong>&nbsp;{{$sp2bj->karyawan->jabatan}}</strong></td>
             <td style="width: 313px; height: 23px;"><strong>Tanggal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?= date('d-F-Y') ?></strong></td>
           </tr>
           <tr style="height: 23px;">
@@ -114,103 +114,96 @@
           </tr>
         </tbody>
       </table>
+      
+      <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1014px; border-color: black;">
+        <thead>
+          <tr class="text-center">
+            <th>No</th>
+            <th>Jumlah</th>
+            <th>Satuan</th>
+            <th>Nama Barang</th>
+            <th>Spesifikasi</th>
+            <th>Harga Satuan</th>
+            <th>Jumlah</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach ($sp2bj->barang as $item)
+          <tr>
+            <td>{{$loop->iteration}}</td>
+            <td>{{$item->jumlah}}</td>
+            <td>{{$item->satuan}}</td>
+            <td>{{$item->nama_barang}}</td>
+            <td>{{$item->spesifikasi}}</td>
+            <td>{{$item->harga_satuan}}</td>
+            <td>{{$item->harga_satuan * $item->jumlah}}</td>
+          </tr>
+          @endforeach
+          <tr>
+            <td colspan="6" class="text-end">
+              &nbsp;Jumlah Rp&nbsp;
+            </td>
+            <td>{{$sp2bj->barang->map(function($el){
+                return $el->harga_satuan * $el->jumlah;
+              })->sum()}}</td>
+          </tr>
+        </tbody>
+      </table>
 
-    <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1014px; border-color: black;">
-      <thead>
-        <tr class="text-center">
-          <th>&nbsp;No&nbsp;</th>
-          <th>&nbsp;Jumlah&nbsp;</th>
-          <th>&nbsp;Satuan&nbsp;</th>
-          <th>&nbsp;Nama Barang&nbsp;</th>
-          <th>&nbsp;Spesifikasi&nbsp;</th>
-          <th>&nbsp;Harga Satuan&nbsp;</th>
-          <th>&nbsp;Jumlah&nbsp;</th>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach ($sp2bj->barang as $item)
-            <tr>
-              <td class="text-center">&nbsp;{{$loop->iteration}}</td>
-              <td>&nbsp;{{$item->jumlah}}</td>
-              <td>&nbsp;{{$item->satuan}}</td>
-              <td>&nbsp;{{$item->nama_barang}}</td>
-              <td>&nbsp;{{$item->spesifikasi}}</td>
-              <td>&nbsp; Rp {{$item->harga_satuan}}</td>
-              <td>&nbsp; Rp {{$item->harga_satuan * $item->jumlah}}</td>
-            </tr>
-            @endforeach
-            <tr>
-              <td  colspan="6" class="text-end">
-                  &nbsp;Jumlah Rp&nbsp;
-              </td>
-              <td>&nbsp;&nbsp; Rp 
-                {{
-                $sp2bj->barang->map(function($el){
 
-                  return $el->harga_satuan * $el->jumlah;
+      <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1012px;">
+        <tbody>
+          <tr>
+            <td style="width: 613.266px;"><strong>Catatan Peminta Barang &amp; Jasa : {{$sp2bj->catatan_peminta}}</strong></td>
+            <td style="width: 394.734px;">
+              <p>Tgl&nbsp; <?= date('d-F-Y') ?></p>
+              <p align='center'>Peminta Barang/Jasa</p>
+              <p>&nbsp;</p>
+              <p align='center'>{{$sp2bj->karyawan->nama_karyawan}}</p>
+              <p align='center'>Manager SDM &amp; Umum</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 613.266px;"><strong>Catatan : {{$sp2bj->catatan}}</strong></td>
+            <td style="width: 394.734px;">
+              <p>Tgl&nbsp; <?= date('d-F-Y') ?></p>
+              <p>&nbsp;</p>
+              <p align='center'>{{$sp2bj->karyawan->nama_karyawan}}</p>
+              <p align='center'>General Manager Cabang Ketapang</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 613.266px;"><strong>Catatan Ketersediaan Anggaran : {{$sp2bj->catatan_anggaran}}</strong></td>
+            <td style="width: 394.734px;">
+              <p>Tgl&nbsp; <?= date('d-F-Y') ?></p>
+              <p>&nbsp;</p>
+              <p align='center'>{{$sp2bj->karyawan->nama_karyawan}}</p>
+              <p align='center'>Manager Keuangan</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 613.266px;"><strong>Catatan Ketersediaan Stok : {{$sp2bj->catatan_stok}}</strong></td>
+            <td style="width: 394.734px;">
+              <p>Tgl&nbsp; <?= date('d-F-Y') ?></p>
+              <p>&nbsp;</p>
+              <p align='center'>{{$sp2bj->karyawan->nama_karyawan}}</p>
+              <p align='center'>Manager SDM &amp; Umum</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-                })->sum()
-                }}
-              </td>
-            </tr>
-      </tbody>
-    </table>
-    
-    <br>
 
-    <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1012px;">
-    <tbody>
-    <tr>
-    <td style="width: 613.266px;"><strong>Catatan Peminta Barang &amp; Jasa :</strong></td>
-    <td style="width: 394.734px;">
-    <p>Tgl&nbsp; <?=date('d-F-Y')?></p>
-    <p align='center'>Peminta Barang/Jasa</p>
-    <p>&nbsp;</p>
-    <p align='center'>( OKE SANTIKA )</p>
-    <p align='center'>Manager SDM &amp; Umum</p>
-    </td>
-    </tr>
-    <tr>
-    <td style="width: 613.266px;"><strong>Catatan :</strong></td>
-    <td style="width: 394.734px;">
-    <p>Tgl&nbsp; <?=date('d-F-Y')?></p>
-    <p>&nbsp;</p>
-    <p align='center'>( SUHARTO )</p>
-    <p align='center'>General Manager Cabang Ketapang</p>
-    </td>
-    </tr>
-    <tr>
-    <td style="width: 613.266px;"><strong>Catatan Ketersediaan Anggaran :</strong></td>
-    <td style="width: 394.734px;">
-    <p>Tgl&nbsp; <?=date('d-F-Y')?></p>
-    <p>&nbsp;</p>
-    <p align='center'>( ANDHIE ARIESTIANO)</p>
-    <p align='center'>Manager Keuangan</p>
-    </td>
-    </tr>
-    <tr>
-    <td style="width: 613.266px;"><strong>Catatan Ketersediaan Stok :</strong></td>
-    <td style="width: 394.734px;">
-    <p>Tgl&nbsp; <?=date('d-F-Y')?></p>
-    <p>&nbsp;</p>
-    <p align='center'>( OKE SANTIKA )</p>
-    <p align='center'>Manager SDM &amp; Umum</p>
-    </td>
-    </tr>
-    </tbody>
-    </table>
+    </form>
+  </div>
 
-  
-  </form>
-</div>
+  <div class="container-lg text-center mt-4 mb-4">
+    <button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary" style="margin-right: 4cm;">cetak</button>
+    <button name="Selanjutnya" class="btn btn-success">Selanjutnya</button>
+  </div>
 
-<div class="container-lg text-center mt-4 mb-4">
-  <button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary" style="margin-right: 4cm;">cetak</button>
-  <button name="Selanjutnya" class="btn btn-success">Selanjutnya</button>
-</div>
-
-<script>
-  function Cetakan(){
+  <script>
+    function Cetakan() {
       var x = document.getElementsByName("cetak");
       for(i = 0; i < x.length ; i++)
       {
