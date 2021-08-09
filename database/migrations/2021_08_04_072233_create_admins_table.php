@@ -16,10 +16,14 @@ class CreateAdminsTable extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
-            $table->string('dari')->nullable();
-            $table->string('mata_anggaran')->nullable();
-            $table->string('nama_pengadaan')->nullable();
-            $table->date('tanggal_dibutuhkan')->nullable();
+            $table->integer('karyawan_id');
+            $table->string('mata_anggaran');
+            $table->string('nama_pengadaan');
+            $table->date('tanggal_dibutuhkan');
+            $table->string('catatan_peminta')->nullable();
+            $table->string('catatan')->nullable();
+            $table->string('catatan_anggaran')->nullable();
+            $table->string('catatan_stok')->nullable();
             $table->timestamps();
         });
     }

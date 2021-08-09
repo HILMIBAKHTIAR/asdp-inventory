@@ -89,7 +89,7 @@
 
           <tr style="height: 23px;">
             <td style="width: 213.719px; height: 23px;"><strong>Dari</strong></td>
-            <td style="width: 474.281px; height: 23px;"><strong>&nbsp;{{$sp2bj->dari}}</strong></td>
+            <td style="width: 474.281px; height: 23px;"><strong>&nbsp;{{$sp2bj->karyawan->jabatan}}</strong></td>
             <td style="width: 313px; height: 23px;"><strong>Tanggal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?= date('d-F-Y') ?></strong></td>
           </tr>
           <tr style="height: 23px;">
@@ -154,39 +154,39 @@
       <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1012px;">
         <tbody>
           <tr>
-            <td style="width: 613.266px;"><strong>Catatan Peminta Barang &amp; Jasa :</strong></td>
+            <td style="width: 613.266px;"><strong>Catatan Peminta Barang &amp; Jasa : {{$sp2bj->catatan_peminta}}</strong></td>
             <td style="width: 394.734px;">
               <p>Tgl&nbsp; <?= date('d-F-Y') ?></p>
               <p align='center'>Peminta Barang/Jasa</p>
               <p>&nbsp;</p>
-              <p align='center'>( OKE SANTIKA )</p>
+              <p align='center'>{{$sp2bj->karyawan->nama_karyawan}}</p>
               <p align='center'>Manager SDM &amp; Umum</p>
             </td>
           </tr>
           <tr>
-            <td style="width: 613.266px;"><strong>Catatan :</strong></td>
+            <td style="width: 613.266px;"><strong>Catatan : {{$sp2bj->catatan}}</strong></td>
             <td style="width: 394.734px;">
               <p>Tgl&nbsp; <?= date('d-F-Y') ?></p>
               <p>&nbsp;</p>
-              <p align='center'>( SUHARTO )</p>
+              <p align='center'>{{$sp2bj->karyawan->nama_karyawan}}</p>
               <p align='center'>General Manager Cabang Ketapang</p>
             </td>
           </tr>
           <tr>
-            <td style="width: 613.266px;"><strong>Catatan Ketersediaan Anggaran :</strong></td>
+            <td style="width: 613.266px;"><strong>Catatan Ketersediaan Anggaran : {{$sp2bj->catatan_anggaran}}</strong></td>
             <td style="width: 394.734px;">
               <p>Tgl&nbsp; <?= date('d-F-Y') ?></p>
               <p>&nbsp;</p>
-              <p align='center'>( ANDHIE ARIESTIANO)</p>
+              <p align='center'>{{$sp2bj->karyawan->nama_karyawan}}</p>
               <p align='center'>Manager Keuangan</p>
             </td>
           </tr>
           <tr>
-            <td style="width: 613.266px;"><strong>Catatan Ketersediaan Stok :</strong></td>
+            <td style="width: 613.266px;"><strong>Catatan Ketersediaan Stok : {{$sp2bj->catatan_stok}}</strong></td>
             <td style="width: 394.734px;">
               <p>Tgl&nbsp; <?= date('d-F-Y') ?></p>
               <p>&nbsp;</p>
-              <p align='center'>( OKE SANTIKA )</p>
+              <p align='center'>{{$sp2bj->karyawan->nama_karyawan}}</p>
               <p align='center'>Manager SDM &amp; Umum</p>
             </td>
           </tr>
