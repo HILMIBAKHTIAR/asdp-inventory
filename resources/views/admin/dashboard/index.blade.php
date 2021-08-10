@@ -2,12 +2,15 @@
 
 @section('content')
 <!-- Begin Page Content -->
-<div class="container-fluid">
-    <!-- Content Row -->
-    <div class="text-center" style="margin-top: 11cm">
-        <h1>Selamat Datang di Aplikasi Dokumen Pengadaan ASDP</h1>
-    </div>
+<section class="h-100">
+    <header class="container h-100">
+        <div class="d-flex align-items-center justify-content-center h-100">
+            <div class="d-flex flex-column">
+                <h1 class="text align-self-center p-2">Selamat Datang Di Pengadaan ASDP</h1>
+            </div>
+        </div>
+    </header>
+</section>
 
-</div>
 <!-- /.container-fluid -->
 @endsection
