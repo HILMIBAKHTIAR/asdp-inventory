@@ -25,8 +25,13 @@
     </li>
     <li class="nav-item active">
         <a class="nav-link" href="{{route('karyawan.index')}}">
-            <i class="fas fa-fw fa fa-book"></i>
+            <i class="fas fa-fw fa fa-user"></i>
             <span>Karyawan</span></a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{{route('mataanggaran.index')}}">
+            <i class="fas fa-fw fa fa-file-alt"></i>
+            <span>Mata Anggaran</span></a>
     </li>
 
     <!-- Divider -->
