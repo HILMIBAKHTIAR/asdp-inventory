@@ -16,7 +16,7 @@ class CreateKaryawansTable extends Migration
         Schema::create('karyawans', function (Blueprint $table) {
             $table->id();
             $table->string('nama_karyawan');
-            $table->enum('jabatan', ['Manager SDM & Umum', 'General Manager Cabang Ketapang', 'Manager Keuangan', 'Staf SDM & Umum', 'Verifikator', 'Staf Umum']);
+            $table->enum('jabatan', ['Manager SDM & Umum', 'Manager Usaha Ketapang', 'Manager Usaha Gilimanuk', 'Manager Keuangan', 'Manager Teknik', 'Staf SDM & Umum', 'Verifikator', 'Staf Teknik Ketapang', 'Staf Usaha']);
             $table->string('nik');
             $table->timestamps();
         });
