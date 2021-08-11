@@ -35,7 +35,6 @@
 
             <!-- Footer -->
             @include('admin.layout.bottom')
-
             <!-- End of Footer -->
 
         </div>

@@ -10,11 +10,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
     <style>
-      table, th, td {
+      .border1 {
         border: 1px solid black;
         border-collapse: collapse;
       }
       </style>
+
 </head>
 <body data-new-gr-c-s-check-loaded="14.1024.0" data-gr-ext-installed="">
 
@@ -50,118 +51,128 @@
     <form>
 
 
-      <table style="width: 1011px;" border="0" cellspacing="0" cellpadding="0" align="center">
+      <table width="910" class="border1" align="center" cellpadding="0" cellspacing="0" style="width: 1011px;">
         <tbody>
-        <tr style="height: 30px;">
-        <td style="width: 208.719px; height: 120.5px;" colspan="2" rowspan="4">
-        <div>
-          <div class="text-center">
-            &nbsp; <img src="{{url('backend/img/asdp.svg')}}" alt="" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;FORMULIR PERMINTAAN PENGADAAN BARANG/JASA (SPPB/J)
-          </div>
-        </div>
-        </td>
-        <td style="width: 133px; height: 30px;"><strong>No. Dokumen</strong></td>
-        <td style="width: 198px; height: 30px;">:&nbsp;<strong>PBJ-101.00.02</strong></td>
-        </tr>
-        <tr style="height: 30px;">
-        <td style="width: 133px; height: 30px;"><strong>Revisi</strong></td>
-        <td style="width: 198px; height: 30px;">:&nbsp;<strong>05</strong></td>
-        </tr>
-        <tr style="height: 30.5px;">
-        <td style="width: 133px; height: 30.5px;"><strong>Berlaku Efektif</strong></td>
-        <td style="width: 198px; height: 30.5px;">:&nbsp;<strong>4 September 2021</strong></td>
-        </tr>
-        <tr style="height: 30px;">
-        <td style="width: 133px; height: 30px;"><strong>Halaman</strong></td>
-        <td style="width: 198px; height: 30px;">:&nbsp;<strong>1 dari 1</strong></td>
-        </tr>
+          <tr >
+            <td class="border1" style="width: 208.641px;" rowspan="4"><img src="{{url('backend/img/asdp.svg')}}" alt=""></td>
+            <td class="border1" align="center" style="width: 872.359px; border-right: 0px; font-size: 14.0pt; font-family: FrutigerExt-Normal; color: black;" rowspan="4"><strong>BUKTI SERAH TERIMA BARANG</strong></td>
+            <td class="border1" style="width: 133px;"><strong>No. Dokumen</strong></td>
+            <td class="border1" style="width: 198px;">:&nbsp;<strong>LOG-102.00.02</strong></td>
+          </tr>
+          <tr>
+            <td class="border1" style="width: 133px;"><strong>Revisi</strong></td>
+            <td class="border1" style="width: 198px;">:&nbsp;<strong>00</strong></td>
+          </tr>
+          <tr>
+            <td class="border1" style="width: 133px;"><strong>Berlaku Efektif</strong></td>
+            <td class="border1" style="width: 198px;">:&nbsp;<strong>4 September 2021</strong></td>
+          </tr>
+          <tr>
+            <td class="border1" style="width: 133px;"><strong>Halaman</strong></td>
+            <td class="border1" style="width: 198px;">:&nbsp;<strong>1 dari 1</strong></td>
+          </tr>
         </tbody>
-        </table>
+      </table>
 
   <br>
 
-  <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1014px; border-color: black;">
+  <table class="border1" width="910" border="1" align="center" cellpadding="0" cellspacing="0" style="width: 1011px;">
     <tbody>
-    <tr style="height: 23px;">
-    <td style="width: 213.719px; height: 23px;"><strong>Kepada</strong></td>
-    <td style="width: 474.281px; height: 23px;"><strong>&nbsp;General Cabang Ketapang</strong></td>
-    <td style="width: 313px; height: 23px;"><strong>No.SPPB/J : 213/UM/ASDP-KTP/2021</strong></td>
+    <tr class="border1" style="height: 30px;">
+    <td class="border1" style="width: 378.812px; height: 30px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;Kepada Yth&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :&nbsp;Staf Umum</td>
+    <td class="border1" style="width: 436.188px; height: 30px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;Nomor&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :&nbsp;SPBJ.91/UM/ASDP-KTP/2021</td>
     </tr>
-        
-    <tr style="height: 23px;">
-        <td style="width: 213.719px; height: 23px;"><strong>Dari</strong></td>
-        <td style="width: 474.281px; height: 23px;"><strong>&nbsp;</strong></td>
-        <td style="width: 313px; height: 23px;"><strong>Tanggal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?=date('d-F-Y')?></strong></td>
+    <tr style="height: 111px;">
+    <td class="border1" style="width: 378.812px; height: 111px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;Alamat Tujuan&nbsp; &nbsp; &nbsp; :&nbsp;ASDP Ketapang</td>
+    <td class="border1" style="width: 436.188px; height: 111px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;Tanggal&nbsp; &nbsp; &nbsp; &nbsp; :&nbsp;30 Juni 2021</td>
     </tr>
-    <tr style="height: 23px;">
-    <td style="width: 213.719px; height: 23px;"><strong>Klasifikasi</strong></td>
-    <td style="width: 787.281px; height: 23px;" colspan="2"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="checkbox"> Normal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="checkbox"> Emergency&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="checkbox"> Urgent</strong></td>
-    </tr>
-    <tr style="height: 23px;">
-    <td style="width: 213.719px; height: 23px;"><strong>Dasar Pelimpahan* (*Jika ada)</strong></td>
-    <td style="width: 787.281px; height: 23px;" colspan="2">&nbsp;</td>
-    </tr>
-    <tr style="height: 23.5px;">
-    <td style="width: 213.719px; height: 23.5px;"><strong>Nama Pengadaan</strong></td>
-    <td style="width: 787.281px; height: 23.5px;" colspan="2"><strong>&nbsp;</strong></td>
-    </tr>
-    <tr style="height: 23px;">
-    <td style="width: 213.719px; height: 23px;"><strong>Mata Anggaran</strong></td>
-    <td style="width: 787.281px; height: 23px;" colspan="2"><strong>&nbsp;</strong></td>
-    </tr>
-    <tr style="height: 23px;">
-    <td style="width: 213.719px; height: 23px;"><strong>Tanggal Dibutuhkan</strong></td>
-    <td style="width: 787.281px; height: 23px;" colspan="2"><strong>&nbsp;</strong></td>
+    <tr style="height: 58.5px;">
+    <td class="border1" style="width: 815px; height: 58.5px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" colspan="2">&nbsp;Dasar Pengiriman No. / Kontrak/ SPBJ / Permintaan (jika ada) :</td>
     </tr>
     </tbody>
     </table>
+    <br>
 
+    <table width="910" border="1" align="center" cellpadding="0" cellspacing="0" style="width: 1014px; border-color: black;">
+      <thead>
+        <tr class="text-center">
+          <th class="border1">No</th>
+          <th class="border1" style="width: 18%;">Nama / Uraian Barang</th>
+          <th class="border1" style="width: 15%;">Jenis / Type / Part Number</th>
+          <th class="border1" style="width: 20%;">Satuan</th>
+          <th class="border1" style="width: 20%;">Jumlah</th>
+          <th class="border1">Harga Barang</th>
+          <th class="border1">Kondisi</th>
+        </tr>
+      </thead>
+      <tbody align="center">
+        <tr>
+          <td  class="border1">1</td>
+          <td class="border1">3</td>
+          <td class="border1">roll</td>
+          <td class="border1">YHaa</td>
+          <td class="border1">Baik</td>
+          <td class="border1">120000</td>
+          <td class="border1">Baik</td>
+        </tr>
+        <tr>
+          <td colspan="5" class="text-end border1 text-center">
+            <strong> &nbsp;TOTAL&nbsp; </strong>
+          </td>
+          <td colspan="2" class="border1"> 9369386239 </td>
+        </tr>
+      </tbody>
+    </table>
 
+    <br>
+
+    <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1011px;"">
+    <tbody>
+    <tr>
+    <td style="width: 818.469px;">
+    <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;<strong>CATATAN&nbsp; &nbsp;:</strong></p>
+    <p>&nbsp;</p>
+    <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">)* Kondisi : Baru, Bekas, Baik atau Rusak&nbsp;</p>
+    </td>
+    </tr>
+    </tbody>
+    </table>
     
 
-    <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1012px;">
-    <tbody>
-    <tr>
-    <td style="width: 613.266px;"><strong>Catatan Peminta Barang &amp; Jasa :</strong></td>
-    <td style="width: 394.734px;">
-    <p>Tgl&nbsp; <?=date('d-F-Y')?></p>
-    <p align='center'>Peminta Barang/Jasa</p>
-    <p>&nbsp;</p>
-    <p align='center'>( OKE SANTIKA )</p>
-    <p align='center'>Manager SDM &amp; Umum</p>
-    </td>
-    </tr>
-    <tr>
-    <td style="width: 613.266px;"><strong>Catatan :</strong></td>
-    <td style="width: 394.734px;">
-    <p>Tgl&nbsp; <?=date('d-F-Y')?></p>
-    <p>&nbsp;</p>
-    <p align='center'>( SUHARTO )</p>
-    <p align='center'>General Manager Cabang Ketapang</p>
-    </td>
-    </tr>
-    <tr>
-    <td style="width: 613.266px;"><strong>Catatan Ketersediaan Anggaran :</strong></td>
-    <td style="width: 394.734px;">
-    <p>Tgl&nbsp; <?=date('d-F-Y')?></p>
-    <p>&nbsp;</p>
-    <p align='center'>( ANDHIE ARIESTIANO)</p>
-    <p align='center'>Manager Keuangan</p>
-    </td>
-    </tr>
-    <tr>
-    <td style="width: 613.266px;"><strong>Catatan Ketersediaan Stok :</strong></td>
-    <td style="width: 394.734px;">
-    <p>Tgl&nbsp; <?=date('d-F-Y')?></p>
-    <p>&nbsp;</p>
-    <p align='center'>( OKE SANTIKA )</p>
-    <p align='center'>Manager SDM &amp; Umum</p>
-    </td>
-    </tr>
-    </tbody>
-    </table>
+    <br>
 
-  
+
+
+    <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1011px;">
+      <tbody>
+        <tr>
+          <td style="width: 255px;">
+            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Penerima,</span></p>
+            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Staf Umum</span></p>
+            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
+            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
+            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US">&nbsp;</span></p>
+            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">(<u>Bakhtiar Rosadi</u>)</span></p>
+          </td>
+          <td style="width: 292.091px;">
+            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Mengetahui,</span></p>
+            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Manager SDM &amp; Umum</span></p>
+            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
+            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
+            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US">&nbsp;</span></p>
+            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">(<u>Oke Santika</u>)</span></p>
+          </td>
+          <td style="width: 270.909px;">
+            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Pengirim,</span></p>
+            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Staf SDM &amp; Umum</span></p>
+            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
+            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
+            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US">&nbsp;</span></p>
+            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">(<u>Roodhin Firmana</u>)</span></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </form>
 </div>
 
