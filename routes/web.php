@@ -23,10 +23,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-    Route::get('/', 'Admin\AdminController@create');
+    Route::get('/', 'Admin\DashboardController@index');
     Route::resource('/sp2bj', 'Admin\AdminController');
     Route::resource('/berita', 'Admin\BeritaController');
     Route::resource('/skb', 'Admin\SkbController');
     Route::resource('/spm', 'Admin\SpmController');
     Route::resource('/verspm', 'Admin\VerspmController');
+    Route::resource('/karyawan', 'Admin\karyawanController');
+    Route::resource('/mataanggaran', 'Admin\MataAnggaranController');
 });

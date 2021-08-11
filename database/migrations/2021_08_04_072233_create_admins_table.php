@@ -16,11 +16,24 @@ class CreateAdminsTable extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
-            $table->string('dari')->nullable();
-            $table->string('mata_anggaran')->nullable();
-            $table->string('nama_pengadaan')->nullable();
-            $table->date('tanggal_dibutuhkan')->nullable();
+            $table->unsignedBigInteger('ttd1');
+            $table->unsignedBigInteger('ttd2');
+            $table->unsignedBigInteger('ttd3');
+            $table->unsignedBigInteger('ttd4');
+            $table->unsignedBigInteger('ttd5');
+            $table->string('mata_anggaran');
+            $table->string('nama_pengadaan');
+            $table->date('tanggal_dibutuhkan');
+            $table->string('catatan_peminta')->nullable();
+            $table->string('catatan')->nullable();
+            $table->string('catatan_anggaran')->nullable();
+            $table->string('catatan_stok')->nullable();
             $table->timestamps();
+            $table->foreign('ttd1')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('ttd2')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('ttd3')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('ttd4')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('ttd5')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
