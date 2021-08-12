@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Sppbj;
 use App\Barang;
 use App\Karyawan;
+use App\Mataanggaran;
 use Illuminate\Support\Facades\DB;
 
 class SppbjController extends Controller
@@ -22,8 +23,8 @@ class SppbjController extends Controller
 
         // $sp2bj = DB::table('admins')->orderBy('id', 'DESC')->first();
 
-        $sp2bj = Sppbj::with(['ttd1', 'ttd2', 'ttd3', 'ttd4', 'ttd5'])->orderBy('id', 'DESC')->first();
-        return dd($sp2bj->tanda1->jabatan);
+        $sp2bj = Sppbj::orderBy('id', 'DESC')->first();
+        // return dd($sp2bj->jabatan);
         return view('admin.sp2bj.cetak', compact('sp2bj'));
     }
 
@@ -35,8 +36,9 @@ class SppbjController extends Controller
      */
     public function create()
     {
+        $mataanggaran = Mataanggaran::all();
         $karyawan = Karyawan::all();
-        return view('admin.sp2bj.input', compact('karyawan'));
+        return view('admin.sp2bj.input', compact('karyawan', 'mataanggaran'));
     }
 
     /**
@@ -47,45 +49,44 @@ class SppbjController extends Controller
      */
     public function store(Request $request)
     {
-        return dd($request->all());
-        // $request->validate([
-        //     'mata_anggaran' => 'required',
-        //     'nama_pengadaan' => 'required',
-        //     'tanggal_dibutuhkan' => 'required',
-        // ]);
+        // return dd($request->all());
+        $request->validate([
+            'nama_pengadaan' => 'required',
+            'tanggal_dibutuhkan' => 'required',
+        ]);
 
 
-        // $data_sp2bj = Sppbj::create([
-        //     'ttd1' => $request->ttd1,
-        //     'ttd2' => $request->ttd2,
-        //     'ttd3' => $request->ttd3,
-        //     'ttd4' => $request->ttd4,
-        //     'ttd5' => $request->ttd5,
-        //     'mata_anggaran' => $request->mata_anggaran,
-        //     'nama_pengadaan' => $request->nama_pengadaan,
-        //     'tanggal_dibutuhkan' => $request->tanggal_dibutuhkan,
-        //     'catatan_peminta' => $request->catatan_peminta,
-        //     'catatan' => $request->catatan,
-        //     'catatan_anggaran' => $request->catatan_anggaran,
-        //     'catatan_stok' => $request->catatan_stok,
-        // ]);
+        $data_sp2bj = Sppbj::create([
+            'karyawan_id' => $request->karyawan_id,
+            'ttd1' => $request->ttd1,
+            'ttd2' => $request->ttd2,
+            'ttd3' => $request->ttd3,
+            'ttd4' => $request->ttd4,
+            'mataanggaran_id' => $request->mataanggaran_id,
+            'nama_pengadaan' => $request->nama_pengadaan,
+            'tanggal_dibutuhkan' => $request->tanggal_dibutuhkan,
+            'catatan_peminta' => $request->catatan_peminta,
+            'catatan' => $request->catatan,
+            'catatan_anggaran' => $request->catatan_anggaran,
+            'catatan_stok' => $request->catatan_stok,
+        ]);
 
-        // // return dd($data_sp2bj);
+        // return dd($data_sp2bj);
 
-        // for ($i = 0; $i < count($request->jumlah); $i++) {
-        //     Barang::create([
-        //         'sppbj_id' => $data_sp2bj->id,
-        //         'jumlah' => $request->jumlah[$i],
-        //         'satuan' => $request->satuan[$i],
-        //         'nama_barang' => $request->nama_barang[$i],
-        //         'spesifikasi' => $request->spesifikasi[$i],
-        //         'harga_satuan' => $request->harga_satuan[$i]
-        //     ]);
-        // }
+        for ($i = 0; $i < count($request->jumlah); $i++) {
+            Barang::create([
+                'sppbj_id' => $data_sp2bj->id,
+                'jumlah' => $request->jumlah[$i],
+                'satuan' => $request->satuan[$i],
+                'nama_barang' => $request->nama_barang[$i],
+                'spesifikasi' => $request->spesifikasi[$i],
+                'harga_satuan' => $request->harga_satuan[$i]
+            ]);
+        }
 
 
-        // $data_sp2bj->save();
-        // return redirect('admin/sp2bj/');
+        $data_sp2bj->save();
+        return redirect('admin/sp2bj/');
     }
 
     /**

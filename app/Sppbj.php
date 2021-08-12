@@ -8,12 +8,12 @@ class Sppbj extends Model
 {
     //
     protected $fillable = [
+        'karyawan_id',
         'ttd1',
         'ttd2',
         'ttd3',
         'ttd4',
-        'ttd5',
-        'mata_anggaran',
+        'mataanggaran_id',
         'nama_pengadaan',
         'tanggal_dibutuhkan',
         'catatan_peminta',
@@ -23,9 +23,16 @@ class Sppbj extends Model
 
     ];
 
+    // Untuk Tabel Barang
     public function barang()
     {
-        return $this->hasMany(barang::class);
+        return $this->hasMany(Barang::class);
+    }
+
+    // Untuk Tabel Karyawan
+    public function karyawan()
+    {
+        return $this->belongsTo(Karyawan::class);
     }
     public function tanda1()
     {
@@ -35,16 +42,18 @@ class Sppbj extends Model
     {
         return $this->belongsTo(Karyawan::class, 'ttd2', 'id');
     }
-    public function ttd3()
+    public function tanda3()
     {
         return $this->belongsTo(Karyawan::class, 'ttd3', 'id');
     }
-    public function ttd4()
+    public function tanda4()
     {
         return $this->belongsTo(Karyawan::class, 'ttd4', 'id');
     }
-    public function ttd5()
+
+    // Untuk Tabel Mata Anggaran
+    public function mataanggaran()
     {
-        return $this->belongsTo(Karyawan::class, 'ttd5', 'id');
+        return $this->belongsTo(Mataanggaran::class, 'mataanggaran_id', 'id');
     }
 }
