@@ -25,7 +25,7 @@ class SkbController extends Controller
      */
     public function create()
     {
-        // return view('admin.skb.input');
+        return view('admin.skb.input');
     }
 
     /**
