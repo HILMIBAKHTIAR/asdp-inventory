@@ -11,7 +11,7 @@
                         @csrf
                         <div class="form-group">
                             <div class="form-row">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="tabelData" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>Nama</th>
@@ -62,7 +62,7 @@
     $(document).ready(function() {
         var x = 1;
         $("#tambah").click(function() {
-            $("#dataTable").append(`<thead>
+            $("#tabelData").append(`<thead>
                                         <tr>
                                             <th>Nama</th>
                                             <td><input name="nama_karyawan[]" type="text" class="form-control"></td>
@@ -90,7 +90,7 @@
                                             <td><input name="nik[]" type="text" class="form-control"></td>
                                         </tr>
                                     </thead>`);
-            $("#dataTable").on('click', '#hapus', function() {
+            $("#tabelData").on('click', '#hapus', function() {
                 $(this).closest('thead').remove();
             })
         });
