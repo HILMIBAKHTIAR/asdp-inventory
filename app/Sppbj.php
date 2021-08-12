@@ -54,6 +54,6 @@ class Sppbj extends Model
     // Untuk Tabel Mata Anggaran
     public function mataanggaran()
     {
-        return $this->belongsTo(Mataanggaran::class, 'mataanggaran_id', 'id');
+        return $this->belongsTo(Mataanggaran::class);
     }
 }
