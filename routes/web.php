@@ -25,7 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/', 'Admin\DashboardController@index');
     Route::resource('/sp2bj', 'Admin\SppbjController');
-    Route::resource('/berita', 'Admin\BeritaController');
+    Route::resource('/berita', 'Admin\SerahTerimaController');
     Route::resource('/skb', 'Admin\SkbController');
     Route::resource('/spm', 'Admin\SpmController');
     Route::resource('/verspm', 'Admin\VerspmController');

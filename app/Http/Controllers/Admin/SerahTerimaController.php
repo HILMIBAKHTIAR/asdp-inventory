@@ -15,7 +15,7 @@ class SerahTerimaController extends Controller
     public function index()
     {
         //
-        return view('admin/berita/index');
+        return view('admin.berita.index');
     }
 
     /**
@@ -25,7 +25,7 @@ class SerahTerimaController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.berita.input');
     }
 
     /**
