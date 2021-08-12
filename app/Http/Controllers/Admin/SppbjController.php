@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\admin;
+use App\Sppbj;
 use App\barang;
 use App\Karyawan;
 use Illuminate\Support\Facades\DB;
 
-class AdminController extends Controller
+class SppbjController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,7 +22,7 @@ class AdminController extends Controller
 
         // $sp2bj = DB::table('admins')->orderBy('id', 'DESC')->first();
 
-        $sp2bj = admin::with(['ttd1', 'ttd2', 'ttd3', 'ttd4', 'ttd5'])->orderBy('id', 'DESC')->first();
+        $sp2bj = Sppbj::with(['ttd1', 'ttd2', 'ttd3', 'ttd4', 'ttd5'])->orderBy('id', 'DESC')->first();
         return dd($sp2bj->tanda1->jabatan);
         return view('admin.sp2bj.cetak', compact('sp2bj'));
     }
@@ -55,7 +55,7 @@ class AdminController extends Controller
         // ]);
 
 
-        // $data_sp2bj = admin::create([
+        // $data_sp2bj = Sppbj::create([
         //     'ttd1' => $request->ttd1,
         //     'ttd2' => $request->ttd2,
         //     'ttd3' => $request->ttd3,
@@ -74,7 +74,7 @@ class AdminController extends Controller
 
         // for ($i = 0; $i < count($request->jumlah); $i++) {
         //     barang::create([
-        //         'admin_id' => $data_sp2bj->id,
+        //         'sppbj_id' => $data_sp2bj->id,
         //         'jumlah' => $request->jumlah[$i],
         //         'satuan' => $request->satuan[$i],
         //         'nama_barang' => $request->nama_barang[$i],

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class verspm extends Model
+class Verspm extends Model
 {
     //
 }

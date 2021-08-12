@@ -48,7 +48,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                                    <table class="table table-bordered" id="tableSppbj" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th>Jumlah</th>
@@ -151,7 +151,7 @@
     $(document).ready(function() {
         var x = 1;
         $("#tambah").click(function() {
-            $("#dataTable").append(`
+            $("#tableSppbj").append(`
             <tr>
                 <td>
                 <input name="jumlah[]" type="text" class="form-control"></td>
@@ -167,7 +167,7 @@
                 </input>
             </td>
             </tr>`);
-            $("#dataTable").on('click', '#hapus', function() {
+            $("#tableSppbj").on('click', '#hapus', function() {
                 $(this).closest('tr').remove();
             })
         });
