@@ -89,7 +89,7 @@
 
           <tr style="height: 23px;">
             <td style="width: 213.719px; height: 23px;"><strong>Dari</strong></td>
-            <td style="width: 474.281px; height: 23px;"><strong>&nbsp;{{$sp2bj->ttd1->jabatan}}</strong></td>
+            <td style="width: 474.281px; height: 23px;"><strong>&nbsp;{{$sp2bj->karyawan->jabatan}}</strong></td>
             <td style="width: 313px; height: 23px;"><strong>Tanggal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?= date('d-F-Y') ?></strong></td>
           </tr>
           <tr style="height: 23px;">
@@ -106,7 +106,7 @@
           </tr>
           <tr style="height: 23px;">
             <td style="width: 213.719px; height: 23px;"><strong>Mata Anggaran</strong></td>
-            <td style="width: 787.281px; height: 23px;" colspan="2"><strong>&nbsp;{{$sp2bj->mata_anggaran}}</strong></td>
+            <td style="width: 787.281px; height: 23px;" colspan="2"><strong>&nbsp;{{$sp2bj->mataanggaran->nomor}} - {{$sp2bj->mataanggaran->keterangan}}</strong></td>
           </tr>
           <tr style="height: 23px;">
             <td style="width: 213.719px; height: 23px;"><strong>Tanggal Dibutuhkan</strong></td>
@@ -159,7 +159,7 @@
               <p>Tgl&nbsp; <?= date('d-F-Y') ?></p>
               <p align='center'>Peminta Barang/Jasa</p>
               <p>&nbsp;</p>
-              <p align='center'>{{$sp2bj->ttd2->nama_karyawan}}</p>
+              <p align='center'>{{$sp2bj->tanda1->nama_karyawan}}</p>
               <p align='center'>Manager SDM &amp; Umum</p>
             </td>
           </tr>
@@ -168,7 +168,7 @@
             <td style="width: 394.734px;">
               <p>Tgl&nbsp; <?= date('d-F-Y') ?></p>
               <p>&nbsp;</p>
-              <p align='center'>{{$sp2bj->ttd3->nama_karyawan}}</p>
+              <p align='center'>{{$sp2bj->tanda2->nama_karyawan}}</p>
               <p align='center'>General Manager Cabang Ketapang</p>
             </td>
           </tr>
@@ -177,7 +177,7 @@
             <td style="width: 394.734px;">
               <p>Tgl&nbsp; <?= date('d-F-Y') ?></p>
               <p>&nbsp;</p>
-              <p align='center'>{{$sp2bj->ttd4->nama_karyawan}}</p>
+              <p align='center'>{{$sp2bj->tanda3->nama_karyawan}}</p>
               <p align='center'>Manager Keuangan</p>
             </td>
           </tr>
@@ -186,7 +186,7 @@
             <td style="width: 394.734px;">
               <p>Tgl&nbsp; <?= date('d-F-Y') ?></p>
               <p>&nbsp;</p>
-              <p align='center'>{{$sp2bj->ttd5->nama_karyawan}}</p>
+              <p align='center'>{{$sp2bj->tanda4->nama_karyawan}}</p>
               <p align='center'>Manager SDM &amp; Umum</p>
             </td>
           </tr>

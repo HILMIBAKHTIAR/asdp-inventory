@@ -10,7 +10,5 @@ class Karyawan extends Model
         'nama_karyawan',
         'jabatan',
         'nik'
-
-
     ];
 }

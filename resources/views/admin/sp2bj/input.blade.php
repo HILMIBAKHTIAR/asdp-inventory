@@ -22,11 +22,11 @@
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label>Dari</label>
-                                    <select name="ttd1[]" id="" class="form-control">
+                                    <select name="karyawan_id" id="" class="form-control">
                                         <option value="">-Pilih-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}">
-                                            {{$item->nama_karyawan}}
+                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
@@ -35,7 +35,14 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label>Mata Anggaran</label>
-                                    <input type="text" name="mata_anggaran" class="form-control">
+                                    <select name="mataanggaran_id" id="" class="form-control">
+                                        <option value="">-Pilih-</option>
+                                        @foreach($mataanggaran as $item)
+                                        <option value="{{$item->id}}">
+                                            {{$item->nomor}} - {{$item->keterangan}}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                     <label>Tanggal Dibutuhkan</label>
                                     <input type="date" name="tanggal_dibutuhkan" class="form-control" />
                                 </div>
@@ -94,38 +101,38 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label>Peminta Barang/Jasa</label>
-                                    <select name="ttd1[]" id="" class="form-control">
+                                    <select name="ttd1" id="" class="form-control">
                                         <option value="">-Pilih Peminta Barang/Jasa-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}">
-                                            {{$item->nama_karyawan}}
+                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
                                     <label>General Manager Cabang Ketapang</label>
-                                    <select name="ttd1[]" id="" class="form-control">
+                                    <select name="ttd2" id="" class="form-control">
                                         <option value="">-Pilih Nama General Manager Cabang-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}">
-                                            {{$item->nama_karyawan}}
+                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
                                     <label>Manager Keuangan</label>
-                                    <select name="ttd1[]" id="" class="form-control">
+                                    <select name="ttd3" id="" class="form-control">
                                         <option value="">-Pilih Manager Keuangan-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}">
-                                            {{$item->nama_karyawan}}
+                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
                                     <label>Manager SDM & Umum</label>
-                                    <select name="ttd1[]" id="" class="form-control">
+                                    <select name="ttd4" id="" class="form-control">
                                         <option value="">-Pilih Manager SDM & Umum-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}">
-                                            {{$item->nama_karyawan}}
+                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
