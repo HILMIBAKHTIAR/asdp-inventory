@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use phpDocumentor\Reflection\Types\Nullable;
 
-class CreateAdminsTable extends Migration
+class CreateSppbjsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateAdminsTable extends Migration
      */
     public function up()
     {
-        Schema::create('admins', function (Blueprint $table) {
+        Schema::create('sppbjs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('ttd1');
             $table->unsignedBigInteger('ttd2');
@@ -44,6 +44,6 @@ class CreateAdminsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('sppbjs');
     }
 }

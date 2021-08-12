@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class skb extends Model
+class Skb extends Model
 {
     //
 }
