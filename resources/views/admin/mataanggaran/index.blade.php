@@ -14,6 +14,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Nomor Anggaran</th>
                             <th>Keterangan</th>
                             <th>Action</th>
@@ -22,6 +23,7 @@
                     <tbody>
                         @foreach($data as $i=>$row)
                         <tr>
+                            <td>{{++$i}}</td>
                             <td>{{$row->nomor}}</td>
                             <td>{{$row->keterangan}}</td>
 
