@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Sppbj;
-use App\barang;
+use App\Barang;
 use App\Karyawan;
 use Illuminate\Support\Facades\DB;
 
@@ -73,7 +73,7 @@ class SppbjController extends Controller
         // // return dd($data_sp2bj);
 
         // for ($i = 0; $i < count($request->jumlah); $i++) {
-        //     barang::create([
+        //     Barang::create([
         //         'sppbj_id' => $data_sp2bj->id,
         //         'jumlah' => $request->jumlah[$i],
         //         'satuan' => $request->satuan[$i],
