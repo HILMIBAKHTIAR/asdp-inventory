@@ -1,4 +1,4 @@
-<ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: rgb(56, 145, 166)">
+<ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #252525">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="" style="margin-top: 40px; margin-bottom: 40px;">
@@ -13,24 +13,25 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
+ 
+    <li  class="nav-item active " >
         <a class="nav-link" href="{{url('/admin')}}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i style="color: #e64614" class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dasboard</span></a>
     </li>
     <li class="nav-item active">
         <a class="nav-link" href="{{route('sp2bj.create')}}">
-            <i class="fas fa-fw fa fa-book"></i>
+            <i style="color: #e64614" class="fas fa-fw fa fa-book"></i>
             <span>Pengadaan</span></a>
     </li>
     <li class="nav-item active">
         <a class="nav-link" href="{{route('karyawan.index')}}">
-            <i class="fas fa-fw fa fa-user"></i>
+            <i style="color: #e64614" class="fas fa-fw fa fa-user"></i>
             <span>Karyawan</span></a>
     </li>
     <li class="nav-item active">
         <a class="nav-link" href="{{route('mataanggaran.index')}}">
-            <i class="fas fa-fw fa fa-file-alt"></i>
+            <i style="color: #e64614" class="fas fa-fw fa fa-file-alt"></i>
             <span>Mata Anggaran</span></a>
     </li>
 
