@@ -8,7 +8,7 @@ use App\Sppbj;
 use App\Barang;
 use App\Karyawan;
 use App\Mataanggaran;
-use Illuminate\Support\Facades\DB;
+
 
 class SppbjController extends Controller
 {
@@ -53,6 +53,7 @@ class SppbjController extends Controller
         $request->validate([
             'nama_pengadaan' => 'required',
             'tanggal_dibutuhkan' => 'required',
+            'nomor_surat' => 'required|max:4'
         ]);
 
 
@@ -65,6 +66,7 @@ class SppbjController extends Controller
             'mataanggaran_id' => $request->mataanggaran_id,
             'nama_pengadaan' => $request->nama_pengadaan,
             'tanggal_dibutuhkan' => $request->tanggal_dibutuhkan,
+            'nomor_surat' => $request->nomor_surat,
             'catatan_peminta' => $request->catatan_peminta,
             'catatan' => $request->catatan,
             'catatan_anggaran' => $request->catatan_anggaran,

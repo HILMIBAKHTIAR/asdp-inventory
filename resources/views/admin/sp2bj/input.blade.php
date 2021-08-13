@@ -22,7 +22,7 @@
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label>Dari</label>
-                                    <select name="karyawan_id" id="" class="form-control">
+                                    <select name="karyawan_id" id="" class="form-control" required>
                                         <option value="">-Pilih-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}">
@@ -31,20 +31,32 @@
                                         @endforeach
                                     </select>
                                     <label>Nama Pengadaan</label>
-                                    <input type="text" name="nama_pengadaan" class="form-control" />
+                                    <input type="text" name="nama_pengadaan" class="form-control" required/>
                                 </div>
+
                                 <div class="col-md-6">
                                     <label>Mata Anggaran</label>
-                                    <select name="mataanggaran_id" id="" class="form-control">
-                                        <option value="">-Pilih-</option>
-                                        @foreach($mataanggaran as $item)
-                                        <option value="{{$item->id}}">
-                                            {{$item->nomor}} - {{$item->keterangan}}
-                                        </option>
-                                        @endforeach
-                                    </select>
+                                        <select name="mataanggaran_id" id="" class="form-control" required>
+                                            <option value="">-Pilih-</option>
+                                            @foreach($mataanggaran as $item)
+                                            <option value="{{$item->id}}">
+                                                {{$item->nomor}} - {{$item->keterangan}}
+                                            </option>
+                                            @endforeach
+                                        </select>
                                     <label>Tanggal Dibutuhkan</label>
                                     <input type="date" name="tanggal_dibutuhkan" class="form-control" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-row mt-2">
+                                <div class="col-md-5">
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <label>Nomor Surat</label>
+                                    <input type="text" name="nomor_surat" class="form-control" required/>
+                                </div>
+                                <div class="col-md-5">
                                 </div>
                             </div>
 
