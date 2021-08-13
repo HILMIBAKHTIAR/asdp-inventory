@@ -8,6 +8,7 @@
   {{-- <title>Cetak SPPBJ</title> --}}
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/font-awesome.css">
+  {{-- boostrap5.1 --}}
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
   <style>
@@ -199,7 +200,29 @@
 
   <div class="container-lg text-center mt-4 mb-4">
     <button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary" style="margin-right: 4cm;">cetak</button>
-    <button name="Selanjutnya" class="btn btn-success">Selanjutnya</button>
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Selanjutnya
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h5>
+              Apakah Anda Memiliki Nota Digital?
+            </h5>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <a href="{{url('admin/skb/create')}}" class="btn btn-danger mx-auto" style="width: 35%;">TIDAK</a>
+            <a href="{{url('admin/berita/create')}}" class="btn btn-success mx-auto" style="width: 35%;">YA</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -218,5 +241,7 @@
 
 
 </body>
+{{-- js boostrap 5.1 --}}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
 </html>
