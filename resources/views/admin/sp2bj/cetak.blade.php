@@ -85,7 +85,7 @@
           <tr style="height: 23px;">
             <td style="width: 213.719px; height: 23px;"><strong>Kepada</strong></td>
             <td style="width: 474.281px; height: 23px;"><strong>&nbsp;General Cabang Ketapang</strong></td>
-            <td style="width: 313px; height: 23px;"><strong>No.SPPB/J : 213/UM/ASDP-KTP/2021</strong></td>
+            <td style="width: 313px; height: 23px;"><strong>No.SPPB/J : 213/UM/ASDP-KTP/<?= date('Y') ?></strong></td>
           </tr>
 
           <tr style="height: 23px;">
@@ -238,6 +238,9 @@
       }
     }
   </script>
+
+  {{-- js boostrap 5.1 --}}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
 
 </body>

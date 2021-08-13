@@ -68,7 +68,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><input name="jumlah[]" type="text" class="form-control"></td>
+                                                <td><input name="jumlah[]" type="number" class="form-control"></td>
                                                 <td><select class="form-control" name="satuan[]">
                                                         <option value="roll">Roll</option>
                                                         <option value="pcs">Pcs</option>
@@ -76,7 +76,7 @@
                                                     </select></td>
                                                 <td><input name="nama_barang[]" type="text" class="form-control"></td>
                                                 <td><input name="spesifikasi[]" type="text" class="form-control"></td>
-                                                <td><input name="harga_satuan[]" type="text" class="form-control"></td>
+                                                <td><input name="harga_satuan[]" type="number" class="form-control"></td>
                                                 <td class=""><input href="" class="btn btn-primary mr-2" type="button" name="tambah" id="tambah" value="Tambah"></input></td>
                                             </tr>
                                         </tbody>
