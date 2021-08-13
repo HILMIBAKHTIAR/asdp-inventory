@@ -1,6 +1,7 @@
 Cara Install
 <br>
 #minimum php : 7.2
+<br>
 #disarankan php : 8.0
 1. git Clone https://github.com/HILMIBAKHTIAR/asdp-inventory.git
 2. composer install
