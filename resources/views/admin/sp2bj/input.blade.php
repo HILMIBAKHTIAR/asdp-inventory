@@ -80,16 +80,16 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><input name="jumlah[]" type="number" class="form-control"></td>
-                                                <td><select class="form-control" name="satuan[]">
+                                                <td><input name="jumlah[]" type="number" class="form-control" required></td>
+                                                <td><select class="form-control" name="satuan[]" required>
                                                         <option value="roll">Roll</option>
                                                         <option value="pcs">Pcs</option>
                                                         <option value="unit">Unit</option>
                                                     </select></td>
-                                                <td><input name="nama_barang[]" type="text" class="form-control"></td>
-                                                <td><input name="spesifikasi[]" type="text" class="form-control"></td>
-                                                <td><input name="harga_satuan[]" type="number" class="form-control"></td>
-                                                <td class=""><input href="" class="btn btn-primary mr-2" type="button" name="tambah" id="tambah" value="Tambah"></input></td>
+                                                <td><input name="nama_barang[]" type="text" class="form-control" required></td>
+                                                <td><input name="spesifikasi[]" type="text" class="form-control" required></td>
+                                                <td><input name="harga_satuan[]" type="number" class="form-control" required></td>
+                                                <td><input class="btn btn-primary mr-2" type="button" name="tambah" id="tambah" value="Tambah"></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -173,15 +173,15 @@
             $("#tableSppbj").append(`
             <tr>
                 <td>
-                <input name="jumlah[]" type="text" class="form-control"></td>
-                <td><select class="form-control" name="satuan[]" id="">
+                <input name="jumlah[]" type="text" class="form-control" required></td>
+                <td><select class="form-control" name="satuan[]" id="" required>
                     <option value="roll">Roll</option>
                     <option value="pcs">Pcs</option>  
                     <option value="unit">Unit</option>      
                 </select></td>
-                <td><input name="nama_barang[]" type="text" class="form-control"></td>
-                <td><input name="spesifikasi[]" type="text" class="form-control"></td>
-                <td><input name="harga_satuan[]" type="text" class="form-control"></td>
+                <td><input name="nama_barang[]" type="text" class="form-control" required></td>
+                <td><input name="spesifikasi[]" type="text" class="form-control" required></td>
+                <td><input name="harga_satuan[]" type="text" class="form-control" required></td>
                 <td class=""><input href="" class="btn btn-danger mr-2" type="button" name="hapus" id="hapus" value="hapus">
                 </input>
             </td>

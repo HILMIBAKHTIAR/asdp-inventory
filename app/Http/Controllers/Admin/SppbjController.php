@@ -8,7 +8,7 @@ use App\Sppbj;
 use App\Barang;
 use App\Karyawan;
 use App\Mataanggaran;
-
+use Illuminate\Support\Facades\Auth;
 
 class SppbjController extends Controller
 {
@@ -56,8 +56,8 @@ class SppbjController extends Controller
             'nomor_surat' => 'required|max:4'
         ]);
 
-
         $data_sp2bj = Sppbj::create([
+            'user_id' =>  auth()->id(),
             'karyawan_id' => $request->karyawan_id,
             'ttd1' => $request->ttd1,
             'ttd2' => $request->ttd2,
@@ -86,7 +86,7 @@ class SppbjController extends Controller
             ]);
         }
 
-
+        // $data_sp2bj->user_id = Auth::user()->id;
         $data_sp2bj->save();
         return redirect('admin/sp2bj/');
     }

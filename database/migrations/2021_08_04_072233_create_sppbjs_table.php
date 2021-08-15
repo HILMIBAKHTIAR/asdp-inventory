@@ -16,6 +16,7 @@ class CreateSppbjsTable extends Migration
     {
         Schema::create('sppbjs', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('karyawan_id');
             $table->unsignedBigInteger('ttd1');
             $table->unsignedBigInteger('ttd2');
@@ -36,6 +37,7 @@ class CreateSppbjsTable extends Migration
             $table->foreign('ttd3')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('ttd4')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('mataanggaran_id')->references('id')->on('mataanggarans')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
