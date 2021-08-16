@@ -18,7 +18,6 @@ class SppbjController extends Controller
      */
     public function index()
     {
-        // $sp2bj = Sppbj::orderBy('id', 'DESC')->first();
         $sp2bj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         // return dd($sp2bj->jabatan);
         return view('admin.sp2bj.cetak', compact('sp2bj'));
@@ -47,9 +46,37 @@ class SppbjController extends Controller
     {
         // return dd($request->all());
         $request->validate([
-            'nama_pengadaan' => 'required',
-            'tanggal_dibutuhkan' => 'required',
-            'nomor_surat' => 'required|max:4'
+            'karyawan_id'           => 'required',
+            'mataanggaran_id'       => 'required',
+            'nama_pengadaan'        => 'required',
+            'tanggal_dibutuhkan'    => 'required',
+            'nomor_surat'           => 'required|max:3',
+            'jumlah'                => 'required|array',
+            'jumlah.*'              => 'required',
+            'nama_barang'           => 'required|array',
+            'nama_barang.*'         => 'required',
+            'spesifikasi'           => 'required|array',
+            'spesifikasi.*'         => 'required',
+            'harga_satuan'          => 'required|array',
+            'harga_satuan.*'        => 'required',
+            'ttd1'                  => 'required',
+            'ttd2'                  => 'required',
+            'ttd3'                  => 'required',
+            'ttd4'                  => 'required',
+        ],[
+            'karyawan_id.required'          => "nama peminta harus diisi",
+            'mataanggaran_id.required'      => "mataanggaran harus diisi",
+            'nama_pengadaan.required'       => "nama pengadaan harus diisi",
+            'tanggal_dibutuhkan.required'   => "tanggal dibutuhkan harus diisi",
+            'nomor_surat.required|max:3'    => "nomor surat harus diisi",
+            'jumlah.*.required'             => "jumlah barang harus diisi",
+            'nama_barang.*.required'        => "nama barang harus diisi",
+            'spesifikasi.*.required'        => "spesifikasi barang harus diisi",
+            'harga_satuan.*.required'       => "harga satuan barang harus diisi",
+            'ttd1.required'                 => "nama peminta barang harus diisi ",
+            'ttd2.required'                 => "nama manager cabang harus diisi",
+            'ttd3.required'                 => "nama manager keuangan harus diisi",
+            'ttd4.required'                 => "nama manager sdm&umum harus diisi",
         ]);
 
         $data_sp2bj = Sppbj::create([

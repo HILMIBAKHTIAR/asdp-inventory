@@ -51,7 +51,7 @@ class MataAnggaranController extends Controller
         ]);
 
         $data_mataanggaran->save();
-        return redirect('admin\mataanggaran');
+        return redirect('admin\mataanggaran')->with('sukses', 'Mataanggaran berhasil ditambahkan');
     }
 
     /**
@@ -100,7 +100,7 @@ class MataAnggaranController extends Controller
 
 
         $mataanggaran->save();
-        return redirect('admin\mataanggaran');
+        return redirect('admin\mataanggaran')->with('sukses', 'Mataanggaran berhasil diupdate');
     }
 
     /**
@@ -116,6 +116,6 @@ class MataAnggaranController extends Controller
 
         $mataanggaran->delete();
 
-        return redirect('admin\mataanggaran')->with('sukses', 'FIlm berhasil dihapus');
+        return redirect('admin\mataanggaran')->with('sukses', 'Mataanggaran berhasil dihapus');
     }
 }
