@@ -31,4 +31,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('/verspm', 'Admin\VerspmController');
     Route::resource('/karyawan', 'Admin\karyawanController');
     Route::resource('/mataanggaran', 'Admin\MataAnggaranController');
+    Route::resource('/roles', 'Admin\RoleController');
+    Route::resource('/users', 'Admin\UserController');
 });

@@ -210,13 +210,13 @@
   </div>
 
   <div class="container-lg text-center mt-4 mb-4">
-    <button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary" style="margin-right: 4cm; width: 15%;">cetak</button>
-    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#popUpNota" style="width: 15%;">
+    <button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary" style="margin-right: 4cm;">cetak</button>
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Selanjutnya
     </button>
-    
+
     <!-- Modal -->
-    <div class="modal fade" id="popUpNota" tabindex="-1" aria-labelledby="popUpNotaLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -228,8 +228,8 @@
             </h5>
           </div>
           <div class="modal-footer justify-content-center">
-            <a href="{{url('admin/skb/create')}}" class="btn btn-danger mx-auto" style="width: 15%;">TIDAK</a>
-            <a href="{{url('admin/berita/create')}}" class="btn btn-success mx-auto" style="width: 15%;">YA</a>
+            <a href="{{url('admin/skb/create')}}" class="btn btn-danger mx-auto" style="width: 35%;">TIDAK</a>
+            <a href="{{url('admin/berita/create')}}" class="btn btn-success mx-auto" style="width: 35%;">YA</a>
           </div>
         </div>
       </div>
@@ -251,9 +251,11 @@
   </script>
 
   {{-- js boostrap 5.1 --}}
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
 
 </body>
+{{-- js boostrap 5.1 --}}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
 </html>

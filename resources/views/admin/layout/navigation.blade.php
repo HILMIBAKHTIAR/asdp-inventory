@@ -13,8 +13,8 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
- 
-    <li  class="nav-item active " >
+
+    <li class="nav-item active ">
         <a class="nav-link" href="{{url('/admin')}}">
             <i style="color: #e64614" class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dasboard</span></a>
@@ -33,6 +33,20 @@
         <a class="nav-link" href="{{route('mataanggaran.index')}}">
             <i style="color: #e64614" class="fas fa-fw fa fa-file-alt"></i>
             <span>Mata Anggaran</span></a>
+    </li>
+    
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <li class="nav-item active">
+        <a class="nav-link" href="{{route('roles.index')}}">
+            <i style="color: #e64614" class="fas fa-fw fa fa-user-tag"></i>
+            <span>Role</span></a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{{route('users.index')}}">
+            <i style="color: #e64614" class="fas fa-fw fa fa-users"></i>
+            <span>User</span></a>
     </li>
 
     <!-- Divider -->
