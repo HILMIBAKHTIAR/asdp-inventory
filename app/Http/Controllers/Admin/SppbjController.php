@@ -8,8 +8,6 @@ use App\Sppbj;
 use App\Barang;
 use App\Karyawan;
 use App\Mataanggaran;
-use App\User;
-use Illuminate\Support\Facades\Auth;
 
 class SppbjController extends Controller
 {
@@ -51,7 +49,7 @@ class SppbjController extends Controller
         $request->validate([
             'nama_pengadaan' => 'required',
             'tanggal_dibutuhkan' => 'required',
-            // 'nomor_surat' => 'required|max:4'
+            'nomor_surat' => 'required|max:4'
         ]);
 
         $data_sp2bj = Sppbj::create([

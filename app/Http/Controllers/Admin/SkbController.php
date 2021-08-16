@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Barang;
 use App\Http\Controllers\Controller;
+use App\Karyawan;
+use App\Skb;
+use App\Sppbj;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SkbController extends Controller
 {
@@ -15,7 +20,9 @@ class SkbController extends Controller
     public function index()
     {
         //
-        return view('admin.skb.index');
+        $skb = Skb::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
+        $sp2bj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
+        return view('admin.skb.cetak', compact('skb', 'sp2bj'));
     }
 
     /**
@@ -25,7 +32,9 @@ class SkbController extends Controller
      */
     public function create()
     {
-        return view('admin.skb.input');
+        $karyawan = Karyawan::all();
+
+        return view('admin.skb.input', compact('karyawan'));
     }
 
     /**
@@ -36,7 +45,24 @@ class SkbController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'alamat_tujuan' => 'required',
+            'no_telp' => 'required|max:12'
+
+        ]);
+
+        $data_skb = Skb::create([
+            'user_id' => auth()->user()->id,
+            'alamat_tujuan' => $request->alamat_tujuan,
+            'no_telp' => $request->no_telp,
+            'ttd1' => $request->ttd1,
+            'ttd2' => $request->ttd2
+        ]);
+
+        // return dd($data_skb);
+
+        $data_skb->save();
+        return redirect('admin/skb/');
     }
 
     /**

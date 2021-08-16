@@ -42,4 +42,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Sppbj::class);
     }
+
+    public function skb()
+    {
+        return $this->hasMany(Skb::class);
+    }
 }

@@ -15,6 +15,14 @@ class CreateSkbsTable extends Migration
     {
         Schema::create('skbs', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('ttd1');
+            $table->unsignedBigInteger('ttd2');
+            $table->string('alamat_tujuan');
+            $table->string('no_telp');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('ttd1')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('ttd2')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
