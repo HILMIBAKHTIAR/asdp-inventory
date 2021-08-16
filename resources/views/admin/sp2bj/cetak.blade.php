@@ -85,13 +85,13 @@
           <tr style="height: 23px;">
             <td style="width: 213.719px; height: 23px;"><strong>Kepada</strong></td>
             <td style="width: 474.281px; height: 23px;"><strong>&nbsp;General Cabang Ketapang</strong></td>
-            <td style="width: 313px; height: 23px;"><strong>No.SPPB/J : 213/UM/ASDP-KTP/<?= date('Y') ?></strong></td>
+            <td style="width: 313px; height: 23px;"><strong>No.SPPB/J : {{$sp2bj->nomor_surat}}/UM/ASDP-KTP/<?= date('Y') ?></strong></td>
           </tr>
 
           <tr style="height: 23px;">
             <td style="width: 213.719px; height: 23px;"><strong>Dari</strong></td>
             <td style="width: 474.281px; height: 23px;"><strong>&nbsp;{{$sp2bj->karyawan->jabatan}}</strong></td>
-            <td style="width: 313px; height: 23px;"><strong>Tanggal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?= date('d-F-Y') ?></strong></td>
+            <td style="width: 313px; height: 23px;"><strong>Tanggal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?= date('d-M-Y') ?></strong></td>
           </tr>
           <tr style="height: 23px;">
             <td style="width: 213.719px; height: 23px;"><strong>Klasifikasi</strong></td>
@@ -131,22 +131,32 @@
         <tbody>
           @foreach ($sp2bj->barang as $item)
           <tr>
-            <td>{{$loop->iteration}}</td>
-            <td>{{$item->jumlah}}</td>
-            <td>{{$item->satuan}}</td>
-            <td>{{$item->nama_barang}}</td>
-            <td>{{$item->spesifikasi}}</td>
-            <td>{{$item->harga_satuan}}</td>
-            <td>{{$item->harga_satuan * $item->jumlah}}</td>
+            <td><p align="center" style="margin: 4px;">{{$loop->iteration}}</p></td>
+            <td><p style="margin: 4px;">{{$item->jumlah}}</p></td>
+            <td><p style="margin: 4px;">{{$item->satuan}}</p></td>
+            <td><p style="margin: 4px;">{{$item->nama_barang}}</p></td>
+            <td><p style="margin: 4px;">{{$item->spesifikasi}}</p></td>
+            <td><p style="margin: 4px;">Rp {{$item->harga_satuan}}</p></td>
+            <td><p style="margin: 4px;">Rp {{$item->harga_satuan * $item->jumlah}}</p></td>
           </tr>
           @endforeach
           <tr>
             <td colspan="6" class="text-end">
               &nbsp;Jumlah Rp&nbsp;
             </td>
-            <td>{{$sp2bj->barang->map(function($el){
-                return $el->harga_satuan * $el->jumlah;
-              })->sum()}}</td>
+            <td>
+              <p style="margin: 4px;">
+                Rp 
+                {{
+                  $sp2bj->barang->map(
+                    function($el)
+                    {
+                      return $el->harga_satuan * $el->jumlah;
+                    }
+                  )->sum()
+                }}
+              </p>
+              </td>
           </tr>
         </tbody>
       </table>

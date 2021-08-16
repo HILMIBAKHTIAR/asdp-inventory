@@ -8,6 +8,7 @@ class Sppbj extends Model
 {
     //
     protected $fillable = [
+        'user_id',
         'karyawan_id',
         'ttd1',
         'ttd2',
@@ -16,12 +17,18 @@ class Sppbj extends Model
         'mataanggaran_id',
         'nama_pengadaan',
         'tanggal_dibutuhkan',
+        'nomor_surat',
         'catatan_peminta',
         'catatan',
         'catatan_anggaran',
         'catatan_stok',
 
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 
     // Untuk Tabel Barang
     public function barang()

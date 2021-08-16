@@ -8,7 +8,8 @@ use App\Sppbj;
 use App\Barang;
 use App\Karyawan;
 use App\Mataanggaran;
-use Illuminate\Support\Facades\DB;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class SppbjController extends Controller
 {
@@ -19,11 +20,8 @@ class SppbjController extends Controller
      */
     public function index()
     {
-
-
-        // $sp2bj = DB::table('admins')->orderBy('id', 'DESC')->first();
-
-        $sp2bj = Sppbj::orderBy('id', 'DESC')->first();
+        // $sp2bj = Sppbj::orderBy('id', 'DESC')->first();
+        $sp2bj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         // return dd($sp2bj->jabatan);
         return view('admin.sp2bj.cetak', compact('sp2bj'));
     }
@@ -53,10 +51,11 @@ class SppbjController extends Controller
         $request->validate([
             'nama_pengadaan' => 'required',
             'tanggal_dibutuhkan' => 'required',
+            // 'nomor_surat' => 'required|max:4'
         ]);
 
-
         $data_sp2bj = Sppbj::create([
+            'user_id' =>  auth()->id(),
             'karyawan_id' => $request->karyawan_id,
             'ttd1' => $request->ttd1,
             'ttd2' => $request->ttd2,
@@ -65,6 +64,7 @@ class SppbjController extends Controller
             'mataanggaran_id' => $request->mataanggaran_id,
             'nama_pengadaan' => $request->nama_pengadaan,
             'tanggal_dibutuhkan' => $request->tanggal_dibutuhkan,
+            'nomor_surat' => $request->nomor_surat,
             'catatan_peminta' => $request->catatan_peminta,
             'catatan' => $request->catatan,
             'catatan_anggaran' => $request->catatan_anggaran,
@@ -83,7 +83,6 @@ class SppbjController extends Controller
                 'harga_satuan' => $request->harga_satuan[$i]
             ]);
         }
-
 
         $data_sp2bj->save();
         return redirect('admin/sp2bj/');
