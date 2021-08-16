@@ -1,8 +1,6 @@
 @extends('admin.layout.master')
 
 @section('content')
-
-{{-- js role --}}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
@@ -29,40 +27,37 @@
                     <!-- judul form-->
 
                     <div class=" text-start">
-                        <h6 class="m-0 font-weight-bold text-primary mb-3">List</h6>
+                        <h6 class="m-0 font-weight-bold text-primary mb-3">Mata Anggaran</h6>
                     </div>
 
                     <!-- isi form input -->
-                    <form action="{{route('roles.store')}}" method="post">
+                    <form action="{{route('roles.store')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
                         @csrf
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <label>Nama</label>
-                                    <input type="text" name="nama" class="form-control" />
+                                    <label>Nama Permission</label>
+                                    <input type="text" name="name" class="form-control" />
                                     <label for="select" class=" form-control-label">Permission</label>
-                                        <div class="col-12 col-md-9">
-                                            <select name="optionid_permission[]" id="select" class="mul-select" multiple='true'>
-        
-                                                @foreach($allPermission as $permission)
-        
-                                                <option value={{$permission->id}}>
-                                                    {{$permission -> name}}
-                                                </option>
-        
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
+                                        <select name="optionid_permission[]" id="select" class="mul-select" multiple="true">
+
+                                            @foreach($allPermission as $permission)
+
+                                            <option value={{$permission->id}}>
+                                                {{$permission -> name}}
+                                            </option>
+
+                                            @endforeach
+                                        </select>             
                                 </div>
-                                <div class="col-md-12 mt-3">
-                                    <button type="submit" class="btn btn-primary btn-sm">
-                                        <i class="fa fa-dot-circle-o"></i> Simpan
-                                    </button>
-                                    <button type="reset" class="btn btn-danger btn-sm">
-                                        <i class="fa fa-ban"></i> Reset
-                                    </button>
-                                </div>
+                            </div>
+                            <div class="col-md-12 mt-3">
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    <i class="fa fa-dot-circle-o"></i> Simpan
+                                </button>
+                                <button type="reset" class="btn btn-danger btn-sm">
+                                    <i class="fa fa-ban"></i> Reset
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -73,9 +68,5 @@
 
 </div>
 <!-- /.container-fluid -->
-
-<script src="{{asset('backend/vendors/popper.js/dist/umd/popper.min.js')}}"></script>
-<script src="{{url('backend/vendor/jquery/jquery.min.js')}}">
-</script>
 
 @endsection

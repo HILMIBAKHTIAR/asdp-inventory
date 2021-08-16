@@ -4,6 +4,12 @@
 <div class="container-fluid">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
+            @if(session()->get('sukses'))
+            <div class="alert alert-success">
+                {{session()->get('sukses')}}
+            </div>
+
+            @endif
             <h6 class="m-0 font-weight-bold text-primary">Data Karyawan</h6>
             <div class="d-flex justify-content-end">
                 <a href="{{route('karyawan.create')}}" class="btn btn-primary"> Tambah</a>

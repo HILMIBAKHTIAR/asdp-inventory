@@ -52,19 +52,19 @@ class RoleController extends Controller
     {
         
         $this->validate($request, [
-            'name' => 'required',
-            'optionid_permission' => 'required|array',
-            'permission.*' => 'required|string',
+            'name'                  => 'required',
+            'optionid_permission'   => 'required|array',
+            'permission.*'          => 'required|string',
         ], [
-            'name.required' => "nama role harus diisi",
-            'permission.required' => "anda harus memilih permission",
+            'name.required'         => "nama role harus diisi",
+            'permission.required'   => "anda harus memilih permission",
             'permission.*.required' => "anda harus memilih permission"
         ]);
 
         $role = Role::create(['name' => $request->input('name')]);
         $role->syncPermissions($request->input('optionid_permission'));
 
-        return redirect()->action('Admin\RoleController@index');
+        return redirect()->action('Admin\RoleController@index')->with('sukses', 'Role berhasil dibuat');;
     }
 
 
@@ -108,22 +108,22 @@ class RoleController extends Controller
     {
         //
         $this->validate($request, [
-            'nama' => 'required',
+            'name' => 'required',
             'optionid_permission' => 'required|array',
             'permission.*' => 'required|string',
         ], [
-            'nama.required' => "nama role harus diisi",
+            'name.required' => "nama role harus diisi",
             'permission.required' => "anda harus memilih permission",
             'permission.*.required' => "anda harus memilih permission"
         ]);
 
         $role = Role::find($id);
-        $role->name = $request->input('nama');
+        $role->name = $request->input('name');
         $role->update();
 
         $role->syncPermissions($request->input('optionid_permission'));
 
-        return redirect()->action('Admin\RoleController@index');
+        return redirect()->action('Admin\RoleController@index')->with('sukses', 'Role berhasil diupdate');
     }
 
     /**
