@@ -34,6 +34,11 @@
             <i style="color: #e64614" class="fas fa-fw fa fa-file-alt"></i>
             <span>Mata Anggaran</span></a>
     </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{{route('roles.index')}}">
+            <i style="color: #e64614" class="fas fa-fw fa fa-file-alt"></i>
+            <span>Role</span></a>
+    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
