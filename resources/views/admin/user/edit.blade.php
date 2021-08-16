@@ -15,6 +15,20 @@
 
                     <!-- judul form-->
 
+                    @if($errors->any())
+
+                    <div class="alert alert-danger">
+                        <div class="list-group">
+                            @foreach($errors->all() as $error)
+                            <li class="list-group-item">
+                                {{$error}}
+                            </li>
+                            @endforeach
+                        </div>
+                    </div>
+
+                    @endif
+
                     <div class=" text-start">
                         <h6 class="m-0 font-weight-bold text-primary mb-3">Mata Anggaran</h6>
                     </div>
@@ -26,30 +40,31 @@
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    
+
                                     <label>nama</label>
                                     <input type="text" name="name" class="form-control" value="{{$user->name}}" />
                                     <label>Email</label>
-                                    <input type="text" name="email_user" class="form-control" value="{{$user->email}}" />
+                                    <input type="text" name="txtemail_user" class="form-control" value="{{$user->email}}" />
                                     <label>Password</label>
-                                    <input type="text" name="password_user" class="form-control" />
+                                    <input type="password" name="password_user" class="form-control" />
                                     <label>Konfirmasi Password</label>
+                                    <input type="password" name="konfirmasipassword_user" class="form-control" />
 
                                     <label for="select" class=" form-control-label">Permission</label>
                                     <select name="role_user" id="select" class="form-control">
-                                                
+
                                         @foreach ($allRoles as $role)
-                                            <option value="{{$role->id}}"
-                                                @if (in_array($role->id, $userRole))
-                                                selected
-                                                    
-                                                @endif
-                                                >
-                                            {{$role->name}}</option>
-                                         
-                                         @endforeach
-                                            
-                                        </select>
+                                        <option value="{{$role->id}}" @if (in_array($role->id, $userRole))
+                                            selected
+
+                                            @endif
+                                            >
+                                            {{$role->name}}
+                                        </option>
+
+                                        @endforeach
+
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-12 mt-3">
