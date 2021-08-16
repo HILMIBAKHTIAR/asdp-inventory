@@ -16,16 +16,24 @@
                     </div>
 
                     <!-- isi form input -->
-                    <form class="sppbj">
+                    <form action="{{route('berita.store')}}" method="post" class="berita">
+                        @csrf
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label>Kepada Yth</label>
-                                    <input type="text" class="form-control" />
+                                    <select name="karyawan_berita_id" id="" class="form-control" required>
+                                        <option value="">-Pilih-</option>
+                                        @foreach($karyawan as $item)
+                                        <option value="{{$item->id}}">
+                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="col-md-6">
                                     <label>Alamat</label>
-                                    <input type="text" class="form-control">
+                                    <input name="alamat_tujuan" type="text" class="form-control">
                                 </div>
                             </div>
 
@@ -47,6 +55,9 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <tr>
+
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -59,23 +70,43 @@
                             <div class="form-row">
                                 <div class="col-md-4">
                                     <label>Staf Umum</label>
-                                    <input type="text" class="form-control" />
+                                    <select name="ttd1" id="" class="form-control" required>
+                                        <option value="">-Pilih-</option>
+                                        @foreach($karyawan as $item)
+                                        <option value="{{$item->id}}">
+                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="col-md-4">
                                     <label>Manager SDM/Umum</label>
-                                    <input type="text" class="form-control">
+                                    <select name="ttd2" id="" class="form-control" required>
+                                        <option value="">-Pilih-</option>
+                                        @foreach($karyawan as $item)
+                                        <option value="{{$item->id}}">
+                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="col-md-4">
                                     <label>Staf SDM & Umum</label>
-                                    <input type="text" class="form-control">
+                                    <select name="ttd3" id="" class="form-control" required>
+                                        <option value="">-Pilih-</option>
+                                        @foreach($karyawan as $item)
+                                        <option value="{{$item->id}}">
+                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
 
                         <div>
                             <center>
-                                <input type="submit" class="btn btn-success" name="print" id="print" value="Print">
-                                <input type="button" class="btn btn-primary" name="selanjutnya" id="selanjutnya" value="Selanjutnya">
+                                <input type="submit" class="btn btn-success btn-lg" name="selanjutnya" id="selanjutnya" value="Selanjutnya" style="padding: 5px 50px; margin-top: 10px;">
                             </center>
                         </div>
                     </form>

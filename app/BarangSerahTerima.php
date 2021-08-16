@@ -4,8 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Serahterima extends Model
+class BarangSerahTerima extends Model
 {
     //
-    
 }
