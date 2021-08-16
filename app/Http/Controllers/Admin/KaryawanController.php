@@ -57,7 +57,7 @@ class KaryawanController extends Controller
         }
 
         $data_karyawan->save();
-        return redirect('admin\karyawan');
+        return redirect('admin\karyawan')->with('sukses', 'Karyawan berhasil ditambahkan');
     }
 
     /**
@@ -107,7 +107,7 @@ class KaryawanController extends Controller
         $karyawan->nik              = $request->get('nik');
 
         $karyawan->save();
-        return redirect('admin\karyawan');
+        return redirect('admin\karyawan')->with('sukses', 'Karyawan berhasil diupdate');
     }
 
     /**
@@ -122,6 +122,6 @@ class KaryawanController extends Controller
         $karyawan = Karyawan::find($id);
         $karyawan->delete();
 
-        return redirect('admin\karyawan');
+        return redirect('admin\karyawan')->with('sukses', 'Karyawan berhasil dihapus');
     }
 }
