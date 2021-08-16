@@ -15,6 +15,21 @@
 
                     <!-- judul form-->
 
+                    @if($errors->any())
+
+                    <div class="alert alert-danger">
+                        <div class="list-group">
+                            @foreach($errors->all() as $error)
+                            <li class="list-group-item">
+                                {{$error}}
+                            </li>
+                            @endforeach
+                        </div>
+                    </div>
+
+                    @endif
+
+
                     <div class=" text-start">
                         <h6 class="m-0 font-weight-bold text-primary mb-3">Mata Anggaran</h6>
                     </div>
@@ -28,22 +43,22 @@
                                     <label>nama</label>
                                     <input type="text" name="name" class="form-control" />
                                     <label>Email</label>
-                                    <input type="text" name="email_user" class="form-control" />
+                                    <input type="text" name="txtemail_user" class="form-control" />
                                     <label>Password</label>
-                                    <input type="text" name="password_user" class="form-control" />
+                                    <input type="password" name="password_user" class="form-control" />
                                     <label>Konfirmasi Password</label>
-                                    <input type="text" name="konfirmasipassword_user" class="form-control" />
+                                    <input type="password" name="konfirmasipassword_user" class="form-control" />
                                     <label for="select" class=" form-control-label">Role User</label>
-                                        <select name="role_user" id="select" class="mul-select" multiple="true">
+                                    <select name="role_user" id="select" class="form-control">
 
-                                            @foreach($allRoles as $role)
+                                        @foreach($allRoles as $role)
 
-                                            <option value={{$role->id}}>
-                                                {{$role -> name}}
-                                            </option>
+                                        <option value={{$role->id}}>
+                                            {{$role -> name}}
+                                        </option>
 
-                                            @endforeach
-                                        </select>             
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-12 mt-3">

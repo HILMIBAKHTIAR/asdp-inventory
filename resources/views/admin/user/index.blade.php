@@ -4,13 +4,13 @@
 <div class="container-fluid">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
+
             @if(session()->get('sukses'))
             <div class="alert alert-success">
                 {{session()->get('sukses')}}
             </div>
-
             @endif
-            <h6 class="m-0 font-weight-bold text-primary">Data Mata Anggaran</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Tabel User</h6>
             <div class="d-flex justify-content-end">
                 <a href="{{route('users.create')}}" class="btn btn-primary"> Tambah</a>
             </div>
@@ -35,9 +35,9 @@
                             <td>{{$row->email}}</td>
                             <td>
                                 @if (!empty($row->getRoleNames()))
-                                    @foreach ($row->getRoleNames() as $role)
-                                    <label class="badge badge-success">{{$role}}</label>
-                                    @endforeach
+                                @foreach ($row->getRoleNames() as $role)
+                                <label class="badge badge-success">{{$role}}</label>
+                                @endforeach
                                 @endif
                             </td>
                             <td class="d-flex">

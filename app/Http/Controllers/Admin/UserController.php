@@ -5,11 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
-use PhpParser\Node\Expr\New_;
 use Spatie\Permission\Models\Role;
-use Hash;
-use Illuminate\Foundation\Auth\User as AuthUser;
-use DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 
 class UserController extends Controller
@@ -55,21 +53,22 @@ class UserController extends Controller
     {
         //
         $this->validate($request,[
-            'name'=> 'required',
-            'email'=>'required|email|unique:users,email',
-            'password_user'=>'required|same:konfirmasipassword_user',
-            'role_user'=>'required'
+            'name'          => 'required',
+            'txtemail_user' =>'required|email|unique:users,email',
+            'password_user' =>'required|same:konfirmasipassword_user',
+            'role_user'     =>'required'
         ]);
 
         $user=New User();
 
-        $user->name=$request->name;
-        $user->email=$request->email;
-        $user->password=Hash::make($request->password_user);
+        $user->name =$request->name;
+        $user->email =$request->txtemail_user;
+        $user->password = Hash::make($request->password_user);
         $user->save();
         
         $user->assignRole($request->role_user);
-        return redirect()->route('users.index');
+
+        return redirect()->route('users.index')->with('sukses', 'User behasil Dibuat');;
     }
 
     /**
@@ -110,15 +109,15 @@ class UserController extends Controller
     {
         //
         $this->validate($request,[
-            'name'=> 'required',
-            'email'=>'required|email',
+            'name'                  => 'required',
+            'txtemail_user'         =>'required|email',
             // 'txtpassword_user'=>'required|same:txtkonfirmasiPassword_user',
-            'role_user'=>'required'
+            'role_user'             =>'required'
         ]);
 
         $user=User::find($id);
         $user->name=$request->name;
-        $user->email=$request->email;
+        $user->email=$request->txtemail_user;
         if($request->password_user !=null){
             $user->password=Hash::make($request->password_user);
         }
@@ -127,7 +126,7 @@ class UserController extends Controller
         DB::table('model_has_roles')->where('model_id', $id)->delete();
 
         $user->assignRole($request->role_user);
-        return redirect()->route('users.index')->with('sukses, User Berhasil di update');
+        return redirect()->route('users.index')->with('sukses, User berhasil di update');
     }
 
     /**
@@ -142,6 +141,6 @@ class UserController extends Controller
         $user = User::find($id);
         $user ->delete();
         
-        return redirect()->route('users.index')->with('sukses, User Berhasil di hapus');
+        return redirect()->route('users.index')->with('sukses', 'User berhasil di hapus');
     }
 }

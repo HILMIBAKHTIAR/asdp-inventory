@@ -10,7 +10,7 @@
             </div>
 
             @endif
-            <h6 class="m-0 font-weight-bold text-primary">Data Mata Anggaran</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Tabel Role</h6>
             <div class="d-flex justify-content-end">
                 <a href="{{route('roles.create')}}" class="btn btn-primary"> Tambah</a>
             </div>
