@@ -79,11 +79,11 @@
   <table class="border1" width="910" border="1" align="center" cellpadding="0" cellspacing="0" style="width: 1011px;">
     <tbody>
     <tr class="border1" style="height: 30px;">
-    <td class="border1" style="width: 378.812px; height: 30px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;Kepada Yth&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :&nbsp;Staf Umum</td>
-    <td class="border1" style="width: 436.188px; height: 30px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;Nomor&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :&nbsp;SPBJ.91/UM/ASDP-KTP/2021</td>
+    <td class="border1" style="width: 378.812px; height: 30px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;Kepada Yth&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :&nbsp;{{$berita->karyawan->jabatan}}</td>
+    <td class="border1" style="width: 436.188px; height: 30px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;Nomor&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :&nbsp;SPBJ.{{$sp2bj->nomor_surat}}/UM/ASDP-KTP/2021</td>
     </tr>
     <tr style="height: 111px;">
-    <td class="border1" style="width: 378.812px; height: 111px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;Alamat Tujuan&nbsp; &nbsp; &nbsp; :&nbsp;ASDP Ketapang</td>
+    <td class="border1" style="width: 378.812px; height: 111px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;Alamat Tujuan&nbsp; &nbsp; &nbsp; :&nbsp;{{$berita->alamat_tujuan}}</td>
     <td class="border1" style="width: 436.188px; height: 111px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;Tanggal&nbsp; &nbsp; &nbsp; &nbsp; :&nbsp;30 Juni 2021</td>
     </tr>
     <tr style="height: 58.5px;">
@@ -152,7 +152,7 @@
             <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
             <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
             <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US">&nbsp;</span></p>
-            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">(<u>Bakhtiar Rosadi</u>)</span></p>
+            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">(<u>{{$berita->tanda1->nama_karyawan}}</u>)</span></p>
           </td>
           <td style="width: 292.091px;">
             <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Mengetahui,</span></p>
@@ -160,7 +160,7 @@
             <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
             <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
             <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US">&nbsp;</span></p>
-            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">(<u>Oke Santika</u>)</span></p>
+            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">(<u>{{$berita->tanda2->nama_karyawan}}</u>)</span></p>
           </td>
           <td style="width: 270.909px;">
             <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Pengirim,</span></p>
@@ -168,7 +168,7 @@
             <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
             <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
             <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US">&nbsp;</span></p>
-            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">(<u>Roodhin Firmana</u>)</span></p>
+            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">(<u>{{$berita->tanda3->nama_karyawan}}</u>)</span></p>
           </td>
         </tr>
       </tbody>

@@ -166,7 +166,7 @@
           <tr>
           <td style="width: 741px;">&nbsp;</td>
           <td style="width: 615.559px;">
-          <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Ketapang, 30-06-2021</span></p>
+          <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Ketapang, <?= date('d-m-Y')?></span></p>
           </td>
           </tr>
           </tbody>
@@ -198,9 +198,9 @@
   </form>
 </div>
 
-<div class="container-lg text-center mt-4 mb-4">
+<div class="container-lg text-center mt-4 mb-4 pt-4">
   <button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary" style="margin-right: 4cm;">cetak</button>
-  <button name="Selanjutnya" class="btn btn-success">Selanjutnya</button>
+  <a href="{{url('admin/berita/create')}}" name="Selanjutnya" class="btn btn-success">Selanjutnya</a>
 </div>
 
 <script>

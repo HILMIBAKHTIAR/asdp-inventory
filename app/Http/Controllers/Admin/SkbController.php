@@ -33,7 +33,6 @@ class SkbController extends Controller
     public function create()
     {
         $karyawan = Karyawan::all();
-
         return view('admin.skb.input', compact('karyawan'));
     }
 
