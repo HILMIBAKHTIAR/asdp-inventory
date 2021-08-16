@@ -38,8 +38,8 @@ class User extends Authenticatable
     ];
 
 
-    // public function sppbj()
-    // {
-    //     return $this->hasMany('App/Sppbj');
-    // }
+    public function sppbj()
+    {
+        return $this->hasMany(Sppbj::class);
+    }
 }

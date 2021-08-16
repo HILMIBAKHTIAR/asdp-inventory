@@ -8,6 +8,7 @@ use App\Sppbj;
 use App\Barang;
 use App\Karyawan;
 use App\Mataanggaran;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class SppbjController extends Controller
@@ -19,11 +20,8 @@ class SppbjController extends Controller
      */
     public function index()
     {
-
-
-        // $sp2bj = DB::table('admins')->orderBy('id', 'DESC')->first();
-
-        $sp2bj = Sppbj::orderBy('id', 'DESC')->first();
+        // $sp2bj = Sppbj::orderBy('id', 'DESC')->first();
+        $sp2bj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         // return dd($sp2bj->jabatan);
         return view('admin.sp2bj.cetak', compact('sp2bj'));
     }
@@ -53,7 +51,7 @@ class SppbjController extends Controller
         $request->validate([
             'nama_pengadaan' => 'required',
             'tanggal_dibutuhkan' => 'required',
-            'nomor_surat' => 'required|max:4'
+            // 'nomor_surat' => 'required|max:4'
         ]);
 
         $data_sp2bj = Sppbj::create([
@@ -86,7 +84,6 @@ class SppbjController extends Controller
             ]);
         }
 
-        // $data_sp2bj->user_id = Auth::user()->id;
         $data_sp2bj->save();
         return redirect('admin/sp2bj/');
     }
