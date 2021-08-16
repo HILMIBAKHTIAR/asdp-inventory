@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\admin;
 use App\Http\Controllers\Controller;
 use App\Mataanggaran;
 use Illuminate\Http\Request;
