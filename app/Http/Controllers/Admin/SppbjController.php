@@ -8,8 +8,6 @@ use App\Sppbj;
 use App\Barang;
 use App\Karyawan;
 use App\Mataanggaran;
-use App\User;
-use Illuminate\Support\Facades\Auth;
 
 class SppbjController extends Controller
 {

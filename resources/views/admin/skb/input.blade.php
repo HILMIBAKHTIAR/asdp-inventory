@@ -16,46 +16,22 @@
                     </div>
 
                     <!-- isi form input -->
-                    <form class="sppbj">
+                    <form action="{{route('skb.store')}}" method="post" class="skb">
+                        @csrf
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="col-md-6">
-                                    <label>Nama</label>
-                                    <input type="text" class="form-control" />
-                                    <label>NIK</label>
-                                    <input type="text" class="form-control" />
+                                    <label>Alamat</label>
+                                    <input name="alamat_tujuan" class="form-control" />
                                 </div>
                                 <div class="col-md-6">
-                                    <label>Alamat</label>
-                                    <input type="text" class="form-control">
-                                    <label>No Telpon</label>
-                                    <input type="text" class="form-control" />
+                                    <label>No Telepon</label>
+                                    <input name="no_telp" type="text" class="form-control">
                                 </div>
                             </div>
 
                             <br>
-                            <!-- Pengadaan Barang -->
-                            <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Tabel Barang/Jasa</h1>
-                            </div>
-                            <div class="form-row">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>Satuan</th>
-                                                <th>Jumlah</th>
-                                                <th>Nama Barang/Uraian</th>
-                                                <th>Harga satuan</th>
-                                                <th>jumlah</th>
-                                                <th>Keterangan</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                            
 
                             <!-- FORM TTD -->
                             <div class="text-center">
@@ -64,19 +40,32 @@
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label>General/Manager</label>
-                                    <input type="text" class="form-control" />
+                                    <select name="ttd1" id="" class="form-control">
+                                        <option value="">-Pilih-</option>
+                                        @foreach ($karyawan as $item)
+                                        <option value="{{$item->id}}">
+                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="col-md-6">
                                     <label>Manager SDM & Umum</label>
-                                    <input type="text" class="form-control">
+                                    <select name="ttd2" id="" class="form-control">
+                                        <option value="">-Pilih-</option>
+                                        @foreach ($karyawan as $item)
+                                        <option value="{{$item->id}}">
+                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
 
                         <div>
                             <center>
-                                <input type="submit" class="btn btn-success" name="print" id="print" value="Print">
-                                <input type="button" class="btn btn-primary" name="selanjutnya" id="selanjutnya" value="Selanjutnya">
+                                <input type="submit" class="btn btn-success btn-lg" name="selanjutnya" id="selanjutnya" value="Selanjutnya">
                             </center>
                         </div>
                     </form>

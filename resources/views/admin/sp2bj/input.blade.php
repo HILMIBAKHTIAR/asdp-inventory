@@ -181,9 +181,11 @@
                                         </option>
                                         @endforeach
                                     </select>
+                                    
                                     @error('ttd3')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
+                                    
                                     <label>Manager SDM & Umum</label>
                                     <select name="ttd4" id="" class="form-control  @error('ttd4') is-invalid @enderror">
                                         <option value="">-Pilih Manager SDM & Umum-</option>

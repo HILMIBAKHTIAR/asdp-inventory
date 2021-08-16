@@ -91,13 +91,13 @@
         <tr style="height: 223.29px;">
         <td style="width: 1362.67px; height: 223.29px;">
         <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Saya yang bertanda tangan dibawah ini :</p>
-        <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Nama&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : Oke Santika</p>
-        <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Jabatan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : Manager SDM &amp; Umum</p>
-        <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Nik&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 122012178</p>
+        <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Nama&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{$sp2bj->karyawan->nama_karyawan}}</p>
+        <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Jabatan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{$sp2bj->karyawan->jabatan}}</p>
+        <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Nik&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{$sp2bj->karyawan->nik}} </p>
         <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Selanjutnya dinyatakan sebagai &rdquo;Pembuat Pernyataan&rdquo;</p>
         <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Dengan ini menyatakan dengan sebenar-benarnya hal-hal sebagai berikut :</p>
         <ol>
-        <li style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Bahwa Pemberi Pernyataan menyatakan dengan sesungguhnya dan sejujur-jujurnya bahwa harga yang tertera di bawah ini benar adanya dan dapat dikonfirmasi di Futsal Scudett dengan telepon : 085257241370</li>
+        <li style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Bahwa Pemberi Pernyataan menyatakan dengan sesungguhnya dan sejujur-jujurnya bahwa harga yang tertera di bawah ini benar adanya dan dapat dikonfirmasi di {{$skb->alamat_tujuan}} dengan telepon : {{$skb->no_telp}}</li>
         </ol>
         </td>
         </tr>
@@ -105,36 +105,52 @@
         </table>
 
         <table width="910" border="1" align="center" cellpadding="0" cellspacing="0" style="width: 1014px; border-color: black;">
-          <thead>
-            <tr class="text-center">
-              <th class="border1" >No</th>
-              <th class="border1" style="width: 18%;">Nama / Uraian Barang</th>
-              <th class="border1" style="width: 15%;">Jenis / Type / Part Number</th>
-              <th class="border1" style="width: 20%;">Satuan</th>
-              <th class="border1" style="width: 20%;">Jumlah</th>
-              <th class="border1">Harga Barang</th>
-              <th class="border1">Kondisi</th>
-            </tr>
-          </thead>
-          <tbody align="center">
-            <tr>
-              <td  class="border1">1</td>
-              <td class="border1">3</td>
-              <td class="border1">roll</td>
-              <td class="border1">YHaa</td>
-              <td class="border1">Baik</td>
-              <td class="border1">120000</td>
-              <td class="border1">Baik</td>
-            </tr>
-            <tr>
-              <td colspan="5" class="text-end border1 text-center">
-                <strong> &nbsp;TOTAL&nbsp; </strong>
+        <thead>
+          <tr class="text-center">
+            <th class="border1">No</th>
+            <th class="border1">Jumlah</th>
+            <th class="border1">Satuan</th>
+            <th class="border1">Nama Barang</th>
+            <th class="border1">Spesifikasi</th>
+            <th class="border1">Harga Satuan</th>
+            <th class="border1">Jumlah</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach ($sp2bj->barang as $item)
+          <tr>
+            <td class="border1"><p align="center" style="margin: 4px;">{{$loop->iteration}}</p></td>
+            <td class="border1"><p style="margin: 4px;">{{$item->jumlah}}</p></td>
+            <td class="border1"><p style="margin: 4px;">{{$item->satuan}}</p></td>
+            <td class="border1"><p style="margin: 4px;">{{$item->nama_barang}}</p></td>
+            <td class="border1"><p style="margin: 4px;">{{$item->spesifikasi}}</p></td>
+            <td class="border1"><p style="margin: 4px;">Rp {{$item->harga_satuan}}</p></td>
+            <td class="border1"><p style="margin: 4px;">Rp {{$item->harga_satuan * $item->jumlah}}</p></td>
+          </tr>
+          @endforeach
+          <tr>
+            <td colspan="6" class="border1 text-end">
+              &nbsp;Jumlah Rp&nbsp;
+            </td>
+            <td>
+              <p style="margin: 4px;">
+                Rp 
+                {{
+                  $sp2bj->barang->map(
+                    function($el)
+                    {
+                      return $el->harga_satuan * $el->jumlah;
+                    }
+                  )->sum()
+                }}
+              </p>
               </td>
-              <td colspan="2" class="border1"> 9369386239 </td>
-            </tr>
-          </tbody>
-        </table>
+          </tr>
+        </tbody>
+      </table>
+
         <br>
+
         <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1011px;">
           <tbody>
             <tr>
@@ -165,7 +181,7 @@
           <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
           <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
           <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US">&nbsp;</span></p>
-          <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><u>SUHARTO</u></span></p>
+          <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><u>{{$skb->tanda1->nama_karyawan}}</u></span></p>
           </td>
           <td style="width: 616.042px;">
           <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Mengetahui :</span></p>
@@ -173,7 +189,7 @@
           <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
           <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
           <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US">&nbsp;</span></p>
-          <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><u>OKE SANTIKA</u></span></p>
+          <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><u>{{$skb->tanda2->nama_karyawan}}</u></span></p>
           </td>
           </tr>
           </tbody>
