@@ -60,20 +60,6 @@
                                 </div>
                             </div>
 
-                            <div class="form-row mt-2">
-                                <div class="col-md-5">
-                                </div>
-                                <div class="col-md-2 text-center">
-                                    <label>Nomor Surat</label>
-                                    <input type="text" name="nomor_surat" class="form-control @error('nomor_surat') is-invalid @enderror" value="{{old('nomor_surat')}}" />
-                                    @error('nomor_surat')
-                                    <div class="invalid-feedback">{{$message}}</div>
-                                    @enderror
-                                </div>
-                                <div class="col-md-5">
-                                </div>
-                            </div>
-
                             <br>
                             <!-- Pengadaan Barang -->
                             <div class="text-center">
