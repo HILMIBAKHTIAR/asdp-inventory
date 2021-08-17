@@ -8,6 +8,8 @@ use App\Sppbj;
 use App\Barang;
 use App\Karyawan;
 use App\Mataanggaran;
+use Illuminate\Support\Carbon;
+use PhpParser\Node\Expr\New_;
 
 class SppbjController extends Controller
 {
@@ -50,7 +52,6 @@ class SppbjController extends Controller
             'mataanggaran_id'       => 'required',
             'nama_pengadaan'        => 'required',
             'tanggal_dibutuhkan'    => 'required',
-            'nomor_surat'           => 'required|max:3',
             'jumlah'                => 'required|array',
             'jumlah.*'              => 'required',
             'nama_barang'           => 'required|array',
@@ -68,7 +69,6 @@ class SppbjController extends Controller
             'mataanggaran_id.required'      => "mataanggaran harus diisi",
             'nama_pengadaan.required'       => "nama pengadaan harus diisi",
             'tanggal_dibutuhkan.required'   => "tanggal dibutuhkan harus diisi",
-            'nomor_surat.required|max:3'    => "nomor surat harus diisi",
             'jumlah.*.required'             => "jumlah barang harus diisi",
             'nama_barang.*.required'        => "nama barang harus diisi",
             'spesifikasi.*.required'        => "spesifikasi barang harus diisi",
@@ -78,6 +78,8 @@ class SppbjController extends Controller
             'ttd3.required'                 => "nama manager keuangan harus diisi",
             'ttd4.required'                 => "nama manager sdm&umum harus diisi",
         ]);
+
+        $nomorSurat = Sppbj::whereYear("created_at", Carbon::now()->year)->count();
 
         $data_sp2bj = Sppbj::create([
             'user_id' =>  auth()->id(),
@@ -89,12 +91,13 @@ class SppbjController extends Controller
             'mataanggaran_id' => $request->mataanggaran_id,
             'nama_pengadaan' => $request->nama_pengadaan,
             'tanggal_dibutuhkan' => $request->tanggal_dibutuhkan,
-            'nomor_surat' => $request->nomor_surat,
+            'nomor_surat' => $nomorSurat +1,
             'catatan_peminta' => $request->catatan_peminta,
             'catatan' => $request->catatan,
             'catatan_anggaran' => $request->catatan_anggaran,
             'catatan_stok' => $request->catatan_stok,
         ]);
+    
 
         // return dd($data_sp2bj);
 

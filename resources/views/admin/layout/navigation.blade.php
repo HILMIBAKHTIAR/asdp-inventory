@@ -24,6 +24,10 @@
             <i style="color: #e64614" class="fas fa-fw fa fa-book"></i>
             <span>Pengadaan</span></a>
     </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+    
     <li class="nav-item active">
         <a class="nav-link" href="{{route('karyawan.index')}}">
             <i style="color: #e64614" class="fas fa-fw fa fa-user"></i>
@@ -34,7 +38,7 @@
             <i style="color: #e64614" class="fas fa-fw fa fa-file-alt"></i>
             <span>Mata Anggaran</span></a>
     </li>
-    
+
     <!-- Divider -->
     <hr class="sidebar-divider">
 
