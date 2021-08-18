@@ -15,4 +15,8 @@ class Barang extends Model
         'harga_satuan',
     ];
 
+    public function berita()
+    {
+        return $this->hasMany(Berita::class);
+    }
 }

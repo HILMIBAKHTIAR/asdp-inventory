@@ -39,32 +39,73 @@
 
                             <br>
                             <!-- Pengadaan Barang -->
-                            <div class="text-center">
+                            <div class="text-center mt-4">
                                 <h1 class="h4 text-gray-900 mb-4">Tabel Barang/Jasa</h1>
                             </div>
+
+                            <div class="form-row mb-2">
+                                <div class="col-md-11">
+                                    <h6 class="text-gray-900 mb-4">Jika barang tidak sesuai silahkkan edit kembali</h6>
+                                </div>
+                                <div class="col-md-1 text-right">
+                                    
+                                </div>
+                            </div>
+
                             <div class="form-row">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
+                                                <th class="text-center">No</th>
                                                 <th>Nama Barang</th>
                                                 <th>Jenis/Spesifikasi</th>
                                                 <th>Satuan</th>
-                                                <th>Jumlah</th>
+                                                <th>Jumlah Barang</th>
                                                 <th>Harga Barang</th>
+                                                <th>Jumlah</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($sp2bj->barang as $item)
                                             <tr>
-
+                                                <td class="text-center"><p>{{$loop->iteration}}</p></td>
+                                                <td><p style="margin: 4px;">{{$item->nama_barang}}</p></td>
+                                                <td><p style="margin: 4px;">{{$item->spesifikasi}}</p></td>
+                                                <td><p style="margin: 4px;">{{$item->satuan}}</p></td>
+                                                <td><p style="margin: 4px;">{{$item->jumlah}}</p></td>
+                                                <td><p class="text-right" style="margin: 4px;">Rp. {{number_format($item->harga_satuan, 0,',','.')}},00</p></td>
+                                                <td><p class="text-right" style="margin: 4px;">Rp. {{number_format($item->harga_satuan * $item->jumlah ,0,',','.') }},00</p></td>
                                             </tr>
+                                            @endforeach
+                                            <tr>
+                                                <td colspan="6" class="text-end">
+                                                  &nbsp;Jumlah Rp&nbsp;
+                                                </td>
+                                                <td>
+                                                  <p class="text-right" style="margin: 4px;">
+                                                    Rp.
+                                                    {{number_format(
+                                                      $sp2bj->barang->map(
+                                                        function($el)
+                                                        {
+                                                          return $el->harga_satuan * $el->jumlah;
+                                                        }
+                                                      )->sum(), 0,',','.')
+                                                    }},00
+                                                  </p>
+                                                  </td>
+                                                </tr>
+                                                <div class="text-left mb-4">
+                                                <a class="btn btn-primary" href="{{route('berita.edit',$item->sppbj_id)}}">Edit</a>
+                                                </div>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
 
                             <!-- FORM TTD -->
-                            <div class="text-center">
+                            <div class="text-center mt-4">
                                 <h1 class="h4 text-gray-900 mb-4">Form Tanda Tangan</h1>
                             </div>
                             <div class="form-row">
