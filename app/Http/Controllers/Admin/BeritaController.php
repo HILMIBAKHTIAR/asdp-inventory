@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-
+use App\Barang;
 use App\Http\Controllers\Controller;
 use App\Karyawan;
 use App\Berita;
@@ -30,8 +30,9 @@ class BeritaController extends Controller
      */
     public function create()
     {
+        $sp2bj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         $karyawan = Karyawan::all();
-        return view('admin.berita.input', compact('karyawan'));
+        return view('admin.berita.input', compact('karyawan', 'sp2bj'));
     }
 
     /**
@@ -80,7 +81,9 @@ class BeritaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data_barang = Sppbj::find($id);
+        // return dd($id);
+        return view('admin.berita.edit', compact('data_barang'));
     }
 
     /**
@@ -92,7 +95,30 @@ class BeritaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $request->validate([
+
+            'jumlah'             => 'required',
+            'nama_barang'        => 'required',
+            'spesifikasi'        => 'required',
+            'harga_satuan'       => 'required',
+        ]);
+
+        if (count($request->id) > 0) {
+            foreach ($request->id as $item) {
+                $array_barang = array(
+                    'jumlah' => $request->jumlah[$item],
+                    'satuan' => $request->satuan[$item],
+                    'nama_barang' => $request->nama_barang[$item],
+                    'spesifikasi' => $request->spesifikasi[$item],
+                    'harga_satuan' => $request->harga_satuan[$item]
+                );
+                $data_barang = Barang::where('id', $request->id[$item])->first();
+                $data_barang->update($array_barang);
+            }
+        }
+        return dd($data_barang);
+        // return redirect('admin\berita');
     }
 
     /**

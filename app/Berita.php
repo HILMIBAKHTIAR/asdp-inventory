@@ -20,10 +20,10 @@ class Berita extends Model
         return $this->belongsTo('App/User');
     }
 
-    // public function barangBerita()
-    // {
-    //     return $this->hasMany(BarangSerahTerima::class);
-    // }
+    public function barang()
+    {
+        return $this->belongsTo(Barang::class);
+    }
 
     public function karyawan()
     {

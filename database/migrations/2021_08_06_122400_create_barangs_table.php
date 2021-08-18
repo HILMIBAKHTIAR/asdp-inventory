@@ -18,7 +18,11 @@ class CreateBarangsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('sppbj_id');
             $table->integer('jumlah');
-            $table->enum('satuan', ['roll', 'unit', 'pcs']);
+            $table->enum('satuan', [
+                'roll',
+                'unit',
+                'pcs'
+            ]);
             $table->string('nama_barang');
             $table->string('spesifikasi');
             $table->integer('harga_satuan');

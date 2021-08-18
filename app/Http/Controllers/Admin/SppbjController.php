@@ -9,7 +9,6 @@ use App\Barang;
 use App\Karyawan;
 use App\Mataanggaran;
 use Illuminate\Support\Carbon;
-use PhpParser\Node\Expr\New_;
 
 class SppbjController extends Controller
 {
@@ -64,7 +63,7 @@ class SppbjController extends Controller
             'ttd2'                  => 'required',
             'ttd3'                  => 'required',
             'ttd4'                  => 'required',
-        ],[
+        ], [
             'karyawan_id.required'          => "nama peminta harus diisi",
             'mataanggaran_id.required'      => "mataanggaran harus diisi",
             'nama_pengadaan.required'       => "nama pengadaan harus diisi",
@@ -91,13 +90,13 @@ class SppbjController extends Controller
             'mataanggaran_id' => $request->mataanggaran_id,
             'nama_pengadaan' => $request->nama_pengadaan,
             'tanggal_dibutuhkan' => $request->tanggal_dibutuhkan,
-            'nomor_surat' => $nomorSurat +1,
+            'nomor_surat' => $nomorSurat + 1,
             'catatan_peminta' => $request->catatan_peminta,
             'catatan' => $request->catatan,
             'catatan_anggaran' => $request->catatan_anggaran,
             'catatan_stok' => $request->catatan_stok,
         ]);
-    
+
 
         // return dd($data_sp2bj);
 

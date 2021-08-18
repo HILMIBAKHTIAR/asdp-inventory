@@ -124,8 +124,8 @@
             <td class="border1"><p style="margin: 4px;">{{$item->satuan}}</p></td>
             <td class="border1"><p style="margin: 4px;">{{$item->nama_barang}}</p></td>
             <td class="border1"><p style="margin: 4px;">{{$item->spesifikasi}}</p></td>
-            <td class="border1"><p style="margin: 4px;">Rp {{$item->harga_satuan}}</p></td>
-            <td class="border1"><p style="margin: 4px;">Rp {{$item->harga_satuan * $item->jumlah}}</p></td>
+            <td class="border1"><p style="margin: 4px;">Rp. {{ number_format($item->harga_satuan, 0,',','.') }},00</p></td>
+            <td class="border1"><p style="margin: 4px;">Rp. {{ number_format($item->harga_satuan * $item->jumlah ,0,',','.') }},00</p></td>
           </tr>
           @endforeach
           <tr>
@@ -134,15 +134,15 @@
             </td>
             <td>
               <p style="margin: 4px;">
-                Rp 
-                {{
+                Rp. 
+                {{number_format(
                   $sp2bj->barang->map(
                     function($el)
                     {
                       return $el->harga_satuan * $el->jumlah;
                     }
-                  )->sum()
-                }}
+                  )->sum(), 0,',','.')
+                }},00
               </p>
               </td>
           </tr>
