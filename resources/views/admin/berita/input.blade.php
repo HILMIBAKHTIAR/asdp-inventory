@@ -12,7 +12,7 @@
                     <!-- judul form-->
 
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Bukti Serah Terima Barang</h1>
+                        <h1 class="h4 text-gray-900 mb-2">Bukti Serah Terima Barang</h1>
                     </div>
 
                     <!-- isi form input -->
@@ -45,7 +45,7 @@
 
                             <div class="form-row mb-2">
                                 <div class="col-md-11">
-                                    <h6 class="text-gray-900 mb-4">Jika barang tidak sesuai silahkkan edit kembali</h6>
+                                    <h6 class="text-gray-900 mb-2">Jika barang tidak sesuai silahkkan edit kembali</h6>
                                 </div>
                                 <div class="col-md-1 text-right">
                                     

@@ -15,7 +15,72 @@
                         <h1 class="h4 text-gray-900 mb-4">Bukti Serah Terima Barang</h1>
                     </div>
 
+
+                    <div class="form-row mt-2 mb-3 text-right">
+                        <div class="col-md-9">
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> Tambah </button>
+                        </div>
+                    </div>
+
+                      
+                      <!-- Modal -->
+                      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                            
+
+                                        <div class="form-group">
+                                            <label>Nama Barang</label>
+                                            <input name="nama_barang" type="text" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Jenis/Spesifikasi</label>
+                                            <input name="spesifikasi" type="text" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Satuan</label>
+                                            <select name="satuan[]" type="text"  class="form-control @error('jumlah.*') is-invalid @enderror">
+                                                <option value="roll">Roll</option>
+                                                <option value="pcs">Pcs</option>
+                                                <option value="unit">Unit</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Jumlah Barang</label>
+                                            <input name="jumlah" type="text" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Harga Barang (Rp)</label>
+                                            <input name="harga_satuan" type="text" class="form-control">
+                                        </div>
+                                        
+                                    
+
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary simpan">Save changes</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
                     <!-- isi form input -->
+
+                    <input type="hidden" name="sppbj_id" value="{{$id}}">
                     <form action="{{route('berita.update',$data_barang->id)}}" method="post" class="berita">
                         @method('PATCH')
                         @csrf
@@ -29,32 +94,33 @@
                                         <th>Satuan</th>
                                         <th>Jumlah Barang</th>
                                         <th>Harga Barang</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($data_barang->barang as $item)    
+                                    @foreach ($data_barang->barang as $item)
+                                    <input type="hidden" name="id[]" value="{{$item->id}}">    
                                     <tr>
                                         <td class="text-center"><p>{{$loop->iteration}}</p></td>
                                         <td><input name="nama_barang[]" type="text" value="{{$item->nama_barang}}" class="form-control @error('jumlah.*') is-invalid @enderror"></td>
                                         <td><input name="spesifikasi[]" type="" value="{{$item->spesifikasi}}" class="form-control @error('jumlah.*') is-invalid @enderror"></td>
                                         <td>
                                             <select name="satuan[]" type="text"  class="form-control @error('jumlah.*') is-invalid @enderror">
-                                                @foreach ($data_barang->barang as $item)
-                                                <option value="{{$item->satuan}}" 
-                                                    @if ($item->satuan == $data_barang->barang)
-                                                        selected 
-                                                    @endif>{{$item->satuan}}</option>
-                                                @endforeach
+                                                <option value="roll">Roll</option>
+                                                <option value="pcs">Pcs</option>
+                                                <option value="unit">Unit</option>
                                             </select>
                                         </td>
                                         <td><input name="jumlah[]" type="text" value="{{$item->jumlah}}" class="form-control @error('jumlah.*') is-invalid @enderror"></td>
                                         <td><input name="harga_satuan[]" type="text" value="{{$item->harga_satuan}}" class="form-control @error('jumlah.*') is-invalid @enderror"></td>
+                                        <td><input class="btn btn-danger mr-2 hapus" type="button" name="hapus" data-id="{{$item->id}}" value="Hapus"></td>
                                     </tr>
+                                    
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
-
+                        
                         <div>
                             <center>
                                 <button type="submit" class="btn btn-success btn-lg">Update</button>
@@ -65,7 +131,42 @@
             </div>
         </div>
     </div>
-
 </div>
+
+
+
+<script>
+    $('.simpan').on('click', function(){
+        $.ajax({
+            url:'{{url("admin/berita/tambah")}}',
+            method:'post',
+            data:{
+                _token:'{{csrf_token()}}',
+                sppbj_id: $('input[name=sppbj_id]').val(),
+                jumlah: $('input[name=jumlah]').val(),
+                satuan: $('input[name=satuan]').val(),
+                nama_barang: $('input[name=nama_barang]').val(),
+                spesifikasi: $('input[name=spesifikasi]').val(),
+                harga_satuan: $('input[name=harga_satuan]').val()
+            },
+            dataType:'json',
+            success(){
+                alert('Data Berhasil Ditambahkan');
+                window.location.reload();
+            }
+        });
+    });
+
+    $('.hapus').on('click',function(){
+        $.ajax({
+            url:'{{url("/")}}'+'/admin/berita/'+$(this).data('id')+'/hapus',
+            dataType:'json',
+            success(){
+                alert('Data Berhasil Dihapus');
+                window.location.reload();
+            }
+        });
+    });
+</script>
 <!-- /.container-fluid -->
 @endsection

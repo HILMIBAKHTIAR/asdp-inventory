@@ -117,7 +117,7 @@
         </tr>
         <tr>
           <td colspan="5" class="text-end border1 text-center">
-            <strong> &nbsp;TOTAL&nbsp; </strong>
+            <strong> &nbsp;Total&nbsp; </strong>
           </td>
           <td colspan="2" class="border1"> 9369386239 </td>
         </tr>
@@ -126,7 +126,7 @@
 
     <br>
 
-    <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1011px;"">
+    <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1011px;">
     <tbody>
     <tr>
     <td style="width: 818.469px;">
@@ -178,7 +178,7 @@
 
 <div class="container-lg text-center mt-4 mb-4">
   <button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary" style="margin-right: 4cm;">cetak</button>
-  <button name="Selanjutnya" class="btn btn-success">Selanjutnya</button>
+  <a href="{{url('admin/spm/create')}}" name="Selanjutnya" class="btn btn-success">Selanjutnya</a>
 </div>
 
 <script>

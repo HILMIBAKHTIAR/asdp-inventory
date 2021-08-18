@@ -83,7 +83,7 @@ class BeritaController extends Controller
     {
         $data_barang = Sppbj::find($id);
         // return dd($id);
-        return view('admin.berita.edit', compact('data_barang'));
+        return view('admin.berita.edit', compact('data_barang', 'id'));
     }
 
     /**
@@ -95,6 +95,7 @@ class BeritaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // return dd($request->all());
 
         $request->validate([
 
@@ -105,20 +106,20 @@ class BeritaController extends Controller
         ]);
 
         if (count($request->id) > 0) {
-            foreach ($request->id as $item) {
+            foreach ($request->id as $key => $item) {
                 $array_barang = array(
-                    'jumlah' => $request->jumlah[$item],
-                    'satuan' => $request->satuan[$item],
-                    'nama_barang' => $request->nama_barang[$item],
-                    'spesifikasi' => $request->spesifikasi[$item],
-                    'harga_satuan' => $request->harga_satuan[$item]
+                    'jumlah' => $request->jumlah[$key],
+                    'satuan' => $request->satuan[$key],
+                    'nama_barang' => $request->nama_barang[$key],
+                    'spesifikasi' => $request->spesifikasi[$key],
+                    'harga_satuan' => $request->harga_satuan[$key]
                 );
-                $data_barang = Barang::where('id', $request->id[$item])->first();
+                $data_barang = Barang::where('id', $item)->first();
                 $data_barang->update($array_barang);
             }
         }
-        return dd($data_barang);
-        // return redirect('admin\berita');
+        // return dd($data_barang);
+        return redirect('admin\berita\create');
     }
 
     /**
@@ -130,5 +131,21 @@ class BeritaController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function tambahBarang(Request $request)
+    {
+        Barang::create($request->only([
+            'sppbj_id', 'jumlah', 'satuan', 'nama_barang', 'spesifikasi', 'harga_satuan'
+        ]));
+
+        return response()->json(['status' => 'sukses']);
+    }
+
+    public function hapusBarang($barang)
+    {
+        $barang = Barang::where('id', $barang)->delete();
+
+        return response()->json(['status' => $barang]);
     }
 }
