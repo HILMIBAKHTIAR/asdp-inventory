@@ -30,7 +30,7 @@
                     @endif
 
                     <div class=" text-start">
-                        <h6 class="m-0 font-weight-bold text-primary mb-3">Mata Anggaran</h6>
+                        <h6 class="m-0 font-weight-bold text-primary mb-3">User Edit</h6>
                     </div>
 
                     <!-- isi form input -->
