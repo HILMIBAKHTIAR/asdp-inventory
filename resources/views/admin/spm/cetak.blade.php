@@ -203,29 +203,8 @@
 
 <div class="container-lg text-center mt-4 mb-4">
   <button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary" style="margin-right: 4cm;">cetak</button>
-  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Selanjutnya
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <h5>
-            Apakah Anda Memiliki Nota Digital?
-          </h5>
-        </div>
-        <div class="modal-footer justify-content-center">
-          <a href="{{url('admin/skb/create')}}" class="btn btn-danger mx-auto" style="width: 35%;">TIDAK</a>
-          <a href="{{url('admin/berita/create')}}" class="btn btn-success mx-auto" style="width: 35%;">YA</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <a href="{{url('admin/verspm/create')}}" name="Selanjutnya" class="btn btn-success">Selanjutnya</a>
+
 </div>
 
 <script>

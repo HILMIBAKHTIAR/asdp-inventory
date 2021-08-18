@@ -15,7 +15,7 @@ class SpmController extends Controller
     public function index()
     {
         //
-        return view('admin.spm.index');
+        return view('admin.spm.cetak');
     }
 
     /**
@@ -26,6 +26,7 @@ class SpmController extends Controller
     public function create()
     {
         //
+        return view('admin.spm.input');
     }
 
     /**
