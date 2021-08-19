@@ -19,14 +19,6 @@
                     <form action="{{route('skb.store')}}" method="post" class="skb">
                         @csrf
                         <div class="form-group">
-                            {{-- <div class="form-row">
-                                <div class="col-md-6">
-                                    
-                                </div>
-                                <div class="col-md-6">
-                                    
-                                </div>
-                            </div> --}}
                             <div class="form-row">
                                 <div class="col-md-4">
                                     <label>Alamat</label>
