@@ -81,7 +81,7 @@
 
       <br>
 
-      <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1014px; border-color: black;">
+      <table  width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1014px; border-color: black;">
         <tbody>
           <tr style="height: 23px;">
             <td style="width: 213.719px; height: 23px;"><strong>Kepada</strong></td>
@@ -92,7 +92,7 @@
           <tr style="height: 23px;">
             <td style="width: 213.719px; height: 23px;"><strong>Dari</strong></td>
             <td style="width: 474.281px; height: 23px;"><strong>&nbsp;{{$sp2bj->karyawan->jabatan}}</strong></td>
-            <td style="width: 313px; height: 23px;"><strong>Tanggal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?= date('d-M-Y') ?></strong></td>
+            <td style="width: 313px; height: 23px;"><strong>Tanggal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{$today}}</strong></td>
           </tr>
           <tr style="height: 23px;">
             <td style="width: 213.719px; height: 23px;"><strong>Klasifikasi</strong></td>
@@ -120,32 +120,32 @@
       <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1014px; border-color: black;">
         <thead>
           <tr class="text-center">
-            <th>No</th>
-            <th>Jumlah</th>
-            <th>Satuan</th>
-            <th>Nama Barang</th>
-            <th>Spesifikasi</th>
-            <th>Harga Satuan</th>
-            <th>Jumlah</th>
+            <th style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">No</th>
+            <th style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Jumlah</th>
+            <th style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Satuan</th>
+            <th style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Nama Barang</th>
+            <th style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Spesifikasi</th>
+            <th style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Harga Satuan</th>
+            <th style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Jumlah</th>
           </tr>
         </thead>
         <tbody>
           @foreach ($sp2bj->barang as $item)
           <tr>
-            <td><p align="center" style="margin: 4px;">{{$loop->iteration}}</p></td>
-            <td><p style="margin: 4px;">{{$item->jumlah}}</p></td>
-            <td><p style="margin: 4px;">{{$item->satuan}}</p></td>
-            <td><p style="margin: 4px;">{{$item->nama_barang}}</p></td>
-            <td><p style="margin: 4px;">{{$item->spesifikasi}}</p></td>
-            <td><p style="margin: 4px;">Rp. {{ number_format($item->harga_satuan, 0,',','.') }},00</p></td>
-            <td><p style="margin: 4px;">Rp. {{ number_format($item->harga_satuan * $item->jumlah ,0,',','.') }},00</p></td>
+            <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p align="center" style="margin: 4px;">{{$loop->iteration}}</p></td>
+            <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 4px;">{{$item->jumlah}}</p></td>
+            <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 4px;">{{$item->satuan}}</p></td>
+            <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 4px;">{{$item->nama_barang}}</p></td>
+            <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 4px;">{{$item->spesifikasi}}</p></td>
+            <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" class="text-end"><p style="margin: 4px;">Rp. {{ number_format($item->harga_satuan, 0,',','.') }},00</p></td>
+            <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" class="text-end"><p style="margin: 4px;">Rp. {{ number_format($item->harga_satuan * $item->jumlah ,0,',','.') }},00</p></td>
           </tr>
           @endforeach
           <tr>
-            <td colspan="6" class="text-end">
+            <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" colspan="6" class="text-end">
               &nbsp;Jumlah Rp&nbsp;
             </td>
-            <td>
+            <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" class="text-end">
               <p style="margin: 4px;">
                 Rp.
                 {{number_format(
@@ -166,40 +166,44 @@
       <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1012px;">
         <tbody>
           <tr>
-            <td style="width: 613.266px;"><strong>Catatan Peminta Barang &amp; Jasa : {{$sp2bj->catatan_peminta}}</strong></td>
+            <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" style="width: 613.266px;"><strong>Catatan Peminta Barang &amp; Jasa : {{$sp2bj->catatan_peminta}}</strong></td>
             <td style="width: 394.734px;">
-              <p>Tgl&nbsp; <?= date('d-F-Y') ?></p>
-              <p align='center'>Peminta Barang/Jasa</p>
+              <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Tgl&nbsp; {{$today}}</p>
+              <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" align='center'>Peminta Barang/Jasa</p>
               <p>&nbsp;</p>
-              <p align='center'>{{$sp2bj->tanda1->nama_karyawan}}</p>
-              <p align='center'>Manager SDM &amp; Umum</p>
+              <p>&nbsp;</p>
+              <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" align='center'>( {{$sp2bj->tanda1->nama_karyawan}} )</p>
+              <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" align='center'>Manager SDM &amp; Umum</p>
             </td>
           </tr>
           <tr>
-            <td style="width: 613.266px;"><strong>Catatan : {{$sp2bj->catatan}}</strong></td>
-            <td style="width: 394.734px;">
-              <p>Tgl&nbsp; <?= date('d-F-Y') ?></p>
+            <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" style="width: 613.266px;"><strong>Catatan : {{$sp2bj->catatan}}</strong></td>
+            <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" style="width: 394.734px;">
+              <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Tgl&nbsp; {{$today}}</p>
               <p>&nbsp;</p>
-              <p align='center'>{{$sp2bj->tanda2->nama_karyawan}}</p>
-              <p align='center'>General Manager Cabang Ketapang</p>
+              <p>&nbsp;</p>
+              <p align='center'>( {{$sp2bj->tanda2->nama_karyawan}} )</p>
+              <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" align='center'>General Manager Cabang Ketapang</p>
             </td>
           </tr>
           <tr>
-            <td style="width: 613.266px;"><strong>Catatan Ketersediaan Anggaran : {{$sp2bj->catatan_anggaran}}</strong></td>
+            <td style="width: 613.266px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><strong>Catatan Ketersediaan Anggaran : {{$sp2bj->catatan_anggaran}}</strong></td>
             <td style="width: 394.734px;">
-              <p>Tgl&nbsp; <?= date('d-F-Y') ?></p>
+              <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Tgl&nbsp; {{$today}}</p>
               <p>&nbsp;</p>
-              <p align='center'>{{$sp2bj->tanda3->nama_karyawan}}</p>
-              <p align='center'>Manager Keuangan</p>
+              <p>&nbsp;</p>
+              <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" align='center'>( {{$sp2bj->tanda3->nama_karyawan}} )</p>
+              <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" align='center'>Manager Keuangan</p>
             </td>
           </tr>
           <tr>
-            <td style="width: 613.266px;"><strong>Catatan Ketersediaan Stok : {{$sp2bj->catatan_stok}}</strong></td>
+            <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" width: 613.266px;"><strong>Catatan Ketersediaan Stok : {{$sp2bj->catatan_stok}}</strong></td>
             <td style="width: 394.734px;">
-              <p>Tgl&nbsp; <?= date('d-F-Y') ?></p>
+              <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Tgl&nbsp; {{$today}}</p>
               <p>&nbsp;</p>
-              <p align='center'>{{$sp2bj->tanda4->nama_karyawan}}</p>
-              <p align='center'>Manager SDM &amp; Umum</p>
+              <p>&nbsp;</p>
+              <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" align='center'>( {{$sp2bj->tanda4->nama_karyawan}} )</p>
+              <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" align='center'>Manager SDM &amp; Umum</p>
             </td>
           </tr>
         </tbody>
