@@ -25,6 +25,7 @@
             <span>Pengadaan</span></a>
     </li>
 
+    @role('admin')
     <!-- Divider -->
     <hr class="sidebar-divider">
     
@@ -55,5 +56,6 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider">
+    @endrole
 
 </ul>
