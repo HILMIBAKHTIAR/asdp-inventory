@@ -13,6 +13,11 @@ class MataAnggaranController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware(['role:admin']);
+    }
+    
     public function index()
     {
         //
