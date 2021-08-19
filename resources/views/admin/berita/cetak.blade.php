@@ -79,12 +79,12 @@
   <table class="border1" width="910" border="1" align="center" cellpadding="0" cellspacing="0" style="width: 1011px;">
     <tbody>
     <tr class="border1" style="height: 30px;">
-    <td class="border1" style="width: 378.812px; height: 30px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;Kepada Yth&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :&nbsp;{{$berita->karyawan->jabatan}}</td>
+    <td class="border1" style="width: 378.812px; height: 30px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;Kepada Yth&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :&nbsp;{{$berita->karyawanBerita->jabatan}}</td>
     <td class="border1" style="width: 436.188px; height: 30px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;Nomor&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :&nbsp;SPBJ.{{$sp2bj->nomor_surat}}/UM/ASDP-KTP/2021</td>
     </tr>
     <tr style="height: 111px;">
     <td class="border1" style="width: 378.812px; height: 111px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;Alamat Tujuan&nbsp; &nbsp; &nbsp; :&nbsp;{{$berita->alamat_tujuan}}</td>
-    <td class="border1" style="width: 436.188px; height: 111px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;Tanggal&nbsp; &nbsp; &nbsp; &nbsp; :&nbsp;{{$today}}</td>
+    <td class="border1" style="width: 436.188px; height: 111px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;Tanggal&nbsp; &nbsp; &nbsp; &nbsp; :&nbsp;{{tanggal_indonesia($berita->tanggal_surat)}}</td>
     </tr>
     <tr style="height: 58.5px;">
     <td class="border1" style="width: 815px; height: 58.5px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" colspan="2">&nbsp;Dasar Pengiriman No. / Kontrak/ SPBJ / Permintaan (jika ada) :</td>

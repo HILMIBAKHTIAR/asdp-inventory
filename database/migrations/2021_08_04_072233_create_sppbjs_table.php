@@ -24,10 +24,10 @@ class CreateSppbjsTable extends Migration
             $table->unsignedBigInteger('ttd4');
             $table->unsignedBigInteger('mataanggaran_id');
             $table->string('nama_pengadaan');
-            $table->date('tanggal_dibutuhkan');
+            $table->date('tanggal_surat');
             $table->integer('nomor_surat');
             $table->enum('klasifikasi', [
-                'normal',
+                'Normal',
                 'Emergency',
                 'Urgent'
             ]);

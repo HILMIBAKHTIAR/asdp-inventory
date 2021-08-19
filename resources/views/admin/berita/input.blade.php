@@ -36,8 +36,8 @@
                                     <input name="alamat_tujuan" type="text" class="form-control">
                                 </div>
                                 <div class="col-md-4">
-                                    <label>Tanggal Dibutuhkan</label>
-                                    <input name="tgl_berita" type="date" class="form-control">
+                                    <label>Tanggal Surat</label>
+                                    <input name="tanggal_surat" type="date" class="form-control">
                                 </div>
                             </div>
 

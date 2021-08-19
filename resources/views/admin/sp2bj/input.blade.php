@@ -32,20 +32,20 @@
                                     @error('karyawan_id')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
+                                </div>
+
+                                <div class="col-md-6">
                                     <label>Nama Pengadaan</label>
                                     <input type="text" name="nama_pengadaan" class="form-control @error('nama_pengadaan') is-invalid @enderror" value="{{old('nama_pengadaan')}}" />
                                     @error('nama_pengadaan')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
-                                    <label>Tanggal Dibutuhkan</label>
-                                    <input type="date" name="nama_pengadaan" class="form-control @error('nama_pengadaan') is-invalid @enderror" value="{{old('nama_pengadaan')}}" />
-                                    @error('nama_pengadaan')
-                                    <div class="invalid-feedback">{{$message}}</div>
-                                    @enderror
-                                    
                                 </div>
+                            </div>
 
-                                <div class="col-md-6">
+                                
+                            <div class="form-row mt-3">
+                                <div class="col-md-4">
                                     <label>Mata Anggaran</label>
                                     <select name="mataanggaran_id" id="" class="form-control @error('mataanggaran_id') is-invalid @enderror">
                                         <option value="">-Pilih-</option>
@@ -58,19 +58,22 @@
                                     @error('mataanggaran_id')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
+                                </div>
+
+                                <div class="col-md-4">
                                     <label>Tanggal Surat Dibuat</label>
-                                    <input type="date" name="tanggal_dibutuhkan" class="form-control @error('tanggal_dibutuhkan') is-invalid @enderror" value="{{old('tanggal_dibutuhkan')}}" />
-                                    @error('tanggal_dibutuhkan')
+                                    <input type="date" name="tanggal_surat" class="form-control @error('tanggal_surat') is-invalid @enderror" value="{{old('tanggal_surat')}}" />
+                                    @error('tanggal_surat')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
+                                </div>
+
+                                <div class="col-md-4">
                                     <label>Klasifikasi</label>
-                                    <select name="karyawan_id" id="" class="form-control @error('karyawan_id') is-invalid @enderror">
-                                        <option value="">-Pilih-</option>
-                                        @foreach($karyawan as $item)
-                                        <option value="{{$item->id}}" {{old('karyawan_id') == $item->id ? 'selected' : null}}>
-                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
-                                        </option>
-                                        @endforeach
+                                    <select class="form-control" name="klasifikasi">
+                                        <option value="Normal">Normal</option>
+                                        <option value="Emergency">Emergency</option>
+                                        <option value="Urgent">Urgent</option>
                                     </select>
                                 </div>
                             </div>
