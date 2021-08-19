@@ -19,14 +19,26 @@
                     <form action="{{route('skb.store')}}" method="post" class="skb">
                         @csrf
                         <div class="form-group">
-                            <div class="form-row">
+                            {{-- <div class="form-row">
                                 <div class="col-md-6">
+                                    
+                                </div>
+                                <div class="col-md-6">
+                                    
+                                </div>
+                            </div> --}}
+                            <div class="form-row">
+                                <div class="col-md-4">
                                     <label>Alamat</label>
                                     <input name="alamat_tujuan" class="form-control" />
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <label>No Telepon</label>
                                     <input name="no_telp" type="text" class="form-control">
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Tanggal Dibutuhkan</label>
+                                    <input name="tgl_skb" type="date" class="form-control">
                                 </div>
                             </div>
 
