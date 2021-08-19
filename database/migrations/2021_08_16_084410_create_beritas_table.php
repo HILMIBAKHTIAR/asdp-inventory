@@ -21,6 +21,7 @@ class CreateBeritasTable extends Migration
             $table->unsignedBigInteger('ttd2');
             $table->unsignedBigInteger('ttd3');
             $table->string('alamat_tujuan');
+            $table->date('tanggal_surat');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('karyawan_berita_id')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('ttd1')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');

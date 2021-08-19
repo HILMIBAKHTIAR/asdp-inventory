@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Karyawan;
 use App\Berita;
 use App\Sppbj;
-use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 
 class BeritaController extends Controller
@@ -21,8 +20,7 @@ class BeritaController extends Controller
     {
         $sp2bj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         $berita = Berita::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
-        $today = Carbon::now()->isoFormat('D MMMM Y');
-        return view('admin.berita.cetak', compact('sp2bj', 'berita', 'today'));
+        return view('admin.berita.cetak', compact('sp2bj', 'berita'));
     }
 
     /**
@@ -49,6 +47,7 @@ class BeritaController extends Controller
             'user_id' => auth()->id(),
             'karyawan_berita_id' => $request->karyawan_berita_id,
             'alamat_tujuan' => $request->alamat_tujuan,
+            'tanggal_surat' => $request->tanggal_surat,
             'ttd1' => $request->ttd1,
             'ttd2' => $request->ttd2,
             'ttd3' => $request->ttd3,

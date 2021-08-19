@@ -12,7 +12,8 @@ class Berita extends Model
         'ttd1',
         'ttd2',
         'ttd3',
-        'alamat_tujuan'
+        'alamat_tujuan',
+        'tanggal_surat'
     ];
 
     public function user()
@@ -25,7 +26,7 @@ class Berita extends Model
         return $this->belongsTo(Barang::class);
     }
 
-    public function karyawan()
+    public function karyawanBerita()
     {
         return $this->belongsTo(Karyawan::class, 'karyawan_berita_id', 'id');
     }
