@@ -20,6 +20,7 @@ class CreateSkbsTable extends Migration
             $table->unsignedBigInteger('ttd2');
             $table->string('alamat_tujuan');
             $table->string('no_telp');
+            $table->date('tanggal_surat');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('ttd1')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('ttd2')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');

@@ -46,7 +46,8 @@ class SkbController extends Controller
     {
         $request->validate([
             'alamat_tujuan' => 'required',
-            'no_telp' => 'required|max:12'
+            'no_telp' => 'required|max:12',
+            'tanggal_surat'=>'required'
 
         ]);
 
@@ -54,6 +55,7 @@ class SkbController extends Controller
             'user_id' => auth()->user()->id,
             'alamat_tujuan' => $request->alamat_tujuan,
             'no_telp' => $request->no_telp,
+            'tanggal_surat' => $request->tanggal_surat,
             'ttd1' => $request->ttd1,
             'ttd2' => $request->ttd2
         ]);

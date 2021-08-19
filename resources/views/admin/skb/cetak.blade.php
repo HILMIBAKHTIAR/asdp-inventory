@@ -166,7 +166,7 @@
           <tr>
           <td style="width: 741px;">&nbsp;</td>
           <td style="width: 615.559px;">
-          <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Ketapang, <?= date('d-m-Y')?></span></p>
+          <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Ketapang,{{tanggal_indonesia($skb->tanggal_surat)}}</span></p>
           </td>
           </tr>
           </tbody>

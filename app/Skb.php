@@ -10,6 +10,7 @@ class Skb extends Model
         'user_id',
         'alamat_tujuan',
         'no_telp',
+        'tanggal_surat',
         'ttd1',
         'ttd2'
     ];
