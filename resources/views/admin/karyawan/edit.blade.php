@@ -1,9 +1,6 @@
 @extends('admin.layout.master')
 
 @section('content')
-@extends('admin.layout.master')
-
-@section('content')
 <div class="container-fluid">
     <!-- Content Row -->
     <div class="row d-flex justify-content-center ">
@@ -60,7 +57,5 @@
         </div>
     </div>
 </div>
-
-@endsection
 
 @endsection
