@@ -140,13 +140,13 @@
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label>Catatan Peminta Barang/Jasa</label>
-                                    <input name="catatan_peminta" type="text" class="form-control" placeholder="Boleh Tidak Diisi" value="{{old('catatan_peminta')}}" />
+                                    <input name="catatan_peminta" type="text" class="form-control" placeholder="Boleh tidak diisi" value="{{old('catatan_peminta')}}" />
                                     <label>Catatan</label>
-                                    <input name="catatan" type="text" class="form-control" placeholder="Boleh Tidak Diisi" value="{{old('catatan')}}" />
+                                    <input name="catatan" type="text" class="form-control" placeholder="Boleh tidak diisi" value="{{old('catatan')}}" />
                                     <label>Catatan Ketersediaan Anggaran</label>
                                     <input name="catatan_anggaran" type="text" class="form-control" placeholder="Boleh Tidak Diisi" value="{{old('catatan_anggaran')}}" />
                                     <label>Catatan Ketersediaan Stok</label>
-                                    <input name="catatan_stok" type="text" class="form-control" placeholder="Boleh Tidak Diisi" value="{{old('catatan_stok')}}" />
+                                    <input name="catatan_stok" type="text" class="form-control" placeholder="Boleh tidak diisi" value="{{old('catatan_stok')}}" />
                                 </div>
                                 <div class="col-md-6">
                                     <label>Peminta Barang/Jasa</label>
