@@ -20,7 +20,7 @@
                         @csrf
                         <div class="form-group">
                             <div class="form-row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <label>Kepada Yth</label>
                                     <select name="karyawan_berita_id" id="" class="form-control" required>
                                         <option value="">-Pilih-</option>
@@ -31,9 +31,13 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <label>Alamat</label>
                                     <input name="alamat_tujuan" type="text" class="form-control">
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Tanggal Dibutuhkan</label>
+                                    <input name="tgl_berita" type="date" class="form-control">
                                 </div>
                             </div>
 
