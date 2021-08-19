@@ -108,11 +108,11 @@
           </tr>
           <tr style="height: 23px;">
             <td style="width: 213.719px; height: 23px;"><strong>Mata Anggaran</strong></td>
-            <td style="width: 787.281px; height: 23px;" colspan="2"><strong>&nbsp;{{$sp2bj->mataanggaran->nomor}} - {{$sp2bj->mataanggaran->keterangan}}</strong></td>
+            <td style="width: 787.281px; height: 23px;" colspan="2"><strong>&nbsp;{{$sp2bj->mataanggaran->nomor}} - ({{$sp2bj->mataanggaran->keterangan}})</strong></td>
           </tr>
           <tr style="height: 23px;">
             <td style="width: 213.719px; height: 23px;"><strong>Tanggal Dibutuhkan</strong></td>
-            <td style="width: 787.281px; height: 23px;" colspan="2"><strong>&nbsp;{{$sp2bj->tanggal_dibutuhkan}}</strong></td>
+            <td style="width: 787.281px; height: 23px;" colspan="2"><strong>&nbsp;{{tanggal_indonesia($sp2bj->tanggal_dibutuhkan)}}</strong></td>
           </tr>
         </tbody>
       </table>
