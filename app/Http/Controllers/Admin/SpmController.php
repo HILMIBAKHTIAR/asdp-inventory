@@ -4,6 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Sppbj;
+use App\Karyawan;
+use App\Mataanggaran;
+use App\ItemSpm;
+use App\Spm;
+use Illuminate\Support\Carbon;
 
 class SpmController extends Controller
 {
@@ -15,7 +21,9 @@ class SpmController extends Controller
     public function index()
     {
         //
-        return view('admin.spm.cetak');
+        $sp2bj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
+        $spm = Spm::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
+        return view('admin.spm.cetak', compact('sp2bj', 'spm'));
     }
 
     /**
@@ -25,8 +33,10 @@ class SpmController extends Controller
      */
     public function create()
     {
-        //
-        return view('admin.spm.input');
+        $sp2bj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
+        $karyawan = Karyawan::all();
+        $mataanggaran = Mataanggaran::all();
+        return view('admin.spm.input', compact('sp2bj', 'karyawan', 'mataanggaran'));
     }
 
     /**
@@ -37,7 +47,38 @@ class SpmController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nomorSurat = Sppbj::whereYear("created_at", Carbon::now()->year)->count();
+
+        $data_spm = Spm::create([
+            'user_id'           => auth()->id(),
+            'karyawan_id'       => $request->karyawan_id,
+            'mataanggaran_id'   => $request->mataanggaran_id,
+            'ttd1'              => $request->ttd1,
+            'ttd2'              => $request->ttd2,
+            'ttd3'              => $request->ttd3,
+            'tanggal'           => $request->tanggal,
+            'tahun_anggaran'    => $request->tahun_anggaran,
+            'jenis_transaksi'   => $request->jenis_transaksi,
+            'program'           => $request->program,
+            'penerima_dana'     => $request->penerima_dana,
+            'nomor_rekening'    => $request->nomor_rekening,
+            'bank'              => $request->bank,
+        ]);
+
+        
+
+        for ($i = 0; $i < count($request->uraian_kegiatan); $i++) {
+            ItemSpm::create([
+                'spm_id'                => $data_spm->id,
+                'mataanggaran_item_id'  => $request->mataanggaran_item_id[$i],
+                'uraian_kegiatan'       => $request->uraian_kegiatan[$i],
+                'dana'                  => $request->dana[$i],
+                'keterangan'            => $request->keterangan[$i],
+            ]);
+        }
+
+        $data_spm->save();
+        return dd($data_spm);
     }
 
     /**

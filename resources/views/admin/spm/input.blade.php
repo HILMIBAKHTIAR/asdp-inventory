@@ -16,24 +16,40 @@
                     </div>
 
                     <!-- isi form input -->
-                    <form class="sppbj">
+                    <form action="{{route('spm.store')}}" method="post">
+                        @csrf
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label>Tanggal</label>
-                                    <input type="text" class="form-control" />
+                                    <input name="tanggal" type="date" class="form-control" />
                                     <label>Jenis Tranksaksi</label>
-                                    <input type="text" class="form-control" />
-                                    <label>program</label>
-                                    <input type="text" class="form-control" />
+                                    <input name="jenis_transaksi" type="text" class="form-control" />
+                                    <label>Penangung Jawab</label>
+                                    <select name="karyawan_id" id="" class="form-control ">
+                                        <option value="">-Pilih-</option>
+                                        @foreach($karyawan as $item)
+
+                                        <option value="{{$item->id}}">
+                                            {{$item->jabatan}}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="col-md-6">
                                     <label>Tahun Anggaran</label>
-                                    <input type="date" class="form-control">
-                                    <label>Penanggung Jawab Unit Fungsi</label>
-                                    <input type="text" class="form-control" />
+                                    <input name="tahun_anggaran" type="date" class="form-control">
+                                    <label>Program</label>
+                                    <input name="program" type="text" class="form-control" />
                                     <label>Pembebanan Anggaran</label>
-                                    <input type="text" class="form-control" />
+                                    <select name="mataanggaran_id" id="" class="form-control ">
+                                        <option value="">-Pilih-</option>
+                                        @foreach($mataanggaran as $item)
+                                        <option value="{{$item->id}}">
+                                            {{$item->keterangan}}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 
@@ -44,7 +60,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                                    <table class="table table-bordered" id="tableSpm" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th>Urian Kegiatan</th>
@@ -56,10 +72,19 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><input type="text" class="form-control"></td>
-                                                <td><input type="text" class="form-control"></td>
-                                                <td><input type="text" class="form-control"></td>
-                                                <td><input type="text" class="form-control"></td>
+                                                <td><input name="uraian_kegiatan[]" type="text" class="form-control"></td>
+                                                <td><select name="mataanggaran_item_id[]" id="" class="form-control">
+                                                        <option value="">-Pilih-</option>
+
+                                                        @foreach($mataanggaran as $item)
+                                                        <option value="{{$item->id}}">
+                                                            {{$item->keterangan}}
+                                                        </option>
+                                                        @endforeach
+
+                                                    </select></td>
+                                                <td><input name="dana[]" type="text" class="form-control"></td>
+                                                <td><input name="keterangan[]" type="text" class="form-control"></td>
                                                 <td class=""><input href="" class="btn btn-primary mr-2" name="tambah" id="tambah" value="Tambah"></input></td>
                                             </tr>
                                         </tbody>
@@ -74,17 +99,17 @@
                                 <h1 class="h4 text-gray-900 mb-4">Form isi Bank</h1>
                             </div>
                             <div class="form-row">
-                                <div class="col-md-6">
-                                    <label>Terbilang</label>
-                                    <input type="text" class="form-control" />
+                                <div class="col-md-4">
                                     <label>Penerima Dana</label>
-                                    <input type="text" class="form-control" />
+                                    <input name="penerima_dana" type="text" class="form-control" placeholder="Boleh tidak diisi" />
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <label>Nomor Rekening</label>
-                                    <input type="text" class="form-control">
+                                    <input name="nomor_rekening" type="text" class="form-control" placeholder="Boleh tidak diisi" />
+                                </div>
+                                <div class="col-md-4">
                                     <label>Bank</label>
-                                    <input type="text" class="form-control" />
+                                    <input name="bank" type="text" class="form-control" placeholder="Boleh tidak diisi" />
                                 </div>
                             </div>
 
@@ -96,23 +121,49 @@
                             <div class="form-row">
                                 <div class="col-md-4">
                                     <label>General Manager</label>
-                                    <input type="text" class="form-control" />
+                                    <select name="ttd1" id="" class="form-control ">
+                                        <option value="">-Pilih-</option>
+
+                                        @foreach($karyawan as $item)
+                                        <option value="{{$item->id}}">
+                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                        </option>
+                                        @endforeach
+
+                                    </select>
                                 </div>
                                 <div class="col-md-4">
                                     <label>Manager SDM & Umum</label>
-                                    <input type="text" class="form-control" />
+                                    <select name="ttd2" id="" class="form-control ">
+                                        <option value="">-Pilih-</option>
+
+                                        @foreach($karyawan as $item)
+                                        <option value="{{$item->id}}">
+                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                        </option>
+                                        @endforeach
+
+                                    </select>
                                 </div>
                                 <div class="col-md-4">
                                     <label>Staf SDM & Umum</label>
-                                    <input type="text" class="form-control">
+                                    <select name="ttd3" id="" class="form-control @error('ttd1') is-invalid @enderror">
+                                        <option value="">-Pilih-</option>
+
+                                        @foreach($karyawan as $item)
+                                        <option value="{{$item->id}}">
+                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                        </option>
+                                        @endforeach
+
+                                    </select>
                                 </div>
                             </div>
                         </div>
 
                         <div>
                             <center>
-                                <input type="submit" class="btn btn-success" name="print" id="print" value="Print">
-                                <input type="button" class="btn btn-primary" name="selanjutnya" id="selanjutnya" value="Selanjutnya">
+                                <input type="submit" class="btn btn-primary" name="selanjutnya" id="selanjutnya" value="Selanjutnya">
                             </center>
                         </div>
                     </form>
@@ -129,8 +180,21 @@
     $(document).ready(function() {
         var x = 1;
         $("#tambah").click(function() {
-            $("#dataTable").append('<tr> <td><input type="text" class="form-control"></td><td><input type="text" class="form-control"></td><td><input type="text" class="form-control"></td><td><input type="text" class="form-control"></td><td class=""><input href="" class="btn btn-danger mr-2" name="Hapus" id="hapus" value="Hapus"></input></td> </tr>');
-            $("#dataTable").on('click', '#hapus', function() {
+            $("#tableSpm").append(`<tr>
+                                                <td><input type="text" class="form-control"></td>
+                                                <td><select name="nomor_mataanggaran[]" id="" class="form-control">
+                                                        <option value="">-Pilih-</option>
+
+                                                        <option value="">
+
+                                                        </option>
+
+                                                    </select></td>
+                                                <td><input type="text" class="form-control"></td>
+                                                <td><input type="text" class="form-control"></td>
+                                                <td class=""><input href="" class="btn btn-danger mr-2" name="hapus" id="hapus" value="Hapus"></input></td>
+                                            </tr>`);
+            $("#tableSpm").on('click', '#hapus', function() {
                 $(this).closest('tr').remove();
             })
         });
