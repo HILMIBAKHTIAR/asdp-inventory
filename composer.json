@@ -41,7 +41,8 @@
             "App\\": "app/"
         },
         "files": [
-            "app/Helpers/AngkaTerbilang.php"
+            "app/Helpers/AngkaTerbilang.php",
+            "app/Helpers/TanggalIndonesia.php"
         ],
         "classmap": [
             "database/seeds",

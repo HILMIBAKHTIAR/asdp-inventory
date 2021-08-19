@@ -21,7 +21,8 @@ class SppbjController extends Controller
     {
         $sp2bj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         // return dd($sp2bj->jabatan);
-        return view('admin.sp2bj.cetak', compact('sp2bj'));
+        $today = Carbon::now()->isoFormat('D MMMM Y');
+        return view('admin.sp2bj.cetak', compact('sp2bj', 'today'));
     }
 
 
@@ -79,6 +80,8 @@ class SppbjController extends Controller
         ]);
 
         $nomorSurat = Sppbj::whereYear("created_at", Carbon::now()->year)->count();
+
+
 
         $data_sp2bj = Sppbj::create([
             'user_id' =>  auth()->id(),
