@@ -26,6 +26,11 @@ class CreateSppbjsTable extends Migration
             $table->string('nama_pengadaan');
             $table->date('tanggal_dibutuhkan');
             $table->integer('nomor_surat');
+            $table->enum('klasifikasi', [
+                'normal',
+                'Emergency',
+                'Urgent'
+            ]);
             $table->string('catatan_peminta')->nullable();
             $table->string('catatan')->nullable();
             $table->string('catatan_anggaran')->nullable();

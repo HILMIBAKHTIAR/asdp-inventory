@@ -21,7 +21,7 @@ class CreateBarangsTable extends Migration
             $table->enum('satuan', [
                 'roll',
                 'unit',
-                'pcs'
+                'pcs',
             ]);
             $table->string('nama_barang');
             $table->string('spesifikasi');

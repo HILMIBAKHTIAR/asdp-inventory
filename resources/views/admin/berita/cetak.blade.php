@@ -108,17 +108,17 @@
       <tbody align="center">
         @foreach ($sp2bj->barang as $item)
         <tr>
-          <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p align="center" style="margin: 4px;">{{$loop->iteration}}</p></td>
-          <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 4px;">{{$item->nama_barang}}</p></td>
-          <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 4px;">{{$item->spesifikasi}}</p></td>
-          <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 4px;">{{$item->satuan}}</p></td>
-          <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 4px;">{{$item->jumlah}}</p></td>
-          <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" class="text-end"><p style="margin: 4px;">Rp. {{ number_format($item->harga_satuan, 0,',','.') }},00</p></td>
-          <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" class="text-end"><p style="margin: 4px;">Rp. {{ number_format($item->harga_satuan * $item->jumlah ,0,',','.') }},00</p></td>
+          <td class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p align="center" style="margin: 4px;">{{$loop->iteration}}</p></td>
+          <td class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 4px;">{{$item->nama_barang}}</p></td>
+          <td class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 4px;">{{$item->spesifikasi}}</p></td>
+          <td class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 4px;">{{$item->satuan}}</p></td>
+          <td class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 4px;">{{$item->jumlah}}</p></td>
+          <td class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" class="text-end"><p style="margin: 4px;">Rp. {{ number_format($item->harga_satuan, 0,',','.') }},00</p></td>
+          <td class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" class="text-end"><p style="margin: 4px;">Rp. {{ number_format($item->harga_satuan * $item->jumlah ,0,',','.') }},00</p></td>
         </tr>
         @endforeach
         <tr>
-          <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" colspan="6" class="text-end">
+          <td class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" colspan="6" class="text-end">
             &nbsp;Jumlah Rp&nbsp;
           </td>
           <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" class="text-end">
