@@ -12,6 +12,13 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
   <style>
+    .border1 {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    </style>
+
+  <style>
     table,
     th,
     td {
@@ -117,28 +124,28 @@
         </tbody>
       </table>
 
-      <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1014px; border-color: black;">
+      <table width="910" align="center" cellpadding="0" cellspacing="0" style="width: 1014px; border-color: black;">
         <thead>
           <tr class="text-center">
-            <th style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">No</th>
-            <th style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Jumlah</th>
-            <th style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Satuan</th>
-            <th style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Nama Barang</th>
-            <th style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Spesifikasi</th>
-            <th style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Harga Satuan</th>
-            <th style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Jumlah</th>
+            <th class="border1 style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">No</th>
+            <th class="border1 style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Jumlah</th>
+            <th class="border1 style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Satuan</th>
+            <th class="border1 style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Nama Barang</th>
+            <th class="border1 style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Spesifikasi</th>
+            <th class="border1 style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Harga Satuan</th>
+            <th class="border1 style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Jumlah</th>
           </tr>
         </thead>
         <tbody>
           @foreach ($sp2bj->barang as $item)
           <tr>
-            <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p align="center" style="margin: 4px;">{{$loop->iteration}}</p></td>
-            <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 4px;">{{$item->jumlah}}</p></td>
-            <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 4px;">{{$item->satuan}}</p></td>
-            <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 4px;">{{$item->nama_barang}}</p></td>
-            <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 4px;">{{$item->spesifikasi}}</p></td>
-            <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" class="text-end"><p style="margin: 4px;">Rp. {{ number_format($item->harga_satuan, 0,',','.') }},00</p></td>
-            <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" class="text-end"><p style="margin: 4px;">Rp. {{ number_format($item->harga_satuan * $item->jumlah ,0,',','.') }},00</p></td>
+            <td class="border1 style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p align="center" style="margin: 4px;">{{$loop->iteration}}</p></td>
+            <td class="border1 style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 4px;">{{$item->jumlah}}</p></td>
+            <td class="border1 style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 4px;">{{$item->satuan}}</p></td>
+            <td class="border1 style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 4px;">{{$item->nama_barang}}</p></td>
+            <td class="border1 style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 4px;">{{$item->spesifikasi}}</p></td>
+            <td class="border1 style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" class="text-end"><p style="margin: 4px;">Rp. {{ number_format($item->harga_satuan, 0,',','.') }},00</p></td>
+            <td class="border1 style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" class="text-end"><p style="margin: 4px;">Rp. {{ number_format($item->harga_satuan * $item->jumlah ,0,',','.') }},00</p></td>
           </tr>
           @endforeach
           <tr>
