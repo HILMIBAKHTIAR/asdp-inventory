@@ -37,6 +37,12 @@
                                     @error('nama_pengadaan')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
+                                    <label>Tanggal Dibutuhkan</label>
+                                    <input type="date" name="nama_pengadaan" class="form-control @error('nama_pengadaan') is-invalid @enderror" value="{{old('nama_pengadaan')}}" />
+                                    @error('nama_pengadaan')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                    
                                 </div>
 
                                 <div class="col-md-6">
@@ -52,11 +58,20 @@
                                     @error('mataanggaran_id')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
-                                    <label>Tanggal Dibutuhkan</label>
+                                    <label>Tanggal Surat Dibuat</label>
                                     <input type="date" name="tanggal_dibutuhkan" class="form-control @error('tanggal_dibutuhkan') is-invalid @enderror" value="{{old('tanggal_dibutuhkan')}}" />
                                     @error('tanggal_dibutuhkan')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
+                                    <label>Klasifikasi</label>
+                                    <select name="karyawan_id" id="" class="form-control @error('karyawan_id') is-invalid @enderror">
+                                        <option value="">-Pilih-</option>
+                                        @foreach($karyawan as $item)
+                                        <option value="{{$item->id}}" {{old('karyawan_id') == $item->id ? 'selected' : null}}>
+                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 
