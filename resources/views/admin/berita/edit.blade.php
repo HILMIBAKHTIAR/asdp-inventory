@@ -51,9 +51,32 @@
                                         <div class="form-group">
                                             <label>Satuan</label>
                                             <select name="satuan[]" type="text"  class="form-control @error('jumlah.*') is-invalid @enderror">
-                                                <option value="roll">Roll</option>
-                                                <option value="pcs">Pcs</option>
-                                                <option value="unit">Unit</option>
+                                                <option value="roll">roll</option>
+                                                <option value="pcs">pcs</option>
+                                                <option value="unit">unit</option>
+                                                <option value="Pack">Pack</option>
+                                                <option value="Set">Set</option>
+                                                <option value="Batang">Batang</option>
+                                                <option value="Lusin">Lusin</option>
+                                                <option value="Botol">Botol</option>
+                                                <option value="Kotak">Kotak</option>
+                                                <option value="Gross">Gross</option>
+                                                <option value="Rim">Rim</option>
+                                                <option value="Kodi">Kodi</option>
+                                                <option value="Dus">Dus</option>
+                                                <option value="Bal">Bal</option>
+                                                <option value="Ls">Ls</option>
+                                                <option value="Meter">Meter</option>
+                                                <option value="Gram">Gram</option>
+                                                <option value="Cm">Cm</option>
+                                                <option value="M2">M2</option>
+                                                <option value="M3">M3</option>
+                                                <option value="Liter">Liter</option>
+                                                <option value="Kg">Kg</option>
+                                                <option value="Ton">Ton</option>
+                                                <option value="Ons">Ons</option>
+                                                <option value="Lembar">Lembar</option>
+                                                <option value="Orang">Orang</option>
                                             </select>
                                         </div>
 
