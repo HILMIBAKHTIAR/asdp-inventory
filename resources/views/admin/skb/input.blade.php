@@ -22,11 +22,15 @@
                             <div class="form-row">
                                 <div class="col-md-4">
                                     <label>Alamat</label>
-                                    <input name="alamat_tujuan" class="form-control" />
+                                    <input name="alamat_tujuan" class="form-control" @error('alamat_tujuan') is-invalid @enderror" value="{{old('alamat_tujuan')}}"/>
+                                    @error('alamat_tujuan')
+                                    @enderror
                                 </div>
                                 <div class="col-md-4">
                                     <label>No Telepon</label>
-                                    <input name="no_telp" type="text" class="form-control">
+                                    <input name="no_telp" type="text" class="form-control" @error('no_telp') is-invalid @enderror" value="{{old('no_telp')}}">
+                                    @error('no_telp')
+                                    @enderror
                                 </div>
                                 <div class="col-md-4">
                                     

@@ -45,9 +45,11 @@ class SkbController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'alamat_tujuan' => 'required',
-            'no_telp' => 'required|max:12',
-            'tanggal_surat'=>'required'
+            'alamat_tujuan'     => 'required',
+            'no_telp'           => 'required|max:12',
+            'tanggal_surat'     =>'required',
+            'ttd1'              =>'required',
+            'ttd2'              =>'required',
 
         ]);
 
@@ -59,9 +61,8 @@ class SkbController extends Controller
             'ttd1' => $request->ttd1,
             'ttd2' => $request->ttd2
         ]);
-
+        
         // return dd($data_skb);
-
         $data_skb->save();
         return redirect('admin/skb/');
     }
