@@ -14,6 +14,13 @@
         border: 1px solid black;
         border-collapse: collapse;
       }
+
+      .no-bottom-border {
+        border: 1px solid black;
+        border-bottom: none;
+        border-top: none;
+        border-collapse: collapse;
+      }
       </style>
 
 </head>
@@ -91,28 +98,28 @@
   <table width="910" align="center" cellpadding="0" cellspacing="0" style="width: 1011px;">
   <tbody>
   <tr>
-  <td style="width: 249px;">Nama</td>
-  <td style="width: 1043.74px;">:<strong>&nbsp;{{$verspm->nama}}</strong></td>
+  <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 249px;">Nama</td>
+  <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">:<strong>&nbsp;{{$verspm->nama}}</strong></td>
   </tr>
   <tr>
-  <td style="width: 249px;">Jenis Pekerjaan</td>
-  <td style="width: 1043.74px;">: {{$verspm->jenis_pekerjaan}}</td>
+  <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 249px;">Jenis Pekerjaan</td>
+  <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">: {{$verspm->jenis_pekerjaan}}</td>
   </tr>
   <tr>
-  <td style="width: 249px;">Uraian Pekerjaan</td>
-  <td style="width: 1043.74px;">: {{$verspm->uraian_pekerjaan}}</td>
+  <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 249px;">Uraian Pekerjaan</td>
+  <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">: {{$verspm->uraian_pekerjaan}}</td>
   </tr>
   <tr>
-  <td style="width: 249px;">Anggaran Tahun</td>
-  <td style="width: 1043.74px;">: {{$verspm->tahun_anggaran}}</td>
+  <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 249px;">Anggaran Tahun</td>
+  <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">: {{$verspm->tahun_anggaran}}</td>
   </tr>
   <tr>
-  <td style="width: 249px;">Penanggung Jawab Anggaran</td>
-  <td style="width: 1043.74px;">:&nbsp;DIVISI SDM &amp; UMUM</td>
+  <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 249px;">Penanggung Jawab Anggaran</td>
+  <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">:&nbsp;DIVISI SDM &amp; UMUM</td>
   </tr>
   <tr>
-  <td style="width: 249px;">Verifikator</td>
-  <td style="width: 1043.74px;">:&nbsp;{{$verspm->karyawan->nama_karyawan}}</td>
+  <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 249px;">Verifikator</td>
+  <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">:&nbsp;{{$verspm->karyawan->nama_karyawan}}</td>
   </tr>
   </tbody>
   </table>
@@ -122,25 +129,64 @@
   <table width="910" class="border1" align="center" cellpadding="0" cellspacing="0" style="width: 1011px;">
   <tbody>
   <tr style="height: 23.2695px;">
-  <td class="border1 text-center" style="width: 15px; height: 23.2695px; margin: 4px;">No</td>
-  <td class="border1 text-center" style="width: 317px; height: 23.2695px; margin: 4px;">Jenis Dokumen</td>
-  <td class="border1 text-center" style="width: 317px; height: 23.2695px; margin: 4px;">&nbsp;Nomor Dokumen</td>
-  <td class="border1 text-center" style="width: 267.051px; height: 23.2695px; margin: 4px;">&nbsp;Tanggal Dokumen</td>
-  <td class="border1 text-center" style="width: 284.949px; height: 23.2695px; margin: 4px;">&nbsp;Total Harga</td>
-  <td class="border1 text-center" style="width: 421px; height: 23.2695px; margin: 4px;">&nbsp;Keterangan</td>
+    <td class="border1 text-center" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 15px; height: 23.2695px; margin: 4px;">No</td>
+    <td class="border1 text-center" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 317px; height: 23.2695px; margin: 4px;">Jenis Dokumen</td>
+    <td class="border1 text-center" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 317px; height: 23.2695px; margin: 4px;">&nbsp;Nomor Dokumen</td>
+    <td class="border1 text-center" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 267.051px; height: 23.2695px; margin: 4px;">&nbsp;Tanggal Dokumen</td>
+    <td class="border1 text-center" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 284.949px; height: 23.2695px; margin: 4px;">&nbsp;Total Harga</td>
+    <td class="border1 text-center" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 421px; height: 23.2695px; margin: 4px;">&nbsp;Keterangan</td>
   </tr>
   <tr style="height: 23px;">
-  <td class="border1 text-center" style="width: 15px; height: 23px;"> <p style="margin: 4px">1</p></td>
-  <td class="border1" style="width: 317px; height: 23px;"> <p style="margin: 4px">Dokumen Yang mendasari Biaya</p></td>
-  <td class="border1" style="width: 245px; height: 23px;"> <p style="margin: 4px">SPPBJ.345/UM/ASDP-KTP/2020</p></td>
-  <td class="border1" style="width: 267.051px; height: 23px;"> <p style="margin: 4px">15-Jan-2021</p></td>
-  <td class="border1" style="width: 284.949px; height: 23px;"> <p style="margin: 4px">8500000</p></td>
-  <td class="border1" style="width: 421px; height: 23px;"> <p style="margin: 4px"></p></td>
+    <td class="no-bottom-border text-center" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 15px; height: 23px;"> <p style="margin: 12px;">1</p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 25%; height: 23px;"> <p style="margin: 12px;">Dokumen Yang mendasari Biaya</p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 25%; height: 23px;"> <p style="margin: 12px;">SPPBJ.{{$sp2bj->nomor_surat}}/UM/ASDP-KTP/<?= date('Y') ?></p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 267.051px; height: 23px;"> <p style="margin: 12px;">{{tanggal_indonesia($sp2bj->tanggal_surat)}}</p></td>
+    <td class="no-bottom-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 284.949px; height: 23px;"> <p style="margin: 12px;">Rp. {{number_format(850000,0,',','.')}},00</p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 421px; height: 23px;"> <p style="margin: 12px;"></p></td>
+  </tr>
+  <tr>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;"><p style="margin: 12px;">2</p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;"><p style="margin: 12px;">BUKTI PENERIMAAN BARANG/JASA (BPB/J)</p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;"><p style="margin: 12px;"></p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;"><p style="margin: 12px;"></p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;"><p style="margin: 12px"></p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;"><p style="margin: 12px"></p></td>
+  </tr>
+  <tr>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;"><p style="margin: 12px;">3</p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;">
+      <p style="margin: 12px;">SURAT PERNYATAAN KEBENARAN HARGA <br>
+        <small style="font-size: 10.0pt;">Di Tanda Tangani oleh penanggung jawab dan mengetahui pimpinan unit terkait</small>
+      </p>
+    </td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;"><p style="margin: 12px;"></p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;"><p style="margin: 12px;"></p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;"><p style="margin: 12px"></p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;"><p style="margin: 12px"></p></td>
+  </tr>
+  <tr>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;"><p style="margin: 12px;">4</p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;">
+      <p style="margin: 12px;">SURAT PERNYATAAN KEBENARAN HARGA <br>
+        <small style="font-size: 10.0pt;">Di Tanda Tangani oleh penanggung jawab dan mengetahui pimpinan unit terkait</small>
+      </p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;"><p style="margin: 12px;"></p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;"><p style="margin: 12px;"></p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;"><p style="margin: 12px"></p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;"><p style="margin: 12px"></p></td>
+  </tr>
+  <tr>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;"><p style="margin: 12px;">5</p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;"><p style="margin: 12px;">BUKTI PENERIMAAN BARANG/JASA (BPB/J)</p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;"><p style="margin: 12px;"></p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;"><p style="margin: 12px;"></p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;"><p style="margin: 12px"></p></td>
+    <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;"><p style="margin: 12px"></p></td>
   </tr>
   <tr style="height: 23px;">
-  <td class="border1" style="width: 15px; height: 23px;" colspan="4">JUMLAH</td>
-  <td class="border1" style="width: 284.949px; height: 23px;">&nbsp;8500000</td>
-  <td class="border1" style="width: 421px; height: 23px;">&nbsp;</td>
+    <td class="border1 text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 15px; height: 23px;" colspan="4"><p style="margin: 12px;">Jumlah</p></td>
+    <td class="border1 text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 284.949px; height: 23px;"><p style="margin: 12px;">Rp. {{number_format(850000,0,',','.')}},00</p></td>
+    <td class="border1" style="width: 421px; height: 23px;">&nbsp;</td>
   </tr>
   </tbody>
   </table>
@@ -148,7 +194,7 @@
   <table width="910" align="center" cellpadding="0" cellspacing="0" style="width: 1011px;">
   <tbody>
   <tr>
-  <td style="width: 622.938px;">KETAPANG, 08-01-2021</td>
+  <td style="font-size: 14.0pt; font-family: FrutigerExt-Normal; color: black; width: 622.938px;">KETAPANG, 08-01-2021</td>
   <td style="width: 651.062px;">&nbsp;</td>
   </tr>
   <tr>

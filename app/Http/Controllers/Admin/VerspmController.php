@@ -22,7 +22,7 @@ class VerspmController extends Controller
         //
         $sp2bj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         $verspm = Verspm::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
-        return view('admin.verspm.cetak', compact('verspm'));
+        return view('admin.verspm.cetak', compact('verspm', 'sp2bj'));
     }
 
     /**
@@ -66,13 +66,13 @@ class VerspmController extends Controller
 
         $data_verspm = Verspm::create([
             'user_id'           => auth()->user()->id,
-            'nama'              => $request ->nama,
-            'karyawan_id'       => $request ->karyawan_id,
-            'jenis_pekerjaan'   => $request ->jenis_pekerjaan,
-            'uraian_pekerjaan'  => $request ->uraian_pekerjaan,
-            'tahun_anggaran'    => $request ->tahun_anggaran,
-            'ttd1'              => $request ->ttd1,
-            'ttd2'              => $request ->ttd2,
+            'nama'              => $request->nama,
+            'karyawan_id'       => $request->karyawan_id,
+            'jenis_pekerjaan'   => $request->jenis_pekerjaan,
+            'uraian_pekerjaan'  => $request->uraian_pekerjaan,
+            'tahun_anggaran'    => $request->tahun_anggaran,
+            'ttd1'              => $request->ttd1,
+            'ttd2'              => $request->ttd2,
         ]);
 
         $data_verspm->save();

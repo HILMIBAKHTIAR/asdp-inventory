@@ -22,22 +22,31 @@
                             <div class="form-row">
                                 <div class="col-md-4">
                                     <label>Kepada Yth</label>
-                                    <select name="karyawan_berita_id" id="" class="form-control" required>
+                                    <select name="karyawan_berita_id" id="" class="form-control @error('karyawan_berita_id') is-invalid @enderror">
                                         <option value="">-Pilih-</option>
                                         @foreach($karyawan as $item)
-                                        <option value="{{$item->id}}">
+                                        <option value="{{$item->id}}" {{old('karyawan_berita_id') == $item->id ? 'selected' : null}}>
                                             {{$item->jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
+                                    @error('karyawan_berita_id')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-4">
                                     <label>Alamat</label>
-                                    <input name="alamat_tujuan" type="text" class="form-control">
+                                    <input name="alamat_tujuan" type="text" class="form-control @error('alamat_tujuan') is-invalid @enderror" value="{{old('alamat_tujuan')}}">
+                                    @error('alamat_tujuan')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-4">
                                     <label>Tanggal Surat</label>
-                                    <input name="tanggal_surat" type="date" class="form-control">
+                                    <input name="tanggal_surat" type="date" class="form-control @error('tanggal_surat') is-invalid @enderror" value="{{old('tanggal_surat')}}">
+                                    @error('tanggal_surat')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -52,7 +61,7 @@
                                     <h6 class="text-gray-900 mb-2">Jika barang tidak sesuai silahkkan edit kembali</h6>
                                 </div>
                                 <div class="col-md-1 text-right">
-                                    
+
                                 </div>
                             </div>
 
@@ -73,23 +82,37 @@
                                         <tbody>
                                             @foreach ($sp2bj->barang as $item)
                                             <tr>
-                                                <td class="text-center"><p>{{$loop->iteration}}</p></td>
-                                                <td><p style="margin: 4px;">{{$item->nama_barang}}</p></td>
-                                                <td><p style="margin: 4px;">{{$item->spesifikasi}}</p></td>
-                                                <td><p style="margin: 4px;">{{$item->satuan}}</p></td>
-                                                <td><p style="margin: 4px;">{{$item->jumlah}}</p></td>
-                                                <td><p class="text-right" style="margin: 4px;">Rp. {{number_format($item->harga_satuan, 0,',','.')}},00</p></td>
-                                                <td><p class="text-right" style="margin: 4px;">Rp. {{number_format($item->harga_satuan * $item->jumlah ,0,',','.') }},00</p></td>
+                                                <td class="text-center">
+                                                    <p>{{$loop->iteration}}</p>
+                                                </td>
+                                                <td>
+                                                    <p style="margin: 4px;">{{$item->nama_barang}}</p>
+                                                </td>
+                                                <td>
+                                                    <p style="margin: 4px;">{{$item->spesifikasi}}</p>
+                                                </td>
+                                                <td>
+                                                    <p style="margin: 4px;">{{$item->satuan}}</p>
+                                                </td>
+                                                <td>
+                                                    <p style="margin: 4px;">{{$item->jumlah}}</p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-right" style="margin: 4px;">Rp. {{number_format($item->harga_satuan, 0,',','.')}},00</p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-right" style="margin: 4px;">Rp. {{number_format($item->harga_satuan * $item->jumlah ,0,',','.') }},00</p>
+                                                </td>
                                             </tr>
                                             @endforeach
                                             <tr>
                                                 <td colspan="6" class="text-end">
-                                                  &nbsp;Jumlah Rp&nbsp;
+                                                    &nbsp;Jumlah Rp&nbsp;
                                                 </td>
                                                 <td>
-                                                  <p class="text-right" style="margin: 4px;">
-                                                    Rp.
-                                                    {{number_format(
+                                                    <p class="text-right" style="margin: 4px;">
+                                                        Rp.
+                                                        {{number_format(
                                                       $sp2bj->barang->map(
                                                         function($el)
                                                         {
@@ -97,12 +120,12 @@
                                                         }
                                                       )->sum(), 0,',','.')
                                                     }},00
-                                                  </p>
-                                                  </td>
-                                                </tr>
-                                                <div class="text-left mb-4">
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <div class="text-left mb-4">
                                                 <a class="btn btn-primary" href="{{route('berita.edit',$item->sppbj_id)}}">Edit</a>
-                                                </div>
+                                            </div>
                                         </tbody>
                                     </table>
                                 </div>
@@ -115,36 +138,45 @@
                             <div class="form-row">
                                 <div class="col-md-4">
                                     <label>Staf Umum</label>
-                                    <select name="ttd1" id="" class="form-control" required>
+                                    <select name="ttd1" id="" class="form-control @error('ttd1') is-invalid @enderror">
                                         <option value="">-Pilih-</option>
                                         @foreach($karyawan as $item)
-                                        <option value="{{$item->id}}">
+                                        <option value="{{$item->id}}" {{old('ttd1') == $item->id ? 'selected' : null}}>
                                             {{$item->jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
+                                    @error('ttd1')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-4">
                                     <label>Manager SDM/Umum</label>
-                                    <select name="ttd2" id="" class="form-control" required>
+                                    <select name="ttd2" id="" class="form-control @error('ttd2') is-invalid @enderror">
                                         <option value="">-Pilih-</option>
                                         @foreach($karyawan as $item)
-                                        <option value="{{$item->id}}">
+                                        <option value="{{$item->id}}" {{old('ttd2') == $item->id ? 'selected' : null}}>
                                             {{$item->jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
+                                    @error('ttd2')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-4">
                                     <label>Staf SDM & Umum</label>
-                                    <select name="ttd3" id="" class="form-control" required>
+                                    <select name="ttd3" id="" class="form-control @error('ttd3') is-invalid @enderror">
                                         <option value="">-Pilih-</option>
                                         @foreach($karyawan as $item)
-                                        <option value="{{$item->id}}">
+                                        <option value="{{$item->id}}" {{old('ttd3') == $item->id ? 'selected' : null}}>
                                             {{$item->jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
+                                    @error('ttd3')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
