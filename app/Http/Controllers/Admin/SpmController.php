@@ -20,7 +20,6 @@ class SpmController extends Controller
      */
     public function index()
     {
-        //
         $sp2bj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         $spm = Spm::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         return view('admin.spm.cetak', compact('sp2bj', 'spm'));
@@ -47,15 +46,24 @@ class SpmController extends Controller
      */
     public function store(Request $request)
     {
-        $nomorSurat = Sppbj::whereYear("created_at", Carbon::now()->year)->count();
+        $request->validate([
+            'mataanggaran_item_id'    => 'nullable',
+            'uraian_kegiatan'         => 'nullable',
+            'dana'                    => 'nullable',
+            'penerima_dana'           => 'nullable',
+            'nomor_rekening'          => 'nullable',
+            'bank'                    => 'nullable',
+        ]);
+
+        $nomorSurat = Spm::whereYear("created_at", Carbon::now()->year)->count();
 
         $data_spm = Spm::create([
             'user_id'           => auth()->id(),
-            'karyawan_id'       => $request->karyawan_id,
             'mataanggaran_id'   => $request->mataanggaran_id,
             'ttd1'              => $request->ttd1,
             'ttd2'              => $request->ttd2,
             'ttd3'              => $request->ttd3,
+            'devisi'            => $request->devisi,
             'tanggal'           => $request->tanggal,
             'tahun_anggaran'    => $request->tahun_anggaran,
             'jenis_transaksi'   => $request->jenis_transaksi,
@@ -63,22 +71,25 @@ class SpmController extends Controller
             'penerima_dana'     => $request->penerima_dana,
             'nomor_rekening'    => $request->nomor_rekening,
             'bank'              => $request->bank,
+            'nomor_surat_spm'   => $nomorSurat + 1,
         ]);
 
-        
 
-        for ($i = 0; $i < count($request->uraian_kegiatan); $i++) {
-            ItemSpm::create([
-                'spm_id'                => $data_spm->id,
-                'mataanggaran_item_id'  => $request->mataanggaran_item_id[$i],
-                'uraian_kegiatan'       => $request->uraian_kegiatan[$i],
-                'dana'                  => $request->dana[$i],
-                'keterangan'            => $request->keterangan[$i],
-            ]);
-        }
+
+        // for ($i = 0; $i < count($request->uraian_kegiatan); $i++) {
+        //     ItemSpm::create([
+        //         'user_id'               => auth()->id(),
+        //         'spm_id'                => $data_spm->id,
+        //         'mataanggaran_item_id'  => $request->mataanggaran_item_id[$i],
+        //         'uraian_kegiatan'       => $request->uraian_kegiatan[$i],
+        //         'dana'                  => $request->dana[$i],
+        //         'keterangan'            => $request->keterangan[$i],
+        //     ]);
+        // }
 
         $data_spm->save();
-        return dd($data_spm);
+        return redirect('admin\spm');
+        // return dd($data_spm);
     }
 
     /**

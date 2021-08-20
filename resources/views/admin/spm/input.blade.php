@@ -26,14 +26,13 @@
                                     <label>Jenis Tranksaksi</label>
                                     <input name="jenis_transaksi" type="text" class="form-control" />
                                     <label>Penangung Jawab</label>
-                                    <select name="karyawan_id" id="" class="form-control ">
-                                        <option value="">-Pilih-</option>
-                                        @foreach($karyawan as $item)
-
-                                        <option value="{{$item->id}}">
-                                            {{$item->jabatan}}
-                                        </option>
-                                        @endforeach
+                                    <select name="devisi" id="" class="form-control ">
+                                        <option value="SDM & Umum">SDM & Umum</option>
+                                        <option value="Usaha">Usaha</option>
+                                        <option value="Teknik">Teknik</option>
+                                        <option value="Teknik Ketapang">Teknik Ketapang</option>
+                                        <option value="Keuangan">Keuangan</option>
+                                       
                                     </select>
                                 </div>
                                 <div class="col-md-6">
@@ -46,7 +45,7 @@
                                         <option value="">-Pilih-</option>
                                         @foreach($mataanggaran as $item)
                                         <option value="{{$item->id}}">
-                                            {{$item->keterangan}}
+                                           {{$item->nomor}} - {{$item->keterangan}}
                                         </option>
                                         @endforeach
                                     </select>
@@ -54,8 +53,9 @@
                             </div>
 
                             <br>
+
                             <!-- Pengadaan Barang -->
-                            <div class="text-center">
+                            {{-- <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Form Barang/Jasa</h1>
                             </div>
                             <div class="form-row">
@@ -69,28 +69,55 @@
                                                 <th>Keterangan</th>
                                                 <th>Action</th>
                                             </tr>
-                                        </thead>
-                                        <tbody>
+                                        </thead> --}}
+
+                                        {{-- Refer data dari Sp2bj --}}
+
+                                        {{-- <tbody>
                                             <tr>
+                                                <td>{{$sp2bj->nama_pengadaan}}</td>
+                                                <td>{{$sp2bj->mataanggaran->nomor}} - {{$sp2bj->mataanggaran->keterangan}}</td>
+                                                <td>
+                                                    <p style="margin: 4px;">
+                                                      Rp.
+                                                      {{number_format(
+                                                        $sp2bj->barang->map(
+                                                          function($el)
+                                                          {
+                                                            return $el->harga_satuan * $el->jumlah;
+                                                          }
+                                                        )->sum(), 0,',','.')
+                                                      }},00
+                                                    </p>
+                                                </td>
+                                                <td>{{$sp2bj->spesifikasi}}</td>
+                                                
+                                            </tr> --}}
+
+                                            {{-- data dari Item Spm --}}
+
+                                            {{-- <tr>
                                                 <td><input name="uraian_kegiatan[]" type="text" class="form-control"></td>
-                                                <td><select name="mataanggaran_item_id[]" id="" class="form-control">
-                                                        <option value="">-Pilih-</option>
+                                                <td>
+                                                    <select name="mataanggaran_item_id[]" id="" class="form-control">
+                                                        <option value="">- Pilih -</option>
 
                                                         @foreach($mataanggaran as $item)
                                                         <option value="{{$item->id}}">
-                                                            {{$item->keterangan}}
+                                                            {{$item->nomor}} - {{$item->keterangan}}
                                                         </option>
                                                         @endforeach
 
-                                                    </select></td>
+                                                    </select>
+                                                </td>
                                                 <td><input name="dana[]" type="text" class="form-control"></td>
                                                 <td><input name="keterangan[]" type="text" class="form-control"></td>
-                                                <td class=""><input href="" class="btn btn-primary mr-2" name="tambah" id="tambah" value="Tambah"></input></td>
+                                                <td class=""><input href="" class="btn btn-primary mr-2" name="tambah" id="tambah" value="Tambah"></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <br>
                             {{-- form isi  --}}
@@ -181,17 +208,19 @@
         var x = 1;
         $("#tambah").click(function() {
             $("#tableSpm").append(`<tr>
-                                                <td><input type="text" class="form-control"></td>
-                                                <td><select name="nomor_mataanggaran[]" id="" class="form-control">
+                                                <td><input name="uraian_kegiatan[]" type="text" class="form-control"></td>
+                                                <td><select name="mataanggaran_item_id[]" id="" class="form-control">
                                                         <option value="">-Pilih-</option>
 
-                                                        <option value="">
-
+                                                        @foreach($mataanggaran as $item)
+                                                        <option value="{{$item->id}}">
+                                                            {{$item->nomor}} - {{$item->keterangan}}
                                                         </option>
+                                                        @endforeach
 
                                                     </select></td>
-                                                <td><input type="text" class="form-control"></td>
-                                                <td><input type="text" class="form-control"></td>
+                                                <td><input name="dana[]" type="text" class="form-control"></td>
+                                                <td><input name="keterangan[]" type="text" class="form-control"></td>
                                                 <td class=""><input href="" class="btn btn-danger mr-2" name="hapus" id="hapus" value="Hapus"></input></td>
                                             </tr>`);
             $("#tableSpm").on('click', '#hapus', function() {

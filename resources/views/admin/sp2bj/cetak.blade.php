@@ -127,13 +127,13 @@
       <table width="910" align="center" cellpadding="0" cellspacing="0" style="width: 1014px; border-color: black; margin-top: 2px;">
         <thead>
           <tr class="text-center">
-            <th class="border1 style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">No</th>
-            <th class="border1 style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Jumlah</th>
-            <th class="border1 style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Satuan</th>
-            <th class="border1 style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Nama Barang</th>
-            <th class="border1 style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Spesifikasi</th>
-            <th class="border1 style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Harga Satuan</th>
-            <th class="border1 style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Jumlah</th>
+            <th class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">No</th>
+            <th class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Jumlah</th>
+            <th class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Satuan</th>
+            <th class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Nama Barang</th>
+            <th class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Spesifikasi</th>
+            <th class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Harga Satuan</th>
+            <th class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Jumlah</th>
           </tr>
         </thead>
         <tbody>

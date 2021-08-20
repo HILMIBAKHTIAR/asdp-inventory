@@ -15,14 +15,16 @@ class CreateItemSpmsTable extends Migration
     {
         Schema::create('item_spms', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('spm_id');
-            $table->unsignedBigInteger('mataanggaran_item_id');
-            $table->string('uraian_kegiatan');
-            $table->bigInteger('dana');
-            $table->string('keterangan');
+            $table->unsignedBigInteger('spm_id')->nullable();
+            $table->unsignedBigInteger('mataanggaran_item_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->string('uraian_kegiatan')->nullable();
+            $table->bigInteger('dana')->nullable();
+            $table->string('keterangan')->nullable();
             $table->timestamps();
             $table->foreign('spm_id')->references('id')->on('spms')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('mataanggaran_item_id')->references('id')->on('mataanggarans')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
