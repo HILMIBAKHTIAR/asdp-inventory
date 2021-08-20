@@ -9,11 +9,11 @@ class Spm extends Model
     //
     protected $fillable = [
         'user_id',
-        'karyawan_id',
         'mataanggaran_id',
         'ttd1',
         'ttd2',
         'ttd3',
+        'devisi',
         'tanggal',
         'tahun_anggaran',
         'jenis_transaksi',
@@ -21,7 +21,10 @@ class Spm extends Model
         'penerima_dana',
         'nomor_rekening',
         'bank',
+        'nomor_surat_spm'
     ];
+
+
 
     public function user()
     {

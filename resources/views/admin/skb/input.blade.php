@@ -29,10 +29,11 @@
                                     <input name="no_telp" type="text" class="form-control">
                                 </div>
                                 <div class="col-md-4">
-                                    @enderror
+                                    
                                     <label>Tanggal Surat</label>
                                     <input type="date" name="tanggal_surat" class="form-control @error('tanggal_surat') is-invalid @enderror" value="{{old('tanggal_surat')}}" />
                                     @error('tanggal_surat')
+                                    @enderror
                                 </div>
                             </div>
 
