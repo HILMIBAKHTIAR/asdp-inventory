@@ -54,70 +54,7 @@
 
                             <br>
 
-                            <!-- Pengadaan Barang -->
-                            {{-- <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Form Barang/Jasa</h1>
-                            </div>
-                            <div class="form-row">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="tableSpm" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>Urian Kegiatan</th>
-                                                <th>MA</th>
-                                                <th>Permohonan Dana</th>
-                                                <th>Keterangan</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead> --}}
-
-                                        {{-- Refer data dari Sp2bj --}}
-
-                                        {{-- <tbody>
-                                            <tr>
-                                                <td>{{$sp2bj->nama_pengadaan}}</td>
-                                                <td>{{$sp2bj->mataanggaran->nomor}} - {{$sp2bj->mataanggaran->keterangan}}</td>
-                                                <td>
-                                                    <p style="margin: 4px;">
-                                                      Rp.
-                                                      {{number_format(
-                                                        $sp2bj->barang->map(
-                                                          function($el)
-                                                          {
-                                                            return $el->harga_satuan * $el->jumlah;
-                                                          }
-                                                        )->sum(), 0,',','.')
-                                                      }},00
-                                                    </p>
-                                                </td>
-                                                <td>{{$sp2bj->spesifikasi}}</td>
-                                                
-                                            </tr> --}}
-
-                                            {{-- data dari Item Spm --}}
-
-                                            {{-- <tr>
-                                                <td><input name="uraian_kegiatan[]" type="text" class="form-control"></td>
-                                                <td>
-                                                    <select name="mataanggaran_item_id[]" id="" class="form-control">
-                                                        <option value="">- Pilih -</option>
-
-                                                        @foreach($mataanggaran as $item)
-                                                        <option value="{{$item->id}}">
-                                                            {{$item->nomor}} - {{$item->keterangan}}
-                                                        </option>
-                                                        @endforeach
-
-                                                    </select>
-                                                </td>
-                                                <td><input name="dana[]" type="text" class="form-control"></td>
-                                                <td><input name="keterangan[]" type="text" class="form-control"></td>
-                                                <td class=""><input href="" class="btn btn-primary mr-2" name="tambah" id="tambah" value="Tambah"></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div> --}}
+                            
 
                             <br>
                             {{-- form isi  --}}

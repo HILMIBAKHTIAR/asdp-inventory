@@ -15,6 +15,13 @@
         border: 1px solid black;
         border-collapse: collapse;
       }
+
+      .no-bottom-border {
+        border: 1px solid black;
+        border-bottom: none;
+        border-top: none;
+        border-collapse: collapse;
+      }
       </style>
 
 </head>
@@ -122,10 +129,10 @@
           </thead>
           <tbody>
             <tr>
-              <td align="center" class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp; 1 &nbsp;</td>
-              <td class="border1" style="width: 20%; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"> <p style="margin: 4px">{{$sp2bj->nama_pengadaan}}</p></td>
-              <td class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;{{$sp2bj->mataanggaran->nomor}}&nbsp;</td>
-              <td class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;<p style="margin: 4px;">
+              <td align="center" class="no-bottom-border" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp; 1 &nbsp;</td>
+              <td class="no-bottom-border" style="width: 20%; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"> <p style="margin: 4px">{{$sp2bj->nama_pengadaan}}</p></td>
+              <td class="no-bottom-border" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;{{$sp2bj->mataanggaran->nomor}}&nbsp;</td>
+              <td class="no-bottom-border" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;<p style="margin: 4px;">
                   Rp.
                   {{number_format(
                     $sp2bj->barang->map(
@@ -137,7 +144,14 @@
                   }},00
                 </p>&nbsp;
               </td>
-              <td class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;{{$spm->keterangan}}&nbsp;</td>
+              <td class="no-bottom-border" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;{{$spm->keterangan}}&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="no-bottom-border">&nbsp;</td>
+              <td class="no-bottom-border">&nbsp;</td>
+              <td class="no-bottom-border">&nbsp;</td>
+              <td class="no-bottom-border">&nbsp;</td>
+              <td class="no-bottom-border">&nbsp;</td>
             </tr>
 
             {{-- {{$nomor=2}}
@@ -157,36 +171,39 @@
                 <strong style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"> &nbsp;Jumlah&nbsp; </strong>
               </td>
 
-              <td colspan="2" class="border1">
-                  {{
-                    $sp2bj->barang->map(
-                        function($el)
-                        {
-                          return $el->harga_satuan * $el->jumlah;
-                        }
-                      )->sum()
-                  +
-                    $spm->itemspm->map(
-                      function($yha)
-                      {
-                        return $yha->dana;
-                      }
-                    )->sum()
-                  }}
-              </td>
+              <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" colspan="2" class="border1">
+                <p style="margin: 4px;">
 
-              <td></td>
+                  Rp. 
+                  {{number_format(
+                    $sp2bj->barang->map(
+                      function($el)
+                      {
+                        return $el->harga_satuan * $el->jumlah;
+                      }
+                      )->sum()
+                      +
+                      $spm->itemspm->map(
+                        function($yha)
+                        {
+                          return $yha->dana;
+                        }
+                        )->sum(), 0,',','.'),
+                      }},00
+                      </p>
+              </td>
             </tr>
           </tbody>
         </table>
-
+        
         <br>
-
+        
         <table width="910" align="center" cellpadding="0" cellspacing="2" style="width: 960px;">
         <tbody>
         <tr style="height: 23px;">
         <td style="width: 229.711px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Terbilang</td>
         <td style="width: 847.289px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">:&nbsp;
+          <i style="text-transform: capitalize">
           {{
             terbilang(
               $sp2bj->barang->map(
@@ -200,7 +217,8 @@
                 }
               )->sum()
             ) 
-          }}
+          }} rupiah
+          </i>
         </td>
         </tr>
         <tr style="height: 23px;">
