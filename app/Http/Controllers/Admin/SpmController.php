@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Sppbj;
 use App\Karyawan;
 use App\Mataanggaran;
-use App\ItemSpm;
 use App\Spm;
 use Illuminate\Support\Carbon;
 
@@ -34,7 +33,7 @@ class SpmController extends Controller
     {
         $karyawan = Karyawan::all();
         $mataanggaran = Mataanggaran::all();
-        return view('admin.spm.input', compact('sp2bj', 'karyawan', 'mataanggaran'));
+        return view('admin.spm.input', compact('karyawan', 'mataanggaran'));
     }
 
     /**
@@ -45,8 +44,7 @@ class SpmController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-        ]);
+        $request->validate([]);
 
         $nomorSurat = Spm::whereYear("created_at", Carbon::now()->year)->count();
 
