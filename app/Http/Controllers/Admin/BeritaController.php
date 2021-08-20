@@ -43,6 +43,21 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'karyawan_berita_id'    => 'required',
+            'ttd1'                  => 'required',
+            'ttd2'                  => 'required',
+            'ttd3'                  => 'required',
+            'alamat_tujuan'         => 'required',
+            'tanggal_surat'         => 'required',
+        ],[
+            'karyawan_berita_id.required'    => 'kepada yth harus diisi',
+            'ttd1.required'                  => 'staf umum harus diisi',
+            'ttd2.required'                  => 'manager sdm & umum harus diisi',
+            'ttd3.required'                  => 'staf sdm & umum harus diisi',
+            'alamat_tujuan.required'         => 'alamat tujuan harus diisi',
+            'tanggal_surat.required'         => 'tanggal surat harus diisi',
+        ]);
         $data_berita = Berita::create([
             'user_id' => auth()->id(),
             'karyawan_berita_id' => $request->karyawan_berita_id,

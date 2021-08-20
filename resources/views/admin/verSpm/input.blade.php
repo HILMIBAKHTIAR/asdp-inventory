@@ -11,20 +11,6 @@
 
                     <!-- judul form-->
 
-                    @if($errors->any())
-
-                    <div class="alert alert-danger">
-                        <div class="list-group">
-                            @foreach($errors->all() as $error)
-                            <li class="list-group-item">
-                                {{$error}}
-                            </li>
-                            @endforeach
-                        </div>
-                    </div>
-
-                    @endif
-
                     <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">Formulir Verifikasi Pembelian <br> Tunai Unit Kerja</h1>
                     </div>
@@ -36,23 +22,35 @@
                             <div class="form-row">
                                 <div class="col-md-4">
                                     <label>Nama</label>
-                                    <input name="nama" type="text" class="form-control" />
+                                    <input name="nama" type="text" class="form-control @error('nama') is-invalid @enderror" value="{{old('nama')}}" />
+                                    @error('nama')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-4">
                                     <label>Jenis Pekerjaan</label>
-                                    <input name="jenis_pekerjaan" type="text" class="form-control" />
+                                    <input name="jenis_pekerjaan" type="text" class="form-control @error('jenis_pekerjaan') is-invalid @enderror" value="{{old('jenis_pekerjaan')}}" />
+                                    @error('jenis_pekerjaan')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-4">
                                     <label>Uraian Pekerjaan</label>
-                                    <input name="uraian_pekerjaan" type="text" class="form-control" />
+                                    <input name="uraian_pekerjaan" type="text" class="form-control @error('uraian_pekerjaan') is-invalid @enderror" value="{{old('uraian_pekerjaan')}}" />
+                                    @error('uraian_pekerjaan')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                 </div>
 
                             </div>
 
                             <div class="form-row">
                                 <div class="col-md-6">
-                                    <label>Anggaran Tahun</label>
-                                    <input name="tahun_anggaran" type="date" class="form-control" />
+                                    <label>Tahun Anggaran</label>
+                                    <input name="tahun_anggaran" type="date" class="form-control @error('tahun_anggaran') is-invalid @enderror" value="{{old('tahun_anggaran')}}" />
+                                    @error('tahun_anggaran')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-6">
                                     <label>Verifikator</label>
@@ -64,6 +62,9 @@
                                         </option>
                                         @endforeach
                                     </select>
+                                    @error('karyawan_id')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -114,6 +115,9 @@
                                         </option>
                                         @endforeach
                                     </select>
+                                    @error('ttd1')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-6">
                                     <label>Pembuat Verifikator</label>
@@ -125,6 +129,9 @@
                                         </option>
                                         @endforeach
                                     </select>
+                                    @error('ttd2')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>

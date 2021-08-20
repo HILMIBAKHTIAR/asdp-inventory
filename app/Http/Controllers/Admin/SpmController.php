@@ -44,7 +44,27 @@ class SpmController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([]);
+        $request->validate([
+            'mataanggaran_id'   => 'required',
+            'ttd1'              => 'required',
+            'ttd2'              => 'required',
+            'ttd3'              => 'required',
+            'devisi'            => 'required',
+            'tanggal'           => 'required',
+            'tahun_anggaran'    => 'required',
+            'jenis_transaksi'   => 'required',
+            'program'           => 'required',
+        ],[
+            'mataanggaran_id.required'      => "pembebanan anggaran harus diisi",
+            'ttd1.required'                 => "general manager harus diisi",
+            'ttd2.required'                 => "manager sdm & umum harus diisi",
+            'ttd3.required'                 => "staf sdm & umum harus diisi",
+            'devisi.required'               => "penanggung jawab peminta harus diisi",
+            'tanggal.required'              => "tanggal harus diisi",
+            'tahun_anggaran.required'       => "tahun anggaran harus diisi",
+            'jenis_transaksi.required'      => "jenis transaksi harus diisi",
+            'program.required'              => "program harus diisi",
+        ]);
 
         $nomorSurat = Spm::whereYear("created_at", Carbon::now()->year)->count();
 

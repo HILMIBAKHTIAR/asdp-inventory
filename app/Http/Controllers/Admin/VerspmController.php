@@ -54,6 +54,14 @@ class VerspmController extends Controller
             'tahun_anggaran'    => 'required',
             'ttd1'              => 'required',
             'ttd2'              => 'required',
+        ],[
+            'karyawan_id.required'       => 'nama Verifikator harus diisi',
+            'nama.required'              => 'nama harus diisi',
+            'jenis_pekerjaan.required'   => 'jenis pekerjaan harus diisi',
+            'uraian_pekerjaan.required'  => 'uraian pekerjaan harus diisi',
+            'tahun_anggaran.required'    => 'tahun anggaran harus diisi',
+            'ttd1.required'              => 'manager sdm & umum harus diisi',
+            'ttd2.required'              => 'pembuat verifikator harus diisi',
         ]);
 
         $data_verspm = Verspm::create([

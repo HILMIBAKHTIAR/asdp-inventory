@@ -22,42 +22,53 @@
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label>Tanggal</label>
-                                    <input name="tanggal" type="date" class="form-control" />
+                                    <input name="tanggal" type="date" class="form-control @error('tanggal') is-invalid @enderror" value="{{old('tanggal')}}" />
+                                    @error('tanggal')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                     <label>Jenis Tranksaksi</label>
-                                    <input name="jenis_transaksi" type="text" class="form-control" />
+                                    <input name="jenis_transaksi" type="text" class="form-control @error('jenis_transaksi') is-invalid @enderror" value="{{old('jenis_transaksi')}}" />
+                                    @error('jenis_transaksi')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                     <label>Penangung Jawab</label>
-                                    <select name="devisi" id="" class="form-control ">
-                                        <option value="SDM & Umum">SDM & Umum</option>
-                                        <option value="Usaha">Usaha</option>
-                                        <option value="Teknik">Teknik</option>
-                                        <option value="Teknik Ketapang">Teknik Ketapang</option>
-                                        <option value="Keuangan">Keuangan</option>
-                                       
+                                    <select name="devisi" id="" class="form-control @error('devisi') is-invalid @enderror">
+                                        <option value="SDM & Umum" @if (old('devisi')=='SDM & Umum' ) selected="selected" @endif>SDM & Umum</option>
+                                        <option value="Usaha" @if (old('devisi')=='Usaha' ) selected="selected" @endif>Usaha</option>
+                                        <option value="Teknik" @if (old('devisi')=='Teknik' ) selected="selected" @endif>Teknik</option>
+                                        <option value="Teknik Ketapang" @if (old('devisi')=='Teknik Ketapang' ) selected="selected" @endif>Teknik Ketapang</option>
+                                        <option value="Keuangan" @if (old('devisi')=='Keuangan' ) selected="selected" @endif>Keuangan</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
                                     <label>Tahun Anggaran</label>
-                                    <input name="tahun_anggaran" type="date" class="form-control">
+                                    <input name="tahun_anggaran" type="date" class="form-control @error('tahun_anggaran') is-invalid @enderror" value="{{old('tahun_anggaran')}}">
+                                    @error('tahun_anggaran')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                     <label>Program</label>
-                                    <input name="program" type="text" class="form-control" />
+                                    <input name="program" type="text" class="form-control @error('program') is-invalid @enderror" value="{{old('program')}}" />
+                                    @error('program')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                     <label>Pembebanan Anggaran</label>
-                                    <select name="mataanggaran_id" id="" class="form-control ">
+                                    <select name="mataanggaran_id" id="" class="form-control @error('mataanggaran_id') is-invalid @enderror">
                                         <option value="">-Pilih-</option>
                                         @foreach($mataanggaran as $item)
-                                        <option value="{{$item->id}}">
-                                           {{$item->nomor}} - {{$item->keterangan}}
+                                        <option value="{{$item->id}}" {{old('mataanggaran_id') == $item->id ? 'selected' : null}}>
+                                            {{$item->nomor}} - {{$item->keterangan}}
                                         </option>
                                         @endforeach
                                     </select>
+                                    @error('mataanggaran_id')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                 </div>
                             </div>
 
                             <br>
 
-                            
-
-                            <br>
-                            {{-- form isi  --}}
+                            <!-- form isi   -->
 
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Form isi Bank</h1>
@@ -65,15 +76,15 @@
                             <div class="form-row">
                                 <div class="col-md-4">
                                     <label>Penerima Dana</label>
-                                    <input name="penerima_dana" type="text" class="form-control" placeholder="Boleh tidak diisi" />
+                                    <input name="penerima_dana" type="text" class="form-control" placeholder="Boleh tidak diisi" value="{{old('penerima_dana')}}" />
                                 </div>
                                 <div class="col-md-4">
                                     <label>Nomor Rekening</label>
-                                    <input name="nomor_rekening" type="text" class="form-control" placeholder="Boleh tidak diisi" />
+                                    <input name="nomor_rekening" type="text" class="form-control" placeholder="Boleh tidak diisi" value="{{old('nomor_rekening')}}" />
                                 </div>
                                 <div class="col-md-4">
                                     <label>Bank</label>
-                                    <input name="bank" type="text" class="form-control" placeholder="Boleh tidak diisi" />
+                                    <input name="bank" type="text" class="form-control" placeholder="Boleh tidak diisi" value="{{old('bank')}}" />
                                 </div>
                             </div>
 
@@ -85,46 +96,51 @@
                             <div class="form-row">
                                 <div class="col-md-4">
                                     <label>General Manager</label>
-                                    <select name="ttd1" id="" class="form-control ">
+                                    <select name="ttd1" id="" class="form-control @error('ttd1') is-invalid @enderror">
                                         <option value="">-Pilih-</option>
 
                                         @foreach($karyawan as $item)
-                                        <option value="{{$item->id}}">
+                                        <option value="{{$item->id}}" {{old('ttd1') == $item->id ? 'selected' : null}}>
                                             {{$item->jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
-
                                     </select>
+                                    @error('ttd1')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-4">
                                     <label>Manager SDM & Umum</label>
-                                    <select name="ttd2" id="" class="form-control ">
+                                    <select name="ttd2" id="" class="form-control @error('ttd2') is-invalid @enderror">
                                         <option value="">-Pilih-</option>
 
                                         @foreach($karyawan as $item)
-                                        <option value="{{$item->id}}">
+                                        <option value="{{$item->id}}" {{old('ttd2') == $item->id ? 'selected' : null}}>
                                             {{$item->jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
-
                                     </select>
+                                    @error('ttd2')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-4">
                                     <label>Staf SDM & Umum</label>
-                                    <select name="ttd3" id="" class="form-control @error('ttd1') is-invalid @enderror">
+                                    <select name="ttd3" id="" class="form-control @error('ttd3') is-invalid @enderror">
                                         <option value="">-Pilih-</option>
 
                                         @foreach($karyawan as $item)
-                                        <option value="{{$item->id}}">
+                                        <option value="{{$item->id}}" {{old('ttd3') == $item->id ? 'selected' : null}}>
                                             {{$item->jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
-
                                     </select>
+                                    @error('ttd3')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
-
                         <div>
                             <center>
                                 <input type="submit" class="btn btn-primary" name="selanjutnya" id="selanjutnya" value="Selanjutnya">
@@ -135,7 +151,6 @@
             </div>
         </div>
     </div>
-
 </div>
 <!-- /.container-fluid -->
 
