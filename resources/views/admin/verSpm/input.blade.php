@@ -16,24 +16,36 @@
                     </div>
 
                     <!-- isi form input -->
-                    <form class="sppbj">
+                    <form action="{{route('verspm.store')}}" method="psot">
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label>Nama</label>
-                                    <input type="text" class="form-control" />
+                                    <input name="nama" type="text" class="form-control" />
                                     <label>Jenis Pekerjaan</label>
-                                    <input type="text" class="form-control" />
+                                    <input name="jenis_pekerjaan" type="text" class="form-control" />
                                     <label>Uraian Pekerjaan</label>
-                                    <input type="text" class="form-control" />
+                                    <input name="uraian_pekerjaan" type="text" class="form-control" />
                                 </div>
                                 <div class="col-md-6">
-                                    <label>Mata Anggaran</label>
-                                    <input type="text" class="form-control">
                                     <label>Anggaran Tahun</label>
-                                    <input type="date" class="form-control" />
+                                    <input name="tahun_anggaran" type="date" class="form-control" />
                                     <label>Penanggung Jawab Anggaran</label>
-                                    <input type="text" class="form-control" />
+                                    <select class="form-control" name="pj_anggaran[]">
+                                        <option value="#">-Pilih-</option>
+                                        <option value="divisi_teknik_ketapang">Divisi Teknik Ketapang</option>
+                                        <option value="divisi_sdmumum">Divisi SDM & UMUM</option>
+                                        <option value="divisi_usaha">Divisi Usaha</option>
+                                    </select>
+                                    <label>Verifikator</label>
+                                    <select name="karyawan_id" id="" class="form-control @error('karyawan_id') is-invalid @enderror">
+                                        <option value="">-Pilih-</option>
+                                        @foreach($karyawan as $item)
+                                        <option value="{{$item->id}}" {{old('karyawan_id') == $item->id ? 'selected' : null}}>
+                                            {{$item->nama_karyawan}}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 
@@ -76,19 +88,32 @@
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label>Manager SDM & Umum</label>
-                                    <input type="text" class="form-control" />
+                                    <select name="ttd1" id="" class="form-control  @error('ttd1') is-invalid @enderror">
+                                        <option value="">-Pilih-</option>
+                                        @foreach($karyawan as $item)
+                                        <option value="{{$item->id}}" {{old('ttd1') == $item->id ? 'selected' : null}}>
+                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="col-md-6">
                                     <label>Pembuat Verifikator</label>
-                                    <input type="text" class="form-control">
+                                    <select name="ttd2" id="" class="form-control @error('ttd2') is-invalid @enderror">
+                                        <option value="">-Pilih-</option>
+                                        @foreach($karyawan as $item)
+                                        <option value="{{$item->id}}" {{old('ttd2') == $item->id ? 'selected' : null}}>
+                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
 
                         <div>
                             <center>
-                                <input type="submit" class="btn btn-success" name="print" id="print" value="Print">
-                                <input type="button" class="btn btn-primary" name="selanjutnya" id="selanjutnya" value="Selanjutnya">
+                                <input type="submit" class="btn btn-success btn-lg" name="selanjutnya" id="selanjutnya" value="Selanjutnya" style="padding: 5px 50px; margin-top: 10px;">
                             </center>
                         </div>
                     </form>

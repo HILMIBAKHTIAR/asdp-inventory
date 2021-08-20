@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Karyawan;
+use App\Verspm;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class VerspmController extends Controller
@@ -15,7 +18,9 @@ class VerspmController extends Controller
     public function index()
     {
         //
-        return view('admin.verspm.index');
+        $verspm = Verspm::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
+        $today = Carbon::now()->isoFormat('D MMMM Y');
+        return view('admin.verspm.cetak', compact('verspm', 'today'));
     }
 
     /**
@@ -25,7 +30,8 @@ class VerspmController extends Controller
      */
     public function create()
     {
-        return view('admin.verspm.input');
+        $karyawan = Karyawan::all();
+        return view('admin.verspm.input', compact('karyawan'));
     }
 
     /**
@@ -37,6 +43,28 @@ class VerspmController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'karyawan_id'       => 'required',
+            'nama'              => 'required',
+            'jenis_pekerjaan'   => 'required',
+            'uraian_pekerjaan'  => 'required',
+            'tahun_anggaran'    => 'required',
+        ]);
+
+        $data_verspm = Verspm::create([
+            'user_id'           => auth()->user()->id,
+            'nama'              => $request ->nama,
+            'karyawan_id'       => $request ->karyawan_id,
+            'jenis_anggaran'    => $request ->jenis_anggaran,
+            'uraian_pekerjaan'  => $request ->uraian_pekerjaan,
+            'tahun_anggaran'    => $request ->tahun_anggaran,
+            'ttd1'              => $request ->ttd1,
+            'ttd2'              => $request ->ttd2,
+        ]);
+
+        $data_verspm->save();
+        return redirect('admin/verspm');
+
     }
 
     /**
