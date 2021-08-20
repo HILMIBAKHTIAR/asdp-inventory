@@ -11,32 +11,50 @@
 
                     <!-- judul form-->
 
+                    @if($errors->any())
+
+                    <div class="alert alert-danger">
+                        <div class="list-group">
+                            @foreach($errors->all() as $error)
+                            <li class="list-group-item">
+                                {{$error}}
+                            </li>
+                            @endforeach
+                        </div>
+                    </div>
+
+                    @endif
+
                     <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">Formulir Verifikasi Pembelian <br> Tunai Unit Kerja</h1>
                     </div>
 
                     <!-- isi form input -->
-                    <form action="{{route('verspm.store')}}" method="psot">
+                    <form action="{{route('verspm.store')}}" method="post">
+                        @csrf
                         <div class="form-group">
                             <div class="form-row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <label>Nama</label>
                                     <input name="nama" type="text" class="form-control" />
+                                </div>
+                                <div class="col-md-4">
                                     <label>Jenis Pekerjaan</label>
                                     <input name="jenis_pekerjaan" type="text" class="form-control" />
+                                </div>
+                                <div class="col-md-4">
                                     <label>Uraian Pekerjaan</label>
                                     <input name="uraian_pekerjaan" type="text" class="form-control" />
                                 </div>
+
+                            </div>
+
+                            <div class="form-row">
                                 <div class="col-md-6">
                                     <label>Anggaran Tahun</label>
                                     <input name="tahun_anggaran" type="date" class="form-control" />
-                                    <label>Penanggung Jawab Anggaran</label>
-                                    <select class="form-control" name="pj_anggaran[]">
-                                        <option value="#">-Pilih-</option>
-                                        <option value="divisi_teknik_ketapang">Divisi Teknik Ketapang</option>
-                                        <option value="divisi_sdmumum">Divisi SDM & UMUM</option>
-                                        <option value="divisi_usaha">Divisi Usaha</option>
-                                    </select>
+                                </div>
+                                <div class="col-md-6">
                                     <label>Verifikator</label>
                                     <select name="karyawan_id" id="" class="form-control @error('karyawan_id') is-invalid @enderror">
                                         <option value="">-Pilih-</option>
@@ -50,7 +68,7 @@
                             </div>
 
                             <br>
-                            <!-- Pengadaan Barang -->
+                            <!-- Pengadaan Barang
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Form Barang/Jasa</h1>
                             </div>
@@ -79,7 +97,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- FORM TTD -->
                             <div class="text-center">

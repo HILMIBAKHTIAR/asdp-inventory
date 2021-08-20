@@ -35,6 +35,10 @@ class Verspm extends Model
     {
         return $this->belongsTo(Karyawan::class, 'ttd2', 'id');
     }
+    public function spm()
+    {
+        return $this->belongsTo(Spm::class);
+    }
 
 
 }

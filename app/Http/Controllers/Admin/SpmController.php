@@ -32,7 +32,6 @@ class SpmController extends Controller
      */
     public function create()
     {
-        $sp2bj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         $karyawan = Karyawan::all();
         $mataanggaran = Mataanggaran::all();
         return view('admin.spm.input', compact('sp2bj', 'karyawan', 'mataanggaran'));
@@ -47,12 +46,6 @@ class SpmController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'mataanggaran_item_id'    => 'nullable',
-            'uraian_kegiatan'         => 'nullable',
-            'dana'                    => 'nullable',
-            'penerima_dana'           => 'nullable',
-            'nomor_rekening'          => 'nullable',
-            'bank'                    => 'nullable',
         ]);
 
         $nomorSurat = Spm::whereYear("created_at", Carbon::now()->year)->count();
@@ -78,7 +71,6 @@ class SpmController extends Controller
 
         // for ($i = 0; $i < count($request->uraian_kegiatan); $i++) {
         //     ItemSpm::create([
-        //         'user_id'               => auth()->id(),
         //         'spm_id'                => $data_spm->id,
         //         'mataanggaran_item_id'  => $request->mataanggaran_item_id[$i],
         //         'uraian_kegiatan'       => $request->uraian_kegiatan[$i],

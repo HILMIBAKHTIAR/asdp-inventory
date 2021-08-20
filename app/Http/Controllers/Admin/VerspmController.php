@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Karyawan;
+use App\Spm;
 use App\Verspm;
+use App\Sppbj;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -18,9 +20,9 @@ class VerspmController extends Controller
     public function index()
     {
         //
+        $sp2bj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         $verspm = Verspm::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
-        $today = Carbon::now()->isoFormat('D MMMM Y');
-        return view('admin.verspm.cetak', compact('verspm', 'today'));
+        return view('admin.verspm.cetak', compact('verspm'));
     }
 
     /**
@@ -31,7 +33,8 @@ class VerspmController extends Controller
     public function create()
     {
         $karyawan = Karyawan::all();
-        return view('admin.verspm.input', compact('karyawan'));
+        $spm = Spm::all();
+        return view('admin.verspm.input', compact('karyawan', 'spm'));
     }
 
     /**
@@ -49,13 +52,15 @@ class VerspmController extends Controller
             'jenis_pekerjaan'   => 'required',
             'uraian_pekerjaan'  => 'required',
             'tahun_anggaran'    => 'required',
+            'ttd1'              => 'required',
+            'ttd2'              => 'required',
         ]);
 
         $data_verspm = Verspm::create([
             'user_id'           => auth()->user()->id,
             'nama'              => $request ->nama,
             'karyawan_id'       => $request ->karyawan_id,
-            'jenis_anggaran'    => $request ->jenis_anggaran,
+            'jenis_pekerjaan'   => $request ->jenis_pekerjaan,
             'uraian_pekerjaan'  => $request ->uraian_pekerjaan,
             'tahun_anggaran'    => $request ->tahun_anggaran,
             'ttd1'              => $request ->ttd1,
@@ -64,6 +69,7 @@ class VerspmController extends Controller
 
         $data_verspm->save();
         return redirect('admin/verspm');
+        // return dd($data_verspm);
 
     }
 
