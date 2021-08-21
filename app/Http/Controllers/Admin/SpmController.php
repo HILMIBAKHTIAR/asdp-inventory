@@ -54,7 +54,7 @@ class SpmController extends Controller
             'tahun_anggaran'    => 'required',
             'jenis_transaksi'   => 'required',
             'program'           => 'required',
-        ],[
+        ], [
             'mataanggaran_id.required'      => "pembebanan anggaran harus diisi",
             'ttd1.required'                 => "general manager harus diisi",
             'ttd2.required'                 => "manager sdm & umum harus diisi",
