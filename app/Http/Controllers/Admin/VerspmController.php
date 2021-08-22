@@ -55,7 +55,7 @@ class VerspmController extends Controller
             'tanggal_surat'    => 'required',
             'ttd1'              => 'required',
             'ttd2'              => 'required',
-        ],[
+        ], [
             'karyawan_id.required'       => 'nama Verifikator harus diisi',
             'nama.required'              => 'nama harus diisi',
             'jenis_pekerjaan.required'   => 'jenis pekerjaan harus diisi',

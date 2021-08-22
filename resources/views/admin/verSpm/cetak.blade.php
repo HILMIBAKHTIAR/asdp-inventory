@@ -141,7 +141,16 @@
     <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 25%; height: 23px;"> <p style="margin: 12px;">Dokumen Yang mendasari Biaya</p></td>
     <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 25%; height: 23px;"> <p style="margin: 12px;">SPPBJ.{{$sp2bj->nomor_surat}}/UM/ASDP-KTP/<?= date('Y') ?></p></td>
     <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 267.051px; height: 23px;"> <p style="margin: 12px;">{{tanggal_indonesia($sp2bj->tanggal_surat)}}</p></td>
-    <td class="no-bottom-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 284.949px; height: 23px;"> <p style="margin: 12px;">Rp. {{number_format(850000,0,',','.')}},00</p></td>
+    <td class="no-bottom-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 284.949px; height: 23px;"> <p style="margin: 12px;">Rp.
+      {{number_format(
+        $sp2bj->barang->map(
+          function($el)
+          {
+            return $el->harga_satuan * $el->jumlah;
+          }
+        )->sum(), 0,',','.')
+      }},00</p>
+      </td>
     <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 421px; height: 23px;"> <p style="margin: 12px;"></p></td>
   </tr>
   <tr>
@@ -185,7 +194,16 @@
   </tr>
   <tr style="height: 23px;">
     <td class="border1 text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 15px; height: 23px;" colspan="4"><p style="margin: 12px;">Jumlah</p></td>
-    <td class="border1 text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 284.949px; height: 23px;"><p style="margin: 12px;">Rp. {{number_format(850000,0,',','.')}},00</p></td>
+    <td class="border1 text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 284.949px; height: 23px;"><p style="margin: 12px;">Rp.
+        {{number_format(
+          $sp2bj->barang->map(
+            function($el)
+            {
+              return $el->harga_satuan * $el->jumlah;
+            }
+          )->sum(), 0,',','.')
+        }},00</p>
+      </td>
     <td class="border1" style="width: 421px; height: 23px;">&nbsp;</td>
   </tr>
   </tbody>
@@ -194,7 +212,7 @@
   <table width="910" align="center" cellpadding="0" cellspacing="0" style="width: 1011px;">
   <tbody>
   <tr>
-  <td style="font-size: 14.0pt; font-family: FrutigerExt-Normal; color: black; width: 622.938px;">KETAPANG, 08-01-2021</td>
+  <td style="font-size: 14.0pt; font-family: FrutigerExt-Normal; color: black; width: 622.938px;">KETAPANG, {{tanggal_indonesia($verspm->tanggal_surat)}}</td>
   <td style="width: 651.062px;">&nbsp;</td>
   </tr>
   <tr>
@@ -226,7 +244,7 @@
 
 <div class="container-lg text-center mt-4 mb-4">
   <button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary" style="margin-right: 4cm;">cetak</button>
-  <button name="Selanjutnya" class="btn btn-success">Selanjutnya</button>
+  <a href="{{url('admin/sp2bj/create')}}" name="Selanjutnya" class="btn btn-success">Selesai</a>
 </div>
 
 <script>

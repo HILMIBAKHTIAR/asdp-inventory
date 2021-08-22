@@ -50,7 +50,7 @@ class BeritaController extends Controller
             'ttd3'                  => 'required',
             'alamat_tujuan'         => 'required',
             'tanggal_surat'         => 'required',
-        ],[
+        ], [
             'karyawan_berita_id.required'    => 'kepada yth harus diisi',
             'ttd1.required'                  => 'staf umum harus diisi',
             'ttd2.required'                  => 'manager sdm & umum harus diisi',
@@ -115,10 +115,16 @@ class BeritaController extends Controller
 
         $request->validate([
 
-            'jumlah'             => 'required',
-            'nama_barang'        => 'required',
-            'spesifikasi'        => 'required',
-            'harga_satuan'       => 'required',
+            'jumlah.*'                   => 'required',
+            'nama_barang.*'               => 'required',
+            'spesifikasi.*'                 => 'required',
+            'harga_satuan.*'               => 'required',
+
+        ], [
+            'jumlah.*.required'                       => 'kepada yth harus diisi',
+            'nama_barang.*.required'                  => 'nama barang atau alat harus diisi',
+            'spesifikasi.*.required'                  => 'spesifikasi harus diisi',
+            'harga_satuan.*.required'                  => 'harga satuan harus diisi',
         ]);
 
         if (count($request->id) > 0) {
