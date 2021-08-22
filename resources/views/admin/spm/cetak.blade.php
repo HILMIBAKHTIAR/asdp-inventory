@@ -86,23 +86,23 @@
         <tbody>
         <tr style="height: 23px;">
         <td style="width: 228.93px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >Nomor</td>
-        <td style="width: 845.07px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >: SPM.20.1/UM/ASDP-KTP/2021</td>
+        <td style="width: 845.07px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >: SPM.{{$spm->nomorSurat}}/UM/ASDP-KTP/2021</td>
         </tr>
         <tr style="height: 23px;">
         <td style="width: 228.93px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >Tanggal</td>
-        <td style="width: 845.07px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >: 08-Jan-21</td>
+        <td style="width: 845.07px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >: {{tanggal_indonesia($spm->tanggal)}}</td>
         </tr>
         <tr style="height: 23px;">
         <td style="width: 228.93px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >Jenis Transaksi</td>
-        <td style="width: 845.07px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >: Langsung</td>
+        <td style="width: 845.07px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >: {{$spm->jenis_transaksi}}</td>
         </tr>
         <tr style="height: 23px;">
         <td style="width: 228.93px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >Program</td>
-        <td style="width: 845.07px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >: PKBL</td>
+        <td style="width: 845.07px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >: {{$spm->program}}</td>
         </tr>
         <tr style="height: 23px;">
         <td style="width: 228.93px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >Tahun Anggaran</td>
-        <td style="width: 845.07px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >: 2021</td>
+        <td style="width: 845.07px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >: {{ date('Y', strtotime($spm->tahun_anggaran)) }}</td>
         </tr>
         <tr style="height: 23px;">
         <td style="width: 228.93px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >Penanggung Jawab Unit Fungsi</td>
@@ -146,12 +146,13 @@
               </td>
               <td class="no-bottom-border" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;{{$spm->keterangan}}&nbsp;</td>
             </tr>
+
             <tr>
-              <td class="no-bottom-border" style="height:5cm;">&nbsp;</td>
-              <td class="no-bottom-border" style="height:5cm;">&nbsp;</td>
-              <td class="no-bottom-border" style="height:5cm;">&nbsp;</td>
-              <td class="no-bottom-border" style="height:5cm;">&nbsp;</td>
-              <td class="no-bottom-border" style="height:5cm;">&nbsp;</td>
+              <td class="no-bottom-border" style="height: 7cm;">&nbsp;</td>
+              <td class="no-bottom-border" style="height: 7cm;">&nbsp;</td>
+              <td class="no-bottom-border" style="height: 7cm;">&nbsp;</td>
+              <td class="no-bottom-border" style="height: 7cm;">&nbsp;</td>
+              <td class="no-bottom-border" style="height: 7cm;">&nbsp;</td>
             </tr>
 
             {{-- {{$nomor=2}}
@@ -248,7 +249,7 @@
         <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
         <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
         <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US">&nbsp;</span></p>
-        <p style="margin: 0cm; text-align: center;" align="center"><strong><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><u>FAHMI ALWENI</u></span></strong></p>
+        <p style="margin: 0cm; text-align: center;" align="center"><strong><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><u>{{$spm->tanda1->nama_karyawan}}</u></span></strong></p>
         </td>
         <td style="width: 424px;">
         <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">08-Jan-2021</span></p>
@@ -257,7 +258,7 @@
         <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
         <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
         <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US">&nbsp;</span></p>
-        <p style="margin: 0cm; text-align: center;" align="center"><strong><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><u>OKE SANTIKA</u></span></strong></p>
+        <p style="margin: 0cm; text-align: center;" align="center"><strong><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><u>{{$spm->tanda2->nama_karyawan}}</u></span></strong></p>
         </td>
         <td style="width: 311.805px;">
         <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">08-Jan-2021</span></p>
@@ -266,7 +267,7 @@
         <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
         <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
         <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US">&nbsp;</span></p>
-        <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><strong><u>ROODHIN FIRMANA</u></strong></span></p>
+        <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><strong><u>{{$spm->tanda3->nama_karyawan}}</u></strong></span></p>
         </td>
         </tr>
         </tbody>
