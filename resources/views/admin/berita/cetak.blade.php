@@ -102,7 +102,7 @@
           <th class="border1" style="width: 20%;">Satuan</th>
           <th class="border1" style="width: 20%;">Jumlah</th>
           <th class="border1">Harga Barang</th>
-          <th class="border1">Kondisi</th>
+          <th class="border1">Jumlah Total</th>
         </tr>
       </thead>
       <tbody align="center">
