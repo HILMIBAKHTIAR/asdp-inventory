@@ -147,11 +147,11 @@
               <td class="no-bottom-border" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;{{$spm->keterangan}}&nbsp;</td>
             </tr>
             <tr>
-              <td class="no-bottom-border">&nbsp;</td>
-              <td class="no-bottom-border">&nbsp;</td>
-              <td class="no-bottom-border">&nbsp;</td>
-              <td class="no-bottom-border">&nbsp;</td>
-              <td class="no-bottom-border">&nbsp;</td>
+              <td class="no-bottom-border" style="height:5cm;">&nbsp;</td>
+              <td class="no-bottom-border" style="height:5cm;">&nbsp;</td>
+              <td class="no-bottom-border" style="height:5cm;">&nbsp;</td>
+              <td class="no-bottom-border" style="height:5cm;">&nbsp;</td>
+              <td class="no-bottom-border" style="height:5cm;">&nbsp;</td>
             </tr>
 
             {{-- {{$nomor=2}}
