@@ -45,14 +45,14 @@
                             </div>
 
                             <div class="form-row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <label>Tahun Anggaran</label>
                                     <input name="tahun_anggaran" type="date" class="form-control @error('tahun_anggaran') is-invalid @enderror" value="{{old('tahun_anggaran')}}" />
                                     @error('tahun_anggaran')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <label>Verifikator</label>
                                     <select name="karyawan_id" id="" class="form-control @error('karyawan_id') is-invalid @enderror">
                                         <option value="">-Pilih-</option>
@@ -66,8 +66,15 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                 </div>
+                                <div class="col-md-4">
+                                    <label>Tanggal Surat</label>
+                                    <input name="tanggal_surat" type="date" class="form-control @error('tanggal_surat') is-invalid @enderror" value="{{old('tanggal_surat')}}" />
+                                    @error('tanggal_surat')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
                             </div>
-
+                            
                             <br>
                             <!-- Pengadaan Barang
                             <div class="text-center">

@@ -52,6 +52,7 @@ class VerspmController extends Controller
             'jenis_pekerjaan'   => 'required',
             'uraian_pekerjaan'  => 'required',
             'tahun_anggaran'    => 'required',
+            'tanggal_surat'    => 'required',
             'ttd1'              => 'required',
             'ttd2'              => 'required',
         ],[
@@ -60,6 +61,7 @@ class VerspmController extends Controller
             'jenis_pekerjaan.required'   => 'jenis pekerjaan harus diisi',
             'uraian_pekerjaan.required'  => 'uraian pekerjaan harus diisi',
             'tahun_anggaran.required'    => 'tahun anggaran harus diisi',
+            'tanggal_surat.required'     => 'tanggal surat harus diisi',
             'ttd1.required'              => 'manager sdm & umum harus diisi',
             'ttd2.required'              => 'pembuat verifikator harus diisi',
         ]);
@@ -71,6 +73,7 @@ class VerspmController extends Controller
             'jenis_pekerjaan'   => $request->jenis_pekerjaan,
             'uraian_pekerjaan'  => $request->uraian_pekerjaan,
             'tahun_anggaran'    => $request->tahun_anggaran,
+            'tanggal_surat'     => $request->tanggal_surat,
             'ttd1'              => $request->ttd1,
             'ttd2'              => $request->ttd2,
         ]);

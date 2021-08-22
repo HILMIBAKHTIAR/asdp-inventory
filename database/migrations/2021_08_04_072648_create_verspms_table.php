@@ -22,7 +22,8 @@ class CreateVerspmsTable extends Migration
             $table->string('nama');
             $table->string('jenis_pekerjaan');
             $table->string('uraian_pekerjaan');
-            $table->string('tahun_anggaran');
+            $table->date('tahun_anggaran');
+            $table->date('tanggal_surat');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('karyawan_id')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');

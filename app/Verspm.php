@@ -16,6 +16,7 @@ class Verspm extends Model
         'jenis_pekerjaan',
         'uraian_pekerjaan',
         'tahun_anggaran',
+        'tanggal_surat',
     ];
 
     public function user() 
