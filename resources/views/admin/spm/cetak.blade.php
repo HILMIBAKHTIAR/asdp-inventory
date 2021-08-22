@@ -86,7 +86,7 @@
         <tbody>
         <tr style="height: 23px;">
         <td style="width: 228.93px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >Nomor</td>
-        <td style="width: 845.07px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >: SPM.{{$spm->nomorSurat}}/UM/ASDP-KTP/2021</td>
+        <td style="width: 845.07px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >: SPM.{{$spm->nomor_surat_spm}}/UM/ASDP-KTP/2021</td>
         </tr>
         <tr style="height: 23px;">
         <td style="width: 228.93px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >Tanggal</td>
@@ -110,7 +110,7 @@
         </tr>
         <tr style="height: 23.293px;">
         <td style="width: 228.93px; height: 23.293px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >Pembebanan Anggaran</td>
-        <td style="width: 845.07px; height: 23.293px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >: PKBL</td>
+        <td style="width: 845.07px; height: 23.293px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" >: {{$sp2bj->mataanggaran->nomor}} - {{$sp2bj->mataanggaran->keterangan}}</td>
         </tr>
         </tbody>
         </table>
@@ -243,7 +243,7 @@
         <tbody>
         <tr>
         <td style="width: 339px;">
-        <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">08-Jan-2021</span></p>
+        <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">{{tanggal_indonesia($spm->tanggal)}}</span></p>
         <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Menyetujui,</span></p>
         <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">General Manager</span></p>
         <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
@@ -252,7 +252,7 @@
         <p style="margin: 0cm; text-align: center;" align="center"><strong><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><u>{{$spm->tanda1->nama_karyawan}}</u></span></strong></p>
         </td>
         <td style="width: 424px;">
-        <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">08-Jan-2021</span></p>
+        <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">{{tanggal_indonesia($spm->tanggal)}}</span></p>
         <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Menyetujui,</span></p>
         <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Manager SDM &amp; Umum</span></p>
         <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
@@ -261,7 +261,7 @@
         <p style="margin: 0cm; text-align: center;" align="center"><strong><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><u>{{$spm->tanda2->nama_karyawan}}</u></span></strong></p>
         </td>
         <td style="width: 311.805px;">
-        <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">08-Jan-2021</span></p>
+        <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">{{tanggal_indonesia($spm->tanggal)}}</span></p>
         <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Pembuat,</span></p>
         <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Staf SDM &amp; Umum</span></p>
         <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
