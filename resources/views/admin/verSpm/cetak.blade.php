@@ -133,8 +133,8 @@
           <tr style="height: 23.2695px;">
             <td class="border1 text-center" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 15px; height: 23.2695px; margin: 4px;">No</td>
             <td class="border1 text-center" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 317px; height: 23.2695px; margin: 4px;">Jenis Dokumen</td>
-            <td class="border1 text-center" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 317px; height: 23.2695px; margin: 4px;">&nbsp;Nomor Dokumen</td>
-            <td class="border1 text-center" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 267.051px; height: 23.2695px; margin: 4px;">&nbsp;Tanggal Dokumen</td>
+            <td class="border1 text-center" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 270px; height: 23.2695px; margin: 4px;">&nbsp;Nomor Dokumen</td>
+            <td class="border1 text-center" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 289.051px; height: 23.2695px; margin: 4px;">&nbsp;Tanggal Dokumen</td>
             <td class="border1 text-center" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 284.949px; height: 23.2695px; margin: 4px;">&nbsp;Total Harga</td>
             <td class="border1 text-center" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 421px; height: 23.2695px; margin: 4px;">&nbsp;Keterangan</td>
           </tr>
