@@ -82,11 +82,6 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        <div style="margin-left: 60px; margin-top: 10px;" class="text-center">
-                                        @if (Route::has('register'))
-                                            <a class="small" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                        @endif
-                                        </div>
                                     </form>
                                     <hr>
                                 </div>
