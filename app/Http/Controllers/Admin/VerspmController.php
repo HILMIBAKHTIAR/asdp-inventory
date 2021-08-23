@@ -27,7 +27,7 @@ class VerspmController extends Controller
         $spm = Spm::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         $skb = Skb::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         $berita = Berita::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
-        return view('admin.verspm.cetak', compact('verspm', 'sp2bj', 'spm','skb','berita'));
+        return view('admin.verSpm.cetak', compact('verspm', 'sp2bj', 'spm','skb','berita'));
     }
 
     /**
@@ -39,7 +39,7 @@ class VerspmController extends Controller
     {
         $karyawan = Karyawan::all();
         $spm = Spm::all();
-        return view('admin.verspm.input', compact('karyawan', 'spm'));
+        return view('admin.verSpm.input', compact('karyawan', 'spm'));
     }
 
     /**
@@ -84,7 +84,7 @@ class VerspmController extends Controller
         ]);
 
         $data_verspm->save();
-        return redirect('admin/verspm');
+        return redirect('admin/verSpm');
         // return dd($data_verspm);
 
     }
