@@ -16,29 +16,67 @@
                     </div>
 
                     <!-- isi form input -->
-                    <form class="sppbj">
+                    <form action="{{route('verspm.store')}}" method="post">
+                        @csrf
                         <div class="form-group">
                             <div class="form-row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <label>Nama</label>
-                                    <input type="text" class="form-control" />
+                                    <input name="nama" type="text" class="form-control @error('nama') is-invalid @enderror" value="{{old('nama')}}" />
+                                    @error('nama')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-4">
                                     <label>Jenis Pekerjaan</label>
-                                    <input type="text" class="form-control" />
+                                    <input name="jenis_pekerjaan" type="text" class="form-control @error('jenis_pekerjaan') is-invalid @enderror" value="{{old('jenis_pekerjaan')}}" />
+                                    @error('jenis_pekerjaan')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-4">
                                     <label>Uraian Pekerjaan</label>
-                                    <input type="text" class="form-control" />
+                                    <input name="uraian_pekerjaan" type="text" class="form-control @error('uraian_pekerjaan') is-invalid @enderror" value="{{old('uraian_pekerjaan')}}" />
+                                    @error('uraian_pekerjaan')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                 </div>
-                                <div class="col-md-6">
-                                    <label>Mata Anggaran</label>
-                                    <input type="text" class="form-control">
-                                    <label>Anggaran Tahun</label>
-                                    <input type="date" class="form-control" />
-                                    <label>Penanggung Jawab Anggaran</label>
-                                    <input type="text" class="form-control" />
-                                </div>
+
                             </div>
 
+                            <div class="form-row">
+                                <div class="col-md-4">
+                                    <label>Tahun Anggaran</label>
+                                    <input name="tahun_anggaran" type="date" class="form-control @error('tahun_anggaran') is-invalid @enderror" value="{{old('tahun_anggaran')}}" />
+                                    @error('tahun_anggaran')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Verifikator</label>
+                                    <select name="karyawan_id" id="" class="form-control @error('karyawan_id') is-invalid @enderror">
+                                        <option value="">-Pilih-</option>
+                                        @foreach($karyawan as $item)
+                                        <option value="{{$item->id}}" {{old('karyawan_id') == $item->id ? 'selected' : null}}>
+                                            {{$item->nama_karyawan}}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                    @error('karyawan_id')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Tanggal Surat</label>
+                                    <input name="tanggal_surat" type="date" class="form-control @error('tanggal_surat') is-invalid @enderror" value="{{old('tanggal_surat')}}" />
+                                    @error('tanggal_surat')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                            
                             <br>
-                            <!-- Pengadaan Barang -->
+                            <!-- Pengadaan Barang
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Form Barang/Jasa</h1>
                             </div>
@@ -67,7 +105,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- FORM TTD -->
                             <div class="text-center">
@@ -76,19 +114,38 @@
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label>Manager SDM & Umum</label>
-                                    <input type="text" class="form-control" />
+                                    <select name="ttd1" id="" class="form-control  @error('ttd1') is-invalid @enderror">
+                                        <option value="">-Pilih-</option>
+                                        @foreach($karyawan as $item)
+                                        <option value="{{$item->id}}" {{old('ttd1') == $item->id ? 'selected' : null}}>
+                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                    @error('ttd1')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-6">
                                     <label>Pembuat Verifikator</label>
-                                    <input type="text" class="form-control">
+                                    <select name="ttd2" id="" class="form-control @error('ttd2') is-invalid @enderror">
+                                        <option value="">-Pilih-</option>
+                                        @foreach($karyawan as $item)
+                                        <option value="{{$item->id}}" {{old('ttd2') == $item->id ? 'selected' : null}}>
+                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                    @error('ttd2')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
 
                         <div>
                             <center>
-                                <input type="submit" class="btn btn-success" name="print" id="print" value="Print">
-                                <input type="button" class="btn btn-primary" name="selanjutnya" id="selanjutnya" value="Selanjutnya">
+                                <input type="submit" class="btn btn-success btn-lg" name="selanjutnya" id="selanjutnya" value="Selanjutnya" style="padding: 5px 50px; margin-top: 10px;">
                             </center>
                         </div>
                     </form>

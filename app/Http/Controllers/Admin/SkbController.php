@@ -45,10 +45,18 @@ class SkbController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'alamat_tujuan' => 'required',
-            'no_telp' => 'required|max:12',
-            'tanggal_surat'=>'required'
+            'alamat_tujuan'     => 'required',
+            'no_telp'           => 'required|max:12',
+            'tanggal_surat'     => 'required',
+            'ttd1'              => 'required',
+            'ttd2'              => 'required',
 
+        ],[
+            'alamat_tujuan.required'        => 'alamat tujuan harus diisi',
+            'no_telp.required'              => 'nomor telpon harus diisi',
+            'tanggal_surat.required'        => 'tanggal surat harus diisi',
+            'ttd1.required'                 => 'general manager harus diisi',
+            'ttd2.required'                 => 'manager sdm & umum harus diisi',
         ]);
 
         $data_skb = Skb::create([
@@ -61,7 +69,6 @@ class SkbController extends Controller
         ]);
 
         // return dd($data_skb);
-
         $data_skb->save();
         return redirect('admin/skb/');
     }

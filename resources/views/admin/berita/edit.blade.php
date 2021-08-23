@@ -40,31 +40,57 @@
 
                                         <div class="form-group">
                                             <label>Nama Barang</label>
-                                            <input name="nama_barang" type="text" class="form-control">
+                                            <input name="nama_barang" type="text" class="form-control" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Jenis/Spesifikasi</label>
-                                            <input name="spesifikasi" type="text" class="form-control">
+                                            <input name="spesifikasi" type="text" class="form-control" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Satuan</label>
-                                            <select name="satuan[]" type="text"  class="form-control @error('jumlah.*') is-invalid @enderror">
-                                                <option value="roll">Roll</option>
-                                                <option value="pcs">Pcs</option>
-                                                <option value="unit">Unit</option>
+                                            <select name="satuan[]" type="text"  class="form-control">
+                                                <option value="roll">roll</option>
+                                                <option value="pcs">pcs</option>
+                                                <option value="unit">unit</option>
+                                                <option value="Pack">Pack</option>
+                                                <option value="Set">Set</option>
+                                                <option value="Batang">Batang</option>
+                                                <option value="Lusin">Lusin</option>
+                                                <option value="Botol">Botol</option>
+                                                <option value="Kotak">Kotak</option>
+                                                <option value="Gross">Gross</option>
+                                                <option value="Rim">Rim</option>
+                                                <option value="Kodi">Kodi</option>
+                                                <option value="Dus">Dus</option>
+                                                <option value="Bal">Bal</option>
+                                                <option value="Ls">Ls</option>
+                                                <option value="Meter">Meter</option>
+                                                <option value="Gram">Gram</option>
+                                                <option value="Cm">Cm</option>
+                                                <option value="M2">M2</option>
+                                                <option value="M3">M3</option>
+                                                <option value="Liter">Liter</option>
+                                                <option value="Kg">Kg</option>
+                                                <option value="Ton">Ton</option>
+                                                <option value="Ons">Ons</option>
+                                                <option value="Lembar">Lembar</option>
+                                                <option value="Orang">Orang</option>
                                             </select>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Jumlah Barang</label>
-                                            <input name="jumlah" type="text" class="form-control">
+                                            <input name="jumlah" type="text" class="form-control" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Harga Barang (Rp)</label>
-                                            <input name="harga_satuan" type="text" class="form-control">
+                                            <input name="harga_satuan" type="text" class="form-control" required>
+                                            @error('harga_satuan')
+                                            <div class="invalid-feedback">{{$message}}</div>
+                                            @enderror
                                         </div>
                                         
                                     
@@ -102,17 +128,55 @@
                                     <input type="hidden" name="id[]" value="{{$item->id}}">    
                                     <tr>
                                         <td class="text-center"><p>{{$loop->iteration}}</p></td>
-                                        <td><input name="nama_barang[]" type="text" value="{{$item->nama_barang}}" class="form-control @error('jumlah.*') is-invalid @enderror"></td>
-                                        <td><input name="spesifikasi[]" type="" value="{{$item->spesifikasi}}" class="form-control @error('jumlah.*') is-invalid @enderror"></td>
+                                        <td><input name="nama_barang[]" type="text" value="{{$item->nama_barang}}" class="form-control @error('nama_barang.*') is-invalid @enderror">
+                                            @error('nama_barang.*')
+                                            <div class="invalid-feedback">{{$message}}</div>
+                                            @enderror
+                                        </td>
+                                        <td><input name="spesifikasi[]" type="" value="{{$item->spesifikasi}}" class="form-control @error('spesifikasi.*') is-invalid @enderror"></td>
+                                            @error('nama_barang.*')
+                                            <div class="invalid-feedback">{{$message}}</div>
+                                            @enderror
                                         <td>
-                                            <select name="satuan[]" type="text"  class="form-control @error('jumlah.*') is-invalid @enderror">
-                                                <option value="roll">Roll</option>
-                                                <option value="pcs">Pcs</option>
-                                                <option value="unit">Unit</option>
+                                            <select name="satuan[]" type="text"  class="form-control">
+                                                <option value="roll">roll</option>
+                                                <option value="pcs">pcs</option>
+                                                <option value="unit">unit</option>
+                                                <option value="Pack">Pack</option>
+                                                <option value="Set">Set</option>
+                                                <option value="Batang">Batang</option>
+                                                <option value="Lusin">Lusin</option>
+                                                <option value="Botol">Botol</option>
+                                                <option value="Kotak">Kotak</option>
+                                                <option value="Gross">Gross</option>
+                                                <option value="Rim">Rim</option>
+                                                <option value="Kodi">Kodi</option>
+                                                <option value="Dus">Dus</option>
+                                                <option value="Bal">Bal</option>
+                                                <option value="Ls">Ls</option>
+                                                <option value="Meter">Meter</option>
+                                                <option value="Gram">Gram</option>
+                                                <option value="Cm">Cm</option>
+                                                <option value="M2">M2</option>
+                                                <option value="M3">M3</option>
+                                                <option value="Liter">Liter</option>
+                                                <option value="Kg">Kg</option>
+                                                <option value="Ton">Ton</option>
+                                                <option value="Ons">Ons</option>
+                                                <option value="Lembar">Lembar</option>
+                                                <option value="Orang">Orang</option>
                                             </select>
                                         </td>
-                                        <td><input name="jumlah[]" type="text" value="{{$item->jumlah}}" class="form-control @error('jumlah.*') is-invalid @enderror"></td>
-                                        <td><input name="harga_satuan[]" type="text" value="{{$item->harga_satuan}}" class="form-control @error('jumlah.*') is-invalid @enderror"></td>
+                                        <td><input name="jumlah[]" type="text" value="{{$item->jumlah}}" class="form-control @error('jumlah.*') is-invalid @enderror">
+                                            @error('jumlah.*')
+                                            <div class="invalid-feedback">{{$message}}</div>
+                                            @enderror
+                                        </td>
+                                        <td><input name="harga_satuan[]" type="text" value="{{$item->harga_satuan}}" class="form-control @error('harga_satuan.*') is-invalid @enderror">
+                                            @error('harga_satuan.*')
+                                            <div class="invalid-feedback">{{$message}}</div>
+                                            @enderror
+                                        </td>
                                         <td><input class="btn btn-danger mr-2 hapus" type="button" name="hapus" data-id="{{$item->id}}" value="Hapus"></td>
                                     </tr>
                                     
