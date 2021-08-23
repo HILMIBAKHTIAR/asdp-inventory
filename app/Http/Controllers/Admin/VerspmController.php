@@ -84,7 +84,7 @@ class VerspmController extends Controller
         ]);
 
         $data_verspm->save();
-        return redirect('admin/verSpm');
+        return redirect('admin/verspm');
         // return dd($data_verspm);
 
     }
