@@ -161,7 +161,7 @@
             <td class="border1 text-center" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
               <p style="margin: 2px;">{{$item->spesifikasi}}</p>
             </td>
-            <td class="border1 text-center" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" class="text-end">
+            <td class="border1 text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" class="text-end">
               <p style="margin: 2px;">Rp. {{ number_format($item->harga_satuan, 0,',','.') }},00</p>
             </td>
             <td class="border1 text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" class="text-end">
@@ -173,8 +173,8 @@
             <td class="border1" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" colspan="6" class="text-end">
               &nbsp;Jumlah Rp&nbsp;
             </td>
-            <td class="border1" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" class="text-end">
-              <p style="margin: 4px;">
+            <td class="border1" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+              <p class="text-end" style="margin: 2px;">
                 Rp.
                 {{number_format(
                   $sp2bj->barang->map(
