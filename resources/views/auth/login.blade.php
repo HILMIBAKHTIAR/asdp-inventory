@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Login</title>
+    <title>LOGIN</title>
 
     <!-- Custom fonts for this template-->
     <link href="backend/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -81,11 +81,6 @@
                                                     {{ __('Login') }}
                                                 </button>
                                             </div>
-                                        </div>
-                                        <div style="margin-left: 60px; margin-top: 10px;" class="text-center">
-                                        @if (Route::has('register'))
-                                            <a class="small" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                        @endif
                                         </div>
                                     </form>
                                     <hr>
