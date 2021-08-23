@@ -39,7 +39,7 @@ class VerspmController extends Controller
     {
         $karyawan = Karyawan::all();
         $spm = Spm::all();
-        return view('admin.verspm.input', compact('karyawan', 'spm'));
+        return view('admin.verSpm.input', compact('karyawan', 'spm'));
     }
 
     /**
