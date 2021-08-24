@@ -31,14 +31,7 @@
                                     @error('jenis_transaksi')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
-                                    <label>Penangung Jawab</label>
-                                    <select name="devisi" id="" class="form-control @error('devisi') is-invalid @enderror">
-                                        <option value="SDM & Umum" @if (old('devisi')=='SDM & Umum' ) selected="selected" @endif>SDM & Umum</option>
-                                        <option value="Usaha" @if (old('devisi')=='Usaha' ) selected="selected" @endif>Usaha</option>
-                                        <option value="Teknik" @if (old('devisi')=='Teknik' ) selected="selected" @endif>Teknik</option>
-                                        <option value="Teknik Ketapang" @if (old('devisi')=='Teknik Ketapang' ) selected="selected" @endif>Teknik Ketapang</option>
-                                        <option value="Keuangan" @if (old('devisi')=='Keuangan' ) selected="selected" @endif>Keuangan</option>
-                                    </select>
+
                                 </div>
                                 <div class="col-md-6">
                                     <label>Tahun Anggaran</label>
@@ -47,22 +40,23 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                     <label>Program</label>
-                                    <input name="program" type="text" class="form-control @error('program') is-invalid @enderror" value="{{old('program')}}" />
+                                    <input name="program" type="text" class="form-control @error('program') is-invalid @enderror" value="{{old('program')}}" placeholder="boleh tidak diisi"/>
                                     @error('program')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
-                                    <label>Pembebanan Anggaran</label>
-                                    <select name="mataanggaran_id" id="" class="form-control @error('mataanggaran_id') is-invalid @enderror">
-                                        <option value="">-Pilih-</option>
-                                        @foreach($mataanggaran as $item)
-                                        <option value="{{$item->id}}" {{old('mataanggaran_id') == $item->id ? 'selected' : null}}>
-                                            {{$item->nomor}} - {{$item->keterangan}}
-                                        </option>
-                                        @endforeach
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                
+                                <div class="col-md-12">
+                                    <label>Penangung Jawab</label>
+                                    <select name="devisi" id="" class="form-control @error('devisi') is-invalid @enderror">
+                                        <option value="SDM & Umum" @if (old('devisi')=='SDM & Umum' ) selected="selected" @endif>SDM & Umum</option>
+                                        <option value="Usaha" @if (old('devisi')=='Usaha' ) selected="selected" @endif>Usaha</option>
+                                        <option value="Teknik" @if (old('devisi')=='Teknik' ) selected="selected" @endif>Teknik</option>
+                                        <option value="Teknik Ketapang" @if (old('devisi')=='Teknik Ketapang' ) selected="selected" @endif>Teknik Ketapang</option>
+                                        <option value="Keuangan" @if (old('devisi')=='Keuangan' ) selected="selected" @endif>Keuangan</option>
                                     </select>
-                                    @error('mataanggaran_id')
-                                    <div class="invalid-feedback">{{$message}}</div>
-                                    @enderror
                                 </div>
                             </div>
 
