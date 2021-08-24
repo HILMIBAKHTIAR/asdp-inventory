@@ -17,15 +17,16 @@ class CreateVerspmsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('karyawan_id');
+            $table->unsignedBigInteger('verifikator');
             $table->unsignedBigInteger('ttd1');
             $table->unsignedBigInteger('ttd2');
-            $table->string('jenis_pekerjaan');
             $table->string('uraian_pekerjaan');
             $table->date('tahun_anggaran');
             $table->date('tanggal_surat');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('karyawan_id')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('verifikator')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('ttd1')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('ttd2')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
         });
