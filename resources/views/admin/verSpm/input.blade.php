@@ -22,10 +22,14 @@
                             <div class="form-row">
                                 <div class="col-md-4">
                                     <label>Nama</label>
-                                    <input name="nama" type="text" class="form-control @error('nama') is-invalid @enderror" value="{{old('nama')}}" />
-                                    @error('nama')
-                                    <div class="invalid-feedback">{{$message}}</div>
-                                    @enderror
+                                    <select name="karyawan_id" id="" class="form-control @error('karyawan_id') is-invalid @enderror">
+                                        <option value="">-Pilih-</option>
+                                        @foreach($karyawan as $item)
+                                        <option value="{{$item->id}}" {{old('karyawan_id') == $item->id ? 'selected' : null}}>
+                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="col-md-4">
                                     <label>Jenis Pekerjaan</label>
@@ -58,7 +62,7 @@
                                         <option value="">-Pilih-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}" {{old('karyawan_id') == $item->id ? 'selected' : null}}>
-                                            {{$item->nama_karyawan}}
+                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
