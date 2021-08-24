@@ -19,7 +19,6 @@ class CreateVerspmsTable extends Migration
             $table->unsignedBigInteger('karyawan_id');
             $table->unsignedBigInteger('ttd1');
             $table->unsignedBigInteger('ttd2');
-            $table->string('nama');
             $table->string('jenis_pekerjaan');
             $table->string('uraian_pekerjaan');
             $table->date('tahun_anggaran');
