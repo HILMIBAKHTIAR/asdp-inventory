@@ -12,7 +12,6 @@ class Verspm extends Model
         'karyawan_id',
         'ttd1',
         'ttd2',
-        'nama',
         'jenis_pekerjaan',
         'uraian_pekerjaan',
         'tahun_anggaran',

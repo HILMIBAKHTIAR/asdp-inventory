@@ -52,7 +52,6 @@ class VerspmController extends Controller
         //
         $request->validate([
             'karyawan_id'       => 'required',
-            'nama'              => 'required',
             'jenis_pekerjaan'   => 'required',
             'uraian_pekerjaan'  => 'required',
             'tahun_anggaran'    => 'required',
@@ -61,7 +60,6 @@ class VerspmController extends Controller
             'ttd2'              => 'required',
         ], [
             'karyawan_id.required'       => 'nama Verifikator harus diisi',
-            'nama.required'              => 'nama harus diisi',
             'jenis_pekerjaan.required'   => 'jenis pekerjaan harus diisi',
             'uraian_pekerjaan.required'  => 'uraian pekerjaan harus diisi',
             'tahun_anggaran.required'    => 'tahun anggaran harus diisi',
@@ -72,7 +70,6 @@ class VerspmController extends Controller
 
         $data_verspm = Verspm::create([
             'user_id'           => auth()->user()->id,
-            'nama'              => $request->nama,
             'karyawan_id'       => $request->karyawan_id,
             'jenis_pekerjaan'   => $request->jenis_pekerjaan,
             'uraian_pekerjaan'  => $request->uraian_pekerjaan,
