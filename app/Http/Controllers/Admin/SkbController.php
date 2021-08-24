@@ -19,9 +19,8 @@ class SkbController extends Controller
      */
     public function index()
     {
-        //
-        $skb = Skb::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         $sp2bj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
+        $skb = Skb::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         return view('admin.skb.cetak', compact('skb', 'sp2bj'));
     }
 
@@ -44,6 +43,7 @@ class SkbController extends Controller
      */
     public function store(Request $request)
     {
+        $sp2bj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         $request->validate([
             'alamat_tujuan'     => 'required',
             'no_telp'           => 'required|max:12',
@@ -51,7 +51,7 @@ class SkbController extends Controller
             'ttd1'              => 'required',
             'ttd2'              => 'required',
 
-        ],[
+        ], [
             'alamat_tujuan.required'        => 'alamat tujuan harus diisi',
             'no_telp.required'              => 'nomor telpon harus diisi',
             'tanggal_surat.required'        => 'tanggal surat harus diisi',
@@ -59,8 +59,11 @@ class SkbController extends Controller
             'ttd2.required'                 => 'manager sdm & umum harus diisi',
         ]);
 
+
+
         $data_skb = Skb::create([
             'user_id' => auth()->user()->id,
+            'sp2bj_id' => $sp2bj->id,
             'alamat_tujuan' => $request->alamat_tujuan,
             'no_telp' => $request->no_telp,
             'tanggal_surat' => $request->tanggal_surat,
