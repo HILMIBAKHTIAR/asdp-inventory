@@ -121,7 +121,7 @@
           </tr>
           <tr>
             <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 249px;">Verifikator</td>
-            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">:&nbsp;{{$verspm->karyawan->nama_karyawan}}</td>
+            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">:&nbsp;{{$verspm->veri->nama_karyawan}}</td>
           </tr>
         </tbody>
       </table>
