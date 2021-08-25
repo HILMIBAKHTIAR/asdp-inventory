@@ -209,7 +209,13 @@
               <p style="margin: 12px;"></p>
             </td>
             <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;">
-              <p style="margin: 12px;">{{tanggal_indonesia($skb->tanggal_surat)}}</p>
+              @if (isset($skb->tanggal_surat))
+              <p style="margin: 12px;">
+                {{tanggal_indonesia($skb->tanggal_surat)}}
+              </p>
+              @else
+              <p style="margin: 12px;"></p> 
+              @endif
             </td>
             <td class="no-bottom-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 284.949px; height: 23px;">
               <p style="margin: 12px;">Rp.
