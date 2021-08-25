@@ -74,6 +74,8 @@ class KaryawanController extends Controller
     public function show($id)
     {
         //
+        $model = Karyawan::findOrFail($id);
+        return view('admin.karyawan.show', compact('model'));
     }
 
     /**
