@@ -18,7 +18,7 @@ class Sppbj extends Model
         'nama_pengadaan',
         'tanggal_surat',
         'nomor_surat',
-        'klasifikasi',
+        'bulan_dibutuhkan',
         'catatan_peminta',
         'catatan',
         'catatan_anggaran',

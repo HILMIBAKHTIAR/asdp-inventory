@@ -52,7 +52,7 @@ class SppbjController extends Controller
             'mataanggaran_id'       => 'required',
             'nama_pengadaan'        => 'required',
             'tanggal_surat'         => 'required',
-            'klasifikasi'           => 'required',
+            'bulan_dibutuhkan'      => 'required',
             'jumlah'                => 'required|array',
             'jumlah.*'              => 'required',
             'nama_barang'           => 'required|array',
@@ -70,7 +70,7 @@ class SppbjController extends Controller
             'mataanggaran_id.required'      => "mataanggaran harus diisi",
             'nama_pengadaan.required'       => "nama pengadaan harus diisi",
             'tanggal_surat.required'        => "tanggal surat harus diisi",
-            'klasifikasi.required'          => "Klasifikasi harus diisi",
+            'bulan_dibutuhkan.required'     => "Bulan dibutuhkan harus diisi",
             'jumlah.*.required'             => "jumlah barang harus diisi",
             'nama_barang.*.required'        => "nama barang harus diisi",
             'spesifikasi.*.required'        => "spesifikasi barang harus diisi",
@@ -86,21 +86,21 @@ class SppbjController extends Controller
 
 
         $data_sp2bj = Sppbj::create([
-            'user_id' =>  auth()->id(),
-            'karyawan_id' => $request->karyawan_id,
-            'ttd1' => $request->ttd1,
-            'ttd2' => $request->ttd2,
-            'ttd3' => $request->ttd3,
-            'ttd4' => $request->ttd4,
-            'mataanggaran_id' => $request->mataanggaran_id,
-            'nama_pengadaan' => $request->nama_pengadaan,
-            'tanggal_surat' => $request->tanggal_surat,
-            'nomor_surat' => $nomorSurat + 1,
-            'klasifikasi' => $request->klasifikasi,
-            'catatan_peminta' => $request->catatan_peminta,
-            'catatan' => $request->catatan,
-            'catatan_anggaran' => $request->catatan_anggaran,
-            'catatan_stok' => $request->catatan_stok,
+            'user_id'           =>  auth()->id(),
+            'karyawan_id'       => $request->karyawan_id,
+            'ttd1'              => $request->ttd1,
+            'ttd2'              => $request->ttd2,
+            'ttd3'              => $request->ttd3,
+            'ttd4'              => $request->ttd4,
+            'mataanggaran_id'   => $request->mataanggaran_id,
+            'nama_pengadaan'    => $request->nama_pengadaan,
+            'tanggal_surat'     => $request->tanggal_surat,
+            'nomor_surat'       => $nomorSurat + 1,
+            'bulan_dibutuhkan'  => $request->bulan_dibutuhkan,
+            'catatan_peminta'   => $request->catatan_peminta,
+            'catatan'           => $request->catatan,
+            'catatan_anggaran'  => $request->catatan_anggaran,
+            'catatan_stok'      => $request->catatan_stok,
         ]);
 
 
@@ -108,17 +108,18 @@ class SppbjController extends Controller
 
         for ($i = 0; $i < count($request->jumlah); $i++) {
             Barang::create([
-                'sppbj_id' => $data_sp2bj->id,
-                'jumlah' => $request->jumlah[$i],
-                'satuan' => $request->satuan[$i],
-                'nama_barang' => $request->nama_barang[$i],
-                'spesifikasi' => $request->spesifikasi[$i],
-                'harga_satuan' => $request->harga_satuan[$i]
+                'sppbj_id'      => $data_sp2bj->id,
+                'jumlah'        => $request->jumlah[$i],
+                'satuan'        => $request->satuan[$i],
+                'nama_barang'   => $request->nama_barang[$i],
+                'spesifikasi'   => $request->spesifikasi[$i],
+                'harga_satuan'  => $request->harga_satuan[$i]
             ]);
         }
 
         $data_sp2bj->save();
         return redirect('admin/sp2bj/');
+        // return dd($data_sp2bj);
     }
 
     /**
