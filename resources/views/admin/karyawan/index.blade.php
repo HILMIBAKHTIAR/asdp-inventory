@@ -36,12 +36,12 @@
                             <td>{{$row->nik}}</td>
 
                             <td class="d-flex">
-                                <a href="{{route('karyawan.edit',$row->id)}}" class="btn btn-primary mr-2">Edit</a>
                                 <a href="{{route('karyawan.show',$row->id)}}" class="btn btn-success mr-2">Show</a>
+                                <a href="{{route('karyawan.edit',$row->id)}}" class="btn btn-primary mr-2">Edit</a>
                                 <form action="{{route('karyawan.destroy', $row->id)}}" method="post">
                                     @method('DELETE')
                                     @csrf
-                                    <button class="btn btn-danger" type="submit">Hapus</button>
+                                    <button class="ml-5 btn btn-danger" type="submit">Hapus</button>
                                 </form>
                             </td>
                         </tr>

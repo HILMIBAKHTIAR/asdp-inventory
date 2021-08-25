@@ -70,9 +70,12 @@
                             <h6> : {{ $model->nik }}</h6>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <a href="{{route('karyawan.index')}}" class="btn btn-primary mr-2">kembali</a>
+
+                    <div class="form-row mt-4">
+                        <div class="col-md-3">
+                            <a href="{{route('karyawan.index')}}" class="btn btn-primary mr-2">kembali</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
