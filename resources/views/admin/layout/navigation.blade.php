@@ -36,7 +36,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Pengadaan Surat:</h6>
                 <a class="collapse-item" href="{{route('sp2bj.create')}}">Pengadaan Sistematis</a>
-                <a class="collapse-item" href="">Pengadaan Manual</a>
+                <a class="collapse-item" href="{{route('surat.index')}}">Pengadaan Manual</a>
             </div>
         </div>
     </li>

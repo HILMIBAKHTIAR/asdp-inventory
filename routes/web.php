@@ -34,6 +34,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('/roles', 'Admin\RoleController');
     Route::resource('/users', 'Admin\UserController');
 
+    //  Surat Manual Route
+    Route::resource('/surat', 'Surat\SuratController');
+
     Route::post('/berita/tambah', 'Admin\BeritaController@tambahBarang');
     Route::get('/berita/{berita}/hapus', 'Admin\BeritaController@hapusBarang');
 });
