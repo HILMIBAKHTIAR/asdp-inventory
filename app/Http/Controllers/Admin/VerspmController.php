@@ -9,7 +9,6 @@ use App\Verspm;
 use App\Sppbj;
 use App\Berita;
 use App\Skb;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class VerspmController extends Controller
@@ -27,7 +26,7 @@ class VerspmController extends Controller
         $spm = Spm::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         $skb = Skb::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         $berita = Berita::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
-        return view('admin.verSpm.cetak', compact('verspm', 'sp2bj', 'spm','skb','berita'));
+        return view('admin.verSpm.cetak', compact('verspm', 'sp2bj', 'spm', 'skb', 'berita'));
     }
 
     /**
@@ -53,8 +52,7 @@ class VerspmController extends Controller
         //
         $request->validate([
             'karyawan_id'       => 'required',
-            'nama'              => 'required',
-            'jenis_pekerjaan'   => 'required',
+            'verifikator'       => 'required',
             'uraian_pekerjaan'  => 'required',
             'tahun_anggaran'    => 'required',
             'tanggal_surat'    => 'required',
@@ -62,9 +60,8 @@ class VerspmController extends Controller
             'ttd2'              => 'required',
         ], [
             'karyawan_id.required'       => 'nama Verifikator harus diisi',
-            'nama.required'              => 'nama harus diisi',
-            'jenis_pekerjaan.required'   => 'jenis pekerjaan harus diisi',
             'uraian_pekerjaan.required'  => 'uraian pekerjaan harus diisi',
+            'verifikator.required'       => 'verifikator harus diisi',
             'tahun_anggaran.required'    => 'tahun anggaran harus diisi',
             'tanggal_surat.required'     => 'tanggal surat harus diisi',
             'ttd1.required'              => 'manager sdm & umum harus diisi',
@@ -73,9 +70,8 @@ class VerspmController extends Controller
 
         $data_verspm = Verspm::create([
             'user_id'           => auth()->user()->id,
-            'nama'              => $request->nama,
             'karyawan_id'       => $request->karyawan_id,
-            'jenis_pekerjaan'   => $request->jenis_pekerjaan,
+            'verifikator'       => $request->verifikator,
             'uraian_pekerjaan'  => $request->uraian_pekerjaan,
             'tahun_anggaran'    => $request->tahun_anggaran,
             'tanggal_surat'     => $request->tanggal_surat,

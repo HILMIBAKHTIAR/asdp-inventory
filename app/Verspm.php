@@ -12,8 +12,7 @@ class Verspm extends Model
         'karyawan_id',
         'ttd1',
         'ttd2',
-        'nama',
-        'jenis_pekerjaan',
+        'verifikator',
         'uraian_pekerjaan',
         'tahun_anggaran',
         'tanggal_surat',
@@ -26,6 +25,10 @@ class Verspm extends Model
     public function karyawan()
     {
         return $this->belongsTo(Karyawan::class);
+    }
+    public function veri()
+    {
+        return $this->belongsTo(Karyawan::class, 'verifikator', 'id');
     }
     public function tanda1()
     {

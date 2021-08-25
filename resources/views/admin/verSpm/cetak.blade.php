@@ -101,11 +101,11 @@
         <tbody>
           <tr>
             <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 249px;">Nama</td>
-            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">:<strong>&nbsp;{{$verspm->nama}}</strong></td>
+            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">:&nbsp;{{$verspm->karyawan->nama_karyawan}}</td>
           </tr>
           <tr>
             <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 249px;">Jenis Pekerjaan</td>
-            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">: {{$verspm->jenis_pekerjaan}}</td>
+            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">:&nbsp;REIMBURSEMENT </td>
           </tr>
           <tr>
             <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 249px;">Uraian Pekerjaan</td>
@@ -121,7 +121,7 @@
           </tr>
           <tr>
             <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 249px;">Verifikator</td>
-            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">:&nbsp;{{$verspm->karyawan->nama_karyawan}}</td>
+            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">:&nbsp;{{$verspm->veri->nama_karyawan}}</td>
           </tr>
         </tbody>
       </table>
@@ -180,8 +180,17 @@
             <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;">
               <p style="margin: 12px;">{{tanggal_indonesia($berita->tanggal_surat)}}</p>
             </td>
-            <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;">
-              <p style="margin: 12px"></p>
+            <td class="no-bottom-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 284.949px; height: 23px;">
+              <p style="margin: 12px;">Rp.
+                {{number_format(
+        $sp2bj->barang->map(
+          function($el)
+          {
+            return $el->harga_satuan * $el->jumlah;
+          }
+        )->sum(), 0,',','.')
+      }},00
+              </p>
             </td>
             <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;">
               <p style="margin: 12px"></p>
@@ -200,10 +209,25 @@
               <p style="margin: 12px;"></p>
             </td>
             <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;">
-              <p style="margin: 12px;">{{tanggal_indonesia($skb->tanggal_surat)}}</p>
+              @if (isset($skb->tanggal_surat))
+              <p style="margin: 12px;">
+                {{tanggal_indonesia($skb->tanggal_surat)}}
+              </p>
+              @else
+              <p style="margin: 12px;"></p> 
+              @endif
             </td>
-            <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;">
-              <p style="margin: 12px"></p>
+            <td class="no-bottom-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 284.949px; height: 23px;">
+              <p style="margin: 12px;">Rp.
+                {{number_format(
+        $sp2bj->barang->map(
+          function($el)
+          {
+            return $el->harga_satuan * $el->jumlah;
+          }
+        )->sum(), 0,',','.')
+      }},00
+              </p>
             </td>
             <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;">
               <p style="margin: 12px"></p>

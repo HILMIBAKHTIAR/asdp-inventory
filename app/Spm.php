@@ -9,7 +9,6 @@ class Spm extends Model
     //
     protected $fillable = [
         'user_id',
-        'mataanggaran_id',
         'ttd1',
         'ttd2',
         'ttd3',
