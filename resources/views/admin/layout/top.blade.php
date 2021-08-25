@@ -41,7 +41,12 @@
             transform: translate(-50%, -50%);
         }
 
+        /* style surat manual */
         .link{
-            height: 60%;
+            height: 5cm;
+        }
+
+        .tombol{
+            width: 10rem;
         }
     </style>
