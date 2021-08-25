@@ -9,7 +9,6 @@ use App\Verspm;
 use App\Sppbj;
 use App\Berita;
 use App\Skb;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class VerspmController extends Controller
@@ -25,9 +24,13 @@ class VerspmController extends Controller
         $sp2bj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         $verspm = Verspm::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         $spm = Spm::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
-        $skb = Skb::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
+        $skb = Skb::where([
+            ['user_id', auth()->user()->id],
+            ['sp2bj_id', $sp2bj->id],
+        ])->first();
+        // $skb = Skb::where('user_id', auth()->user()->id)->find()->get();
         $berita = Berita::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
-        return view('admin.verSpm.cetak', compact('verspm', 'sp2bj', 'spm','skb','berita'));
+        return view('admin.verSpm.cetak', compact('verspm', 'sp2bj', 'spm', 'skb', 'berita'));
     }
 
     /**
