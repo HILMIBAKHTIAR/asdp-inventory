@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.css">
     {{-- boostrap5.1 --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
     <style>
         .border1 {
@@ -48,7 +47,6 @@
             border-left: none;
             border-collapse: collapse;
         }
-
     </style>
 
 </head>
@@ -65,7 +63,6 @@
                 visibility: visible;
             }
         }
-
     </style>
 
     <style type="text/css" media="print">
@@ -80,7 +77,6 @@
                 padding-bottom: 60px;
             }
         }
-
     </style>
 
 
@@ -90,12 +86,10 @@
         <form>
 
 
-            <table class="border1" width="910" border="0" align="center" cellpadding="0" cellspacing="0"
-                style="width: 1011px;">
+            <table class="border1" width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1011px;">
                 <tbody>
                     <tr>
-                        <td class="border1" style="width: 208.641px;" rowspan="4"><img
-                                src="{{ url('backend/img/asdp.svg') }}" alt=""></td>
+                        <td class="border1" style="width: 208.641px;" rowspan="4"><img src="{{ url('backend/img/asdp.svg') }}" alt=""></td>
                         <td class="border1" align="center" style="width: 872.359px; border-right: 0px;" rowspan="4">
                             <strong>FORMULIR PERMINTAAN PENGADAAN BARANG/JASA (SPPB/J)</strong>
                         </td>
@@ -118,8 +112,7 @@
                 </tbody>
             </table>
 
-            <table class="mt-1" width="910" border="0" align="center" cellpadding="0" cellspacing="0"
-                style="width: 1014px; border-color: black;">
+            <table class="mt-1" width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1014px; border-color: black;">
                 <tbody>
                     <tr style="height: 23px;">
                         <td class="right-border" style="width: 273.719px; height: 23px;"><strong>Kepada</strong></td>
@@ -178,14 +171,13 @@
                         <td class="right-border" style="width: 273.719px; height: 23px;"><strong>Tanggal
                                 Dibutuhkan</strong></td>
                         <td class="left-border" style="width: 787.281px; height: 23px;" colspan="2">
-                            <strong>&nbsp;{{ $sp2bj->klasifikasi }}</strong>
+                            <strong>&nbsp;{{ $sp2bj->bulan_dibutuhkan }}</strong>
                         </td>
                     </tr>
                 </tbody>
             </table>
 
-            <table width="910" align="center" cellpadding="0" cellspacing="0"
-                style="width: 1014px; border-color: black; margin-top: 1px;">
+            <table width="910" align="center" cellpadding="0" cellspacing="0" style="width: 1014px; border-color: black; margin-top: 1px;">
                 <thead>
                     <tr class="text-center">
                         <th class="border1" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">No
@@ -202,68 +194,55 @@
                         <th class="border1" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             Spesifikasi
                         </th>
-                        <th colspan="2" class="border1"
-                            style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">Harga Satuan
+                        <th colspan="2" class="border1" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">Harga Satuan
                         </th>
-                        <th colspan="2" class="border1"
-                            style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">Jumlah
+                        <th colspan="2" class="border1" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">Jumlah
                         </th>
                     </tr>
                 </thead>
 
                 <tbody>
                     @foreach ($sp2bj->barang as $item)
-                        <tr>
-                            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;"
-                                class="border1">
-                                <p align="center" style="margin: 2px;">{{ $loop->iteration }}</p>
-                            </td>
-                            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;"
-                                class="border1">
-                                <p style="margin: 2px;">{{ $item->jumlah }}</p>
-                            </td>
-                            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;"
-                                class="border1">
-                                <p style="margin: 2px;">{{ $item->satuan }}</p>
-                            </td>
-                            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;"
-                                class="border1">
-                                <p style="margin: 2px;">{{ $item->nama_barang }}</p>
-                            </td>
-                            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;"
-                                class="border1">
-                                <p style="margin: 2px;">{{ $item->spesifikasi }}</p>
-                            </td>
-                            <td class="right-border"
-                                style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
-                                <p style="margin: 2px;">Rp. </p>
-                            </td>
-                            <td class="left-border text-end"
-                                style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
-                                <p style="margin: 2px;">{{ number_format($item->harga_satuan, 0, ',', '.') }},00</p>
-                            </td>
-                            <td class="right-border"
-                                style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
-                                <p style="margin: 2px;">Rp. </p>
-                            </td>
-                            <td class="left-border text-end"
-                                style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
-                                <p style="margin: 2px;">
-                                    {{ number_format($item->harga_satuan * $item->jumlah, 0, ',', '.') }},00</p>
-                            </td>
-                        </tr>
-                    @endforeach
                     <tr>
-                        <td colspan="7" class="bottom-none text-end"
-                            style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
-                            &nbsp;Jumlah Rp&nbsp;
+                        <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1">
+                            <p align="center" style="margin: 2px;">{{ $loop->iteration }}</p>
                         </td>
-                        <td class="right-border"
-                            style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                        <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1">
+                            <p style="margin: 2px;">{{ $item->jumlah }}</p>
+                        </td>
+                        <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1">
+                            <p style="margin: 2px;">{{ $item->satuan }}</p>
+                        </td>
+                        <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1">
+                            <p style="margin: 2px;">{{ $item->nama_barang }}</p>
+                        </td>
+                        <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1">
+                            <p style="margin: 2px;">{{ $item->spesifikasi }}</p>
+                        </td>
+                        <td class="right-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             <p style="margin: 2px;">Rp. </p>
                         </td>
-                        <td class="left-border text-end"
-                            style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                        <td class="left-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                            <p style="margin: 2px;">{{ number_format($item->harga_satuan, 0, ',', '.') }},00</p>
+                        </td>
+                        <td class="right-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                            <p style="margin: 2px;">Rp. </p>
+                        </td>
+                        <td class="left-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                            <p style="margin: 2px;">
+                                {{ number_format($item->harga_satuan * $item->jumlah, 0, ',', '.') }},00
+                            </p>
+                        </td>
+                    </tr>
+                    @endforeach
+                    <tr>
+                        <td colspan="7" class="bottom-none text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                            &nbsp;Jumlah Rp&nbsp;
+                        </td>
+                        <td class="right-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                            <p style="margin: 2px;">Rp. </p>
+                        </td>
+                        <td class="left-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             <p style="margin: 2px;">
                                 {{ number_format(
     $sp2bj->barang->map(function ($el) {
@@ -279,31 +258,25 @@
                     </tr>
 
                     <tr>
-                        <td colspan="7" class="top-bottom-none text-end"
-                            style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                        <td colspan="7" class="top-bottom-none text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             &nbsp;PPN 10%&nbsp;
                         </td>
-                        <td class="right-border"
-                            style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                        <td class="right-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             <p style="margin: 2px;">Rp. </p>
                         </td>
-                        <td class="left-border text-end"
-                            style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                        <td class="left-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             <p style="margin: 2px;"> - </p>
                         </td>
                     </tr>
 
                     <tr>
-                        <td colspan="7" class="top-none text-end"
-                            style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                        <td colspan="7" class="top-none text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             &nbsp;Total Harga%&nbsp;
                         </td>
-                        <td class="right-border"
-                            style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                        <td class="right-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             <p style="margin: 2px;">Rp. </p>
                         </td>
-                        <td class="left-border text-end"
-                            style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                        <td class="left-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             <p style="margin: 2px;">
                                 {{ number_format(
     $sp2bj->barang->map(function ($el) {
@@ -321,16 +294,15 @@
             </table>
 
 
-            <table width="910" border="0" align="center" cellpadding="0" cellspacing="0"
-                style="width: 1014px; margin-top: 2px;">
+            <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 1014px; margin-top: 2px;">
                 <tbody>
                     <tr>
-                        <td class="border1" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;"
-                            style="width: 613.266px;"><strong>Catatan Peminta Barang &amp; Jasa :
+                        <td class="border1" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" style="width: 613.266px;"><strong>Catatan Peminta Barang &amp; Jasa :
                                 {{ $sp2bj->catatan_peminta }}</strong></td>
                         <td class="border1" style="width: 394.734px;">
                             <p style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">Tgl&nbsp;
-                                {{ tanggal_indonesia($sp2bj->tanggal_surat) }}</p>
+                                {{ tanggal_indonesia($sp2bj->tanggal_surat) }}
+                            </p>
                             <p style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" align='center'>
                                 Peminta Barang/Jasa</p>
                             <p>&nbsp;</p>
@@ -341,12 +313,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="border1" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;"
-                            style="width: 613.266px;"><strong>Catatan : {{ $sp2bj->catatan }}</strong></td>
-                        <td class="border1" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;"
-                            style="width: 394.734px;">
+                        <td class="border1" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" style="width: 613.266px;"><strong>Catatan : {{ $sp2bj->catatan }}</strong></td>
+                        <td class="border1" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" style="width: 394.734px;">
                             <p style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">Tgl&nbsp;
-                                {{ tanggal_indonesia($sp2bj->tanggal_surat) }}</p>
+                                {{ tanggal_indonesia($sp2bj->tanggal_surat) }}
+                            </p>
                             <p>&nbsp;</p>
                             <p align='center'>( {{ $sp2bj->tanda2->nama_karyawan }} )</p>
                             <p style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" align='center'>
@@ -354,13 +325,13 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="border1"
-                            style="width: 613.266px; font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                        <td class="border1" style="width: 613.266px; font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             <strong>Catatan Ketersediaan Anggaran : {{ $sp2bj->catatan_anggaran }}</strong>
                         </td>
                         <td class="border1" style="width: 394.734px;">
                             <p style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">Tgl&nbsp;
-                                {{ tanggal_indonesia($sp2bj->tanggal_surat) }}</p>
+                                {{ tanggal_indonesia($sp2bj->tanggal_surat) }}
+                            </p>
                             <p>&nbsp;</p>
                             <p style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" align='center'>
                                 ( {{ $sp2bj->tanda3->nama_karyawan }} )</p>
@@ -369,13 +340,13 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="border1" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;"
-                            width: 613.266px;"><strong>Catatan Ketersediaan Stok :
+                        <td class="border1" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" width: 613.266px;"><strong>Catatan Ketersediaan Stok :
                                 {{ $sp2bj->catatan_stok }}</strong>
                         </td>
                         <td class="border1" style="width: 394.734px;">
                             <p style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">Tgl&nbsp;
-                                {{ tanggal_indonesia($sp2bj->tanggal_surat) }}</p>
+                                {{ tanggal_indonesia($sp2bj->tanggal_surat) }}
+                            </p>
                             <p>&nbsp;</p>
                             <p style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" align='center'>
                                 ( {{ $sp2bj->tanda4->nama_karyawan }} )</p>
@@ -391,8 +362,7 @@
     </div>
 
     <div class="container-lg text-center mt-4 mb-4">
-        <button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary"
-            style="margin-right: 4cm;">cetak</button>
+        <button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary" style="margin-right: 4cm;">cetak</button>
         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Selanjutnya
         </button>
@@ -410,10 +380,8 @@
                         </h5>
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <a href="{{ url('admin/skb/create') }}" class="btn btn-danger mx-auto"
-                            style="width: 35%;">TIDAK</a>
-                        <a href="{{ url('admin/berita/create') }}" class="btn btn-success mx-auto"
-                            style="width: 35%;">YA</a>
+                        <a href="{{ url('admin/skb/create') }}" class="btn btn-danger mx-auto" style="width: 35%;">TIDAK</a>
+                        <a href="{{ url('admin/berita/create') }}" class="btn btn-success mx-auto" style="width: 35%;">YA</a>
                     </div>
                 </div>
             </div>
@@ -435,14 +403,12 @@
     </script>
 
     {{-- js boostrap 5.1 --}}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
     </script>
 
 
 </body>
 {{-- js boostrap 5.1 --}}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
 </html>

@@ -43,7 +43,7 @@
                                 </div>
                             </div>
 
-                                
+
                             <div class="form-row mt-3">
                                 <div class="col-md-4">
                                     <label>Mata Anggaran</label>
@@ -69,11 +69,20 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label>Klasifikasi</label>
-                                    <select class="form-control" name="klasifikasi">
-                                        <option value="Normal">Normal</option>
-                                        <option value="Emergency">Emergency</option>
-                                        <option value="Urgent">Urgent</option>
+                                    <label>Bulan Dibutuhkan</label>
+                                    <select class="form-control" name="bulan_dibutuhkan">
+                                        <option value="Januari">Januari</option>
+                                        <option value="Februari">Februari</option>
+                                        <option value="Maret">Maret</option>
+                                        <option value="April">April</option>
+                                        <option value="Mei">Mei</option>
+                                        <option value="Juni">Juni</option>
+                                        <option value="Juli">Juli</option>
+                                        <option value="Agustus">Agustus</option>
+                                        <option value="September">September</option>
+                                        <option value="Oktober">Oktober</option>
+                                        <option value="November">November</option>
+                                        <option value="Desember">Desember</option>
                                     </select>
                                 </div>
                             </div>
@@ -107,31 +116,31 @@
                                                 <td>
                                                     <select class="form-control" name="satuan[]">
                                                         <option value="roll">roll</option>
-                                                <option value="pcs">pcs</option>
-                                                <option value="unit">unit</option>
-                                                <option value="Pack">Pack</option>
-                                                <option value="Set">Set</option>
-                                                <option value="Batang">Batang</option>
-                                                <option value="Lusin">Lusin</option>
-                                                <option value="Botol">Botol</option>
-                                                <option value="Kotak">Kotak</option>
-                                                <option value="Gross">Gross</option>
-                                                <option value="Rim">Rim</option>
-                                                <option value="Kodi">Kodi</option>
-                                                <option value="Dus">Dus</option>
-                                                <option value="Bal">Bal</option>
-                                                <option value="Ls">Ls</option>
-                                                <option value="Meter">Meter</option>
-                                                <option value="Gram">Gram</option>
-                                                <option value="Cm">Cm</option>
-                                                <option value="M2">M2</option>
-                                                <option value="M3">M3</option>
-                                                <option value="Liter">Liter</option>
-                                                <option value="Kg">Kg</option>
-                                                <option value="Ton">Ton</option>
-                                                <option value="Ons">Ons</option>
-                                                <option value="Lembar">Lembar</option>
-                                                <option value="Orang">Orang</option>
+                                                        <option value="pcs">pcs</option>
+                                                        <option value="unit">unit</option>
+                                                        <option value="Pack">Pack</option>
+                                                        <option value="Set">Set</option>
+                                                        <option value="Batang">Batang</option>
+                                                        <option value="Lusin">Lusin</option>
+                                                        <option value="Botol">Botol</option>
+                                                        <option value="Kotak">Kotak</option>
+                                                        <option value="Gross">Gross</option>
+                                                        <option value="Rim">Rim</option>
+                                                        <option value="Kodi">Kodi</option>
+                                                        <option value="Dus">Dus</option>
+                                                        <option value="Bal">Bal</option>
+                                                        <option value="Ls">Ls</option>
+                                                        <option value="Meter">Meter</option>
+                                                        <option value="Gram">Gram</option>
+                                                        <option value="Cm">Cm</option>
+                                                        <option value="M2">M2</option>
+                                                        <option value="M3">M3</option>
+                                                        <option value="Liter">Liter</option>
+                                                        <option value="Kg">Kg</option>
+                                                        <option value="Ton">Ton</option>
+                                                        <option value="Ons">Ons</option>
+                                                        <option value="Lembar">Lembar</option>
+                                                        <option value="Orang">Orang</option>
                                                     </select>
                                                 </td>
                                                 <td>
@@ -208,11 +217,11 @@
                                         </option>
                                         @endforeach
                                     </select>
-                                    
+
                                     @error('ttd3')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
-                                    
+
                                     <label>Manager SDM & Umum</label>
                                     <select name="ttd4" id="" class="form-control  @error('ttd4') is-invalid @enderror">
                                         <option value="">-Pilih Manager SDM & Umum-</option>
