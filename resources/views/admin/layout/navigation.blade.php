@@ -19,43 +19,80 @@
             <i style="color: #e64614" class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dasboard</span></a>
     </li>
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading Pengadaan -->
+    <div class="sidebar-heading">
+        Pengadaan surat
+    </div>
     <li class="nav-item active">
-        <a class="nav-link" href="{{route('sp2bj.create')}}">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             <i style="color: #e64614" class="fas fa-fw fa fa-book"></i>
-            <span>Pengadaan</span></a>
+            <span>Pengadaan</span>
+        </a>
+
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Pengadaan Surat:</h6>
+                <a class="collapse-item" href="{{route('sp2bj.create')}}">Pengadaan Sistematis</a>
+                <a class="collapse-item" href="">Pengadaan Manual</a>
+            </div>
+        </div>
     </li>
 
     @role('admin')
     <!-- Divider -->
     <hr class="sidebar-divider">
-    
+
+    <!-- Heading Data Kantor Page -->
+    <div class="sidebar-heading">
+        Data Kantor
+    </div>
     <li class="nav-item active">
-        <a class="nav-link" href="{{route('karyawan.index')}}">
-            <i style="color: #e64614" class="fas fa-fw fa fa-user"></i>
-            <span>Karyawan</span></a>
-    </li>
-    <li class="nav-item active">
-        <a class="nav-link" href="{{route('mataanggaran.index')}}">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <i style="color: #e64614" class="fas fa-fw fa fa-file-alt"></i>
-            <span>Mata Anggaran</span></a>
+            <span>Data Kantor</span>
+        </a>
+
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Data Kantor Page:</h6>
+                <a class="collapse-item" href="{{route('karyawan.index')}}">Karyawan</a>
+                <a class="collapse-item" href="{{route('mataanggaran.index')}}">Mataanggaran</a>
+            </div>
+        </div>
     </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
 
+    <!-- Heading Admin Page -->
+    <div class="sidebar-heading">
+        Admin
+    </div>
     <li class="nav-item active">
-        <a class="nav-link" href="{{route('roles.index')}}">
-            <i style="color: #e64614" class="fas fa-fw fa fa-user-tag"></i>
-            <span>Role</span></a>
-    </li>
-    <li class="nav-item active">
-        <a class="nav-link" href="{{route('users.index')}}">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
             <i style="color: #e64614" class="fas fa-fw fa fa-users"></i>
-            <span>User</span></a>
+            <span>Role dan User</span>
+        </a>
+
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Admin Page:</h6>
+                <a class="collapse-item" href="{{route('roles.index')}}">Roles</a>
+                <a class="collapse-item" href="{{route('users.index')}}">Users</a>
+            </div>
+        </div>
     </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
     @endrole
 
 </ul>
