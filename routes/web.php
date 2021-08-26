@@ -36,6 +36,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     //  Surat Manual Route
     Route::resource('/surat', 'Surat\SuratController');
+    Route::resource('/sppbjm', 'Surat\SppbjmController');
+    Route::resource('/skbm', 'Surat\SkbmController');
+    Route::resource('/beritam', 'Surat\BeritamController');
+    Route::resource('/spmm', 'Surat\SpmmController');
+    Route::resource('/verspmm', 'Surat\VerspmmController');
 
     Route::post('/berita/tambah', 'Admin\BeritaController@tambahBarang');
     Route::get('/berita/{berita}/hapus', 'Admin\BeritaController@hapusBarang');

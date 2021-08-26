@@ -14,7 +14,7 @@ class SkbmController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.surat.skbm.index');
     }
 
     /**

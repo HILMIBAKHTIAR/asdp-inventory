@@ -14,7 +14,7 @@ class SppbjmController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.surat.sppbjm.index');
     }
 
     /**
@@ -24,7 +24,6 @@ class SppbjmController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**

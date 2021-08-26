@@ -14,7 +14,7 @@ class SpmmController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.surat.spmm.index');
     }
 
     /**
