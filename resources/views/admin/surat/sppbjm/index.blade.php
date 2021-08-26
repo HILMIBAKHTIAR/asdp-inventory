@@ -12,7 +12,7 @@
             @endif
             <h6 class="m-0 font-weight-bold text-primary">Sppbj Manual</h6>
             <div class="d-flex justify-content-end">
-                <a href="" class="btn btn-primary"> Tambah</a>
+                <a href="{{route('sppbjm.create')}}" class="btn btn-primary"> Tambah</a>
             </div>
         </div>
         <div class="card-body">
@@ -29,25 +29,25 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                        @foreach($sppbjm as $item)
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$item->nomor_surat}}</td>
+                            <td>{{$item->tanggal_surat}}</td>
+                            <td>{{$item->nama_pengadaan}}</td>
+                            <td>{{$item->karyawan->jabatan}} - {{$item->karyawan->nama_karyawan}}</td>
 
                             <td class="d-flex">
                                 <a href="" class="btn btn-success mr-2">Show</a>
-                                <a href="" class="btn btn-primary mr-2">Edit</a>
-                                <form action="" method="post">
+                                <a href="{{route('sppbjm.edit',$item->id)}}" class="btn btn-primary mr-2">Edit</a>
+                                <form action="{{route('sppbjm.destroy', $item->id)}}" method="post">
                                     @method('DELETE')
                                     @csrf
                                     <button class="ml-5 btn btn-danger" type="submit">Hapus</button>
                                 </form>
                             </td>
                         </tr>
-
+                        @endforeach
                     </tbody>
                 </table>
             </div>
