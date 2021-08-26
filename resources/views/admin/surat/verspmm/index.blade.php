@@ -10,7 +10,7 @@
             </div>
 
             @endif
-            <h6 class="m-0 font-weight-bold text-primary">VErifikasi Spm Manual</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Verifikasi Spm Manual</h6>
             <div class="d-flex justify-content-end">
                 <a href="" class="btn btn-primary"> Tambah</a>
             </div>

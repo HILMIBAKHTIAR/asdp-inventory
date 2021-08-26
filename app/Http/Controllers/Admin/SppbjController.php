@@ -20,9 +20,14 @@ class SppbjController extends Controller
     public function index()
     {
         $sp2bj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
+        $subtotal = $sp2bj
+            ->barang
+            ->map(function ($el) {
+                return $el->harga_satuan * $el->jumlah;
+            })->sum();
         // return dd($sp2bj->jabatan);
         $today = Carbon::now()->isoFormat('D MMMM Y');
-        return view('admin.sp2bj.cetak', compact('sp2bj', 'today'));
+        return view('admin.sp2bj.cetak', compact('sp2bj', 'today', 'subtotal'));
     }
 
 

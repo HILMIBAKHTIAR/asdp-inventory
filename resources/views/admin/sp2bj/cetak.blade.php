@@ -12,6 +12,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
     <style>
+
+
+
         .border1 {
             border: 1px solid black;
             border-collapse: collapse;
@@ -56,6 +59,10 @@
     <style>
         @media print {
             body * {
+                visibility: hidden;
+            }
+            
+            #ppn {
                 visibility: hidden;
             }
 
@@ -235,6 +242,7 @@
                         </td>
                     </tr>
                     @endforeach
+
                     <tr>
                         <td colspan="7" class="bottom-none text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             &nbsp;Jumlah Rp&nbsp;
@@ -244,28 +252,22 @@
                         </td>
                         <td class="left-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             <p style="margin: 2px;">
-                                {{ number_format(
-    $sp2bj->barang->map(function ($el) {
-            return $el->harga_satuan * $el->jumlah;
-        })->sum(),
-    0,
-    ',',
-    '.',
-) }}
-                                ,00
+                                {{number_format($subtotal,0, ',', '.')}},00
                             </p>
                         </td>
                     </tr>
 
                     <tr>
                         <td colspan="7" class="top-bottom-none text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
-                            &nbsp;PPN 10%&nbsp;
+                            <input id="ppn" type="checkbox"> &nbsp;PPN 10%&nbsp;
                         </td>
                         <td class="right-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             <p style="margin: 2px;">Rp. </p>
                         </td>
                         <td class="left-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
-                            <p style="margin: 2px;"> - </p>
+                            <p style="margin: 2px;">
+                               ,00
+                            </p>
                         </td>
                     </tr>
 
@@ -278,14 +280,7 @@
                         </td>
                         <td class="left-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             <p style="margin: 2px;">
-                                {{ number_format(
-    $sp2bj->barang->map(function ($el) {
-            return $el->harga_satuan * $el->jumlah;
-        })->sum(),
-    0,
-    ',',
-    '.',
-) }},00
+                                ,00
                             </p>
                         </td>
                     </tr>
