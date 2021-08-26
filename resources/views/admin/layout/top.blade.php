@@ -16,6 +16,11 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
+
+    <!-- select 2 -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
     <!-- Custom styles for this template-->
     <link href="{{url('backend/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
@@ -42,11 +47,18 @@
         }
 
         /* style surat manual */
-        .link{
+        .link {
             height: 5cm;
         }
 
-        .tombol{
+        .tombol {
             width: 10rem;
+        }
+
+        /* search box */
+
+        .search_select_box button {
+            border-color: #e8ebf3;
+            background-color: white;
         }
     </style>

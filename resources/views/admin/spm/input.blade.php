@@ -40,17 +40,17 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                     <label>Program</label>
-                                    <input name="program" type="text" class="form-control @error('program') is-invalid @enderror" value="{{old('program')}}" placeholder="boleh tidak diisi"/>
+                                    <input name="program" type="text" class="form-control @error('program') is-invalid @enderror" value="{{old('program')}}" placeholder="boleh tidak diisi" />
                                     @error('program')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                 </div>
                             </div>
                             <div class="form-row">
-                                
-                                <div class="col-md-12">
+
+                                <div class="col-md-12 search_select_box">
                                     <label>Penangung Jawab</label>
-                                    <select name="devisi" id="" class="form-control @error('devisi') is-invalid @enderror">
+                                    <select name="devisi" id="" class="form-control @error('devisi') is-invalid @enderror" data-live-search=" true">
                                         <option value="SDM & Umum" @if (old('devisi')=='SDM & Umum' ) selected="selected" @endif>SDM & Umum</option>
                                         <option value="Usaha" @if (old('devisi')=='Usaha' ) selected="selected" @endif>Usaha</option>
                                         <option value="Teknik" @if (old('devisi')=='Teknik' ) selected="selected" @endif>Teknik</option>
@@ -88,9 +88,9 @@
                                 <h1 class="h4 text-gray-900 mb-4">Form Tanda Tangan</h1>
                             </div>
                             <div class="form-row">
-                                <div class="col-md-4">
+                                <div class="col-md-4 search_select_box">
                                     <label>General Manager</label>
-                                    <select name="ttd1" id="" class="form-control @error('ttd1') is-invalid @enderror">
+                                    <select name="ttd1" id="" class="form-control @error('ttd1') is-invalid @enderror" data-live-search=" true">
                                         <option value="">-Pilih-</option>
 
                                         @foreach($karyawan as $item)
@@ -103,9 +103,9 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 search_select_box">
                                     <label>Manager SDM & Umum</label>
-                                    <select name="ttd2" id="" class="form-control @error('ttd2') is-invalid @enderror">
+                                    <select name="ttd2" id="" class="form-control @error('ttd2') is-invalid @enderror" data-live-search=" true">
                                         <option value="">-Pilih-</option>
 
                                         @foreach($karyawan as $item)
@@ -118,9 +118,9 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 search_select_box">
                                     <label>Staf SDM & Umum</label>
-                                    <select name="ttd3" id="" class="form-control @error('ttd3') is-invalid @enderror">
+                                    <select name="ttd3" id="" class="form-control @error('ttd3') is-invalid @enderror" data-live-search=" true">
                                         <option value="">-Pilih-</option>
 
                                         @foreach($karyawan as $item)

@@ -20,8 +20,8 @@
                                         </tr>
                                         <tr>
                                             <th>Jabatan</th>
-                                            <td>
-                                                <select name="jabatan[]" id="" class="form-control">
+                                            <td class="search_select_box">
+                                                <select name="jabatan[]" id="" class="form-control" data-live-search=" true">
                                                     <option value="">-Pilih-</option>
                                                     <option value="Manager SDM & Umum">Manager SDM & Umum</option>
                                                     <option value="Manager Usaha Ketapang">Manager Usaha Ketapang</option>
