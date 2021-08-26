@@ -121,6 +121,7 @@ class VerspmmController extends Controller
     public function edit($id)
     {
         //
+        return view('admin.surat.verspmm.edit');
     }
 
     /**
@@ -144,5 +145,9 @@ class VerspmmController extends Controller
     public function destroy($id)
     {
         //
+        $user = VerspmM::find($id);
+        $user ->delete();
+        
+        return redirect()->route('verspmm.index')->with('sukses', 'surat VerSpm berhasil di hapus');
     }
 }
