@@ -1,131 +1,59 @@
 @extends('admin.layout.master')
 
 @section('content')
-
 <div class="container-fluid">
-    <!-- Content Row -->
-    <div class="row d-flex justify-content-center ">
-        <div class="col-xl-12 col-lg-12">
-            <div class="card mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Pembuatan Surat</h6>
-                </div>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            @if(session()->get('sukses'))
+            <div class="alert alert-success">
+                {{session()->get('sukses')}}
+            </div>
 
-                <div class="card-body mt-5" style="height: 40rem">
+            @endif
+            <h6 class="m-0 font-weight-bold text-primary">Spm Manual</h6>
+            <div class="d-flex justify-content-end">
+                <a href="" class="btn btn-primary"> Tambah</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>NO</th>
+                            <th>Nomor Surat</th>
+                            <th>Tanggal Surat</th>
+                            <th>Devisi</th>
+                            <th>Tahun Anggaran</th>
+                            <th>Jenis Transaksi</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                    <div class="form-row mt-3 mb-3"> 
-                        {{-- Sppbj --}}
-                        <div class="link col-xl-4 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800 mt-3 text-center">
-                                                Surat Permintaan Pengadaan Barang/Jasa
-                                            </div>
-                                            <div class="text-center mt-2">
-                                                <a href="" class="tombol btn btn-success mt-4">Buat</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        {{-- Skb --}}
-                        <div class="link col-xl-4 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800 mt-3 text-center">
-                                                Surat Kebenaran Harga
-                                            </div>
-                                            <div class="text-center mt-2">
-                                                <a href="" class="tombol btn btn-warning mt-4">Buat</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
 
-                        {{-- Berita --}}
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card border-left-danger shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800 mt-3 text-center">
-                                                Surat Bukti Serah Terima Barang
-                                            </div>
-                                            <div class="text-center mt-2">
-                                                <a href="" class="tombol btn btn-danger mt-4">Buat</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    
-                    <div class="form-row mt-3 mb-3">
+                            <td class="d-flex">
+                                <a href="" class="btn btn-success mr-2">Show</a>
+                                <a href="" class="btn btn-primary mr-2">Edit</a>
+                                <form action="" method="post">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="ml-5 btn btn-danger" type="submit">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
 
-                        <div class="col-xl-2 col-md-6 mb-4">
-                        </div>
-                        {{-- SPM --}}
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800 mt-3 text-center">
-                                                Surat Perintah Membayar
-                                            </div>
-                                            <div class="text-center mt-2">
-                                                <a href="" class="tombol btn btn-info mt-4">Buat</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {{-- Verifikasi SPM --}}
-                            
-
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800 mt-3 text-center">
-                                                Verifikasi Surat Perintah Membayar
-                                            </div>
-                                            <div class="text-center mt-2">
-                                                <a href="" class="tombol btn btn-primary mt-4">Buat</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-2 col-md-6 mb-4">
-                        </div>
-
-                    </div>
-                        
-                </div>
-
-
-
-
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </div>
-
-
 @endsection
