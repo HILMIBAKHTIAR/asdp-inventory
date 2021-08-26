@@ -24,7 +24,7 @@
                                                 Surat Permintaan Pengadaan Barang/Jasa
                                             </div>
                                             <div class="text-center mt-2">
-                                                <a href="" class="tombol btn btn-success mt-4">Buat</a>
+                                                <a href="{{route('sppbjm.index')}}" class="tombol btn btn-success mt-4">Buat</a>
                                             </div>
                                         </div>
                                     </div>
@@ -42,7 +42,7 @@
                                                 Surat Kebenaran Harga
                                             </div>
                                             <div class="text-center mt-2">
-                                                <a href="" class="tombol btn btn-warning mt-4">Buat</a>
+                                                <a href="{{route('skbm.index')}}" class="tombol btn btn-warning mt-4">Buat</a>
                                             </div>
                                         </div>
                                     </div>
@@ -60,7 +60,7 @@
                                                 Surat Bukti Serah Terima Barang
                                             </div>
                                             <div class="text-center mt-2">
-                                                <a href="" class="tombol btn btn-danger mt-4">Buat</a>
+                                                <a href="{{route('beritam.index')}}" class="tombol btn btn-danger mt-4">Buat</a>
                                             </div>
                                         </div>
                                     </div>
@@ -84,7 +84,7 @@
                                                 Surat Perintah Membayar
                                             </div>
                                             <div class="text-center mt-2">
-                                                <a href="" class="tombol btn btn-info mt-4">Buat</a>
+                                                <a href="{{route('spmm.index')}}" class="tombol btn btn-info mt-4">Buat</a>
                                             </div>
                                         </div>
                                     </div>
@@ -104,7 +104,7 @@
                                                 Verifikasi Surat Perintah Membayar
                                             </div>
                                             <div class="text-center mt-2">
-                                                <a href="" class="tombol btn btn-primary mt-4">Buat</a>
+                                                <a href="{{route('verspmm.index')}}" class="tombol btn btn-primary mt-4">Buat</a>
                                             </div>
                                         </div>
                                     </div>

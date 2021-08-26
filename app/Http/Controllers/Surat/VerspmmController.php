@@ -14,7 +14,7 @@ class VerspmmController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.surat.index');
     }
 
     /**
