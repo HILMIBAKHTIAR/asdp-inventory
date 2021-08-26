@@ -22,7 +22,7 @@
                             <div class="form-row">
                                 <div class="col-md-4">
                                     <label>Alamat</label>
-                                    <input name="alamat_tujuan" class="form-control @error('alamat_tujuan') is-invalid @enderror" value="{{old('alamat_tujuan')}}"/>
+                                    <input name="alamat_tujuan" class="form-control @error('alamat_tujuan') is-invalid @enderror" value="{{old('alamat_tujuan')}}" />
                                     @error('alamat_tujuan')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
@@ -35,7 +35,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-4">
-                                    
+
                                     <label>Tanggal Surat</label>
                                     <input type="date" name="tanggal_surat" class="form-control @error('tanggal_surat') is-invalid @enderror" value="{{old('tanggal_surat')}}" />
                                     @error('tanggal_surat')
@@ -45,16 +45,16 @@
                             </div>
 
                             <br>
-                            
+
 
                             <!-- FORM TTD -->
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Form Tanda Tangan</h1>
                             </div>
                             <div class="form-row">
-                                <div class="col-md-6">
+                                <div class="col-md-6 search_select_box">
                                     <label>General/Manager</label>
-                                    <select name="ttd1" id="" class="form-control @error('ttd1') is-invalid @enderror">
+                                    <select name="ttd1" id="" class="form-control @error('ttd1') is-invalid @enderror" data-live-search=" true">
                                         <option value="">-Pilih-</option>
                                         @foreach ($karyawan as $item)
                                         <option value="{{$item->id}}">
@@ -66,9 +66,9 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 search_select_box">
                                     <label>Manager SDM & Umum</label>
-                                    <select name="ttd2" id="" class="form-control @error('ttd2') is-invalid @enderror">
+                                    <select name="ttd2" id="" class="form-control @error('ttd2') is-invalid @enderror" data-live-search=" true">
                                         <option value="">-Pilih-</option>
                                         @foreach ($karyawan as $item)
                                         <option value="{{$item->id}}">

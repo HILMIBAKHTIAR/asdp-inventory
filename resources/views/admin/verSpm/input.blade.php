@@ -20,9 +20,9 @@
                         @csrf
                         <div class="form-group">
                             <div class="form-row">
-                                <div class="col-md-6">
+                                <div class="col-md-6 search_select_box">
                                     <label>Nama</label>
-                                    <select name="karyawan_id" id="" class="form-control @error('karyawan_id') is-invalid @enderror">
+                                    <select name="karyawan_id" id="" class="form-control @error('karyawan_id') is-invalid @enderror" data-live-search=" true">
                                         <option value="">-Pilih-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}" {{old('karyawan_id') == $item->id ? 'selected' : null}}>
@@ -49,9 +49,9 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 search_select_box">
                                     <label>Verifikator</label>
-                                    <select name="verifikator" id="" class="form-control @error('verifikator') is-invalid @enderror">
+                                    <select name="verifikator" id="" class="form-control @error('verifikator') is-invalid @enderror" data-live-search=" true">
                                         <option value="">-Pilih-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}" {{old('karyawan_id') == $item->id ? 'selected' : null}}>
@@ -71,7 +71,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            
+
                             <br>
                             <!-- Pengadaan Barang
                             <div class="text-center">
@@ -109,9 +109,9 @@
                                 <h1 class="h4 text-gray-900 mb-4">Form Tanda Tangan</h1>
                             </div>
                             <div class="form-row">
-                                <div class="col-md-6">
+                                <div class="col-md-6 search_select_box">
                                     <label>Manager SDM & Umum</label>
-                                    <select name="ttd1" id="" class="form-control  @error('ttd1') is-invalid @enderror">
+                                    <select name="ttd1" id="" class="form-control  @error('ttd1') is-invalid @enderror" data-live-search=" true">
                                         <option value="">-Pilih-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}" {{old('ttd1') == $item->id ? 'selected' : null}}>
@@ -123,9 +123,9 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 search_select_box">
                                     <label>Pembuat Verifikator</label>
-                                    <select name="ttd2" id="" class="form-control @error('ttd2') is-invalid @enderror">
+                                    <select name="ttd2" id="" class="form-control @error('ttd2') is-invalid @enderror" data-live-search=" true">
                                         <option value="">-Pilih-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}" {{old('ttd2') == $item->id ? 'selected' : null}}>

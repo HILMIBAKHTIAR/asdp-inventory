@@ -45,8 +45,18 @@
  <script src="{{url('backend/vendor/datatables/dataTables.bootstrap4.min.js')}}">
  </script>
 
+ <!-- select 2 -->
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
  <!-- Custom scripts for all pages-->
  <script src="{{url('backend/js/sb-admin-2.min.js')}}">
  </script>
 
  <script src="{{url('backend/js/demo/datatables-demo.js')}}"></script>
+
+ <script>
+     $(document).ready(function() {
+         $('.search_select_box select').selectpicker();
+     })
+ </script>

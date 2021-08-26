@@ -1,6 +1,7 @@
 @extends('admin.layout.master')
 
 @section('content')
+
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Content Row -->
@@ -19,9 +20,9 @@
                         @csrf
                         <div class="form-group">
                             <div class="form-row">
-                                <div class="col-md-6">
+                                <div class="col-md-6 search_select_box">
                                     <label>Dari/Peminta</label>
-                                    <select name="karyawan_id" id="" class="form-control @error('karyawan_id') is-invalid @enderror">
+                                    <select name="karyawan_id" id="" class="form-control @error('karyawan_id') is-invalid @enderror" data-live-search=" true">
                                         <option value="">-Pilih-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}" {{old('karyawan_id') == $item->id ? 'selected' : null}}>
@@ -45,9 +46,9 @@
 
 
                             <div class="form-row mt-3">
-                                <div class="col-md-4">
+                                <div class="col-md-4 search_select_box">
                                     <label>Mata Anggaran</label>
-                                    <select name="mataanggaran_id" id="" class="form-control @error('mataanggaran_id') is-invalid @enderror">
+                                    <select name="mataanggaran_id" id="" class="form-control @error('mataanggaran_id') is-invalid @enderror" data-live-search=" true">
                                         <option value="">-Pilih-</option>
                                         @foreach($mataanggaran as $item)
                                         <option value="{{$item->id}}" {{old('mataanggaran_id') == $item->id ? 'selected' : null}}>
@@ -68,9 +69,9 @@
                                     @enderror
                                 </div>
 
-                                <div class="col-md-4">
+                                <div class="col-md-4 search_select_box">
                                     <label>Bulan Dibutuhkan</label>
-                                    <select class="form-control" name="bulan_dibutuhkan">
+                                    <select class="form-control" name="bulan_dibutuhkan" data-live-search=" true">
                                         <option value="Januari">Januari</option>
                                         <option value="Februari">Februari</option>
                                         <option value="Maret">Maret</option>
@@ -183,9 +184,9 @@
                                     <label>Catatan Ketersediaan Stok</label>
                                     <input name="catatan_stok" type="text" class="form-control" placeholder="Boleh tidak diisi" value="{{old('catatan_stok')}}" />
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 search_select_box">
                                     <label>Peminta Barang/Jasa</label>
-                                    <select name="ttd1" id="" class="form-control @error('ttd1') is-invalid @enderror">
+                                    <select name="ttd1" id="" class="form-control @error('ttd1') is-invalid @enderror" data-live-search=" true">
                                         <option value="">-Pilih Peminta Barang/Jasa-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}" {{old('ttd1') == $item->id ? 'selected' : null}}>
@@ -197,7 +198,7 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                     <label>General Manager Cabang Ketapang</label>
-                                    <select name="ttd2" id="" class="form-control  @error('ttd2') is-invalid @enderror">
+                                    <select name="ttd2" id="" class="form-control  @error('ttd2') is-invalid @enderror" data-live-search=" true">
                                         <option value="">-Pilih Nama General Manager Cabang-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}" {{old('ttd2') == $item->id ? 'selected' : null}}>
@@ -209,7 +210,7 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                     <label>Manager Keuangan</label>
-                                    <select name="ttd3" id="" class="form-control  @error('ttd3') is-invalid @enderror">
+                                    <select name="ttd3" id="" class="form-control  @error('ttd3') is-invalid @enderror" data-live-search=" true">
                                         <option value="">-Pilih Manager Keuangan-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}" {{old('ttd3') == $item->id ? 'selected' : null}}>
@@ -223,7 +224,7 @@
                                     @enderror
 
                                     <label>Manager SDM & Umum</label>
-                                    <select name="ttd4" id="" class="form-control  @error('ttd4') is-invalid @enderror">
+                                    <select name="ttd4" id="" class="form-control  @error('ttd4') is-invalid @enderror" data-live-search=" true">
                                         <option value="">-Pilih Manager SDM & Umum-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}" {{old('ttd4') == $item->id ? 'selected' : null}}>

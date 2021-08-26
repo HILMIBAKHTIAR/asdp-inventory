@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Surat;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
-class DashboardController extends Controller
+class SuratController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard.index');
+        return view('admin.surat.index');
     }
 
     /**
@@ -82,10 +81,5 @@ class DashboardController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function pengadaan()
-    {
-        return view('admin.dashboard.pengadaan');
     }
 }
