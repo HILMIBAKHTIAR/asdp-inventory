@@ -35,7 +35,6 @@ class VerspmmController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**

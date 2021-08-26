@@ -9,6 +9,7 @@ class SkbM extends Model
     //
     protected $fillable = [
         'user_id',
+        'karyawan_id',
         'alamat_tujuan',
         'no_telp',
         'tanggal_surat',
@@ -20,6 +21,12 @@ class SkbM extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function karyawan()
+    {
+        return $this->belongsTo(Karyawan::class);
+    }
+
     public function barangSkbm()
     {
         return $this->hasMany(BarangSkbM::class);
@@ -34,5 +41,4 @@ class SkbM extends Model
     {
         return $this->belongsTo(Karyawan::class, 'ttd2', 'id');
     }
-
 }

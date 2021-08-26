@@ -12,7 +12,7 @@
             @endif
             <h6 class="m-0 font-weight-bold text-primary">Skb Manual</h6>
             <div class="d-flex justify-content-end">
-                <a href="" class="btn btn-primary"> Tambah</a>
+                <a href="{{route('skbm.create')}}" class="btn btn-primary"> Tambah</a>
             </div>
         </div>
         <div class="card-body">
@@ -21,6 +21,7 @@
                     <thead>
                         <tr>
                             <th>NO</th>
+                            <th>Peminta</th>
                             <th>Tanggal Surat</th>
                             <th>Alamat Tujuan</th>
                             <th>Nomor Telp</th>
@@ -29,15 +30,17 @@
                     </thead>
                     <tbody>
 
+                        @foreach ($skbm as $item)
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$item->karyawan->jabatan}} - {{$item->karyawan->nama_karyawan}}</td>
+                            <td>{{tanggal_indonesia($item->tanggal_surat)}}</td>
+                            <td>{{$item->alamat_tujuan}}</td>
+                            <td>{{$item->no_telp}}</td>
 
                             <td class="d-flex">
                                 <a href="" class="btn btn-success mr-2">Show</a>
-                                <a href="" class="btn btn-primary mr-2">Edit</a>
+                                <a href="{{route('skbm.edit',$item->id)}}" class="btn btn-primary mr-2">Edit</a>
                                 <form action="" method="post">
                                     @method('DELETE')
                                     @csrf
@@ -45,6 +48,8 @@
                                 </form>
                             </td>
                         </tr>
+                            
+                        @endforeach
 
                     </tbody>
                 </table>
