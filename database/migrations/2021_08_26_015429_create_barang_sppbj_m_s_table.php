@@ -15,6 +15,7 @@ class CreateBarangSppbjMSTable extends Migration
     {
         Schema::create('barang_sppbj_m_s', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('sppbjm_id');
             $table->integer('jumlah');
             $table->enum('satuan', [
                 'Roll',
@@ -48,6 +49,7 @@ class CreateBarangSppbjMSTable extends Migration
             $table->string('spesifikasi');
             $table->integer('harga_satuan');
             $table->timestamps();
+            $table->foreign('sppbjm_id')->references('id')->on('sppbj_m_s')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
