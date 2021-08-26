@@ -48,7 +48,6 @@ class CreateBarangSppbjMSTable extends Migration
             $table->string('spesifikasi');
             $table->integer('harga_satuan');
             $table->timestamps();
-            $table->timestamps();
         });
     }
 
