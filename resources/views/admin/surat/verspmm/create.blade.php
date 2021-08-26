@@ -72,7 +72,7 @@
                                     @error('tahun_anggaran')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
-                                    <label>Tanggal Surat</label>
+                                    <label>Tanggal Surat Dibuat</label>
                                     <input name="tanggal_surat" type="date" class="form-control @error('tanggal_surat') is-invalid @enderror" value="{{old('tanggal_surat')}}" />
                                     @error('tanggal_surat')
                                     <div class="invalid-feedback">{{$message}}</div>

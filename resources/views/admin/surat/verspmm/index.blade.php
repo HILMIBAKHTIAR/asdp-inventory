@@ -22,7 +22,8 @@
                         <tr>
                             <th>NO</th>
                             <th>Verifikator</th>
-                            <th>Tanggal Surat</th>
+                            <th>Pembuat Verifikator</th>
+                            <th>Tanggal Surat Dibuat</th>
                             <th>Uraian Pekerjaan</th>
                             <th>Divisi</th>
                             <th>Action</th>
@@ -34,6 +35,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->verif->jabatan }}-{{ $item->verif->nama_karyawan }}</td>
+                            <td>{{ $item->karyawan->jabatan }}-{{ $item->karyawan->nama_karyawan }}</td>
                             <td>{{ $item->tanggal_surat }}</td>
                             <td>{{ $item->uraian_pekerjaan }}</td>
                             <td>{{ $item->devisi }}</td>
