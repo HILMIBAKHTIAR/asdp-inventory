@@ -21,7 +21,7 @@
                         @csrf
                         <div class="form-group">
                             <div class="form-row">
-                                <div class="col-md-4 search_select_box">
+                                <div class="col-md-6 search_select_box">
                                     <label>Nama</label>
                                     <select name="karyawan_id" id="" class="form-control @error('karyawan_id') is-invalid @enderror" data-live-search=" true">
                                         <option value="">-Pilih-</option>
@@ -35,6 +35,28 @@
                                         </option>
                                         @endforeach
                                     </select>
+                                    @error('karyawan_id')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                    <label>Uraian Pekerjaan</label>
+                                    <input name="uraian_pekerjaan" value="{{ $data_verspmm->uraian_pekerjaan }}" type="text" class="form-control @error('uraian_pekerjaan') is-invalid @enderror" value="{{old('uraian_pekerjaan')}}" />
+                                    @error('uraian_pekerjaan')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                    <label>Tahun Anggaran</label>
+                                    <select class="form-control" name="tahun_anggaran" value="{{ $data_verspmm->tahun_anggaran }}" class="form-control @error('tahun_anggaran') is-invalid @enderror" value="{{old('tahun_anggaran')}}">
+                                        <?php
+                                        for ($year = (int)date('Y'); 2000 <= $year; $year--) : ?>
+                                            <option value="<?= $year; ?>"><?= $year; ?></option>
+                                        <?php endfor; ?>
+                                    </select>
+                                    @error('tahun_anggaran')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+
+
+                                </div>
+                                <div class="col-md-6 search_select_box">
                                     <label>Penangung Jawab Anggaran</label>
                                     <select name="devisi" id="" class="form-control @error('devisi') is-invalid @enderror" data-live-search=" true">
                                         @foreach([
@@ -46,29 +68,13 @@
                                         ] AS $item => $itemDevisi)
                                         <option value="{{ $item }}" {{ old("devisi", $data_verspmm->devisi) == $item ? "selected" : "" }}>{{ $itemDevisi }}</option>
                                         @endforeach
-                                        {{-- <option value="SDM & Umum" @if (old('devisi')=='SDM & Umum' ) selected="selected" @endif>SDM & Umum</option>
+                                        <!-- {{-- <option value="SDM & Umum" @if (old('devisi')=='SDM & Umum' ) selected="selected" @endif>SDM & Umum</option>
                                         <option value="Usaha" @if (old('devisi')=='Usaha' ) selected="selected" @endif>Usaha</option>
                                         <option value="Teknik" @if (old('devisi')=='Teknik' ) selected="selected" @endif>Teknik</option>
                                         <option value="Teknik Ketapang" @if (old('devisi')=='Teknik Ketapang' ) selected="selected" @endif>Teknik Ketapang</option>
-                                        <option value="Keuangan" @if (old('devisi')=='Keuangan' ) selected="selected" @endif>Keuangan</option> --}}
+                                        <option value="Keuangan" @if (old('devisi')=='Keuangan' ) selected="selected" @endif>Keuangan</option> --}} -->
                                     </select>
-                                    <label>NO. Berita Acara</label>
-                                    <input name="no_berita" value="{{ $data_verspmm->no_berita }}" type="number" class="form-control @error('no_berita') is-invalid @enderror" value="{{old('no_berita')}}" />
-                                    @error('no_berita')
-                                    <div class="invalid-feedback">{{$message}}</div>
-                                    @enderror
-                                    <label>Jumlah Harga SPPBJ</label>
-                                    <input name="jumlah_harga_sppbj" value="{{ $data_verspmm->jumlah_harga_sppbj }}" type="number" class="form-control @error('jumlah_harga_sppbj') is-invalid @enderror" value="{{old('jumlah_harga_sppbj')}}" />
-                                    @error('jumlah_harga_sppbj')
-                                    <div class="invalid-feedback">{{$message}}</div>
-                                    @enderror
-                                </div>
-                                <div class="col-md-4 search_select_box">
-                                    <label>Uraian Pekerjaan</label>
-                                    <input name="uraian_pekerjaan" value="{{ $data_verspmm->uraian_pekerjaan }}" type="text" class="form-control @error('uraian_pekerjaan') is-invalid @enderror" value="{{old('uraian_pekerjaan')}}" />
-                                    @error('uraian_pekerjaan')
-                                    <div class="invalid-feedback">{{$message}}</div>
-                                    @enderror
+
                                     <label>Verifikator</label>
                                     <select name="verifikator" id="" class="form-control @error('verifikator') is-invalid @enderror" data-live-search=" true">
                                         <option value="">-Pilih-</option>
@@ -85,9 +91,52 @@
                                     @error('karyawan_id')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
-                                    <label>NO. SPPBJ</label>
+                                    <label>Tanggal Surat Dibuat</label>
+                                    <input name="tanggal_surat" value="{{ $data_verspmm->tanggal_surat }}" type="date" class="form-control @error('tanggal_surat') is-invalid @enderror" value="{{old('tanggal_surat')}}" />
+                                    @error('tanggal_surat')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+
+
+                                </div>
+                            </div>
+
+                            <!-- Form Document -->
+                            <div class="text-center mt-4">
+                                <h1 class="h4 text-gray-900 mb-4">Form Dokumen</h1>
+                            </div>
+                            <div class="form-row">
+
+
+                                <div class="col-md-4">
+                                    <label>NO. Dokumen SPPBJ</label>
                                     <input name="no_sppbj" value="{{ $data_verspmm->no_sppbj }}" type="number" class="form-control @error('no_sppbj') is-invalid @enderror" value="{{old('no_sppbj')}}" />
                                     @error('no_sppbj')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+
+                                    <label>NO. Dokumen Berita Acara</label>
+                                    <input name="no_berita" value="{{ $data_verspmm->no_berita }}" type="number" class="form-control @error('no_berita') is-invalid @enderror" value="{{old('no_berita')}}" />
+                                    @error('no_berita')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Tanggal Dokumen SPPBJ</label>
+                                    <input name="tanggal_sppbj" value="{{ $data_verspmm->tanggal_sppbj }}" type="date" class="form-control @error('tanggal_sppbj') is-invalid @enderror" value="{{old('tanggal_sppbj')}}" />
+                                    @error('jumlah_harga_skb')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                    <label>Tanggal Dokumen Berita</label>
+                                    <input name="tanggal_berita_acara" value="{{ $data_verspmm->tanggal_berita_acara }}" type="date" class="form-control @error('tanggal_berita_acara') is-invalid @enderror" value="{{old('tanggal_berita_acara')}}" />
+                                    @error('jumlah_harga_skb')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Jumlah Harga SPPBJ</label>
+                                    <input name="jumlah_harga_sppbj" value="{{ $data_verspmm->jumlah_harga_sppbj }}" type="number" class="form-control @error('jumlah_harga_sppbj') is-invalid @enderror" value="{{old('jumlah_harga_sppbj')}}" />
+                                    @error('jumlah_harga_sppbj')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                     <label>Jumlah Harga Berita Acara</label>
@@ -96,48 +145,20 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                 </div>
-                                <div class="col-md-4">
-                                    <label>Tahun Anggaran</label>
-                                    <select class="form-control" name="tahun_anggaran" value="{{ $data_verspmm->tahun_anggaran }}" class="form-control @error('tahun_anggaran') is-invalid @enderror" value="{{old('tahun_anggaran')}}">
-                                        <?php
-                                        for ($year = (int)date('Y'); 2000 <= $year; $year--): ?>
-                                          <option value="<?=$year;?>"><?=$year;?></option>
-                                        <?php endfor; ?>
-                                       </select>
-                                       @error('tahun_anggaran')
-                                       <div class="invalid-feedback">{{$message}}</div>
-                                       @enderror
-                                   
-                                    <label>Tanggal Surat Dibuat</label>
-                                    <input name="tanggal_surat" value="{{ $data_verspmm->tanggal_surat }}" type="date" class="form-control @error('tanggal_surat') is-invalid @enderror" value="{{old('tanggal_surat')}}" />
-                                    @error('tanggal_surat')
-                                    <div class="invalid-feedback">{{$message}}</div>
-                                    @enderror   
+                            </div>
+
+
+                            <div class="form-row">
+                                <div class="col-md-6">
                                     <label>Tanggal Dokumen SKB</label>
                                     <input name="tanggal_skb" value="{{ $data_verspmm->tanggal_skb }}" type="date" class="form-control @error('tanggal_skb') is-invalid @enderror" value="{{old('tanggal_skb')}}" />
                                     @error('tanggal_skb')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
+                                </div>
+                                <div class="col-md-6">
                                     <label>Jumlah Harga SKB</label>
-                                    <input name="jumlah_harga_skb" value="{{ $data_verspmm->jumlah_harga_skb }}" type="number" class="form-control @error('jumlah_harga_skb') is-invalid @enderror" value="{{old('jumlah_harga_skb')}}" />   
-                                    @error('jumlah_harga_skb')
-                                    <div class="invalid-feedback">{{$message}}</div>
-                                    @enderror
-                                </div>
-
-                            </div>
-
-                            <div class="form-row">
-                                <div class="col-md-6">
-                                    <label>Tanggal SPPBJ</label>
-                                    <input name="tanggal_sppbj" value="{{ $data_verspmm->tanggal_sppbj }}" type="date" class="form-control @error('tanggal_sppbj') is-invalid @enderror" value="{{old('tanggal_sppbj')}}" />
-                                    @error('jumlah_harga_skb')
-                                    <div class="invalid-feedback">{{$message}}</div>
-                                    @enderror
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Tanggal Berita</label>
-                                    <input name="tanggal_berita_acara" value="{{ $data_verspmm->tanggal_berita_acara }}" type="date" class="form-control @error('tanggal_berita_acara') is-invalid @enderror" value="{{old('tanggal_berita_acara')}}" />
+                                    <input name="jumlah_harga_skb" value="{{ $data_verspmm->jumlah_harga_skb }}" type="number" class="form-control @error('jumlah_harga_skb') is-invalid @enderror" value="{{old('jumlah_harga_skb')}}" />
                                     @error('jumlah_harga_skb')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
@@ -191,7 +212,7 @@
                         </div>
 
                         <div class="text-center">
-                                <button type="submit" class="btn btn-success btn-lg">Update</button>
+                            <button type="submit" class="btn btn-success btn-lg">Update</button>
                         </div>
                     </form>
                 </div>

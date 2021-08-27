@@ -69,7 +69,7 @@ class SppbjmController extends Controller
             'mataanggaran_id.required'      => "mataanggaran harus diisi",
             'nama_pengadaan.required'       => "nama pengadaan harus diisi",
             'tanggal_surat.required'        => "tanggal surat harus diisi",
-            'nomor_surat.required'        => "nomor surat harus diisi",
+            'nomor_surat.required'          => "nomor surat harus diisi",
             'bulan_dibutuhkan.required'     => "Bulan dibutuhkan harus diisi",
             'jumlah.*.required'             => "jumlah barang harus diisi",
             'nama_barang.*.required'        => "nama barang harus diisi",

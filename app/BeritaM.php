@@ -14,7 +14,7 @@ class BeritaM extends Model
         'ttd2',
         'ttd3',
         'alamat_tujuan',
-        'nomer_surat_berita',
+        'nomor_surat_berita',
         'tanggal_surat'
     ];
 
@@ -25,7 +25,7 @@ class BeritaM extends Model
 
     public function barangBerita()
     {
-        return $this->belongsTo(BarangBeritaM::class);
+        return $this->hasMany(BarangBeritaM::class, 'beritam_id', 'id');
     }
 
     public function karyawanBerita()

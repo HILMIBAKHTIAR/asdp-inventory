@@ -12,15 +12,15 @@
                     <!-- judul form-->
 
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Formulir Surat Pernyataan <br> Kebenaran Harga</h1>
+                        <h1 class="h4 text-gray-900 mb-2">Bukti Serah Terima Barang</h1>
                     </div>
 
-                    {{-- Modal --}}
+                    <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Barang Serah Terima</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -95,19 +95,18 @@
                     </div>
 
                     <!-- isi form input -->
-                    <input type="hidden" name="skbm_id" value="{{$id}}">
-                    <form action="{{route('skbm.update', $skbm->id)}}" method="post">
+                    <input type="hidden" name="beritam_id" value="{{$id}}">
+                    <form action="{{route('beritam.update', $data_beritam->id)}}" method="post" class="berita">
                         @method('PATCH')
                         @csrf
                         <div class="form-group">
-
                             <div class="form-row">
                                 <div class="col-md-6 search_select_box">
-                                    <label>Dari/Peminta</label>
-                                    <select name="karyawan_id" id="" class="form-control @error('karyawan_id') is-invalid @enderror" data-live-search=" true">
+                                    <label>Kepada Yth</label>
+                                    <select name="karyawan_berita_id" id="" class="form-control @error('karyawan_berita_id') is-invalid @enderror" data-live-search=" true">
                                         <option value="">-Pilih-</option>
                                         @foreach($karyawan as $item)
-                                        <option value={{$item->id}} @if($item->id==$skbm->karyawan_id)
+                                        <option value={{$item->id}} @if($item->id==$data_beritam->karyawan_berita_id)
                                             selected
                                             @endif
 
@@ -116,33 +115,24 @@
                                         </option>
                                         @endforeach
                                     </select>
-                                    @error('karyawan_id')
+                                    @error('karyawan_berita_id')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                    <label>Tanggal Surat</label>
+                                    <input name="tanggal_surat" value="{{$data_beritam->tanggal_surat}}" type="date" class="form-control @error('tanggal_surat') is-invalid @enderror" value="{{old('tanggal_surat')}}">
+                                    @error('tanggal_surat')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                 </div>
-
                                 <div class="col-md-6">
                                     <label>Alamat</label>
-                                    <input name="alamat_tujuan" class="form-control @error('alamat_tujuan') is-invalid @enderror" value="{{$skbm->alamat_tujuan}}" />
+                                    <input name="alamat_tujuan" value="{{$data_beritam->alamat_tujuan}}" type="text" class="form-control @error('alamat_tujuan') is-invalid @enderror" value="{{old('alamat_tujuan')}}">
                                     @error('alamat_tujuan')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="col-md-6">
-                                    <label>No Telepon</label>
-                                    <input name="no_telp" type="text" class="form-control @error('no_telp') is-invalid @enderror" value="{{$skbm->no_telp}}">
-                                    @error('no_telp')
-                                    <div class="invalid-feedback">{{$message}}</div>
-                                    @enderror
-                                </div>
-                                <div class="col-md-6">
-
-                                    <label>Tanggal Surat</label>
-                                    <input type="date" name="tanggal_surat" class="form-control @error('tanggal_surat') is-invalid @enderror" value="{{$skbm->tanggal_surat}}" />
-                                    @error('tanggal_surat')
+                                    <label>Nomor Surat</label>
+                                    <input name="nomor_surat_berita" value="{{$data_beritam->nomor_surat_berita}}" class="form-control @error('nomor_surat_berita') is-invalid @enderror" value="{{old('nomor_surat_berita')}}">
+                                    @error('nomor_surat_berita')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                 </div>
@@ -157,7 +147,6 @@
                             </div>
 
                             <br>
-
                             <!-- Pengadaan Barang -->
                             <div class="form-group">
                                 <div class="table-responsive">
@@ -174,7 +163,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($skbm->barangSkbm as $item)
+                                            @foreach ($data_beritam->barangBerita as $item)
                                             <input type="hidden" name="id[]" value="{{$item->id}}">
                                             <tr>
                                                 <td class="text-center">
@@ -238,18 +227,17 @@
                                 </div>
                             </div>
 
-
                             <!-- FORM TTD -->
-                            <div class="text-center">
+                            <div class="text-center mt-4">
                                 <h1 class="h4 text-gray-900 mb-4">Form Tanda Tangan</h1>
                             </div>
                             <div class="form-row">
-                                <div class="col-md-6 search_select_box">
-                                    <label>General/Manager</label>
+                                <div class="col-md-4 search_select_box">
+                                    <label>Staf Umum</label>
                                     <select name="ttd1" id="" class="form-control @error('ttd1') is-invalid @enderror" data-live-search=" true">
                                         <option value="">-Pilih-</option>
-                                        @foreach ($karyawan as $item)
-                                        <option value={{$item->id}} @if($item->id==$skbm->ttd1)
+                                        @foreach($karyawan as $item)
+                                        <option value={{$item->id}} @if($item->id==$data_beritam->ttd1)
                                             selected
                                             @endif
 
@@ -262,30 +250,49 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                 </div>
-                                <div class="col-md-6 search_select_box">
-                                    <label>Manager SDM & Umum</label>
+                                <div class="col-md-4 search_select_box">
+                                    <label>Manager SDM/Umum</label>
                                     <select name="ttd2" id="" class="form-control @error('ttd2') is-invalid @enderror" data-live-search=" true">
                                         <option value="">-Pilih-</option>
-                                        @foreach ($karyawan as $item)
-                                        <option value={{$item->id}} @if($item->id==$skbm->ttd2)
+                                        @foreach($karyawan as $item)
+                                        <option value={{$item->id}} @if($item->id==$data_beritam->ttd2)
                                             selected
                                             @endif
 
                                             >
                                             {{$item->jabatan}} - {{$item->nama_karyawan}}
-                                            @endforeach
+                                        </option>
+                                        @endforeach
                                     </select>
                                     @error('ttd2')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-4 search_select_box">
+                                    <label>Staf SDM & Umum</label>
+                                    <select name="ttd3" id="" class="form-control @error('ttd3') is-invalid @enderror" data-live-search=" true">
+                                        <option value="">-Pilih-</option>
+                                        @foreach($karyawan as $item)
+                                        <option value={{$item->id}} @if($item->id==$data_beritam->ttd3)
+                                            selected
+                                            @endif
+
+                                            >
+                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                    @error('ttd3')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                 </div>
                             </div>
                         </div>
 
-                        <div>
-                            <center>
-                                <button type="submit" class="btn btn-success btn-lg">Update</button>
-                            </center>
+                        <div class="col text-center">
+
+                            <button type="submit" class="btn btn-success btn-lg">Update</button>
+
                         </div>
                     </form>
                 </div>
@@ -294,16 +301,16 @@
     </div>
 
 </div>
-
+<!-- /.container-fluid -->
 
 <script>
     $('.simpan').on('click', function() {
         $.ajax({
-            url: '{{url("admin/skbm/tambah")}}',
+            url: '{{url("admin/beritam/tambah")}}',
             method: 'post',
             data: {
                 _token: '{{csrf_token()}}',
-                skbm_id: $('input[name=skbm_id]').val(),
+                beritam_id: $('input[name=beritam_id]').val(),
                 jumlah: $('input[name=jumlah]').val(),
                 satuan: $('input[name=satuan]').val(),
                 nama_barang: $('input[name=nama_barang]').val(),
@@ -320,7 +327,7 @@
 
     $('.hapus').on('click', function() {
         $.ajax({
-            url: '{{url("/")}}' + '/admin/skbm/' + $(this).data('id') + '/hapus',
+            url: '{{url("/")}}' + '/admin/bertam/' + $(this).data('id') + '/hapus',
             dataType: 'json',
             success() {
                 alert('Data Berhasil Dihapus');
@@ -329,6 +336,4 @@
         });
     });
 </script>
-
-<!-- /.container-fluid -->
 @endsection
