@@ -39,9 +39,9 @@
                             <td>{{$item->no_telp}}</td>
 
                             <td class="d-flex">
-                                <a href="" class="btn btn-success mr-2">Show</a>
+                                <a href="{{route('skbm.show',$item->id)}}" class="btn btn-success mr-2">Show</a>
                                 <a href="{{route('skbm.edit',$item->id)}}" class="btn btn-primary mr-2">Edit</a>
-                                <form action="" method="post">
+                                <form action="{{route('skbm.destroy',$item->id)}}" method="post">
                                     @method('DELETE')
                                     @csrf
                                     <button class="ml-5 btn btn-danger" type="submit">Hapus</button>

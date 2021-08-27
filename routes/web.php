@@ -47,4 +47,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::post('/sppbjm/tambah', 'Surat\SppbjmController@tambahBarang');
     Route::get('/sppbjm/{sppbjm}/hapus', 'Surat\SppbjmController@hapusBarang');
+
+    Route::post('/skbm/tambah', 'Surat\SkbmController@tambahBarang');
+    Route::get('/skbm/{skbm}/hapus', 'Surat\SkbmController@hapusBarang');
 });

@@ -29,7 +29,7 @@ class SkbM extends Model
 
     public function barangSkbm()
     {
-        return $this->hasMany(BarangSkbM::class);
+        return $this->hasMany(BarangSkbM::class, 'skbm_id', 'id');
     }
 
     public function tanda1()
