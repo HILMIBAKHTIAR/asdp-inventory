@@ -37,11 +37,20 @@
                                     </select>
                                     <label>Penangung Jawab Anggaran</label>
                                     <select name="devisi" id="" class="form-control @error('devisi') is-invalid @enderror" data-live-search=" true">
-                                        <option value="SDM & Umum" @if (old('devisi')=='SDM & Umum' ) selected="selected" @endif>SDM & Umum</option>
+                                        @foreach([
+                                        "SDM & Umum" => "SDM & Umum",
+                                        "Usaha" => "Usaha",
+                                        "Teknik" => "Teknik",
+                                        "Teknik Ketapang" => "Teknik Ketapang",
+                                        "Keuangan" => "Keuangan"
+                                        ] AS $item => $itemDevisi)
+                                        <option value="{{ $item }}" {{ old("devisi", $data_verspmm->devisi) == $item ? "selected" : "" }}>{{ $itemDevisi }}</option>
+                                        @endforeach
+                                        {{-- <option value="SDM & Umum" @if (old('devisi')=='SDM & Umum' ) selected="selected" @endif>SDM & Umum</option>
                                         <option value="Usaha" @if (old('devisi')=='Usaha' ) selected="selected" @endif>Usaha</option>
                                         <option value="Teknik" @if (old('devisi')=='Teknik' ) selected="selected" @endif>Teknik</option>
                                         <option value="Teknik Ketapang" @if (old('devisi')=='Teknik Ketapang' ) selected="selected" @endif>Teknik Ketapang</option>
-                                        <option value="Keuangan" @if (old('devisi')=='Keuangan' ) selected="selected" @endif>Keuangan</option>
+                                        <option value="Keuangan" @if (old('devisi')=='Keuangan' ) selected="selected" @endif>Keuangan</option> --}}
                                     </select>
                                     <label>NO. Berita Acara</label>
                                     <input name="no_berita" value="{{ $data_verspmm->no_berita }}" type="number" class="form-control @error('no_berita') is-invalid @enderror" value="{{old('no_berita')}}" />
@@ -181,10 +190,8 @@
                             </div>
                         </div>
 
-                        <div>
-                            <center>
-                                <button type="submit" class="btn btn-success btn-lg">update</button>
-                            </center>
+                        <div class="text-center">
+                                <button type="submit" class="btn btn-success btn-lg">Update</button>
                         </div>
                     </form>
                 </div>
