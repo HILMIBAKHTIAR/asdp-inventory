@@ -8,8 +8,7 @@
     {{-- <title>Cetak SPPBJ</title> --}}
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
     <style>
         .border1 {
@@ -47,7 +46,6 @@
             border-left: none;
             border-collapse: collapse;
         }
-
     </style>
 
 </head>
@@ -64,7 +62,6 @@
                 visibility: visible;
             }
         }
-
     </style>
 
     <style type="text/css" media="print">
@@ -79,7 +76,6 @@
                 padding-bottom: 60px;
             }
         }
-
     </style>
 
     <div class="print-area">
@@ -90,11 +86,8 @@
             <table width="910" border="1" align="center" cellpadding="0" cellspacing="0" style="width: 1011px;">
                 <tbody>
                     <tr>
-                        <td class="border1" style="width: 208.641px;" rowspan="4"><img
-                                src="{{ url('backend/img/asdp.svg') }}" alt="" /></td>
-                        <td class="border1"
-                            style="width: 872.359px; border-right: 0px; font-size: 14.0pt; font-family: FrutigerExt-Normal; color: black;"
-                            rowspan="4" align="center"><strong>FORMULIR SURAT PERNYATAAN KEBENARAN HARGA</strong></td>
+                        <td class="border1" style="width: 208.641px;" rowspan="4"><img src="{{ url('backend/img/asdp.svg') }}" alt="" /></td>
+                        <td class="border1" style="width: 872.359px; border-right: 0px; font-size: 14.0pt; font-family: FrutigerExt-Normal; color: black;" rowspan="4" align="center"><strong>FORMULIR SURAT PERNYATAAN KEBENARAN HARGA</strong></td>
                         <td class="border1" style="width: 133px;"><strong>No. Dokumen</strong></td>
                         <td class="border1" style="width: 198px;">:&nbsp;<strong>PBJ-101.00.19</strong></td>
                     </tr>
@@ -139,7 +132,8 @@
                                 : {{ $skbm->karyawan->nama_karyawan }}</p>
                             <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">
                                 Jabatan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
-                                {{ $skbm->karyawan->jabatan }}</p>
+                                {{ $skbm->karyawan->jabatan }}
+                            </p>
                             <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">
                                 Nik&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 : {{ $skbm->karyawan->nik }} </p>
@@ -151,15 +145,15 @@
                                 <li style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Bahwa
                                     Pemberi Pernyataan menyatakan dengan sesungguhnya dan sejujur-jujurnya bahwa harga
                                     yang tertera di bawah ini benar adanya dan dapat dikonfirmasi di
-                                    {{ $skbm->alamat_tujuan }} dengan telepon : {{ $skbm->no_telp }}</li>
+                                    {{ $skbm->alamat_tujuan }} dengan telepon : {{ $skbm->no_telp }}
+                                </li>
                             </ol>
                         </td>
                     </tr>
                 </tbody>
             </table>
 
-            <table width="910" border="1" align="center" cellpadding="0" cellspacing="0"
-                style="width: 1014px; border-color: black;">
+            <table width="910" border="1" align="center" cellpadding="0" cellspacing="0" style="width: 1014px; border-color: black;">
                 <thead>
                     <tr class="text-center">
                         <th class="border1">No</th>
@@ -173,58 +167,47 @@
                 </thead>
                 <tbody>
                     @foreach ($skbm->barangSkbm as $item)
-                        <tr>
-                            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;"
-                                class="border1">
-                                <p align="center" style="margin: 4px;">{{ $loop->iteration }}</p>
-                            </td>
-                            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;"
-                                class="border1">
-                                <p style="margin: 4px;">{{ $item->jumlah }}</p>
-                            </td>
-                            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;"
-                                class="border1">
-                                <p style="margin: 4px;">{{ $item->satuan }}</p>
-                            </td>
-                            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;"
-                                class="border1">
-                                <p style="margin: 4px;">{{ $item->nama_barang }}</p>
-                            </td>
-                            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;"
-                                class="border1">
-                                <p style="margin: 4px;">{{ $item->spesifikasi }}</p>
-                            </td>
-                            <td class="right-border"
-                                style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
-                                <p style="margin: 4px;">Rp. </p>
-                            </td>
-                            <td class="left-border text-end"
-                                style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
-                                <p style="margin: 4px;">{{ number_format($item->harga_satuan, 0, ',', '.') }},00</p>
-                            </td>
-                            <td class="right-border"
-                                style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
-                                <p style="margin: 4px;">Rp. </p>
-                            </td>
-                            <td class="left-border text-end"
-                                style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
-                                <p style="margin: 4px;">
-                                    {{ number_format($item->harga_satuan * $item->jumlah, 0, ',', '.') }},00</p>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1">
+                            <p align="center" style="margin: 4px;">{{ $loop->iteration }}</p>
+                        </td>
+                        <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1">
+                            <p style="margin: 4px;">{{ $item->jumlah }}</p>
+                        </td>
+                        <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1">
+                            <p style="margin: 4px;">{{ $item->satuan }}</p>
+                        </td>
+                        <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1">
+                            <p style="margin: 4px;">{{ $item->nama_barang }}</p>
+                        </td>
+                        <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1">
+                            <p style="margin: 4px;">{{ $item->spesifikasi }}</p>
+                        </td>
+                        <td class="right-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                            <p style="margin: 4px;">Rp. </p>
+                        </td>
+                        <td class="left-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                            <p style="margin: 4px;">{{ number_format($item->harga_satuan, 0, ',', '.') }},00</p>
+                        </td>
+                        <td class="right-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                            <p style="margin: 4px;">Rp. </p>
+                        </td>
+                        <td class="left-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                            <p style="margin: 4px;">
+                                {{ number_format($item->harga_satuan * $item->jumlah, 0, ',', '.') }},00
+                            </p>
+                        </td>
+                    </tr>
                     @endforeach
 
                     <tr>
-                        <td colspan="7" class="bottom-none text-end"
-                            style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                        <td colspan="7" class="bottom-none text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             &nbsp;Jumlah Rp&nbsp;
                         </td>
-                        <td class="right-border"
-                            style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                        <td class="right-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             <p style="margin: 2px;">Rp. </p>
                         </td>
-                        <td class="left-border text-end"
-                            style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                        <td class="left-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             <p style="margin: 2px;">
                                 {{ number_format($subtotal,0,',','.',)}}
                                 ,00
@@ -233,31 +216,25 @@
                     </tr>
 
                     <tr>
-                        <td colspan="7" class="top-bottom-none text-end"
-                            style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                        <td colspan="7" class="top-bottom-none text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             &nbsp;PPN 10%&nbsp;
                         </td>
-                        <td class="right-border"
-                            style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                        <td class="right-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             <p style="margin: 2px;">Rp. </p>
                         </td>
-                        <td class="left-border text-end"
-                            style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                        <td class="left-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             <p style="margin: 2px;"> - </p>
                         </td>
                     </tr>
 
                     <tr>
-                        <td colspan="7" class="top-none text-end"
-                            style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                        <td colspan="7" class="top-none text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             &nbsp;Total Harga%&nbsp;
                         </td>
-                        <td class="right-border"
-                            style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                        <td class="right-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             <p style="margin: 2px;">Rp. </p>
                         </td>
-                        <td class="left-border text-end"
-                            style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
+                        <td class="left-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             <p style="margin: 2px;">
                                 ,00
                             </p>
@@ -285,8 +262,7 @@
                     <tr>
                         <td style="width: 741px;">&nbsp;</td>
                         <td style="width: 615.559px;">
-                            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US"
-                                    style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Ketapang,{{ tanggal_indonesia($skbm->tanggal_surat) }}</span>
+                            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Ketapang,{{ tanggal_indonesia($skbm->tanggal_surat) }}</span>
                             </p>
                         </td>
                     </tr>
@@ -297,41 +273,31 @@
                 <tbody>
                     <tr>
                         <td style="width: 740.958px;">
-                            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US"
-                                    style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Mengetahui
+                            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Mengetahui
                                     :</span></p>
-                            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US"
-                                    style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">General
+                            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">General
                                     Manager</span></p>
-                            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US"
-                                    style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span>
+                            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span>
                             </p>
-                            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US"
-                                    style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span>
+                            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span>
                             </p>
                             <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US">&nbsp;</span>
                             </p>
-                            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US"
-                                    style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><u>{{ $skbm->tanda1->nama_karyawan }}</u></span>
+                            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><u>{{ $skbm->tanda1->nama_karyawan }}</u></span>
                             </p>
                         </td>
                         <td style="width: 616.042px;">
-                            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US"
-                                    style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Mengetahui
+                            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Mengetahui
                                     :</span></p>
-                            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US"
-                                    style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">General
+                            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">General
                                     Manager</span></p>
-                            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US"
-                                    style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span>
+                            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span>
                             </p>
-                            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US"
-                                    style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span>
+                            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span>
                             </p>
                             <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US">&nbsp;</span>
                             </p>
-                            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US"
-                                    style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><u>{{ $skbm->tanda2->nama_karyawan }}</u></span>
+                            <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"><u>{{ $skbm->tanda2->nama_karyawan }}</u></span>
                             </p>
                         </td>
                     </tr>
@@ -342,8 +308,7 @@
     </div>
 
     <div class="container-lg text-center mt-4 mb-4 pt-4">
-        <button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary"
-            style="margin-right: 4cm;">cetak</button>
+        <button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary" style="margin-right: 4cm;">cetak</button>
         <a href="{{ url('admin/skbm/') }}" name="Selanjutnya" class="btn btn-success">Kembali</a>
     </div>
 

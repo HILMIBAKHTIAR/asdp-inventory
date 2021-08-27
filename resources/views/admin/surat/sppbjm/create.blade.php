@@ -86,9 +86,9 @@
                             </div>
 
 
-                            <br>
+
                             <!-- Pengadaan Barang -->
-                            <div class="text-center">
+                            <div class="text-center mt-4">
                                 <h1 class="h4 text-gray-900 mb-4">Form Barang/Jasa</h1>
                             </div>
                             <div class="form-row">

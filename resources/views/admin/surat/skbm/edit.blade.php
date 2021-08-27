@@ -129,7 +129,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            
+
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label>No Telepon</label>
@@ -139,7 +139,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6">
-    
+
                                     <label>Tanggal Surat</label>
                                     <input type="date" name="tanggal_surat" class="form-control @error('tanggal_surat') is-invalid @enderror" value="{{$skbm->tanggal_surat}}" />
                                     @error('tanggal_surat')
@@ -273,7 +273,7 @@
 
                                             >
                                             {{$item->jabatan}} - {{$item->nama_karyawan}}
-                                        @endforeach
+                                            @endforeach
                                     </select>
                                     @error('ttd2')
                                     <div class="invalid-feedback">{{$message}}</div>

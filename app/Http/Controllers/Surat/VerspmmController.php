@@ -52,7 +52,8 @@ class VerspmmController extends Controller
             'ttd2'                  => 'required',
             'tanggal_sppbj'         => 'required',
             'tanggal_berita_acara'  => 'required',
-            'jumlah_harga_skb'      => 'required',
+
+
             'jumlah_harga_berita'   => 'required',
             'jumlah_harga_sppbj'    => 'required',
             'no_sppbj'              => 'required',
@@ -68,13 +69,13 @@ class VerspmmController extends Controller
             'ttd1.required'              => 'manager sdm & umum harus diisi',
             'ttd2.required'              => 'pembuat verifikator harus diisi',
 
-            'tanggal_sppbj.required'         => 'harus diisi',
-            'tanggal_berita_acara.required'  => 'harus diisi',
-            'jumlah_harga_skb.required'      => 'harus diisi',
-            'jumlah_harga_berita.required'   => 'harus diisi',
-            'jumlah_harga_sppbj.required'    => 'harus diisi',
-            'no_sppbj.required'              => 'harus diisi',
-            'no_berita.required'             => 'harus diisi',
+            'tanggal_sppbj.required'         => 'tanggal sppbj harus diisi',
+            'tanggal_berita_acara.required'  => 'tanggal serah terima harus diisi',
+
+            'jumlah_harga_berita.required'   => 'jumlah harga berita harus diisi',
+            'jumlah_harga_sppbj.required'    => 'jumlah harga sppbj harus diisi',
+            'no_sppbj.required'              => 'nomor sppbj harus diisi',
+            'no_berita.required'             => 'nomor serah terima harus diisi',
         ]);
 
         $data_verspmm = VerspmM::create([

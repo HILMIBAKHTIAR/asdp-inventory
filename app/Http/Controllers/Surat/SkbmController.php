@@ -71,7 +71,7 @@ class SkbmController extends Controller
             'ttd2.required'                 => 'manager sdm & umum harus diisi',
         ]);
 
-        $data_skbm = SkbM::create([
+        $skbm = SkbM::create([
             'user_id' => auth()->user()->id,
             'karyawan_id' => $request->karyawan_id,
             'alamat_tujuan' => $request->alamat_tujuan,
@@ -84,7 +84,7 @@ class SkbmController extends Controller
 
         for ($i = 0; $i < count($request->jumlah); $i++) {
             BarangSkbM::create([
-                'skbm_id'      => $data_skbm->id,
+                'skbm_id'      => $skbm->id,
                 'jumlah'        => $request->jumlah[$i],
                 'satuan'        => $request->satuan[$i],
                 'nama_barang'   => $request->nama_barang[$i],
@@ -93,7 +93,7 @@ class SkbmController extends Controller
             ]);
         }
 
-        $data_skbm->save();
+        $skbm->save();
 
         return redirect('admin/skbm/');
     }
@@ -138,10 +138,10 @@ class SkbmController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'alamat_tujuan'     => 'required',
-            'karyawan_id'       => 'required',
-            'no_telp'           => 'required|max:12',
-            'tanggal_surat'     => 'required',
+            'alamat_tujuan'         => 'required',
+            'karyawan_id'           => 'required',
+            'no_telp'               => 'required|max:12',
+            'tanggal_surat'         => 'required',
             'jumlah'                => 'required|array',
             'jumlah.*'              => 'required',
             'nama_barang'           => 'required|array',
@@ -150,8 +150,8 @@ class SkbmController extends Controller
             'spesifikasi.*'         => 'required',
             'harga_satuan'          => 'required|array',
             'harga_satuan.*'        => 'required',
-            'ttd1'              => 'required',
-            'ttd2'              => 'required',
+            'ttd1'                  => 'required',
+            'ttd2'                  => 'required',
 
         ], [
             'alamat_tujuan.required'        => 'alamat tujuan harus diisi',
@@ -167,14 +167,14 @@ class SkbmController extends Controller
             'ttd2.required'                 => 'manager sdm & umum harus diisi',
         ]);
 
-        $data_skbm = SkbM::find($id);
+        $skbmm = SkbM::find($id);
 
-        $data_skbm->alamat_tujuan       = $request->get('alamat_tujuan');
-        $data_skbm->karyawan_id       = $request->get('karyawan_id');
-        $data_skbm->no_telp       = $request->get('no_telp');
-        $data_skbm->tanggal_surat       = $request->get('tanggal_surat');
-        $data_skbm->ttd1       = $request->get('ttd1');
-        $data_skbm->ttd2       = $request->get('ttd2');
+        $skbmm->alamat_tujuan       = $request->get('alamat_tujuan');
+        $skbmm->karyawan_id         = $request->get('karyawan_id');
+        $skbmm->no_telp             = $request->get('no_telp');
+        $skbmm->tanggal_surat       = $request->get('tanggal_surat');
+        $skbmm->ttd1                = $request->get('ttd1');
+        $skbmm->ttd2                = $request->get('ttd2');
 
         if (count($request->id) > 0) {
             foreach ($request->id as $key => $item) {
@@ -185,13 +185,15 @@ class SkbmController extends Controller
                     'spesifikasi' => $request->spesifikasi[$key],
                     'harga_satuan' => $request->harga_satuan[$key]
                 );
-                $data_skbm = BarangSkbM::where('id', $item)->first();
-                $data_skbm->update($array_barang);
+                $skbm = BarangSkbM::where('id', $item)->first();
+                $skbm->update($array_barang);
             }
         }
 
-        $data_skbm->save();
+        $skbmm->save();
         return redirect('admin\skbm')->with('sukses', 'Surat Skbm berhasil diperbarui');
+
+        // return dd($skbmm);
     }
 
     /**
