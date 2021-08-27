@@ -17,6 +17,8 @@ class CreateKaryawansTable extends Migration
             $table->id();
             $table->string('nama_karyawan');
             $table->enum('jabatan', ['Manager SDM & Umum', 'Manager Usaha Ketapang', 'Manager Usaha Gilimanuk', 'Manager Keuangan', 'Manager Teknik', 'Staf SDM & Umum', 'Verifikator', 'Staf Teknik Ketapang', 'Staf Usaha']);
+            $table->string('tempat_lahir');
+            $table->string('tanggal_lahir');
             $table->string('nik');
             $table->timestamps();
         });
