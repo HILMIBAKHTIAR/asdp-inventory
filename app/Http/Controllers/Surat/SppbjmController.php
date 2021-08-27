@@ -123,6 +123,13 @@ class SppbjmController extends Controller
     public function show($id)
     {
         //
+        $data_sppbjm = SppbjM::findOrFail($id);
+        $subtotal = $data_sppbjm
+            ->barangSp2bj
+            ->map(function ($el) {
+                return $el->harga_satuan * $el->jumlah;
+            })->sum();
+        return view('admin.surat.sppbjm.show', compact('data_sppbjm', 'subtotal'));
     }
 
     /**
@@ -137,7 +144,7 @@ class SppbjmController extends Controller
         $karyawan = Karyawan::all();
         $mataanggaran = Mataanggaran::all();
         $data_sppbjm = SppbjM::find($id);
-        return view('admin.surat.sppbjm.edit', compact('karyawan', 'mataanggaran', 'data_sppbjm'));
+        return view('admin.surat.sppbjm.edit', compact('karyawan', 'mataanggaran', 'data_sppbjm', 'id'));
         // return dd($data_sppbjm);
     }
 
@@ -158,14 +165,14 @@ class SppbjmController extends Controller
             'tanggal_surat'         => 'required',
             'nomor_surat'           => 'required',
             'bulan_dibutuhkan'      => 'required',
-            // 'jumlah'                => 'required|array',
-            // 'jumlah.*'              => 'required',
-            // 'nama_barang'           => 'required|array',
-            // 'nama_barang.*'         => 'required',
-            // 'spesifikasi'           => 'required|array',
-            // 'spesifikasi.*'         => 'required',
-            // 'harga_satuan'          => 'required|array',
-            // 'harga_satuan.*'        => 'required',
+            'jumlah'                => 'required|array',
+            'jumlah.*'              => 'required',
+            'nama_barang'           => 'required|array',
+            'nama_barang.*'         => 'required',
+            'spesifikasi'           => 'required|array',
+            'spesifikasi.*'         => 'required',
+            'harga_satuan'          => 'required|array',
+            'harga_satuan.*'        => 'required',
             'ttd1'                  => 'required',
             'ttd2'                  => 'required',
             'ttd3'                  => 'required',
@@ -177,34 +184,48 @@ class SppbjmController extends Controller
             'tanggal_surat.required'        => "tanggal surat harus diisi",
             'nomor_surat.required'        => "nomor surat harus diisi",
             'bulan_dibutuhkan.required'     => "Bulan dibutuhkan harus diisi",
-            // 'jumlah.*.required'             => "jumlah barang harus diisi",
-            // 'nama_barang.*.required'        => "nama barang harus diisi",
-            // 'spesifikasi.*.required'        => "spesifikasi barang harus diisi",
-            // 'harga_satuan.*.required'       => "harga satuan barang harus diisi",
+            'jumlah.*.required'             => "jumlah barang harus diisi",
+            'nama_barang.*.required'        => "nama barang harus diisi",
+            'spesifikasi.*.required'        => "spesifikasi barang harus diisi",
+            'harga_satuan.*.required'       => "harga satuan barang harus diisi",
             'ttd1.required'                 => "nama peminta barang harus diisi ",
             'ttd2.required'                 => "nama manager cabang harus diisi",
             'ttd3.required'                 => "nama manager keuangan harus diisi",
             'ttd4.required'                 => "nama manager sdm&umum harus diisi",
         ]);
-        $data_sppbjm = SppbjM::find($id);
+        $data_sppbjmm = SppbjM::find($id);
 
-        $data_sppbjm->karyawan_id       = $request->get('karyawan_id');
-        $data_sppbjm->mataanggaran_id   = $request->get('mataanggaran_id');
-        $data_sppbjm->nama_pengadaan    = $request->get('nama_pengadaan');
-        $data_sppbjm->tanggal_surat     = $request->get('tanggal_surat');
-        $data_sppbjm->nomor_surat       = $request->get('nomor_surat');
-        $data_sppbjm->bulan_dibutuhkan  = $request->get('bulan_dibutuhkan');
-        $data_sppbjm->catatan_peminta   = $request->get('catatan_peminta');
-        $data_sppbjm->catatan           = $request->get('catatan');
-        $data_sppbjm->catatan_anggaran  = $request->get('catatan_anggaran');
-        $data_sppbjm->catatan_stok      = $request->get('catatan_stok');
-        $data_sppbjm->ttd1              = $request->get('ttd1');
-        $data_sppbjm->ttd2              = $request->get('ttd2');
-        $data_sppbjm->ttd3              = $request->get('ttd3');
-        $data_sppbjm->ttd4              = $request->get('ttd4');
+        $data_sppbjmm->karyawan_id       = $request->get('karyawan_id');
+        $data_sppbjmm->mataanggaran_id   = $request->get('mataanggaran_id');
+        $data_sppbjmm->nama_pengadaan    = $request->get('nama_pengadaan');
+        $data_sppbjmm->tanggal_surat     = $request->get('tanggal_surat');
+        $data_sppbjmm->nomor_surat       = $request->get('nomor_surat');
+        $data_sppbjmm->bulan_dibutuhkan  = $request->get('bulan_dibutuhkan');
+        $data_sppbjmm->catatan_peminta   = $request->get('catatan_peminta');
+        $data_sppbjmm->catatan           = $request->get('catatan');
+        $data_sppbjmm->catatan_anggaran  = $request->get('catatan_anggaran');
+        $data_sppbjmm->catatan_stok      = $request->get('catatan_stok');
+        $data_sppbjmm->ttd1              = $request->get('ttd1');
+        $data_sppbjmm->ttd2              = $request->get('ttd2');
+        $data_sppbjmm->ttd3              = $request->get('ttd3');
+        $data_sppbjmm->ttd4              = $request->get('ttd4');
 
-        $data_sppbjm->save();
-        return redirect('admin\sppbjm')->with('sukses', 'Karyawan berhasil diupdate');
+        if (count($request->id) > 0) {
+            foreach ($request->id as $key => $item) {
+                $array_barang = array(
+                    'jumlah' => $request->jumlah[$key],
+                    'satuan' => $request->satuan[$key],
+                    'nama_barang' => $request->nama_barang[$key],
+                    'spesifikasi' => $request->spesifikasi[$key],
+                    'harga_satuan' => $request->harga_satuan[$key]
+                );
+                $data_sppbjm = BarangSppbjM::where('id', $item)->first();
+                $data_sppbjm->update($array_barang);
+            }
+        }
+
+        $data_sppbjmm->save();
+        return redirect('admin\sppbjm')->with('sukses', 'data sppbj berhasil diupdate');
     }
 
     /**
@@ -220,5 +241,21 @@ class SppbjmController extends Controller
         $data_sppbjm->delete();
 
         return redirect('admin\sppbjm')->with('sukses', 'data sppbj berhasil dihapus');
+    }
+
+    public function tambahBarang(Request $request)
+    {
+        BarangSppbjM::create($request->only([
+            'sppbjm_id', 'jumlah', 'satuan', 'nama_barang', 'spesifikasi', 'harga_satuan'
+        ]));
+
+        return response()->json(['status' => 'sukses']);
+    }
+
+    public function hapusBarang($barang)
+    {
+        $barang = BarangSppbjM::where('id', $barang)->delete();
+
+        return response()->json(['status' => $barang]);
     }
 }
