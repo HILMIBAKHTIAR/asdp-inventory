@@ -12,7 +12,7 @@
             @endif
             <h6 class="m-0 font-weight-bold text-primary">Spm Manual</h6>
             <div class="d-flex justify-content-end">
-                <a href="" class="btn btn-primary"> Tambah</a>
+                <a href="{{route('spmm.create')}}" class="btn btn-primary"> Tambah</a>
             </div>
         </div>
         <div class="card-body">
@@ -30,26 +30,26 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                        @foreach($data_spmm as $item)
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$item->nomor_surat_spm}}</td>
+                            <td>{{$item->tanggal_surat}}</td>
+                            <td>{{$item->devisi}}</td>
+                            <td>{{$item->tahun_anggaran}}</td>
+                            <td>{{$item->jenis_transaksi}}</td>
 
                             <td class="d-flex">
-                                <a href="" class="btn btn-success mr-2">Show</a>
-                                <a href="" class="btn btn-primary mr-2">Edit</a>
-                                <form action="" method="post">
+                                <a href="{{route('spmm.show',$item->id)}}" class="btn btn-success mr-2">Show</a>
+                                <a href="{{route('spmm.edit',$item->id)}}" class="btn btn-primary mr-2">Edit</a>
+                                <form action="{{route('spmm.destroy', $item->id)}}" method="post">
                                     @method('DELETE')
                                     @csrf
                                     <button class="ml-5 btn btn-danger" type="submit">Hapus</button>
                                 </form>
                             </td>
                         </tr>
-
+                        @endforeach
                     </tbody>
                 </table>
             </div>
