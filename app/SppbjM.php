@@ -34,7 +34,7 @@ class SppbjM extends Model
     // Untuk Tabel Barang
     public function barangSp2bj()
     {
-        return $this->hasMany(BarangSppbjM::class);
+        return $this->hasMany(BarangSppbjM::class, 'sppbjm_id', 'id');
     }
     // Untuk Tabel Karyawan
     public function karyawan()

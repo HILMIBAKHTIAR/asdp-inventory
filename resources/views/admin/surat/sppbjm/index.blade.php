@@ -38,7 +38,7 @@
                             <td>{{$item->karyawan->jabatan}} - {{$item->karyawan->nama_karyawan}}</td>
 
                             <td class="d-flex">
-                                <a href="" class="btn btn-success mr-2">Show</a>
+                                <a href="{{route('sppbjm.show',$item->id)}}" class="btn btn-success mr-2">Show</a>
                                 <a href="{{route('sppbjm.edit',$item->id)}}" class="btn btn-primary mr-2">Edit</a>
                                 <form action="{{route('sppbjm.destroy', $item->id)}}" method="post">
                                     @method('DELETE')

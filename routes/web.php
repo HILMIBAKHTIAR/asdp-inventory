@@ -34,6 +34,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('/roles', 'Admin\RoleController');
     Route::resource('/users', 'Admin\UserController');
 
+    Route::post('/berita/tambah', 'Admin\BeritaController@tambahBarang');
+    Route::get('/berita/{berita}/hapus', 'Admin\BeritaController@hapusBarang');
+
     //  Surat Manual Route
     Route::resource('/surat', 'Surat\SuratController');
     Route::resource('/sppbjm', 'Surat\SppbjmController');
@@ -42,6 +45,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('/spmm', 'Surat\SpmmController');
     Route::resource('/verspmm', 'Surat\VerspmmController');
 
-    Route::post('/berita/tambah', 'Admin\BeritaController@tambahBarang');
-    Route::get('/berita/{berita}/hapus', 'Admin\BeritaController@hapusBarang');
+    Route::post('/sppbjm/tambah', 'Surat\SppbjmController@tambahBarang');
+    Route::get('/sppbjm/{sppbjm}/hapus', 'Surat\SppbjmController@hapusBarang');
 });
