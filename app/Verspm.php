@@ -26,7 +26,7 @@ class Verspm extends Model
     {
         return $this->belongsTo(Karyawan::class);
     }
-    public function veri()
+    public function verifikator()
     {
         return $this->belongsTo(Karyawan::class, 'verifikator', 'id');
     }

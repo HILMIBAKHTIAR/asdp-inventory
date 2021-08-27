@@ -12,9 +12,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
     <style>
-
-
-
         .border1 {
             border: 1px solid black;
             border-collapse: collapse;
@@ -61,7 +58,7 @@
             body * {
                 visibility: hidden;
             }
-            
+
             #ppn {
                 visibility: hidden;
             }
@@ -126,17 +123,17 @@
                         <td class="left-border" style="width: 474.281px; height: 23px;"><strong>&nbsp;General Cabang
                                 Ketapang</strong></td>
                         <td class="border1" style="width: 313px; height: 23px;"><strong>No.SPPB/J :
-                                {{ $sp2bj->nomor_surat }}/UM/ASDP-KTP/<?= date('Y') ?></strong></td>
+                                {{ $data_sppbjm->nomor_surat }}/UM/ASDP-KTP/<?= date('Y') ?></strong></td>
                     </tr>
 
                     <tr style="height: 23px;">
                         <td class="right-border" style="width: 273.719px; height: 23px;"><strong>Dari</strong></td>
                         <td class="left-border" style="width: 474.281px; height: 23px;">
-                            <strong>&nbsp;{{ $sp2bj->karyawan->jabatan }}</strong>
+                            <strong>&nbsp;{{ $data_sppbjm->karyawan->jabatan }}</strong>
                         </td>
                         <td class="border1" style="width: 313px; height: 23px;">
                             <strong>Tanggal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
-                                {{ tanggal_indonesia($sp2bj->tanggal_surat) }}</strong>
+                                {{ tanggal_indonesia($data_sppbjm->tanggal_surat) }}</strong>
                         </td>
                     </tr>
 
@@ -161,7 +158,7 @@
                         <td class="right-border" style="width: 273.719px; height: 23.5px;"><strong>Nama
                                 Pengadaan</strong></td>
                         <td class="left-border" style="width: 787.281px; height: 23.5px;" colspan="2">
-                            <strong>&nbsp;{{ $sp2bj->nama_pengadaan }}</strong>
+                            <strong>&nbsp;{{ $data_sppbjm->nama_pengadaan }}</strong>
                         </td>
                     </tr>
 
@@ -169,8 +166,8 @@
                         <td class="right-border" style="width: 273.719px; height: 23px;"><strong>Mata Anggaran</strong>
                         </td>
                         <td class="left-border" style="width: 787.281px; height: 23px;" colspan="2">
-                            <strong>&nbsp;{{ $sp2bj->mataanggaran->nomor }} -
-                                ({{ $sp2bj->mataanggaran->keterangan }})</strong>
+                            <strong>&nbsp;{{ $data_sppbjm->mataanggaran->nomor }} -
+                                ({{ $data_sppbjm->mataanggaran->keterangan }})</strong>
                         </td>
                     </tr>
 
@@ -178,7 +175,7 @@
                         <td class="right-border" style="width: 273.719px; height: 23px;"><strong>Tanggal
                                 Dibutuhkan</strong></td>
                         <td class="left-border" style="width: 787.281px; height: 23px;" colspan="2">
-                            <strong>&nbsp;{{ $sp2bj->bulan_dibutuhkan }}</strong>
+                            <strong>&nbsp;{{ $data_sppbjm->bulan_dibutuhkan }}</strong>
                         </td>
                     </tr>
                 </tbody>
@@ -209,7 +206,7 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($sp2bj->barang as $item)
+                    @foreach ($data_sppbjm->barangSp2bj as $item)
                     <tr>
                         <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1">
                             <p align="center" style="margin: 2px;">{{ $loop->iteration }}</p>
@@ -266,7 +263,7 @@
                         </td>
                         <td class="left-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             <p style="margin: 2px;">
-                               ,00
+                                ,00
                             </p>
                         </td>
                     </tr>
@@ -293,58 +290,58 @@
                 <tbody>
                     <tr>
                         <td class="border1" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" style="width: 613.266px;"><strong>Catatan Peminta Barang &amp; Jasa :
-                                {{ $sp2bj->catatan_peminta }}</strong></td>
+                                {{ $data_sppbjm->catatan_peminta }}</strong></td>
                         <td class="border1" style="width: 394.734px;">
                             <p style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">Tgl&nbsp;
-                                {{ tanggal_indonesia($sp2bj->tanggal_surat) }}
+                                {{ tanggal_indonesia($data_sppbjm->tanggal_surat) }}
                             </p>
                             <p style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" align='center'>
                                 Peminta Barang/Jasa</p>
                             <p>&nbsp;</p>
                             <p style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" align='center'>
-                                ( {{ $sp2bj->tanda1->nama_karyawan }} )</p>
+                                ( {{ $data_sppbjm->tanda1->nama_karyawan }} )</p>
                             <p style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" align='center'>
                                 Manager SDM &amp; Umum</p>
                         </td>
                     </tr>
                     <tr>
-                        <td class="border1" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" style="width: 613.266px;"><strong>Catatan : {{ $sp2bj->catatan }}</strong></td>
+                        <td class="border1" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" style="width: 613.266px;"><strong>Catatan : {{ $data_sppbjm->catatan }}</strong></td>
                         <td class="border1" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" style="width: 394.734px;">
                             <p style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">Tgl&nbsp;
-                                {{ tanggal_indonesia($sp2bj->tanggal_surat) }}
+                                {{ tanggal_indonesia($data_sppbjm->tanggal_surat) }}
                             </p>
                             <p>&nbsp;</p>
-                            <p align='center'>( {{ $sp2bj->tanda2->nama_karyawan }} )</p>
+                            <p align='center'>( {{ $data_sppbjm->tanda2->nama_karyawan }} )</p>
                             <p style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" align='center'>
                                 General Manager Cabang Ketapang</p>
                         </td>
                     </tr>
                     <tr>
                         <td class="border1" style="width: 613.266px; font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
-                            <strong>Catatan Ketersediaan Anggaran : {{ $sp2bj->catatan_anggaran }}</strong>
+                            <strong>Catatan Ketersediaan Anggaran : {{ $data_sppbjm->catatan_anggaran }}</strong>
                         </td>
                         <td class="border1" style="width: 394.734px;">
                             <p style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">Tgl&nbsp;
-                                {{ tanggal_indonesia($sp2bj->tanggal_surat) }}
+                                {{ tanggal_indonesia($data_sppbjm->tanggal_surat) }}
                             </p>
                             <p>&nbsp;</p>
                             <p style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" align='center'>
-                                ( {{ $sp2bj->tanda3->nama_karyawan }} )</p>
+                                ( {{ $data_sppbjm->tanda3->nama_karyawan }} )</p>
                             <p style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" align='center'>
                                 Manager Keuangan</p>
                         </td>
                     </tr>
                     <tr>
                         <td class="border1" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" width: 613.266px;"><strong>Catatan Ketersediaan Stok :
-                                {{ $sp2bj->catatan_stok }}</strong>
+                                {{ $data_sppbjm->catatan_stok }}</strong>
                         </td>
                         <td class="border1" style="width: 394.734px;">
                             <p style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">Tgl&nbsp;
-                                {{ tanggal_indonesia($sp2bj->tanggal_surat) }}
+                                {{ tanggal_indonesia($data_sppbjm->tanggal_surat) }}
                             </p>
                             <p>&nbsp;</p>
                             <p style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" align='center'>
-                                ( {{ $sp2bj->tanda4->nama_karyawan }} )</p>
+                                ( {{ $data_sppbjm->tanda4->nama_karyawan }} )</p>
                             <p style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;" align='center'>
                                 Manager SDM &amp; Umum</p>
                         </td>
@@ -358,29 +355,9 @@
 
     <div class="container-lg text-center mt-4 mb-4">
         <button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary" style="margin-right: 4cm;">cetak</button>
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Selanjutnya
-        </button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h5>
-                            Apakah Anda Memiliki Nota Digital?
-                        </h5>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <a href="{{ url('admin/skb/create') }}" class="btn btn-danger mx-auto" style="width: 35%;">TIDAK</a>
-                        <a href="{{ url('admin/berita/create') }}" class="btn btn-success mx-auto" style="width: 35%;">YA</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <a href="{{url('admin/sppbjm/')}}" class="btn btn-success">
+            Kembali
+        </a>
     </div>
 
     <script>

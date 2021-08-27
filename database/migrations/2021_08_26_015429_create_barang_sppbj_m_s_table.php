@@ -15,7 +15,41 @@ class CreateBarangSppbjMSTable extends Migration
     {
         Schema::create('barang_sppbj_m_s', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('sppbjm_id');
+            $table->integer('jumlah');
+            $table->enum('satuan', [
+                'Roll',
+                'Unit',
+                'Pcs',
+                'Pack',
+                'Set',
+                'Batang',
+                'Lusin',
+                'Botol',
+                'Kotak',
+                'Gross',
+                'Rim',
+                'Kodi',
+                'Dus',
+                'Bal',
+                'Ls',
+                'Meter',
+                'Gram',
+                'Cm',
+                'M2',
+                'M3',
+                'Liter',
+                'Kg',
+                'Ton',
+                'Ons',
+                'Lembar',
+                'Orang',
+            ]);
+            $table->string('nama_barang');
+            $table->string('spesifikasi');
+            $table->integer('harga_satuan');
             $table->timestamps();
+            $table->foreign('sppbjm_id')->references('id')->on('sppbj_m_s')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

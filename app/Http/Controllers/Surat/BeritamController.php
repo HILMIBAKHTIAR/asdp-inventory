@@ -14,7 +14,7 @@ class BeritamController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.surat.beritam.index');
     }
 
     /**
