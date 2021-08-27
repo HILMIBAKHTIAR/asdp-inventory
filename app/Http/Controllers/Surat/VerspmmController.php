@@ -110,6 +110,8 @@ class VerspmmController extends Controller
     public function show($id)
     {
         //
+        $cetak = VerspmM::findOrFail($id);
+        return view('admin.surat.verspmm.cetak', compact('cetak'));
     }
 
     /**
@@ -121,7 +123,9 @@ class VerspmmController extends Controller
     public function edit($id)
     {
         //
-        return view('admin.surat.verspmm.edit');
+        $karyawan =Karyawan::all();
+        $data_verspmm = VerspmM::find($id);
+        return view('admin.surat.verspmm.edit', compact('karyawan','data_verspmm'));
     }
 
     /**
@@ -134,6 +138,60 @@ class VerspmmController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'karyawan_id'           => 'required',
+            'verifikator'           => 'required',
+            'uraian_pekerjaan'      => 'required',
+            'tahun_anggaran'        => 'required',
+            'tanggal_surat'         => 'required',
+            'ttd1'                  => 'required',
+            'ttd2'                  => 'required',
+            'tanggal_sppbj'         => 'required',
+            'tanggal_berita_acara'  => 'required',
+            'jumlah_harga_skb'      => 'required',
+            'jumlah_harga_berita'   => 'required',
+            'jumlah_harga_sppbj'    => 'required',
+            'no_sppbj'              => 'required',
+            'no_berita'             => 'required',
+
+        ], [
+            'karyawan_id.required'       => 'nama Verifikator harus diisi',
+            'uraian_pekerjaan.required'  => 'uraian pekerjaan harus diisi',
+            'verifikator.required'       => 'verifikator harus diisi',
+            'tahun_anggaran.required'    => 'tahun anggaran harus diisi',
+            'tanggal_surat.required'     => 'tanggal surat harus diisi',
+            'ttd1.required'              => 'manager sdm & umum harus diisi',
+            'ttd2.required'              => 'pembuat verifikator harus diisi',
+
+            'tanggal_sppbj.required'         => 'harus diisi',
+            'tanggal_berita_acara.required'  => 'harus diisi',
+            'jumlah_harga_skb.required'      => 'harus diisi',
+            'jumlah_harga_berita.required'   => 'harus diisi',
+            'jumlah_harga_sppbj.required'    => 'harus diisi',
+            'no_sppbj.required'              => 'harus diisi',
+            'no_berita.required'             => 'harus diisi',
+        ]);
+
+        $data_verspmm = VerspmM::find($id);
+        
+        $data_verspmm->karyawan_id          =     $request->get('karyawan_id');          
+        $data_verspmm->verifikator          =     $request->get('verifikator');
+        $data_verspmm->uraian_pekerjaan     =     $request->get('uraian_pekerjaan');
+        $data_verspmm->tahun_anggaran       =     $request->get('tahun_anggaran');
+        $data_verspmm->tanggal_surat        =     $request->get('tanggal_surat');
+        $data_verspmm->ttd1                 =     $request->get('ttd1');
+        $data_verspmm->ttd2                 =     $request->get('ttd2');
+        $data_verspmm->tanggal_skb          =     $request->get('tanggal_skb');
+        $data_verspmm->tanggal_sppbj        =     $request->get('tanggal_sppbj');
+        $data_verspmm->tanggal_berita_acara =     $request->get('tanggal_berita_acara');
+        $data_verspmm->jumlah_harga_skb     =     $request->get('jumlah_harga_skb');
+        $data_verspmm->jumlah_harga_berita  =     $request->get('jumlah_harga_berita');
+        $data_verspmm->jumlah_harga_sppbj   =     $request->get('jumlah_harga_sppbj');
+        $data_verspmm->no_sppbj             =     $request->get('no_sppbj');
+        $data_verspmm->no_berita            =     $request->get('no_berita');
+
+        $data_verspmm ->save();
+        return redirect('admin/verspmm')->with('Sukses','Data Berhasil Diupdate');
     }
 
     /**
@@ -145,8 +203,8 @@ class VerspmmController extends Controller
     public function destroy($id)
     {
         //
-        $user = VerspmM::find($id);
-        $user ->delete();
+        $verspmm = VerspmM::find($id);
+        $verspmm ->delete();
         
         return redirect()->route('verspmm.index')->with('sukses', 'surat VerSpm berhasil di hapus');
     }

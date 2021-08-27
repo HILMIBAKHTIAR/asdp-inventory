@@ -38,10 +38,10 @@
                             <td>{{ $item->karyawan->jabatan }}-{{ $item->karyawan->nama_karyawan }}</td>
                             <td>{{ $item->tanggal_surat }}</td>
                             <td>{{ $item->uraian_pekerjaan }}</td>
-                            <td>{{ $item->devisi }}</td>
+                            <td>{{ $item->devisi}}</td>
                             
                             <td class="d-flex">
-                                <a href="" class="btn btn-success mr-2">Show</a>
+                                <a href="{{ route('verspmm.show',$item->id) }}" class="btn btn-success mr-2">Show</a>
                                 <a href="{{ route('verspmm.edit',$item->id) }}" class="btn btn-primary mr-2">Edit</a>
                                 <form action="{{route('verspmm.destroy', $item->id)}}" method="post">
                                     @method('DELETE')
