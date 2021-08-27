@@ -49,7 +49,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::post('/sppbjm/tambah', 'Surat\SppbjmController@tambahBarang');
     Route::get('/sppbjm/{sppbjm}/hapus', 'Surat\SppbjmController@hapusBarang');
 
+
     // Barang berita manual
     Route::post('/beritam/tambah', 'Surat\BeritamController@tambahBarang');
     Route::get('/beritam/{beritam}/hapus', 'Surat\BeritamController@hapusBarang');
+
+    // Barang skb manual
+    Route::post('/skbm/tambah', 'Surat\SkbmController@tambahBarang');
+    Route::get('/skbm/{skbm}/hapus', 'Surat\SkbmController@hapusBarang');
 });
