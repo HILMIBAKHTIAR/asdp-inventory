@@ -83,10 +83,10 @@
                             </div>
                         </div>
 
-                        <div>
-                            <center>
-                                <input type="submit" class="btn btn-success btn-lg" name="selanjutnya" id="selanjutnya" value="Selanjutnya">
-                            </center>
+                        <div class="col text-center">
+
+                            <input type="submit" class="btn btn-success btn-lg" name="selanjutnya" id="selanjutnya" value="Selanjutnya">
+
                         </div>
                     </form>
                 </div>

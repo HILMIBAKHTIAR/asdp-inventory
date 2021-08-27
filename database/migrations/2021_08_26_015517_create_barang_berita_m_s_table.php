@@ -15,6 +15,7 @@ class CreateBarangBeritaMSTable extends Migration
     {
         Schema::create('barang_berita_m_s', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('beritam_id');
             $table->integer('jumlah');
             $table->enum('satuan', [
                 'Roll',
@@ -48,6 +49,7 @@ class CreateBarangBeritaMSTable extends Migration
             $table->string('spesifikasi');
             $table->integer('harga_satuan');
             $table->timestamps();
+            $table->foreign('beritam_id')->references('id')->on('berita_m_s')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
