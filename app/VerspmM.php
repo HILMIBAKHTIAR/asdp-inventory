@@ -17,6 +17,14 @@ class VerspmM extends Model
         'uraian_pekerjaan',
         'tahun_anggaran',
         'tanggal_surat',
+        'tanggal_skb',
+        'tanggal_sppbj',
+        'tanggal_berita_acara',
+        'jumlah_harga_skb',
+        'jumlah_harga_berita',
+        'jumlah_harga_sppbj',
+        'no_sppbj',
+        'no_berita',
     ];
 
     public function user() 
@@ -27,7 +35,7 @@ class VerspmM extends Model
     {
         return $this->belongsTo(Karyawan::class);
     }
-    public function verifikator()
+    public function verif()
     {
         return $this->belongsTo(Karyawan::class, 'verifikator', 'id');
     }

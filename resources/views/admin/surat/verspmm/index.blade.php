@@ -12,7 +12,7 @@
             @endif
             <h6 class="m-0 font-weight-bold text-primary">Verifikasi Spm Manual</h6>
             <div class="d-flex justify-content-end">
-                <a href="" class="btn btn-primary"> Tambah</a>
+                <a href="{{ route('verspmm.create') }}" class="btn btn-primary"> Tambah</a>
             </div>
         </div>
         <div class="card-body">
@@ -22,32 +22,36 @@
                         <tr>
                             <th>NO</th>
                             <th>Verifikator</th>
-                            <th>Tanggal Surat</th>
+                            <th>Pembuat Verifikator</th>
+                            <th>Tanggal Surat Dibuat</th>
                             <th>Uraian Pekerjaan</th>
-                            <th>Tahun Anggaran</th>
+                            <th>Divisi</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-
+                        @foreach ($verspmm as $item)
+                            
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $item->verif->jabatan }}-{{ $item->verif->nama_karyawan }}</td>
+                            <td>{{ $item->karyawan->jabatan }}-{{ $item->karyawan->nama_karyawan }}</td>
+                            <td>{{ $item->tanggal_surat }}</td>
+                            <td>{{ $item->uraian_pekerjaan }}</td>
+                            <td>{{ $item->devisi}}</td>
+                            
                             <td class="d-flex">
-                                <a href="" class="btn btn-success mr-2">Show</a>
-                                <a href="" class="btn btn-primary mr-2">Edit</a>
-                                <form action="" method="post">
+                                <a href="{{ route('verspmm.show',$item->id) }}" class="btn btn-success mr-2">Show</a>
+                                <a href="{{ route('verspmm.edit',$item->id) }}" class="btn btn-primary mr-2">Edit</a>
+                                <form action="{{route('verspmm.destroy', $item->id)}}" method="post">
                                     @method('DELETE')
                                     @csrf
                                     <button class="ml-5 btn btn-danger" type="submit">Hapus</button>
                                 </form>
                             </td>
                         </tr>
-
+                        
+                        @endforeach
                     </tbody>
                 </table>
             </div>

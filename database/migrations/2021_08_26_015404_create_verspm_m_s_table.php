@@ -28,8 +28,19 @@ class CreateVerspmMSTable extends Migration
             $table->unsignedBigInteger('ttd1');
             $table->unsignedBigInteger('ttd2');
             $table->string('uraian_pekerjaan');
-            $table->date('tahun_anggaran');
+            $table->year('tahun_anggaran');
             $table->date('tanggal_surat');
+            
+            $table->date('tanggal_skb')->nullable();
+            $table->date('tanggal_sppbj');
+            $table->date('tanggal_berita_acara');
+            $table->integer('jumlah_harga_skb')->nullable();
+            $table->integer('jumlah_harga_berita');
+            $table->integer('jumlah_harga_sppbj');
+            $table->integer('no_sppbj');
+            $table->integer('no_berita');
+
+
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('karyawan_id')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
