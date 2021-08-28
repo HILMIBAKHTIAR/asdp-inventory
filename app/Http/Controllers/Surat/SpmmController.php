@@ -54,7 +54,6 @@ class SpmmController extends Controller
             'mataanggaran_id'           => 'required',
             'permohonan_dana'           => 'required',
 
-
             'ttd1'                      => 'required',
             'ttd2'                      => 'required',
             'ttd3'                      => 'required',
@@ -154,7 +153,6 @@ class SpmmController extends Controller
             'uraian_kegiatan'           => 'required',
             'mataanggaran_id'           => 'required',
             'permohonan_dana'           => 'required',
-
 
             'ttd1'                      => 'required',
             'ttd2'                      => 'required',

@@ -255,15 +255,17 @@
                     </tr>
 
                     <tr>
+
                         <td colspan="7" class="top-bottom-none text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
-                            <input id="ppn" type="checkbox"> &nbsp;PPN 10%&nbsp;
+                            <input id="ppn" onclick="cekPpn()" type="checkbox"> &nbsp;PPN 10%&nbsp;
                         </td>
+
                         <td class="right-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             <p style="margin: 2px;">Rp. </p>
                         </td>
                         <td class="left-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
-                            <p style="margin: 2px;">
-                                ,00
+                            <p id="ppnAwal" style="margin: 2px; display:none">
+                                {{number_format(($subtotal * 10/100),0, ',', '.')}},00
                             </p>
                         </td>
                     </tr>
@@ -276,8 +278,8 @@
                             <p style="margin: 2px;">Rp. </p>
                         </td>
                         <td class="left-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
-                            <p style="margin: 2px;">
-                                ,00
+                            <p id="totalppn" style="margin: 2px; display:none">
+                                {{number_format($subtotal + ($subtotal * 10/100),0, ',', '.')}},00
                             </p>
                         </td>
                     </tr>
@@ -359,6 +361,23 @@
             Kembali
         </a>
     </div>
+
+
+
+    <script>
+        function cekPpn() {
+          var checkBox = document.getElementById("ppn");
+          var ppnAwal = document.getElementById("ppnAwal");
+          var totalppn = document.getElementById("totalppn");
+          if (checkBox.checked == true){
+            ppnAwal.style.display = "block";
+            totalppn.style.display = "block";
+          } else {
+            ppnAwal.style.display = "none";
+            totalppn.style.display = "none";
+          }
+        }
+        </script>
 
     <script>
         function Cetakan() {
