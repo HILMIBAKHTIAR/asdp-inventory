@@ -33,6 +33,7 @@ class CreateSpmMSTable extends Migration
             $table->unsignedBigInteger('mataanggaran_id');
             $table->string('permohonan_dana');
             $table->string('keterangan')->nullable();
+            $table->unsignedBigInteger('pembebanan_anggaran');
 
             $table->string('penerima_dana')->nullable();
             $table->string('nomor_rekening')->nullable();
@@ -42,8 +43,10 @@ class CreateSpmMSTable extends Migration
             $table->unsignedBigInteger('ttd2');
             $table->unsignedBigInteger('ttd3');
             $table->timestamps();
+
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('mataanggaran_id')->references('id')->on('mataanggarans')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('pembebanan_anggaran')->references('id')->on('mataanggarans')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('ttd1')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('ttd2')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('ttd3')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');

@@ -33,11 +33,7 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
 
-                                    <label>Tahun Anggaran</label>
-                                    <input name="tahun_anggaran" type="date" class="form-control @error('tahun_anggaran') is-invalid @enderror" value="{{old('tahun_anggaran')}}" />
-                                    @error('tahun_anggaran')
-                                    <div class="invalid-feedback">{{$message}}</div>
-                                    @enderror
+                                    
 
 
                                 </div>
@@ -54,6 +50,21 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
 
+                                    
+                                </div>
+                            </div>
+
+                            <div class="form-row mt-1">
+
+                                <div class="col-md-4">
+                                    <label>Tahun Anggaran</label>
+                                    <input name="tahun_anggaran" type="date" class="form-control @error('tahun_anggaran') is-invalid @enderror" value="{{old('tahun_anggaran')}}" />
+                                    @error('tahun_anggaran')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="col-md-4">
                                     <label>Penangung Jawab</label>
                                     <select name="devisi" id="" class="form-control @error('devisi') is-invalid @enderror" data-live-search=" true">
                                         <option value="SDM & Umum" @if (old('devisi')=='SDM & Umum' ) selected="selected" @endif>SDM & Umum</option>
@@ -62,6 +73,21 @@
                                         <option value="Teknik Ketapang" @if (old('devisi')=='Teknik Ketapang' ) selected="selected" @endif>Teknik Ketapang</option>
                                         <option value="Keuangan" @if (old('devisi')=='Keuangan' ) selected="selected" @endif>Keuangan</option>
                                     </select>
+                                </div>
+
+                                <div class="col-md-4 search_select_box">
+                                    <label>Pembebanan Anggaran</label>
+                                    <select name="pembebanan_anggaran" id="" class="form-control @error('pembebanan_anggaran') is-invalid @enderror" data-live-search=" true">
+                                        <option value="">-Pilih-</option>
+                                        @foreach($mataanggaran as $item)
+                                        <option value="{{$item->id}}" {{old('pembebanan_anggaran') == $item->id ? 'selected' : null}}>
+                                            {{$item->nomor}} - {{$item->keterangan}}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                    @error('pembebanan_anggaran')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                 </div>
                             </div>
 

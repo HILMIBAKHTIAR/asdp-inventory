@@ -34,11 +34,7 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
 
-                                    <label>Tahun Anggaran</label>
-                                    <input name="tahun_anggaran" type="date" class="form-control @error('tahun_anggaran') is-invalid @enderror" value="{{$data_spmm->tahun_anggaran}}" />
-                                    @error('tahun_anggaran')
-                                    <div class="invalid-feedback">{{$message}}</div>
-                                    @enderror
+                                    
 
 
                                 </div>
@@ -55,6 +51,19 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
 
+                                    
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col-md-4">
+                                    <label>Tahun Anggaran</label>
+                                    <input name="tahun_anggaran" type="date" class="form-control @error('tahun_anggaran') is-invalid @enderror" value="{{$data_spmm->tahun_anggaran}}" />
+                                    @error('tahun_anggaran')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-4">
                                     <label>Penangung Jawab</label>
                                     <select name="devisi" id="" class="form-control @error('devisi') is-invalid @enderror" data-live-search=" true">
                                         @foreach([
@@ -66,6 +75,21 @@
                                             ] AS $item => $itemDevisi)
                                             <option value="{{ $item }}" {{ old("devisi", $data_spmm->devisi) == $item ? "selected" : "" }}>{{ $itemDevisi }}</option>
                                             @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-4 search_select_box">
+                                    <label>Pembebanan Anggaran</label>
+                                    <select name="pembebanan_anggaran" id="" class="form-control @error('pembebanan_anggaran') is-invalid @enderror" data-live-search=" true">
+                                        <option value="">-Pilih-</option>
+                                        @foreach($mataanggaran as $item)
+                                        <option value={{$item->id}} @if($item->id==$data_spmm->pembebanan_anggaran)
+                                            selected
+                                            @endif
+
+                                            >
+                                            {{$item->nomor}} - {{$item->keterangan}}
+                                        </option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

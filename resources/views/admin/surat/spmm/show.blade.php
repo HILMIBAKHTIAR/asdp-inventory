@@ -112,7 +112,7 @@
           </tr>
           <tr style="height: 23.293px;">
             <td style="width: 228.93px; height: 23.293px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Pembebanan Anggaran</td>
-            <td style="width: 845.07px; height: 23.293px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">: PKBL</td>
+            <td style="width: 845.07px; height: 23.293px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">: {{$data_spmm->pa->nomor}} - {{$data_spmm->pa->keterangan}}</td>
           </tr>
         </tbody>
       </table>

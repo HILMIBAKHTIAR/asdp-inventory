@@ -46,9 +46,9 @@ class SpmmController extends Controller
             'nomor_surat_spm'           => 'required',
             'tanggal_surat'             => 'required',
             'jenis_transaksi'           => 'required',
-
             'tahun_anggaran'            => 'required',
             'devisi'                    => 'required',
+            'pembebanan_anggaran'       => 'required',
 
             'uraian_kegiatan'           => 'required',
             'mataanggaran_id'           => 'required',
@@ -60,21 +60,22 @@ class SpmmController extends Controller
             'ttd3'                      => 'required',
 
         ], [
-            'nomor_surat_spm.required'           => 'required',
-            'tanggal_surat.required'             => 'required',
-            'jenis_transaksi.required'           => 'required',
+            'nomor_surat_spm.required'           => 'Nomor Surat harus diisi',
+            'tanggal_surat.required'             => 'Tanggal surat harus diisi',
+            'jenis_transaksi.required'           => 'Jenis Transaksi harus diisi',
 
-            'tahun_anggaran.required'            => 'required',
+            'tahun_anggaran.required'            => 'Tahun Anggaran harus diisi',
             'devisi.required'                    => 'required',
+            'pembebanan_anggaran.required'       => 'Pilih Pembebanan Anggaran',
 
-            'uraian_kegiatan.required'           => 'required',
-            'mataanggaran_id.required'           => 'required',
-            'permohonan_dana.required'           => 'required',
+            'uraian_kegiatan.required'           => 'Uraian Kegiatan harus diisi',
+            'mataanggaran_id.required'           => 'Pilih Mata Anggaran',
+            'permohonan_dana.required'           => 'Permohonan Dana harus diisi',
 
 
-            'ttd1.required'                      => 'required',
-            'ttd2.required'                      => 'required',
-            'ttd3.required'                      => 'required',
+            'ttd1.required'                      => 'General Manager harus diisi',
+            'ttd2.required'                      => 'Manager SDM & Umum harus diisi',
+            'ttd3.required'                      => 'Staf SDM & Umum harus diisi ',
         ]);
 
         $data_spmm = SpmM::create([
@@ -85,6 +86,7 @@ class SpmmController extends Controller
             'program'               => $request->program,
             'tahun_anggaran'        => $request->tahun_anggaran,
             'devisi'                => $request->devisi,
+            'pembebanan_anggaran'   => $request->pembebanan_anggaran,
 
             'uraian_kegiatan'       => $request->uraian_kegiatan,
             'mataanggaran_id'       => $request->mataanggaran_id,
@@ -145,9 +147,9 @@ class SpmmController extends Controller
             'nomor_surat_spm'           => 'required',
             'tanggal_surat'             => 'required',
             'jenis_transaksi'           => 'required',
-
             'tahun_anggaran'            => 'required',
             'devisi'                    => 'required',
+            'pembebanan_anggaran'       => 'required',
 
             'uraian_kegiatan'           => 'required',
             'mataanggaran_id'           => 'required',
@@ -159,21 +161,22 @@ class SpmmController extends Controller
             'ttd3'                      => 'required',
 
         ], [
-            'nomor_surat_spm.required'           => 'required',
-            'tanggal_surat.required'             => 'required',
-            'jenis_transaksi.required'           => 'required',
+            'nomor_surat_spm.required'           => 'Nomor Surat harus diisi',
+            'tanggal_surat.required'             => 'Tanggal surat harus diisi',
+            'jenis_transaksi.required'           => 'Jenis Transaksi harus diisi',
 
-            'tahun_anggaran.required'            => 'required',
+            'tahun_anggaran.required'            => 'Tahun Anggaran harus diisi',
             'devisi.required'                    => 'required',
+            'pembebanan_anggaran.required'       => 'Pilih Pembebanan Anggaran',
 
-            'uraian_kegiatan.required'           => 'required',
-            'mataanggaran_id.required'           => 'required',
-            'permohonan_dana.required'           => 'required',
+            'uraian_kegiatan.required'           => 'Uraian Kegiatan harus diisi',
+            'mataanggaran_id.required'           => 'Pilih Mata Anggaran',
+            'permohonan_dana.required'           => 'Permohonan Dana harus diisi',
 
 
-            'ttd1.required'                      => 'required',
-            'ttd2.required'                      => 'required',
-            'ttd3.required'                      => 'required',
+            'ttd1.required'                      => 'General Manager harus diisi',
+            'ttd2.required'                      => 'Manager SDM & Umum harus diisi',
+            'ttd3.required'                      => 'Staf SDM & Umum harus diisi ',
         ]);
 
         $data_spmm_m = SpmM::find($id);
@@ -184,6 +187,7 @@ class SpmmController extends Controller
         $data_spmm_m->program = $request->get('program');
         $data_spmm_m->tahun_anggaran = $request->get('tahun_anggaran');
         $data_spmm_m->devisi = $request->get('devisi');
+        $data_spmm_m->pembebanan_anggaran = $request->get('pembebanan_anggaran');
 
         $data_spmm_m->uraian_kegiatan = $request->get('uraian_kegiatan');
         $data_spmm_m->mataanggaran_id = $request->get('mataanggaran_id');
@@ -210,6 +214,9 @@ class SpmmController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data_spmm = SpmM::find($id);
+        $data_spmm->delete();
+
+        return redirect('admin\spmm')->with('sukses', 'data spmm berhasil dihapus');
     }
 }

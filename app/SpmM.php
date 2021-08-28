@@ -15,6 +15,7 @@ class SpmM extends Model
         'program',
         'tahun_anggaran',
         'devisi',
+        'pembebanan_anggaran',
 
         'uraian_kegiatan',
         'mataanggaran_id',
@@ -44,6 +45,11 @@ class SpmM extends Model
     public function mataanggaran()
     {
         return $this->belongsTo(Mataanggaran::class);
+    }
+
+    public function pa()
+    {
+        return $this->belongsTo(Mataanggaran::class, 'pembebanan_anggaran', 'id');
     }
 
     public function tanda1()
