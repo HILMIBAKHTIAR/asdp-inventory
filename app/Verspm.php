@@ -18,7 +18,7 @@ class Verspm extends Model
         'tanggal_surat',
     ];
 
-    public function user() 
+    public function user()
     {
         return $this->belongsTo('App/User');
     }
@@ -26,7 +26,7 @@ class Verspm extends Model
     {
         return $this->belongsTo(Karyawan::class);
     }
-    public function verifikator()
+    public function verif()
     {
         return $this->belongsTo(Karyawan::class, 'verifikator', 'id');
     }
@@ -43,6 +43,4 @@ class Verspm extends Model
     {
         return $this->belongsTo(Spm::class);
     }
-
-
 }
