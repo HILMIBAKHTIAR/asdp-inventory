@@ -23,6 +23,17 @@
       border-top: none;
       border-collapse: collapse;
     }
+    .right-border {
+            border: 1px solid black;
+            border-right: none;
+            border-collapse: collapse;
+        }
+
+        .left-border {
+            border: 1px solid black;
+            border-left: none;
+            border-collapse: collapse;
+        }
   </style>
 
 </head>
@@ -32,6 +43,14 @@
   <style>
     @media print {
       body * {
+        visibility: hidden;
+      }
+
+      #ppn {
+        visibility: hidden;
+      }
+
+      #inputPpn {
         visibility: hidden;
       }
 
@@ -122,7 +141,7 @@
       <table width="910" border="1" align="center" cellpadding="0" cellspacing="0" style="width: 960px; border-color: black;">
         <thead>
           <tr class="text-center">
-            <th class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">No</th>
+            <th class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black; width:10%;">No</th>
             <th class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" style="width: 18%;">Uraian Kegiatan</th>
             <th class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" style="width: 15%;">Mata Anggaran</th>
             <th class="border1" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" style="width: 20%;">Permohonan Dana</th>
@@ -136,8 +155,9 @@
               <p style="margin: 4px">{{$data_spmm->uraian_kegiatan}}</p>
             </td>
             <td class="no-bottom-border" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;{{$data_spmm->mataanggaran->nomor}}&nbsp;</td>
-            <td class="no-bottom-border" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;<p style="margin: 4px;">
-                {{$data_spmm->permohonan_dana}}
+            <td class="no-bottom-border" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;
+              <p style="margin: 4px;">
+              Rp.{{number_format($data_spmm->permohonan_dana)}},00
               </p>&nbsp;
             </td>
             <td class="no-bottom-border" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;{{$data_spmm->keterangan}}&nbsp;</td>
@@ -164,15 +184,21 @@
 
 
           <tr>
-            <td colspan="3" class="text-end border1 text-center">
-              <strong style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"> &nbsp;Jumlah&nbsp; </strong>
+
+            <td class="right-border">
+              <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black; margin:4px;" id="inputPpn"><input id="ppn" onclick="cekPpn()" type="checkbox">&nbsp; PPN 10% &nbsp;</p>
+            </td>
+
+            <td colspan="2" class="text-end left-border">
+              <strong style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black; margin:4px;"> &nbsp;Jumlah&nbsp; </strong>
             </td>
 
             <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" colspan="2" class="border1">
-              <p style="margin: 4px;">
-
-                Rp.
-                {{number_format($data_spmm->permohonan_dana)}},00
+              <p id="ppnAwal" style="margin: 4px; display:none;">
+                Rp.{{number_format($data_spmm->permohonan_dana + ($data_spmm->permohonan_dana * 10/100))}},00
+              </p>
+              <p id="noPpnAwal" style="margin: 4px;">
+                Rp.{{number_format($data_spmm->permohonan_dana)}},00
               </p>
             </td>
           </tr>
@@ -185,11 +211,12 @@
         <tbody>
           <tr style="height: 23px;">
             <td style="width: 229.711px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Terbilang</td>
-            <td style="width: 847.289px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">:&nbsp;
-              <i style="text-transform: capitalize">
-                {{
-            terbilang($data_spmm->permohonan_dana) 
-          }} rupiah
+            <td style="width: 847.289px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">
+              <i id="terbilangPpn" style="text-transform: capitalize; display:none;">
+                :&nbsp; {{terbilang($data_spmm->permohonan_dana + ($data_spmm->permohonan_dana * 10/100)) }} rupiah
+              </i>
+              <i id="noTerbilangPpn" style="text-transform: capitalize;">
+                :&nbsp; {{terbilang($data_spmm->permohonan_dana) }} rupiah
               </i>
             </td>
           </tr>
@@ -254,6 +281,27 @@
     <a href="{{url('admin/verspm/create')}}" name="Selanjutnya" class="btn btn-success">Selanjutnya</a>
 
   </div>
+
+  <script>
+    function cekPpn() {
+      var checkBox = document.getElementById("ppn");
+      var ppnAwal = document.getElementById("ppnAwal");
+      var noPpnAwal = document.getElementById("noPpnAwal");
+      var terbilangPpn = document.getElementById("terbilangPpn");
+      var noTerbilangPpn = document.getElementById("noTerbilangPpn");
+      if (checkBox.checked == true){
+        ppnAwal.style.display = "block";
+        terbilangPpn.style.display = "block";
+        noPpnAwal.style.display = "none";
+        noTerbilangPpn.style.display = "none";
+      } else {
+        ppnAwal.style.display = "none";
+        terbilangPpn.style.display = "none";
+        noPpnAwal.style.display = "block";
+        noTerbilangPpn.style.display = "block";
+      }
+    }
+  </script>
 
   <script>
     function Cetakan() {
