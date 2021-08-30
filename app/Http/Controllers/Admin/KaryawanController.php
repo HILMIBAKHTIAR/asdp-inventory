@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Karyawan;
+use Carbon\Carbon;
 
 class KaryawanController extends Controller
 {
@@ -47,17 +48,35 @@ class KaryawanController extends Controller
     {
         //dd($request);
         $request->validate([
-            'nama_karyawan'       => 'required',
-            'jabatan'             => 'required',
-            'nik'                 => 'required',
+            'nama_karyawan'             => 'required',
+            'jabatan'                   => 'required',
+            'nik'                       => 'required',
+            'tempat_lahir'              => 'required',
+            'tanggal_lahir'             => 'required',
+            'nik_ktp'                   => 'required',
+            'no_bpjs_kesehatan'         => 'required',
+            'no_bpjs_ketenagakerjaan'   => 'required',
+            'no_npwp'                   => 'required',
+            'status_keluarga'           => 'required',
+            'pendidikan'                => 'required',
+            'usia'                      => 'required',
         ]);
-
 
         for ($i = 0; $i < count($request->nama_karyawan); $i++) {
             $data_karyawan = Karyawan::create([
                 'nama_karyawan' => $request->nama_karyawan[$i],
                 'jabatan'       => $request->jabatan[$i],
                 'nik'           => $request->nik[$i],
+                'tempat_lahir'  => $request->tempat_lahir,
+                'tanggal_lahir' => $request->tanggal_lahir,
+                'usia'          => $request->usia,
+                'nik_ktp'  => $request->nik_ktp,
+                'no_bpjs_kesehatan'  => $request->no_bpjs_kesehatan,
+                'no_bpjs_ketenagakerjaan'  => $request->no_bpjs_ketenagakerjaan,
+                'no_npwp'  => $request->no_npwp,
+                'status_keluarga'  => $request->status_keluarga,
+                'pendidikan'  => $request->pendidikan,
+
             ]);
         }
 

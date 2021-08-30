@@ -151,6 +151,46 @@
         </div>
     </li>
 
+     <!-- Divider -->
+     <hr class="sidebar-divider">
+
+     <!-- Heading Admin Page -->
+     <div class="sidebar-heading">
+         Inventory
+     </div>
+
+     <li class="nav-item active">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#stokgudang" aria-expanded="true" aria-controls="paypal">
+            <i style="color: #e64614" class="fas fa-fw fa fa-money-check-alt"></i>
+            <span>Stok Gudang</span>
+        </a>
+
+        <div id="stokgudang" class="collapse" aria-labelledby="stokgudang" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Cuti:</h6>
+                <a class="collapse-item" href="">Data Barang</a>
+                <a class="collapse-item" href="">Laporan Rekap</a>
+            </div>
+        </div>
+    </li>
+
+     <li class="nav-item active">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#spj" aria-expanded="true" aria-controls="paypal">
+            <i style="color: #e64614" class="fas fa-fw fa fa-money-check-alt"></i>
+            <span>SPJ(Perjalanan Dinas)</span>
+        </a>
+
+        <div id="spj" class="collapse" aria-labelledby="spj" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Cuti:</h6>
+                <a class="collapse-item" href="">PPD</a>
+                <a class="collapse-item" href="">SPPD</a>
+            </div>
+        </div>
+    </li>
+
+
+
     <!-- Divider -->
     <hr class="sidebar-divider">
 
