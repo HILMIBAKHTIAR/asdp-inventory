@@ -1,7 +1,6 @@
 @extends('admin.layout.master')
 
 @section('content')
-
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Content Row -->
@@ -9,18 +8,19 @@
         <div class="col-xl-12 col-lg-12">
             <div class="card mb-4">
                 <div class="card-footer">
+
                     <!-- judul form-->
 
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Formulir Permintaan Pengadaan <br> Barang/Jasa</h1>
+                        <h1 class="h4 text-gray-900 mb-4">Formulir Surat Pernyataan <br> Kebenaran Harga</h1>
                     </div>
 
-                    <!-- Modal -->
+                    {{-- Modal --}}
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Barang Sppbj</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -95,18 +95,19 @@
                     </div>
 
                     <!-- isi form input -->
-                    <input type="hidden" name="sppbjm_id" value="{{$id}}">
-                    <form action="{{route('sppbjm.update',$data_sppbjm->id)}}" method="post">
+                    <input type="hidden" name="skbm_id" value="{{$id}}">
+                    <form action="{{route('skbm.update', $skbm->id)}}" method="post">
                         @method('PATCH')
                         @csrf
                         <div class="form-group">
+
                             <div class="form-row">
                                 <div class="col-md-6 search_select_box">
                                     <label>Dari/Peminta</label>
-                                    <select name="karyawan_id" class="form-control @error('mataanggaran_id') is-invalid @enderror" data-live-search=" true">
+                                    <select name="karyawan_id" id="" class="form-control @error('karyawan_id') is-invalid @enderror" data-live-search=" true">
                                         <option value="">-Pilih-</option>
                                         @foreach($karyawan as $item)
-                                        <option value={{$item->id}} @if($item->id==$data_sppbjm->karyawan_id)
+                                        <option value={{$item->id}} @if($item->id==$skbm->karyawan_id)
                                             selected
                                             @endif
 
@@ -118,59 +119,30 @@
                                     @error('karyawan_id')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
-                                    <label>Nama Pengadaan</label>
-                                    <input type="text" name="nama_pengadaan" value="{{$data_sppbjm->nama_pengadaan}}" class="form-control @error('nama_pengadaan') is-invalid @enderror" value="{{old('nama_pengadaan')}}" />
-                                    @error('nama_pengadaan')
-                                    <div class="invalid-feedback">{{$message}}</div>
-                                    @enderror
-                                    <label>Mata Anggaran</label>
-                                    <select name="mataanggaran_id" id="" class="form-control @error('mataanggaran_id') is-invalid @enderror" data-live-search=" true">
-                                        <option value="">-Pilih-</option>
-                                        @foreach($mataanggaran as $item)
-                                        <option value={{$item->id}} @if($item->id==$data_sppbjm->mataanggaran_id)
-                                            selected
-                                            @endif
-
-                                            >
-                                            {{$item->nomor}} - {{$item->keterangan}}
-                                        </option>
-                                        @endforeach
-                                    </select>
-                                    @error('mataanggaran_id')
-                                    <div class="invalid-feedback">{{$message}}</div>
-                                    @enderror
-
                                 </div>
 
-                                <div class="col-md-6 search_select_box">
-                                    <label>Tanggal Surat Dibuat</label>
-                                    <input type="date" name="tanggal_surat" value="{{$data_sppbjm->tanggal_surat}}" class="form-control @error('tanggal_surat') is-invalid @enderror" value="{{old('tanggal_surat')}}" />
-                                    @error('tanggal_surat')
+                                <div class="col-md-6">
+                                    <label>Alamat</label>
+                                    <input name="alamat_tujuan" class="form-control @error('alamat_tujuan') is-invalid @enderror" value="{{$skbm->alamat_tujuan}}" />
+                                    @error('alamat_tujuan')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
-                                    <label>Bulan Dibutuhkan</label>
-                                    <select class="form-control" name="bulan_dibutuhkan" data-live-search=" true">
+                                </div>
+                            </div>
 
-                                        @foreach([
-                                        "Januari" => "Januari",
-                                        "Februari" => "Februari",
-                                        "Maret" => "Maret",
-                                        "April" => "April",
-                                        "Mei" => "Mei",
-                                        "Juni" => "Juni",
-                                        "Juli" => "Juli",
-                                        "Agustus" => "Agustus",
-                                        "September" => "September",
-                                        "Oktober" => "Oktober",
-                                        "November" => "November",
-                                        "Desember" => "Desember",
-                                        ] AS $item => $itemBulan)
-                                        <option value="{{ $item }}" {{ old("bulan_dibutuhkan", $data_sppbjm->bulan_dibutuhkan) == $item ? "selected" : "" }}>{{ $itemBulan }}</option>
-                                        @endforeach
-                                    </select>
-                                    <label>Nomor Surat</label>
-                                    <input type="number" name="nomor_surat" value="{{$data_sppbjm->nomor_surat}}" class="form-control @error('nomor_surat') is-invalid @enderror" value="{{old('nomor_surat')}}" />
-                                    @error('nomor_surat')
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <label>No Telepon</label>
+                                    <input name="no_telp" type="text" class="form-control @error('no_telp') is-invalid @enderror" value="{{$skbm->no_telp}}">
+                                    @error('no_telp')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-6">
+
+                                    <label>Tanggal Surat</label>
+                                    <input type="date" name="tanggal_surat" class="form-control @error('tanggal_surat') is-invalid @enderror" value="{{$skbm->tanggal_surat}}" />
+                                    @error('tanggal_surat')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                 </div>
@@ -184,10 +156,8 @@
                                 </div>
                             </div>
 
-
-
-
                             <br>
+
                             <!-- Pengadaan Barang -->
                             <div class="form-group">
                                 <div class="table-responsive">
@@ -204,7 +174,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($data_sppbjm->barangSp2bj as $item)
+                                            @foreach ($skbm->barangSkbm as $item)
                                             <input type="hidden" name="id[]" value="{{$item->id}}">
                                             <tr>
                                                 <td class="text-center">
@@ -274,22 +244,12 @@
                                 <h1 class="h4 text-gray-900 mb-4">Form Tanda Tangan</h1>
                             </div>
                             <div class="form-row">
-                                <div class="col-md-6">
-                                    <label>Catatan Peminta Barang/Jasa</label>
-                                    <input name="catatan_peminta" value="{{$data_sppbjm->catatan_peminta}}" type="text" class="form-control" placeholder="Boleh tidak diisi" value="{{old('catatan_peminta')}}" />
-                                    <label>Catatan</label>
-                                    <input name="catatan" value="{{$data_sppbjm->catatan}}" type="text" class="form-control" placeholder="Boleh tidak diisi" value="{{old('catatan')}}" />
-                                    <label>Catatan Ketersediaan Anggaran</label>
-                                    <input name="catatan_anggaran" value="{{$data_sppbjm->catatan_anggaran}}" type="text" class="form-control" placeholder="Boleh Tidak Diisi" value="{{old('catatan_anggaran')}}" />
-                                    <label>Catatan Ketersediaan Stok</label>
-                                    <input name="catatan_stok" value="{{$data_sppbjm->catatan_stok}}" type="text" class="form-control" placeholder="Boleh tidak diisi" value="{{old('catatan_stok')}}" />
-                                </div>
                                 <div class="col-md-6 search_select_box">
-                                    <label>Peminta Barang/Jasa</label>
+                                    <label>General/Manager</label>
                                     <select name="ttd1" id="" class="form-control @error('ttd1') is-invalid @enderror" data-live-search=" true">
-                                        <option value="">-Pilih Peminta Barang/Jasa-</option>
-                                        @foreach($karyawan as $item)
-                                        <option value={{$item->id}} @if($item->id==$data_sppbjm->ttd1)
+                                        <option value="">-Pilih-</option>
+                                        @foreach ($karyawan as $item)
+                                        <option value={{$item->id}} @if($item->id==$skbm->ttd1)
                                             selected
                                             @endif
 
@@ -301,63 +261,31 @@
                                     @error('ttd1')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
-                                    <label>General Manager Cabang Ketapang</label>
-                                    <select name="ttd2" id="" class="form-control  @error('ttd2') is-invalid @enderror" data-live-search=" true">
-                                        <option value="">-Pilih Nama General Manager Cabang-</option>
-                                        @foreach($karyawan as $item)
-                                        <option value={{$item->id}} @if($item->id==$data_sppbjm->ttd2)
+                                </div>
+                                <div class="col-md-6 search_select_box">
+                                    <label>Manager SDM & Umum</label>
+                                    <select name="ttd2" id="" class="form-control @error('ttd2') is-invalid @enderror" data-live-search=" true">
+                                        <option value="">-Pilih-</option>
+                                        @foreach ($karyawan as $item)
+                                        <option value={{$item->id}} @if($item->id==$skbm->ttd2)
                                             selected
                                             @endif
 
                                             >
                                             {{$item->jabatan}} - {{$item->nama_karyawan}}
-                                        </option>
-                                        @endforeach
+                                            @endforeach
                                     </select>
                                     @error('ttd2')
-                                    <div class="invalid-feedback">{{$message}}</div>
-                                    @enderror
-                                    <label>Manager Keuangan</label>
-                                    <select name="ttd3" id="" class="form-control  @error('ttd3') is-invalid @enderror" data-live-search=" true">
-                                        <option value="">-Pilih Manager Keuangan-</option>
-                                        @foreach($karyawan as $item)
-                                        <option value={{$item->id}} @if($item->id==$data_sppbjm->ttd3)
-                                            selected
-                                            @endif
-
-                                            >
-                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
-                                        </option>
-                                        @endforeach
-                                    </select>
-
-                                    @error('ttd3')
-                                    <div class="invalid-feedback">{{$message}}</div>
-                                    @enderror
-
-                                    <label>Manager SDM & Umum</label>
-                                    <select name="ttd4" id="" class="form-control  @error('ttd4') is-invalid @enderror" data-live-search=" true">
-                                        <option value="">-Pilih Manager SDM & Umum-</option>
-                                        @foreach($karyawan as $item)
-                                        <option value={{$item->id}} @if($item->id==$data_sppbjm->ttd4)
-                                            selected
-                                            @endif
-
-                                            >
-                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
-                                        </option>
-                                        @endforeach
-                                    </select>
-                                    @error('ttd4')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                 </div>
                             </div>
                         </div>
-                        <div class="col text-center">
 
-                            <button type="submit" class="btn btn-success btn-lg">Update</button>
-
+                        <div>
+                            <center>
+                                <button type="submit" class="btn btn-success btn-lg">Update</button>
+                            </center>
                         </div>
                     </form>
                 </div>
@@ -366,16 +294,16 @@
     </div>
 
 </div>
-<!-- /.container-fluid -->
+
 
 <script>
     $('.simpan').on('click', function() {
         $.ajax({
-            url: '{{url("admin/sppbjm/tambah")}}',
+            url: '{{url("admin/skbm/tambah")}}',
             method: 'post',
             data: {
                 _token: '{{csrf_token()}}',
-                sppbjm_id: $('input[name=sppbjm_id]').val(),
+                skbm_id: $('input[name=skbm_id]').val(),
                 jumlah: $('input[name=jumlah]').val(),
                 satuan: $('input[name=satuan]').val(),
                 nama_barang: $('input[name=nama_barang]').val(),
@@ -392,7 +320,7 @@
 
     $('.hapus').on('click', function() {
         $.ajax({
-            url: '{{url("/")}}' + '/admin/sppbjm/' + $(this).data('id') + '/hapus',
+            url: '{{url("/")}}' + '/admin/skbm/' + $(this).data('id') + '/hapus',
             dataType: 'json',
             success() {
                 alert('Data Berhasil Dihapus');
@@ -402,5 +330,5 @@
     });
 </script>
 
-
+<!-- /.container-fluid -->
 @endsection

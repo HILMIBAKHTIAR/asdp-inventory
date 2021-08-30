@@ -22,21 +22,58 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    <!-- Heading Pengadaan -->
+    <!-- Heading Umum -->
     <div class="sidebar-heading">
-        Pengadaan surat
+        Umum
     </div>
+
+    <!--Nav pengadaan -->
     <li class="nav-item active">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pengadaan" aria-expanded="true" aria-controls="pengadaan">
             <i style="color: #e64614" class="fas fa-fw fa fa-book"></i>
             <span>Pengadaan</span>
         </a>
 
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
+        <div id="pengadaan" class="collapse" aria-labelledby="pengadaann" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Pengadaan Surat:</h6>
-                <a class="collapse-item" href="{{route('sp2bj.create')}}">Pengadaan Sistematis</a>
-                <a class="collapse-item" href="{{route('surat.index')}}">Pengadaan Manual</a>
+                <h6 class="collapse-header">Pengadaan:</h6>
+                <a class="collapse-item" href="{{route('sp2bj.create')}}">Sppbj</a>
+                <a class="collapse-item" href="{{route('surat.index')}}">Sppbj Manual</a>
+                <a class="collapse-item" href="">Pembelian Dengan Pesanan</a>
+                <a class="collapse-item" href="">Penunjukan Langsung</a>
+                <a class="collapse-item" href="">Lelang Pemilihan Langsung</a>
+            </div>
+        </div>
+    </li>
+
+    <!--Nav pemeliharaan -->
+    <li class="nav-item active">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pemeliharaan" aria-expanded="true" aria-controls="pemeliharaan">
+            <i style="color: #e64614" class="fas fa-fw fa fa-toolbox"></i>
+            <span>Pemeliharaan</span>
+        </a>
+
+        <div id="pemeliharaan" class="collapse" aria-labelledby="pemeliharaann" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Pemeliharaan:</h6>
+                <a class="collapse-item" href="">Pemeliharaan Kendaran</a>
+                <a class="collapse-item" href="">Rekap Pemeliharaan</a>
+            </div>
+        </div>
+    </li>
+
+    <!--Nav aset -->
+    <li class="nav-item active">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#aset" aria-expanded="true" aria-controls="aset">
+            <i style="color: #e64614" class="fas fa-fw fa fa-table"></i>
+            <span>Aset</span>
+        </a>
+
+        <div id="aset" class="collapse" aria-labelledby="asett" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Aset:</h6>
+                <a class="collapse-item" href="">Data Aset</a>
+                <a class="collapse-item" href="">Laporan</a>
             </div>
         </div>
     </li>
@@ -45,21 +82,71 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    <!-- Heading Data Kantor Page -->
+    <!-- Heading SDM -->
     <div class="sidebar-heading">
-        Data Kantor
+        SDM
     </div>
+
+    <!--Nav karyawan -->
     <li class="nav-item active">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-            <i style="color: #e64614" class="fas fa-fw fa fa-file-alt"></i>
-            <span>Data Kantor</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#colkaryawan" aria-expanded="true" aria-controls="colkaryawan">
+            <i style="color: #e64614" class="fas fa-fw fa fa-user-tie"></i>
+            <span>Data Karyawan</span>
         </a>
 
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="colkaryawan" class="collapse" aria-labelledby="collkaryawan" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Data Kantor Page:</h6>
+                <h6 class="collapse-header">Data Karyawan:</h6>
                 <a class="collapse-item" href="{{route('karyawan.index')}}">Karyawan</a>
                 <a class="collapse-item" href="{{route('mataanggaran.index')}}">Mataanggaran</a>
+                <a class="collapse-item" href="">Nominatif</a>
+            </div>
+        </div>
+    </li>
+    <!--Nav Cuti -->
+    <li class="nav-item active">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#cuti" aria-expanded="true" aria-controls="cuti">
+            <i style="color: #e64614" class="fas fa-fw fa fa-luggage-cart"></i>
+            <span>Cuti</span>
+        </a>
+
+        <div id="cuti" class="collapse" aria-labelledby="cutii" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Cuti:</h6>
+                <a class="collapse-item" href="">Permohonan</a>
+                <a class="collapse-item" href="">Persetujuan</a>
+                <a class="collapse-item" href="">Laporan Realisasi</a>
+            </div>
+        </div>
+    </li>
+    <!-- Nav Pemutakhiran Data -->
+    <li class="nav-item active">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pemutakhiran" aria-expanded="true" aria-controls="pemutakhiran">
+            <i style="color: #e64614" class="fas fa-fw fa fa-chart-pie"></i>
+            <span>Pemutakhiran Data</span>
+        </a>
+
+        <div id="pemutakhiran" class="collapse" aria-labelledby="pemutakhirann" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Cuti:</h6>
+                <a class="collapse-item" href="">Permohonan Pemutakhiran</a>
+                <a class="collapse-item" href="">Laporan Pemutakhiran</a>
+                <a class="collapse-item" href="">Rekap Pemutakhiran</a>
+            </div>
+        </div>
+    </li>
+    <!-- Nav Pay Pall -->
+    <li class="nav-item active">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#gaji" aria-expanded="true" aria-controls="gaji">
+            <i style="color: #e64614" class="fas fa-fw fa fa-money-check-alt"></i>
+            <span>Gaji</span>
+        </a>
+
+        <div id="gaji" class="collapse" aria-labelledby="gajii" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Cuti:</h6>
+                <a class="collapse-item" href="">Daftar Gaji</a>
+                <a class="collapse-item" href="">Daftar PPN</a>
             </div>
         </div>
     </li>

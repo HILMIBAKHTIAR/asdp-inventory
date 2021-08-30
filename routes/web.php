@@ -45,6 +45,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('/spmm', 'Surat\SpmmController');
     Route::resource('/verspmm', 'Surat\VerspmmController');
 
+    // Barang sppbj manual
     Route::post('/sppbjm/tambah', 'Surat\SppbjmController@tambahBarang');
     Route::get('/sppbjm/{sppbjm}/hapus', 'Surat\SppbjmController@hapusBarang');
+
+
+    // Barang berita manual
+    Route::post('/beritam/tambah', 'Surat\BeritamController@tambahBarang');
+    Route::get('/beritam/{beritam}/hapus', 'Surat\BeritamController@hapusBarang');
+
+    // Barang skb manual
+    Route::post('/skbm/tambah', 'Surat\SkbmController@tambahBarang');
+    Route::get('/skbm/{skbm}/hapus', 'Surat\SkbmController@hapusBarang');
 });

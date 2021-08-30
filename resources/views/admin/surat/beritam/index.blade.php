@@ -12,7 +12,7 @@
             @endif
             <h6 class="m-0 font-weight-bold text-primary">Serah Terima Manual</h6>
             <div class="d-flex justify-content-end">
-                <a href="" class="btn btn-primary"> Tambah</a>
+                <a href="{{route('beritam.create')}}" class="btn btn-primary"> Tambah</a>
             </div>
         </div>
         <div class="card-body">
@@ -22,32 +22,32 @@
                         <tr>
                             <th>NO</th>
                             <th>Nomor Surat</th>
-                            <th>Devisi</th>
+                            <th>Surat ditujukan</th>
                             <th>Tanggal Surat</th>
                             <th>Alamat Tujuan</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-
+                        @foreach($beritam as $item)
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$item->nomor_surat_berita}}</td>
+                            <td>{{$item->karyawanBerita->jabatan}}</td>
+                            <td>{{$item->tanggal_surat}}</td>
+                            <td>{{$item->alamat_tujuan}}</td>
 
                             <td class="d-flex">
-                                <a href="" class="btn btn-success mr-2">Show</a>
-                                <a href="" class="btn btn-primary mr-2">Edit</a>
-                                <form action="" method="post">
+                                <a href="{{route('beritam.show',$item->id)}}" class="btn btn-success mr-2">Show</a>
+                                <a href="{{route('beritam.edit',$item->id)}}" class="btn btn-primary mr-2">Edit</a>
+                                <form action="{{route('beritam.destroy', $item->id)}}" method="post">
                                     @method('DELETE')
                                     @csrf
                                     <button class="ml-5 btn btn-danger" type="submit">Hapus</button>
                                 </form>
                             </td>
                         </tr>
-
+                        @endforeach
                     </tbody>
                 </table>
             </div>

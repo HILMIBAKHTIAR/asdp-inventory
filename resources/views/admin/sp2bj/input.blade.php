@@ -93,6 +93,7 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Form Barang/Jasa</h1>
                             </div>
+                            
                             <div class="form-row">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="tableSppbj" width="100%" cellspacing="0">
@@ -238,10 +239,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div>
-                            <center>
-                                <input type="submit" class="btn btn-success btn-lg" name="selanjutnya" id="selanjutnya" value="Selanjutnya" style="padding: 5px 50px; margin-top: 10px;">
-                            </center>
+                        <div class="col text-center">
+
+                            <input type="submit" class="btn btn-success btn-lg" name="selanjutnya" id="selanjutnya" value="Selanjutnya" style="padding: 5px 50px; margin-top: 10px;">
+
                         </div>
                     </form>
                 </div>
