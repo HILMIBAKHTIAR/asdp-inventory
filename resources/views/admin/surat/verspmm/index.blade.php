@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container-fluid">
+    <div class="mb-2 d-flex justify-content-start">
+        <a href="{{url('admin/surat/')}}" class="btn btn-success"> Kembali</a>
+    </div>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             @if(session()->get('sukses'))
@@ -26,12 +29,13 @@
                             <th>Tanggal Surat Dibuat</th>
                             <th>Uraian Pekerjaan</th>
                             <th>Divisi</th>
+                            <th>Created at</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($verspmm as $item)
-                            
+
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->verif->jabatan }}-{{ $item->verif->nama_karyawan }}</td>
@@ -39,7 +43,8 @@
                             <td>{{ $item->tanggal_surat }}</td>
                             <td>{{ $item->uraian_pekerjaan }}</td>
                             <td>{{ $item->devisi}}</td>
-                            
+                            <td>{{ $item->created_at}}</td>
+
                             <td class="d-flex">
                                 <a href="{{ route('verspmm.show',$item->id) }}" class="btn btn-success mr-2">Show</a>
                                 <a href="{{ route('verspmm.edit',$item->id) }}" class="btn btn-primary mr-2">Edit</a>
@@ -50,7 +55,7 @@
                                 </form>
                             </td>
                         </tr>
-                        
+
                         @endforeach
                     </tbody>
                 </table>

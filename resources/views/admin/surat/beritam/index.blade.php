@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container-fluid">
+    <div class="mb-2 d-flex justify-content-start">
+        <a href="{{url('admin/surat/')}}" class="btn btn-success"> Kembali</a>
+    </div>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             @if(session()->get('sukses'))
@@ -25,6 +28,7 @@
                             <th>Surat ditujukan</th>
                             <th>Tanggal Surat</th>
                             <th>Alamat Tujuan</th>
+                            <th>Created at</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -36,6 +40,7 @@
                             <td>{{$item->karyawanBerita->jabatan}}</td>
                             <td>{{$item->tanggal_surat}}</td>
                             <td>{{$item->alamat_tujuan}}</td>
+                            <td>{{$item->created_at}}</td>
 
                             <td class="d-flex">
                                 <a href="{{route('beritam.show',$item->id)}}" class="btn btn-success mr-2">Show</a>

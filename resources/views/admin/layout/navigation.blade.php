@@ -137,16 +137,41 @@
     </li>
     <!-- Nav Pay Pall -->
     <li class="nav-item active">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#paypal" aria-expanded="true" aria-controls="paypal">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#gaji" aria-expanded="true" aria-controls="gaji">
             <i style="color: #e64614" class="fas fa-fw fa fa-money-check-alt"></i>
-            <span>Pay Pall</span>
+            <span>Gaji</span>
         </a>
 
-        <div id="paypal" class="collapse" aria-labelledby="paypall" data-parent="#accordionSidebar">
+        <div id="gaji" class="collapse" aria-labelledby="gajii" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Cuti:</h6>
                 <a class="collapse-item" href="">Daftar Gaji</a>
                 <a class="collapse-item" href="">Daftar PPN</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading Log Page -->
+    <div class="sidebar-heading">
+        Log Histori
+    </div>
+    <li class="nav-item active">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#histori" aria-expanded="true" aria-controls="histori">
+            <i style="color: #e64614" class="fas fa-fw fa fa-users"></i>
+            <span>Pengadaan Histori</span>
+        </a>
+
+        <div id="histori" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Log:</h6>
+                <a class="collapse-item" href="{{route('sppbjhistori.index')}}">Sppbj</a>
+                <a class="collapse-item" href="{{route('sppbjhistori.index')}}">Skb</a>
+                <a class="collapse-item" href="{{route('sppbjhistori.index')}}">Berita Serah Terima</a>
+                <a class="collapse-item" href="{{route('sppbjhistori.index')}}">Spm</a>
+                <a class="collapse-item" href="{{route('sppbjhistori.index')}}">Verspm</a>
             </div>
         </div>
     </li>
