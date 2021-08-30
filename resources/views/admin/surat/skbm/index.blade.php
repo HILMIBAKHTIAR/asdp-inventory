@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container-fluid">
+    <div class="mb-2 d-flex justify-content-start">
+        <a href="{{url('admin/surat/')}}" class="btn btn-success"> Kembali</a>
+    </div>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             @if(session()->get('sukses'))
@@ -48,7 +51,7 @@
                                 </form>
                             </td>
                         </tr>
-                            
+
                         @endforeach
 
                     </tbody>
