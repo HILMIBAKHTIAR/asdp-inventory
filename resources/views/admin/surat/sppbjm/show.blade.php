@@ -267,6 +267,9 @@
                             <p id="ppnAwal" style="margin: 2px; display:none">
                                 {{number_format(($subtotal * 10/100),0, ',', '.')}},00
                             </p>
+                            <p id="noPpnAwal" style="margin: 2px;">
+                                -
+                            </p>
                         </td>
                     </tr>
 
@@ -280,6 +283,9 @@
                         <td class="left-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             <p id="totalppn" style="margin: 2px; display:none">
                                 {{number_format($subtotal + ($subtotal * 10/100),0, ',', '.')}},00
+                            </p>
+                            <p id="nototalppn" style="margin: 2px;">
+                                {{number_format($subtotal,0, ',', '.')}},00
                             </p>
                         </td>
                     </tr>
@@ -368,16 +374,22 @@
         function cekPpn() {
           var checkBox = document.getElementById("ppn");
           var ppnAwal = document.getElementById("ppnAwal");
+          var noPpnAwal = document.getElementById("noPpnAwal");
           var totalppn = document.getElementById("totalppn");
+          var nototalppn = document.getElementById("nototalppn");
           if (checkBox.checked == true){
             ppnAwal.style.display = "block";
             totalppn.style.display = "block";
+            noPpnAwal.style.display = "none";
+            nototalppn.style.display = "none";
           } else {
             ppnAwal.style.display = "none";
             totalppn.style.display = "none";
+            noPpnAwal.style.display = "block";
+            nototalppn.style.display = "block";
           }
         }
-        </script>
+    </script>
 
     <script>
         function Cetakan() {

@@ -21,7 +21,12 @@ class SkbController extends Controller
     {
         $sp2bj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         $skb = Skb::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
-        return view('admin.skb.cetak', compact('skb', 'sp2bj'));
+        $subtotal = $sp2bj
+            ->barang
+            ->map(function ($el) {
+                return $el->harga_satuan * $el->jumlah;
+            })->sum();
+        return view('admin.skb.cetak', compact('skb', 'sp2bj', 'subtotal'));
     }
 
     /**

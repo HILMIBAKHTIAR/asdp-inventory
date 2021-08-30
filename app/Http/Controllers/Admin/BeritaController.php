@@ -20,7 +20,12 @@ class BeritaController extends Controller
     {
         $sp2bj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         $berita = Berita::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
-        return view('admin.berita.cetak', compact('sp2bj', 'berita'));
+        $subtotal = $sp2bj
+            ->barang
+            ->map(function ($el) {
+                return $el->harga_satuan * $el->jumlah;
+            })->sum();
+        return view('admin.berita.cetak', compact('sp2bj', 'berita', 'subtotal'));
     }
 
     /**

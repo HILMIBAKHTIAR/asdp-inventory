@@ -259,14 +259,17 @@
 
                     <tr>
                         <td colspan="7" class="top-bottom-none text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
-                            <input id="ppn" type="checkbox"> &nbsp;PPN 10%&nbsp;
+                            <input id="ppn" onclick="cekPpn()" type="checkbox"> &nbsp;PPN 10%&nbsp;
                         </td>
                         <td class="right-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
                             <p style="margin: 2px;">Rp. </p>
                         </td>
                         <td class="left-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
-                            <p style="margin: 2px;">
-                               ,00
+                            <p id="ppnAwal" style="margin: 2px; display:none">
+                                {{number_format(($subtotal * 10/100),0, ',', '.')}},00
+                            </p>
+                            <p id="noPpnAwal" style="margin: 2px;">
+                                -
                             </p>
                         </td>
                     </tr>
@@ -279,8 +282,11 @@
                             <p style="margin: 2px;">Rp. </p>
                         </td>
                         <td class="left-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;">
-                            <p style="margin: 2px;">
-                                ,00
+                            <p id="totalppn" style="margin: 2px; display:none">
+                                {{number_format($subtotal + ($subtotal * 10/100),0, ',', '.')}},00
+                            </p>
+                            <p id="nototalppn" style="margin: 2px;">
+                                {{number_format($subtotal,0, ',', '.')}},00
                             </p>
                         </td>
                     </tr>
@@ -382,6 +388,27 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function cekPpn() {
+          var checkBox = document.getElementById("ppn");
+          var ppnAwal = document.getElementById("ppnAwal");
+          var noPpnAwal = document.getElementById("noPpnAwal");
+          var totalppn = document.getElementById("totalppn");
+          var nototalppn = document.getElementById("nototalppn");
+          if (checkBox.checked == true){
+            ppnAwal.style.display = "block";
+            totalppn.style.display = "block";
+            noPpnAwal.style.display = "none";
+            nototalppn.style.display = "none";
+          } else {
+            ppnAwal.style.display = "none";
+            totalppn.style.display = "none";
+            noPpnAwal.style.display = "block";
+            nototalppn.style.display = "block";
+          }
+        }
+    </script>
 
     <script>
         function Cetakan() {
