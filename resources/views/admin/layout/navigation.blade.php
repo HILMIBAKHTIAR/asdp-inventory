@@ -208,10 +208,10 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Log:</h6>
                 <a class="collapse-item" href="{{route('sppbjhistori.index')}}">Sppbj</a>
-                <a class="collapse-item" href="{{route('sppbjhistori.index')}}">Skb</a>
-                <a class="collapse-item" href="{{route('sppbjhistori.index')}}">Berita Serah Terima</a>
-                <a class="collapse-item" href="{{route('sppbjhistori.index')}}">Spm</a>
-                <a class="collapse-item" href="{{route('sppbjhistori.index')}}">Verspm</a>
+                <a class="collapse-item" href="{{route('skbhistori.index')}}">Skb</a>
+                <a class="collapse-item" href="{{route('beritahistori.index')}}">Berita Serah Terima</a>
+                <a class="collapse-item" href="{{route('spmhistori.index')}}">Spm</a>
+                <a class="collapse-item" href="{{route('verspmhistori.index')}}">Verspm</a>
             </div>
         </div>
     </li>

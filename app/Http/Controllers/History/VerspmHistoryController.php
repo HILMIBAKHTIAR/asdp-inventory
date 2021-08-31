@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\History;
 
 use App\Http\Controllers\Controller;
+use App\Verspm;
 use Illuminate\Http\Request;
-use App\Sppbj;
 
-class SppbjHistoryController extends Controller
+class VerspmHistoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,8 @@ class SppbjHistoryController extends Controller
      */
     public function index()
     {
-        //
-        $data_sppbj = Sppbj::all();
-        return view('admin.sppbjhistori.index', compact('data_sppbj'));
+        $data_verspm = Verspm::all();
+        return view('admin.history.verspmhistori.index', compact('data_verspm'));
     }
 
     /**
@@ -50,13 +49,6 @@ class SppbjHistoryController extends Controller
     public function show($id)
     {
         //
-        $sp2bj = Sppbj::findOrFail($id);
-        $subtotal = $sp2bj
-            ->barang
-            ->map(function ($el) {
-                return $el->harga_satuan * $el->jumlah;
-            })->sum();
-        return view('admin.sppbjhistori.showsppbj', compact('sp2bj', 'subtotal'));
     }
 
     /**
