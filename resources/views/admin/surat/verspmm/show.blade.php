@@ -241,7 +241,7 @@
             </td>
             <td class="border1 text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 284.949px; height: 23px;">
               <p style="margin: 12px;">
-                
+
               </p>
             </td>
             <td class="border1" style="width: 421px; height: 23px;">&nbsp;</td>
@@ -296,7 +296,7 @@
       var noSkbPpn = document.getElementById("noSkbPpn");
       var beritaPpn = document.getElementById("beritaPpn");
       var noBeritaPpn = document.getElementById("noBeritaPpn");
-      if (checkBox.checked == true){
+      if (checkBox.checked == true) {
         sppbjPpn.style.display = "block";
         skbPpn.style.display = "block";
         beritaPpn.style.display = "block";

@@ -4,6 +4,9 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Content Row -->
+    <div class="mb-2 d-flex justify-content-start">
+        <a href="{{url('admin/beritam')}}" class="btn btn-success"> Kembali</a>
+    </div>
     <div class="row">
         <div class="col-xl-12 col-lg-12">
             <div class="card mb-4">

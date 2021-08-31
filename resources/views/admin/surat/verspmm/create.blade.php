@@ -4,6 +4,9 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Content Row -->
+    <div class="mb-2 d-flex justify-content-start">
+        <a href="{{url('admin/verspmm')}}" class="btn btn-success"> Kembali</a>
+    </div>
     <div class="row">
         <div class="col-xl-12 col-lg-12">
             <div class="card mb-4">
@@ -39,12 +42,7 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                     <label>Tahun Anggaran</label>
-                                    <select class="form-control" name="tahun_anggaran" @error('tahun_anggaran') is-invalid @enderror" value="{{old('tahun_anggaran')}}">
-                                        <?php
-                                        for ($year = (int)date('Y'); 2000 <= $year; $year--) : ?>
-                                            <option value="<?= $year; ?>"><?= $year; ?></option>
-                                        <?php endfor; ?>
-                                    </select>
+                                    <input type="date" class="form-control" name="tahun_anggaran" @error('tahun_anggaran') is-invalid @enderror" value="{{old('tahun_anggaran')}}">
                                     @error('tahun_anggaran')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror

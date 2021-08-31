@@ -4,10 +4,14 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Content Row -->
+    <div class="mb-2 d-flex justify-content-start">
+        <a href="{{url('admin/spmm')}}" class="btn btn-success"> Kembali</a>
+    </div>
     <div class="row">
         <div class="col-xl-12 col-lg-12">
             <div class="card mb-4">
                 <div class="card-footer">
+
                     <!-- judul form-->
 
                     <div class="text-center">
@@ -20,33 +24,50 @@
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="col-md-6">
-                                    <label>Tanggal</label>
-                                    <input name="tanggal" type="date" class="form-control @error('tanggal') is-invalid @enderror" value="{{old('tanggal')}}" />
-                                    @error('tanggal')
+                                    <label>Nomor Surat</label>
+                                    <input name="nomor_surat_spm" type="number" class="form-control @error('nomor_surat_spm') is-invalid @enderror" value="{{old('nomor_surat_spm')}}" />
+                                    @error('nomor_surat_spm')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
-                                    <label>Jenis Tranksaksi</label>
+
+                                    <label>Jenis Transaksi</label>
                                     <input name="jenis_transaksi" type="text" class="form-control @error('jenis_transaksi') is-invalid @enderror" value="{{old('jenis_transaksi')}}" />
                                     @error('jenis_transaksi')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
+
+
+
+
                                 </div>
                                 <div class="col-md-6">
-                                    <label>Tahun Anggaran</label>
-                                    <input name="tahun_anggaran" type="date" class="form-control @error('tahun_anggaran') is-invalid @enderror" value="{{old('tahun_anggaran')}}">
-                                    @error('tahun_anggaran')
+                                    <label>Tanggal Surat</label>
+                                    <input name="tanggal_surat" type="date" class="form-control @error('tanggal_surat') is-invalid @enderror" value="{{old('tanggal_surat')}}">
+                                    @error('tanggal_surat')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
+
                                     <label>Program</label>
                                     <input name="program" type="text" class="form-control @error('program') is-invalid @enderror" value="{{old('program')}}" placeholder="boleh tidak diisi" />
                                     @error('program')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
+
+
                                 </div>
                             </div>
-                            <div class="form-row">
 
-                                <div class="col-md-12 search_select_box">
+                            <div class="form-row mt-1">
+
+                                <div class="col-md-4">
+                                    <label>Tahun Anggaran</label>
+                                    <input type="date" name="tahun_anggaran" class="form-control @error('tahun_anggaran') is-invalid @enderror" value="{{old('tahun_anggaran')}}" />
+                                    @error('tahun_anggaran')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="col-md-4">
                                     <label>Penangung Jawab</label>
                                     <select name="devisi" id="" class="form-control @error('devisi') is-invalid @enderror" data-live-search=" true">
                                         <option value="SDM & Umum" @if (old('devisi')=='SDM & Umum' ) selected="selected" @endif>SDM & Umum</option>
@@ -57,7 +78,68 @@
                                     </select>
                                 </div>
 
+                                <div class="col-md-4 search_select_box">
+                                    <label>Pembebanan Anggaran</label>
+                                    <select name="pembebanan_anggaran" id="" class="form-control @error('pembebanan_anggaran') is-invalid @enderror" data-live-search=" true">
+                                        <option value="">-Pilih-</option>
+                                        @foreach($mataanggaran as $item)
+                                        <option value="{{$item->id}}" {{old('pembebanan_anggaran') == $item->id ? 'selected' : null}}>
+                                            {{$item->nomor}} - {{$item->keterangan}}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                    @error('pembebanan_anggaran')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
                             </div>
+
+                            <div class="text-center mb-4 mt-4">
+                                <h1 class="h4 text-gray-900 mb-4">Form Uraian Kegiatan</h1>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col-md-3">
+                                    <label>Uraian Kegiatan</label>
+                                    <input name="uraian_kegiatan" type="text" class="form-control @error('uraian_kegiatan') is-invalid @enderror" value="{{old('uraian_kegiatan')}}" />
+                                    @error('uraian_kegiatan')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="col-md-3 search_select_box">
+                                    <label>Mata Anggaran</label>
+                                    <select name="mataanggaran_id" id="" class="form-control @error('mataanggaran_id') is-invalid @enderror" data-live-search=" true">
+                                        <option value="">-Pilih-</option>
+                                        @foreach($mataanggaran as $item)
+                                        <option value="{{$item->id}}" {{old('mataanggaran_id') == $item->id ? 'selected' : null}}>
+                                            {{$item->nomor}} - {{$item->keterangan}}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                    @error('mataanggaran_id')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>Permohonan Dana</label>
+                                    <input name="permohonan_dana" type="text" class="form-control @error('permohonan_dana') is-invalid @enderror" value="{{old('permohonan_dana')}}" />
+                                    @error('permohonan_dana')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>Keterangan</label>
+                                    <input name="keterangan" type="text" class="form-control @error('keterangan') is-invalid @enderror" value="{{old('keterangan')}}" placeholder="Boleh tidak diisi" />
+                                    @error('keterangan')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
+
                             <br>
 
                             <!-- form isi   -->

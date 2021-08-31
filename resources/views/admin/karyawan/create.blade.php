@@ -8,54 +8,54 @@
             <div class="card mb-4">
                 <div class="card-footer">
                     <form action="{{route('karyawan.store')}}" method="post">
-                        @csrf
-                        <div class="form-group">
-                            <div class="form-row">
-                                <table class="table table-bordered" id="tabelData" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Nama</th>
-                                            <td><input name="nama_karyawan[]" type="text" class="form-control"></td>
-                                            <td class=""><input href="" class="btn btn-primary mr-2" type="button" name="tambah" id="tambah" value="Tambah"></input></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Jabatan</th>
-                                            <td class="search_select_box">
-                                                <select name="jabatan[]" id="" class="form-control" data-live-search=" true">
-                                                    <option value="">-Pilih-</option>
-                                                    <option value="Manager SDM & Umum">Manager SDM & Umum</option>
-                                                    <option value="Manager Usaha Ketapang">Manager Usaha Ketapang</option>
-                                                    <option value="Manager Usaha Gilimanuk">Manager Usaha Gilimanuk</option>
-                                                    <option value="Manager Keuangan">Manager Keuangan</option>
-                                                    <option value="Manager Teknik">Manager Teknik</option>
-                                                    <option value="Staf SDM & Umum">Staf SDM & Umum</option>
-                                                    <option value="Verifikator">Verifikator</option>
-                                                    <option value="Staf Teknik Ketapang">Staf Teknik Ketapang</option>
-                                                    <option value="Staf Usaha">Staf Usaha</option>
-                                                </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Nik</th>
-                                            <td><input name="nik[]" type="text" class="form-control"></td>
-                                        </tr>
-                                    </thead>
-                                </table>
-                                <div class="col-md-12 mt-2">
-                                    <button type="submit" class="btn btn-primary btn-sm">
-                                        <i class="fa fa-dot-circle-o"></i> Simpan
-                                    </button>
-                                    <button type="reset" class="btn btn-danger btn-sm">
-                                        <i class="fa fa-ban"></i> Reset
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+@csrf
+<div class="form-group">
+    <div class="form-row">
+        <table class="table table-bordered" id="tabelData" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <td><input name="nama_karyawan[]" type="text" class="form-control"></td>
+                    <td class=""><input href="" class="btn btn-primary mr-2" type="button" name="tambah" id="tambah" value="Tambah"></input></td>
+                </tr>
+                <tr>
+                    <th>Jabatan</th>
+                    <td class="search_select_box">
+                        <select name="jabatan[]" id="" class="form-control" data-live-search=" true">
+                            <option value="">-Pilih-</option>
+                            <option value="Manager SDM & Umum">Manager SDM & Umum</option>
+                            <option value="Manager Usaha Ketapang">Manager Usaha Ketapang</option>
+                            <option value="Manager Usaha Gilimanuk">Manager Usaha Gilimanuk</option>
+                            <option value="Manager Keuangan">Manager Keuangan</option>
+                            <option value="Manager Teknik">Manager Teknik</option>
+                            <option value="Staf SDM & Umum">Staf SDM & Umum</option>
+                            <option value="Verifikator">Verifikator</option>
+                            <option value="Staf Teknik Ketapang">Staf Teknik Ketapang</option>
+                            <option value="Staf Usaha">Staf Usaha</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Nik</th>
+                    <td><input name="nik[]" type="text" class="form-control"></td>
+                </tr>
+            </thead>
+        </table>
+        <div class="col-md-12 mt-2">
+            <button type="submit" class="btn btn-primary btn-sm">
+                <i class="fa fa-dot-circle-o"></i> Simpan
+            </button>
+            <button type="reset" class="btn btn-danger btn-sm">
+                <i class="fa fa-ban"></i> Reset
+            </button>
         </div>
     </div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 <script>
@@ -109,20 +109,6 @@
         <div class="col-xl-12 col-lg-12">
             <div class="card mb-4">
                 <div class="card-footer">
-
-                    @if($errors->any())
-
-                        <div class="alert alert-danger">
-                            <div class="list-group">
-                                @foreach($errors->all() as $error)
-                                <li class="list-group-item">
-                                    {{$error}}
-                                </li>
-                                @endforeach
-                            </div>
-                        </div>
-
-                        @endif
 
                     <!-- judul form-->
 
@@ -193,19 +179,19 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                     <label>Jabatan</label>
-                                            <select name="jabatan" id="" class="form-control">
-                                                <option value="">-Pilih-</option>
-                                                <option value="Manager SDM & Umum" @if (old('jabatan')=='Manager SDM & Umum' ) selected="selected" @endif>Manager SDM & Umum</option>
-                                                <option value="Manager Usaha Ketapang"  @if (old('jabatan')=='Manager Usaha Ketapang' ) selected="selected" @endif>Manager Usaha Ketapang</option>
-                                                <option value="Manager Usaha Gilimanuk" @if (old('jabatan')=='Manager Usaha Gilimanuk' ) selected="selected" @endif>Manager Usaha Gilimanuk</option>
-                                                <option value="Manager Keuangan" @if (old('jabatan')=='Manager Keuangan' ) selected="selected" @endif>Manager Keuangan</option>
-                                                <option value="Manager Teknik" @if (old('jabatan')=='Manager Teknik' ) selected="selected" @endif>Manager Teknik</option>
-                                                <option value="Staf SDM & Umum" @if (old('jabatan')=='Staf SDM & Umum' ) selected="selected" @endif>Staf SDM & Umum</option>
-                                                <option value="Verifikator" @if (old('jabatan')=='Verifikator' ) selected="selected" @endif>Verifikator</option>
-                                                <option value="Staf Teknik Ketapang" @if (old('jabatan')=='Staf Teknik Ketapang' ) selected="selected" @endif>Staf Teknik Ketapang</option>
-                                                <option value="Staf Usaha" @if (old('jabatan')=='Staf Usaha' ) selected="selected" @endif>Staf Usaha</option>
-                                            </select>
-                                    
+                                    <select name="jabatan" id="" class="form-control">
+                                        <option value="">-Pilih-</option>
+                                        <option value="Manager SDM & Umum" @if (old('jabatan')=='Manager SDM & Umum' ) selected="selected" @endif>Manager SDM & Umum</option>
+                                        <option value="Manager Usaha Ketapang" @if (old('jabatan')=='Manager Usaha Ketapang' ) selected="selected" @endif>Manager Usaha Ketapang</option>
+                                        <option value="Manager Usaha Gilimanuk" @if (old('jabatan')=='Manager Usaha Gilimanuk' ) selected="selected" @endif>Manager Usaha Gilimanuk</option>
+                                        <option value="Manager Keuangan" @if (old('jabatan')=='Manager Keuangan' ) selected="selected" @endif>Manager Keuangan</option>
+                                        <option value="Manager Teknik" @if (old('jabatan')=='Manager Teknik' ) selected="selected" @endif>Manager Teknik</option>
+                                        <option value="Staf SDM & Umum" @if (old('jabatan')=='Staf SDM & Umum' ) selected="selected" @endif>Staf SDM & Umum</option>
+                                        <option value="Verifikator" @if (old('jabatan')=='Verifikator' ) selected="selected" @endif>Verifikator</option>
+                                        <option value="Staf Teknik Ketapang" @if (old('jabatan')=='Staf Teknik Ketapang' ) selected="selected" @endif>Staf Teknik Ketapang</option>
+                                        <option value="Staf Usaha" @if (old('jabatan')=='Staf Usaha' ) selected="selected" @endif>Staf Usaha</option>
+                                    </select>
+
 
                                 </div>
 
@@ -224,7 +210,7 @@
                             </div>
 
                             <br>
-                            
+
                         </div>
 
                         <div class="col text-center">
