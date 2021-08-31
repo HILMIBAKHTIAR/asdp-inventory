@@ -21,7 +21,12 @@ class SpmController extends Controller
     {
         $sp2bj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         $spm = Spm::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
-        return view('admin.spm.cetak', compact('sp2bj', 'spm'));
+        $subtotal = $sp2bj
+            ->barang
+            ->map(function ($el) {
+                return $el->harga_satuan * $el->jumlah;
+            })->sum();
+        return view('admin.spm.cetak', compact('sp2bj', 'spm', 'subtotal'));
     }
 
     /**
