@@ -128,7 +128,7 @@
 
         <div id="pemutakhiran" class="collapse" aria-labelledby="pemutakhirann" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Cuti:</h6>
+                <h6 class="collapse-header">Pemutakhiran:</h6>
                 <a class="collapse-item" href="">Permohonan Pemutakhiran</a>
                 <a class="collapse-item" href="">Laporan Pemutakhiran</a>
                 <a class="collapse-item" href="">Rekap Pemutakhiran</a>
@@ -144,7 +144,7 @@
 
         <div id="gaji" class="collapse" aria-labelledby="gajii" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Cuti:</h6>
+                <h6 class="collapse-header">Gaji:</h6>
                 <a class="collapse-item" href="">Daftar Gaji</a>
                 <a class="collapse-item" href="">Daftar PPN</a>
             </div>
