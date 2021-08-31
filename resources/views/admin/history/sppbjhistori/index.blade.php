@@ -41,7 +41,7 @@
                             <td class="d-flex">
                                 <a href="{{route('sppbjhistori.show',$item->id)}}" class="btn btn-success mr-2">Show</a>
                                 <a href="" class="btn btn-primary mr-2">Edit</a>
-                                <form action="" method="post">
+                                <form action="{{route('sppbjhistori.destroy', $item->id)}}" method="post">
                                     @method('DELETE')
                                     @csrf
                                     <button class="ml-5 btn btn-danger" type="submit">Hapus</button>

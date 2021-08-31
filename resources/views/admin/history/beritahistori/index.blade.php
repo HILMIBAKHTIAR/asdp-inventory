@@ -13,7 +13,7 @@
             </div>
 
             @endif
-            <h6 class="m-0 font-weight-bold text-primary">Sppbj</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Berita Acara Serah Terima</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -22,24 +22,24 @@
                         <tr>
                             <th>NO</th>
                             <th>Nomor Surat</th>
+                            <th>Surat ditujukan</th>
                             <th>Tanggal Surat</th>
-                            <th>Nama Pengadaan</th>
-                            <th>Nama Peminta</th>
+                            <th>Alamat Tujuan</th>
                             <th>Pembuat</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($data_berita as $item)
                         <tr>
-                            @foreach($data_sppbj as $item)
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$item->nomor_surat}}</td>
+                            <td>{{$item->sppbj->nomor_surat}}</td>
+                            <td>{{$item->karyawanBerita->jabatan}}</td>
                             <td>{{$item->tanggal_surat}}</td>
-                            <td>{{$item->nama_pengadaan}}</td>
-                            <td>{{$item->karyawan->jabatan}} - {{$item->karyawan->nama_karyawan}}</td>
+                            <td>{{$item->alamat_tujuan}}</td>
                             <td>{{$item->user->name}}</td>
                             <td class="d-flex">
-                                <a href="{{route('sppbjhistori.show',$item->id)}}" class="btn btn-success mr-2">Show</a>
+                                <a href="{{route('beritahistori.show',$item->id)}}" class="btn btn-success mr-2">Show</a>
                                 <a href="" class="btn btn-primary mr-2">Edit</a>
                                 <form action="" method="post">
                                     @method('DELETE')
@@ -47,8 +47,8 @@
                                     <button class="ml-5 btn btn-danger" type="submit">Hapus</button>
                                 </form>
                             </td>
-                            @endforeach
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

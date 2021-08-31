@@ -91,5 +91,9 @@ class SppbjHistoryController extends Controller
     public function destroy($id)
     {
         //
+        $data_sppbj = Sppbj::find($id);
+        $data_sppbj->delete();
+
+        return redirect('admin\sppbjhistori')->with('sukses', 'data sppbj berhasil dihapus');
     }
 }

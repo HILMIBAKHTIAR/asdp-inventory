@@ -63,8 +63,11 @@ class BeritaController extends Controller
             'alamat_tujuan.required'         => 'alamat tujuan harus diisi',
             'tanggal_surat.required'         => 'tanggal surat harus diisi',
         ]);
+
+        $sppbj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
         $data_berita = Berita::create([
-            'user_id' => auth()->id(),
+            'user_id' => auth()->user()->id,
+            'sppbj_id' => $sppbj->id,
             'karyawan_berita_id' => $request->karyawan_berita_id,
             'alamat_tujuan' => $request->alamat_tujuan,
             'tanggal_surat' => $request->tanggal_surat,

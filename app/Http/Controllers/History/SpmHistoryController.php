@@ -4,6 +4,7 @@ namespace App\Http\Controllers\History;
 
 use App\Http\Controllers\Controller;
 use App\Spm;
+use App\Sppbj;
 use Illuminate\Http\Request;
 
 class SpmHistoryController extends Controller
@@ -49,6 +50,14 @@ class SpmHistoryController extends Controller
     public function show($id)
     {
         //
+        $sp2bj = Sppbj::findOrFail($id);
+        $spm = Spm::findOrFail($id);
+        $subtotal = $sp2bj
+            ->barang
+            ->map(function ($el) {
+                return $el->harga_satuan * $el->jumlah;
+            })->sum();
+        return view('admin.history.spmhistori.showspm', compact('sp2bj', 'spm', 'subtotal'));
     }
 
     /**

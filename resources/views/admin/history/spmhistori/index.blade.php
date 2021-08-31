@@ -13,7 +13,7 @@
             </div>
 
             @endif
-            <h6 class="m-0 font-weight-bold text-primary">Sppbj</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Spm</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -23,23 +23,25 @@
                             <th>NO</th>
                             <th>Nomor Surat</th>
                             <th>Tanggal Surat</th>
-                            <th>Nama Pengadaan</th>
-                            <th>Nama Peminta</th>
+                            <th>Devisi</th>
+                            <th>Tahun Anggaran</th>
+                            <th>Jenis Transaksi</th>
                             <th>Pembuat</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            @foreach($data_sppbj as $item)
+                            @foreach($data_spm as $item)
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$item->nomor_surat}}</td>
-                            <td>{{$item->tanggal_surat}}</td>
-                            <td>{{$item->nama_pengadaan}}</td>
-                            <td>{{$item->karyawan->jabatan}} - {{$item->karyawan->nama_karyawan}}</td>
+                            <td>{{$item->nomor_surat_spm}}</td>
+                            <td>{{$item->tanggal}}</td>
+                            <td>{{$item->devisi}}</td>
+                            <td>{{$item->tahun_anggaran}}</td>
+                            <td>{{$item->jenis_transaksi}}</td>
                             <td>{{$item->user->name}}</td>
                             <td class="d-flex">
-                                <a href="{{route('sppbjhistori.show',$item->id)}}" class="btn btn-success mr-2">Show</a>
+                                <a href="{{route('spmhistori.show',$item->id)}}" class="btn btn-success mr-2">Show</a>
                                 <a href="" class="btn btn-primary mr-2">Edit</a>
                                 <form action="" method="post">
                                     @method('DELETE')
