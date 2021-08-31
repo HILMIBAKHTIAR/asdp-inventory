@@ -34,6 +34,14 @@
         visibility: hidden;
       }
 
+      #ppn {
+        visibility: hidden;
+      }
+
+      #inputPpn {
+        visibility: hidden;
+      }
+
       .print-area * {
         visibility: visible;
       }
@@ -152,16 +160,8 @@
               <p style="margin: 12px;">{{tanggal_indonesia($sp2bj->tanggal_surat)}}</p>
             </td>
             <td class="no-bottom-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 284.949px; height: 23px;">
-              <p style="margin: 12px;">Rp.
-                {{number_format(
-        $sp2bj->barang->map(
-          function($el)
-          {
-            return $el->harga_satuan * $el->jumlah;
-          }
-        )->sum(), 0,',','.')
-      }},00
-              </p>
+              <p id="sppbjPpn" style="margin: 12px; display:none;">Rp.{{number_format($subtotal + ($subtotal * 10/100), 0,',','.')}},00</p>
+              <p id="noSppbjPpn" style="margin: 12px;">Rp.{{number_format($subtotal, 0,',','.')}},00</p>
             </td>
             <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 421px; height: 23px;">
               <p style="margin: 12px;"></p>
@@ -237,7 +237,7 @@
           </tr>
           <tr style="height: 23px;">
             <td class="border1 text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 15px; height: 23px;" colspan="4">
-              <p style="margin: 12px;"></p>
+              <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black; margin:4px;" id="inputPpn"><input id="ppn" onclick="cekPpn()" type="checkbox">&nbsp; PPN 10% &nbsp;</p>
             </td>
             <td class="border1 text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 284.949px; height: 23px;">
               <p style="margin: 12px;">
@@ -286,6 +286,21 @@
     <button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary" style="margin-right: 4cm;">cetak</button>
     <a href="{{url('admin/sp2bj/create')}}" name="Selanjutnya" class="btn btn-success">Selesai</a>
   </div>
+
+  <script>
+    function cekPpn() {
+      var checkBox = document.getElementById("ppn");
+      var sppbjPpn = document.getElementById("sppbjPpn");
+      var noSppbjPpn = document.getElementById("noSppbjPpn");
+      if (checkBox.checked == true){
+        sppbjPpn.style.display = "block";
+        noSppbjPpn.style.display = "none";
+      } else {
+        sppbjPpn.style.display = "none";
+        noSppbjPpn.style.display = "block";
+      }
+    }
+  </script>
 
   <script>
     function Cetakan() {

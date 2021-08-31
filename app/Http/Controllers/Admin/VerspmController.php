@@ -28,9 +28,14 @@ class VerspmController extends Controller
             ['user_id', auth()->user()->id],
             ['sp2bj_id', $sp2bj->id],
         ])->first();
+        $subtotal = $sp2bj->barang->map(
+            function ($el) {
+                return $el->harga_satuan * $el->jumlah;
+            }
+        )->sum();
         // $skb = Skb::where('user_id', auth()->user()->id)->find()->get();
         $berita = Berita::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
-        return view('admin.verSpm.cetak', compact('verspm', 'sp2bj', 'spm', 'skb', 'berita'));
+        return view('admin.verSpm.cetak', compact('verspm', 'sp2bj', 'spm', 'skb', 'berita', 'subtotal'));
     }
 
     /**
