@@ -34,6 +34,14 @@
         visibility: hidden;
       }
 
+      #ppn {
+        visibility: hidden;
+      }
+
+      #inputPpn {
+        visibility: hidden;
+      }
+
       .print-area * {
         visibility: visible;
       }
@@ -83,9 +91,7 @@
         </tbody>
       </table>
 
-
       <br>
-
 
       <table width="910" align="center" cellpadding="0" cellspacing="0" style="width: 1011px;">
         <tbody>
@@ -152,9 +158,8 @@
               <p style="margin: 12px;">{{tanggal_indonesia($data_verspmm->tanggal_sppbj)}}</p>
             </td>
             <td class="no-bottom-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 284.949px; height: 23px;">
-              <p style="margin: 12px;">Rp.
-                
-              </p>
+              <p id="sppbjPpn" style="margin: 12px; display:none;">Rp.{{number_format($data_verspmm->jumlah_harga_sppbj + ($data_verspmm->jumlah_harga_sppbj * 10/100))}},00</p>
+              <p id="noSppbjPpn" style="margin: 12px; ">Rp.{{number_format($data_verspmm->jumlah_harga_sppbj)}},00</p>
             </td>
             <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 421px; height: 23px;">
               <p style="margin: 12px;"></p>
@@ -174,7 +179,8 @@
               <p style="margin: 12px;">{{tanggal_indonesia($data_verspmm->tanggal_berita_acara)}}</p>
             </td>
             <td class="no-bottom-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 284.949px; height: 23px;">
-              <p style="margin: 12px;"></p>
+              <p id="beritaPpn" style="margin: 12px;display:none;">Rp.{{number_format($data_verspmm->jumlah_harga_berita + ($data_verspmm->jumlah_harga_berita * 10/100))}},00</p>
+              <p id="noBeritaPpn" style="margin: 12px;">Rp.{{number_format($data_verspmm->jumlah_harga_berita)}},00</p>
             </td>
             <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;">
               <p style="margin: 12px"></p>
@@ -202,7 +208,8 @@
               @endif
             </td>
             <td class="no-bottom-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 284.949px; height: 23px;">
-              <p style="margin: 12px;"></p>
+              <p id="skbPpn" style="margin: 12px;display:none;">Rp.{{number_format($data_verspmm->jumlah_harga_skb + ($data_verspmm->jumlah_harga_skb * 10/100))}},00</p>
+              <p id="noSkbPpn" style="margin: 12px;">Rp.{{number_format($data_verspmm->jumlah_harga_skb)}},00</p>
             </td>
             <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;">
               <p style="margin: 12px"></p>
@@ -230,7 +237,7 @@
           </tr>
           <tr style="height: 23px;">
             <td class="border1 text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 15px; height: 23px;" colspan="4">
-              <p style="margin: 12px;"></p>
+              <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black; margin:4px;" id="inputPpn"><input id="ppn" onclick="cekPpn()" type="checkbox">&nbsp; PPN 10% &nbsp;</p>
             </td>
             <td class="border1 text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 284.949px; height: 23px;">
               <p style="margin: 12px;">
@@ -279,6 +286,33 @@
     <button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary" style="margin-right: 4cm;">cetak</button>
     <a href="{{url('admin/verspmm')}}" name="Selanjutnya" class="btn btn-success">Kembali</a>
   </div>
+
+  <script>
+    function cekPpn() {
+      var checkBox = document.getElementById("ppn");
+      var sppbjPpn = document.getElementById("sppbjPpn");
+      var noSppbjPpn = document.getElementById("noSppbjPpn");
+      var skbPpn = document.getElementById("skbPpn");
+      var noSkbPpn = document.getElementById("noSkbPpn");
+      var beritaPpn = document.getElementById("beritaPpn");
+      var noBeritaPpn = document.getElementById("noBeritaPpn");
+      if (checkBox.checked == true){
+        sppbjPpn.style.display = "block";
+        skbPpn.style.display = "block";
+        beritaPpn.style.display = "block";
+        noSppbjPpn.style.display = "none";
+        noSkbPpn.style.display = "none";
+        noBeritaPpn.style.display = "none";
+      } else {
+        sppbjPpn.style.display = "none";
+        skbPpn.style.display = "none";
+        beritaPpn.style.display = "none";
+        noSppbjPpn.style.display = "block";
+        noSkbPpn.style.display = "block";
+        noBeritaPpn.style.display = "block";
+      }
+    }
+  </script>
 
   <script>
     function Cetakan() {

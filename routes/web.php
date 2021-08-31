@@ -38,7 +38,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/berita/{berita}/hapus', 'Admin\BeritaController@hapusBarang');
 
     // Histori
-    Route::resource('/sppbjhistori', 'Admin\SppbjHistoryController');
+    Route::resource('/sppbjhistori', 'History\SppbjHistoryController');
+    Route::resource('/skbhistori', 'History\SkbHistoryController');
+    Route::resource('/beritahistori', 'History\BeritaHistoryController');
+    Route::resource('/spmhistori', 'History\SpmHistoryController');
+    Route::resource('/verspmhistori', 'History\VerspmHistoryController');
 
 
     //  Surat Manual Route
