@@ -20,13 +20,14 @@ class CreateKaryawansTable extends Migration
             $table->string('nik');
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
-            $table->integer('usia');
             $table->string('nik_ktp');
             $table->string('no_bpjs_kesehatan');
             $table->string('no_bpjs_ketenagakerjaan');
             $table->string('no_npwp');
-            $table->string('status_kelurga');
+            $table->string('status_keluarga');
             $table->string('pendidikan');
+            $table->string('sk');
+            $table->string('usia');
             $table->timestamps();
         });
     }

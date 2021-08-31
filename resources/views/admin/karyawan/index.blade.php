@@ -24,6 +24,15 @@
                             <th>Nama</th>
                             <th>Jabatan</th>
                             <th>Nik</th>
+                            <th>tempat lahir</th>
+                            <th>tanggal lahir</th>
+                            <th>Usia</th>
+                            <th>Nik KTP</th>
+                            <th>Nomor BPJS Kesehatan</th>
+                            <th>Nomor BPJS Ketenagakerjaan</th>
+                            <th>Nomor NPWP</th>
+                            <th>Status Keluarga</th>
+                            <th>Pendidikan</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -34,6 +43,15 @@
                             <td>{{$row->nama_karyawan}}</td>
                             <td>{{$row->jabatan}}</td>
                             <td>{{$row->nik}}</td>
+                            <td>{{$row->tempat_lahir}}</td>
+                            <td>{{$row->tanggal_lahir}}</td>
+                            <td>{{$row->usia}}</td>
+                            <td>{{$row->nik_ktp}}</td>
+                            <td>{{$row->no_bpjs_kesehatan}}</td>
+                            <td>{{$row->no_bpjs_ketenagakerjaan}}</td>
+                            <td>{{$row->no_npwp}}</td>
+                            <td>{{$row->status_keluarga}}</td>
+                            <td>{{$row->pendidikan}}</td>
 
                             <td class="d-flex">
                                 <a href="{{route('karyawan.show',$row->id)}}" class="btn btn-success mr-2">Show</a>

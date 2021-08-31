@@ -16,7 +16,7 @@
                     </div>
 
                     <!-- isi form input -->
-                    <form action="#" method="post">
+                    <form action="{{route('spmm.store')}}" method="post">
                         @csrf
                         <div class="form-group">
                             <div class="form-row">
@@ -31,7 +31,6 @@
                                     @error('jenis_transaksi')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
-
                                 </div>
                                 <div class="col-md-6">
                                     <label>Tahun Anggaran</label>
@@ -58,8 +57,8 @@
                                         <option value="Keuangan" @if (old('devisi')=='Keuangan' ) selected="selected" @endif>Keuangan</option>
                                     </select>
                                 </div>
-                            </div>
 
+                            </div>
                             <br>
 
                             <!-- form isi   -->

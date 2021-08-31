@@ -9,19 +9,26 @@ class SpmM extends Model
     //
     protected $fillable = [
         'user_id',
-        'mataanggaran_id',
-        'ttd1',
-        'ttd2',
-        'ttd3',
-        'devisi',
-        'tanggal',
-        'tahun_anggaran',
+        'nomor_surat_spm',
+        'tanggal_surat',
         'jenis_transaksi',
         'program',
+        'tahun_anggaran',
+        'devisi',
+        'pembebanan_anggaran',
+
+        'uraian_kegiatan',
+        'mataanggaran_id',
+        'permohonan_dana',
+        'keterangan',
+
         'penerima_dana',
         'nomor_rekening',
         'bank',
-        'nomor_surat_spm'
+
+        'ttd1',
+        'ttd2',
+        'ttd3',
     ];
 
 
@@ -33,6 +40,16 @@ class SpmM extends Model
     public function karyawan()
     {
         return $this->belongsTo(Karyawan::class);
+    }
+
+    public function mataanggaran()
+    {
+        return $this->belongsTo(Mataanggaran::class);
+    }
+
+    public function pa()
+    {
+        return $this->belongsTo(Mataanggaran::class, 'pembebanan_anggaran', 'id');
     }
 
     public function tanda1()

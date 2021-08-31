@@ -110,6 +110,20 @@
             <div class="card mb-4">
                 <div class="card-footer">
 
+                    @if($errors->any())
+
+                        <div class="alert alert-danger">
+                            <div class="list-group">
+                                @foreach($errors->all() as $error)
+                                <li class="list-group-item">
+                                    {{$error}}
+                                </li>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        @endif
+
                     <!-- judul form-->
 
                     <div class="text-center">
@@ -123,7 +137,7 @@
                             <div class="form-row">
                                 <div class="col-md-6 search_select_box">
                                     <label>Nama</label>
-                                    <input name="nama_karyawan[]" type="text" class="form-control @error('nama_karyawan[]') is-invalid @enderror" value="{{old('nama_karyawan[]')}}" />
+                                    <input name="nama_karyawan" type="text" class="form-control @error('nama_karyawan') is-invalid @enderror" value="{{old('nama_karyawan')}}" />
                                     @error('nama_karyawan')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
@@ -174,19 +188,22 @@
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label>NIK</label>
-                                    <input name="nik[]" type="text" class="form-control">
+                                    <input name="nik" type="text" class="form-control @error('nik') is-invalid @enderror" value="{{old('nik')}}" />
+                                    @error('nik')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
                                     <label>Jabatan</label>
-                                            <select name="jabatan[]" id="" class="form-control">
+                                            <select name="jabatan" id="" class="form-control">
                                                 <option value="">-Pilih-</option>
-                                                <option value="Manager SDM & Umum">Manager SDM & Umum</option>
-                                                <option value="Manager Usaha Ketapang">Manager Usaha Ketapang</option>
-                                                <option value="Manager Usaha Gilimanuk">Manager Usaha Gilimanuk</option>
-                                                <option value="Manager Keuangan">Manager Keuangan</option>
-                                                <option value="Manager Teknik">Manager Teknik</option>
-                                                <option value="Staf SDM & Umum">Staf SDM & Umum</option>
-                                                <option value="Verifikator">Verifikator</option>
-                                                <option value="Staf Teknik Ketapang">Staf Teknik Ketapang</option>
-                                                <option value="Staf Usaha">Staf Usaha</option>
+                                                <option value="Manager SDM & Umum" @if (old('jabatan')=='Manager SDM & Umum' ) selected="selected" @endif>Manager SDM & Umum</option>
+                                                <option value="Manager Usaha Ketapang"  @if (old('jabatan')=='Manager Usaha Ketapang' ) selected="selected" @endif>Manager Usaha Ketapang</option>
+                                                <option value="Manager Usaha Gilimanuk" @if (old('jabatan')=='Manager Usaha Gilimanuk' ) selected="selected" @endif>Manager Usaha Gilimanuk</option>
+                                                <option value="Manager Keuangan" @if (old('jabatan')=='Manager Keuangan' ) selected="selected" @endif>Manager Keuangan</option>
+                                                <option value="Manager Teknik" @if (old('jabatan')=='Manager Teknik' ) selected="selected" @endif>Manager Teknik</option>
+                                                <option value="Staf SDM & Umum" @if (old('jabatan')=='Staf SDM & Umum' ) selected="selected" @endif>Staf SDM & Umum</option>
+                                                <option value="Verifikator" @if (old('jabatan')=='Verifikator' ) selected="selected" @endif>Verifikator</option>
+                                                <option value="Staf Teknik Ketapang" @if (old('jabatan')=='Staf Teknik Ketapang' ) selected="selected" @endif>Staf Teknik Ketapang</option>
+                                                <option value="Staf Usaha" @if (old('jabatan')=='Staf Usaha' ) selected="selected" @endif>Staf Usaha</option>
                                             </select>
                                     
 
@@ -194,13 +211,13 @@
 
                                 <div class="col-md-6">
                                     <label>NPWP</label>
-                                    <input name="tanggal_sppbj" type="text" class="form-control @error('tanggal_sppbj') is-invalid @enderror" value="{{old('tanggal_sppbj')}}" />
-                                    @error('tanggal_sppbj')
+                                    <input name="no_npwp" type="text" class="form-control @error('no_npwp') is-invalid @enderror" value="{{old('no_npwp')}}" />
+                                    @error('no_npwp')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                     <label>SK.Capeg</label>
-                                    <input name="tanggal_berita_acara" type="text" class="form-control @error('tanggal_berita_acara') is-invalid @enderror" value="{{old('tanggal_berita_acara')}}" />
-                                    @error('tanggal_berita_acara')
+                                    <input name="sk" type="text" class="form-control @error('sk') is-invalid @enderror" value="{{old('sk')}}" />
+                                    @error('sk')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                 </div>
@@ -223,7 +240,7 @@
 
 </div>
 <!-- /.container-fluid -->
-<script>
+{{-- <script>
     $(document).ready(function() {
         var x = 1;
         $("#tambah").click(function() {
@@ -260,6 +277,6 @@
             })
         });
     });
-</script>
+</script> --}}
 
 @endsection

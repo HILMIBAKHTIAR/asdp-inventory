@@ -16,8 +16,9 @@ class Karyawan extends Model
         'no_npwp',
         'status_keluarga',
         'pendidikan',
-        'usia',
         'tanggal_lahir',
         'tempat_lahir',
+        'sk',
+        'usia',
     ];
 }

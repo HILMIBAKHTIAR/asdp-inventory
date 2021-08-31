@@ -237,9 +237,7 @@
                             </div>
                         </div>
                         <div class="col text-center">
-
                             <input type="submit" class="btn btn-success btn-lg" name="selanjutnya" id="selanjutnya" value="Buat" style="padding: 5px 50px; margin-top: 10px;">
-
                         </div>
                     </form>
                 </div>
