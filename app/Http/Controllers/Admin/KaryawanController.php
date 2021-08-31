@@ -61,30 +61,32 @@ class KaryawanController extends Controller
             'pendidikan'                => 'required',
             'sk'                        => 'required',
         ]);
-        $usia = Karyawan::where('tanggal_lahir', Carbon::parse()->diff(\Carbon\Carbon::now()))->get();
-            
+
+        $tanggal_lahir = Carbon::parse($request['tanggal_lahir']);
+        $usia = $tanggal_lahir->age;
+
         $data_karyawan = Karyawan::create([
-                'nama_karyawan'             => $request->nama_karyawan,
-                'jabatan'                   => $request->jabatan,
-                'nik'                       => $request->nik,
-                'tempat_lahir'              => $request->tempat_lahir,
-                'tanggal_lahir'             => $request->tanggal_lahir,
-                'usia'                      => $usia,
-                'nik_ktp'                   => $request->nik_ktp,
-                'no_bpjs_kesehatan'         => $request->no_bpjs_kesehatan,
-                'no_bpjs_ketenagakerjaan'   => $request->no_bpjs_ketenagakerjaan,
-                'no_npwp'                   => $request->no_npwp,
-                'status_keluarga'           => $request->status_keluarga,
-                'pendidikan'                => $request->pendidikan,
-                'sk'                        => $request->sk,
+            'nama_karyawan'             => $request->nama_karyawan,
+            'jabatan'                   => $request->jabatan,
+            'nik'                       => $request->nik,
+            'tempat_lahir'              => $request->tempat_lahir,
+            'tanggal_lahir'             => $tanggal_lahir,
+            'usia'                      => $usia,
+            'nik_ktp'                   => $request->nik_ktp,
+            'no_bpjs_kesehatan'         => $request->no_bpjs_kesehatan,
+            'no_bpjs_ketenagakerjaan'   => $request->no_bpjs_ketenagakerjaan,
+            'no_npwp'                   => $request->no_npwp,
+            'status_keluarga'           => $request->status_keluarga,
+            'pendidikan'                => $request->pendidikan,
+            'sk'                        => $request->sk,
 
-            ]);
-        
+        ]);
 
-        // $data_karyawan->save();
-        // return redirect('admin\karyawan')->with('sukses', 'Karyawan berhasil ditambahkan');
 
-        return dd($data_karyawan);
+        $data_karyawan->save();
+        return redirect('admin\karyawan')->with('sukses', 'Karyawan berhasil ditambahkan');
+
+        // return dd($data_karyawan);
     }
 
     /**
