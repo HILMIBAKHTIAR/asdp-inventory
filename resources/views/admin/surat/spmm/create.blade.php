@@ -58,7 +58,12 @@
 
                                 <div class="col-md-4">
                                     <label>Tahun Anggaran</label>
-                                    <input name="tahun_anggaran" type="date" class="form-control @error('tahun_anggaran') is-invalid @enderror" value="{{old('tahun_anggaran')}}" />
+                                    <select name="tahun_anggaran" type="date" class="form-control @error('tahun_anggaran') is-invalid @enderror" value="{{old('tahun_anggaran')}}" />
+                                    <?php
+                                    for ($year = (int)date('Y'); 2000 <= $year; $year--) : ?>
+                                        <option value="<?= $year; ?>"><?= $year; ?></option>
+                                    <?php endfor; ?>
+                                    </select>
                                     @error('tahun_anggaran')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
