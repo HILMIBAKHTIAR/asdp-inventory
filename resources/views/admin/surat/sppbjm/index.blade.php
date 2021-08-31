@@ -29,6 +29,7 @@
                             <th>Tanggal Surat</th>
                             <th>Nama Pengadaan</th>
                             <th>Nama Peminta</th>
+                            <th>Created at</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -40,6 +41,7 @@
                             <td>{{$item->tanggal_surat}}</td>
                             <td>{{$item->nama_pengadaan}}</td>
                             <td>{{$item->karyawan->jabatan}} - {{$item->karyawan->nama_karyawan}}</td>
+                            <td>{{$item->created_at}}</td>
 
                             <td class="d-flex">
                                 <a href="{{route('sppbjm.show',$item->id)}}" class="btn btn-success mr-2">Show</a>

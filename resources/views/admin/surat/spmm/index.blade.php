@@ -29,6 +29,7 @@
                             <th>Devisi</th>
                             <th>Tahun Anggaran</th>
                             <th>Jenis Transaksi</th>
+                            <th>Created at</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -41,6 +42,7 @@
                             <td>{{$item->devisi}}</td>
                             <td>{{$item->tahun_anggaran}}</td>
                             <td>{{$item->jenis_transaksi}}</td>
+                            <td>{{$item->created_at}}</td>
 
                             <td class="d-flex">
                                 <a href="{{route('spmm.show',$item->id)}}" class="btn btn-success mr-2">Show</a>

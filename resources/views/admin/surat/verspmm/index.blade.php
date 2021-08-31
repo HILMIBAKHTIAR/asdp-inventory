@@ -29,6 +29,7 @@
                             <th>Tanggal Surat Dibuat</th>
                             <th>Uraian Pekerjaan</th>
                             <th>Divisi</th>
+                            <th>Created at</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -42,6 +43,7 @@
                             <td>{{ $item->tanggal_surat }}</td>
                             <td>{{ $item->uraian_pekerjaan }}</td>
                             <td>{{ $item->devisi}}</td>
+                            <td>{{ $item->created_at}}</td>
 
                             <td class="d-flex">
                                 <a href="{{ route('verspmm.show',$item->id) }}" class="btn btn-success mr-2">Show</a>
