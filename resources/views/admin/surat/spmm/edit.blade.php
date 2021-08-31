@@ -4,6 +4,9 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Content Row -->
+    <div class="mb-2 d-flex justify-content-start">
+        <a href="{{url('admin/spmm')}}" class="btn btn-success"> Kembali</a>
+    </div>
     <div class="row">
         <div class="col-xl-12 col-lg-12">
             <div class="card mb-4">
@@ -34,7 +37,7 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
 
-                                    
+
 
 
                                 </div>
@@ -51,7 +54,7 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
 
-                                    
+
                                 </div>
                             </div>
 
@@ -67,14 +70,14 @@
                                     <label>Penangung Jawab</label>
                                     <select name="devisi" id="" class="form-control @error('devisi') is-invalid @enderror" data-live-search=" true">
                                         @foreach([
-                                            "SDM & Umum" => "SDM & Umum",
-                                            "Usaha" => "Usaha",
-                                            "Teknik" => "Teknik",
-                                            "Teknik Ketapang" => "Teknik Ketapang",
-                                            "Keuangan" => "Keuangan"
-                                            ] AS $item => $itemDevisi)
-                                            <option value="{{ $item }}" {{ old("devisi", $data_spmm->devisi) == $item ? "selected" : "" }}>{{ $itemDevisi }}</option>
-                                            @endforeach
+                                        "SDM & Umum" => "SDM & Umum",
+                                        "Usaha" => "Usaha",
+                                        "Teknik" => "Teknik",
+                                        "Teknik Ketapang" => "Teknik Ketapang",
+                                        "Keuangan" => "Keuangan"
+                                        ] AS $item => $itemDevisi)
+                                        <option value="{{ $item }}" {{ old("devisi", $data_spmm->devisi) == $item ? "selected" : "" }}>{{ $itemDevisi }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="col-md-4 search_select_box">
@@ -136,7 +139,7 @@
 
                                 <div class="col-md-3">
                                     <label>Keterangan</label>
-                                    <input name="keterangan" type="text" class="form-control @error('keterangan') is-invalid @enderror" value="{{$data_spmm->keterangan}}" placeholder="Boleh tidak diisi"/>
+                                    <input name="keterangan" type="text" class="form-control @error('keterangan') is-invalid @enderror" value="{{$data_spmm->keterangan}}" placeholder="Boleh tidak diisi" />
                                     @error('keterangan')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror

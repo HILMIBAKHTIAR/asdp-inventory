@@ -4,6 +4,9 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Content Row -->
+    <div class="mb-2 d-flex justify-content-start">
+        <a href="{{url('admin/skbm')}}" class="btn btn-success"> Kembali</a>
+    </div>
     <div class="row">
         <div class="col-xl-12 col-lg-12">
             <div class="card mb-4">
@@ -44,7 +47,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            
+
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label>No Telepon</label>
@@ -54,7 +57,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6">
-    
+
                                     <label>Tanggal Surat</label>
                                     <input type="date" name="tanggal_surat" class="form-control @error('tanggal_surat') is-invalid @enderror" value="{{old('tanggal_surat')}}" />
                                     @error('tanggal_surat')
@@ -253,8 +256,7 @@
                                                     @enderror
                                                 </td>
                                                 <td><input class="btn btn-danger mr-2" type="button" name="hapus" id="hapus" value="Hapus"></td>
-                                            </tr>`
-                                            );
+                                            </tr>`);
             $("#tableSppbj").on('click', '#hapus', function() {
                 $(this).closest('tr').remove();
             })

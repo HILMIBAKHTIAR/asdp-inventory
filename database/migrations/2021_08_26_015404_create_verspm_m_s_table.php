@@ -28,7 +28,7 @@ class CreateVerspmMSTable extends Migration
             $table->unsignedBigInteger('ttd1');
             $table->unsignedBigInteger('ttd2');
             $table->string('uraian_pekerjaan');
-            $table->year('tahun_anggaran');
+            $table->date('tahun_anggaran');
             $table->date('tanggal_surat');
 
             $table->date('tanggal_skb')->nullable();
