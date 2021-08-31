@@ -23,6 +23,18 @@
       border-top: none;
       border-collapse: collapse;
     }
+
+    .right-border {
+            border: 1px solid black;
+            border-right: none;
+            border-collapse: collapse;
+        }
+
+        .left-border {
+            border: 1px solid black;
+            border-left: none;
+            border-collapse: collapse;
+        }
   </style>
 
 </head>
@@ -32,6 +44,14 @@
   <style>
     @media print {
       body * {
+        visibility: hidden;
+      }
+
+      #ppn {
+        visibility: hidden;
+      }
+
+      #inputPpn {
         visibility: hidden;
       }
 
@@ -47,6 +67,7 @@
         margin-top: 0;
         margin-bottom: 0;
       }
+      
 
       body {
         padding-top: 60px;
@@ -172,29 +193,20 @@
 
 
           <tr>
-            <td colspan="3" class="text-end border1 text-center">
-              <strong style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;"> &nbsp;Jumlah&nbsp; </strong>
+            <td class="right-border">
+              <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black; margin:4px;" id="inputPpn"><input id="ppn" onclick="cekPpn()" type="checkbox">&nbsp; PPN 10% &nbsp;</p>
+            </td>
+
+            <td colspan="2" class="text-end left-border">
+              <strong style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black; margin:4px;"> &nbsp;Jumlah&nbsp; </strong>
             </td>
 
             <td style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;" colspan="2" class="border1">
-              <p style="margin: 4px;">
-
-                Rp.
-                {{number_format(
-                    $sp2bj->barang->map(
-                      function($el)
-                      {
-                        return $el->harga_satuan * $el->jumlah;
-                      }
-                      )->sum()
-                      +
-                      $spm->itemspm->map(
-                        function($yha)
-                        {
-                          return $yha->dana;
-                        }
-                        )->sum(), 0,',','.'),
-                      }},00
+              <p id="ppnAwal" style="margin: 4px; display:none;">
+                Rp.{{number_format($subtotal + ($subtotal * 10/100))}},00
+              </p>
+              <p id="noPpnAwal" style="margin: 4px;">
+                Rp.{{number_format($subtotal)}},00
               </p>
             </td>
           </tr>
@@ -207,22 +219,12 @@
         <tbody>
           <tr style="height: 23px;">
             <td style="width: 229.711px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Terbilang</td>
-            <td style="width: 847.289px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">:&nbsp;
-              <i style="text-transform: capitalize">
-                {{
-            terbilang(
-              $sp2bj->barang->map(
-                function($el){
-                  return $el->harga_satuan * $el->jumlah;
-                }
-              )->sum()+
-              $spm->itemspm->map(
-                function($yha){
-                  return $yha->dana;
-                }
-              )->sum()
-            ) 
-          }} rupiah
+            <td style="width: 847.289px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">
+              <i id="terbilangPpn" style="text-transform: capitalize; display:none;">
+                :&nbsp; {{terbilang($subtotal + ($subtotal * 10/100)) }} rupiah
+              </i>
+              <i id="noTerbilangPpn" style="text-transform: capitalize;">
+                :&nbsp; {{terbilang($subtotal) }} rupiah
               </i>
             </td>
           </tr>
@@ -287,6 +289,27 @@
     <a href="{{url('admin/verspm/create')}}" name="Selanjutnya" class="btn btn-success">Selanjutnya</a>
 
   </div>
+
+  <script>
+    function cekPpn() {
+      var checkBox = document.getElementById("ppn");
+      var ppnAwal = document.getElementById("ppnAwal");
+      var noPpnAwal = document.getElementById("noPpnAwal");
+      var terbilangPpn = document.getElementById("terbilangPpn");
+      var noTerbilangPpn = document.getElementById("noTerbilangPpn");
+      if (checkBox.checked == true){
+        ppnAwal.style.display = "block";
+        terbilangPpn.style.display = "block";
+        noPpnAwal.style.display = "none";
+        noTerbilangPpn.style.display = "none";
+      } else {
+        ppnAwal.style.display = "none";
+        terbilangPpn.style.display = "none";
+        noPpnAwal.style.display = "block";
+        noTerbilangPpn.style.display = "block";
+      }
+    }
+  </script>
 
   <script>
     function Cetakan() {
