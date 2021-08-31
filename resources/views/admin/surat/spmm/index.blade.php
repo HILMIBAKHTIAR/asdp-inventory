@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container-fluid">
+    <div class="mb-2 d-flex justify-content-start">
+        <a href="{{url('admin/surat/')}}" class="btn btn-success"> Kembali</a>
+    </div>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             @if(session()->get('sukses'))
@@ -26,6 +29,7 @@
                             <th>Devisi</th>
                             <th>Tahun Anggaran</th>
                             <th>Jenis Transaksi</th>
+                            <th>Created at</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -38,6 +42,7 @@
                             <td>{{$item->devisi}}</td>
                             <td>{{$item->tahun_anggaran}}</td>
                             <td>{{$item->jenis_transaksi}}</td>
+                            <td>{{$item->created_at}}</td>
 
                             <td class="d-flex">
                                 <a href="{{route('spmm.show',$item->id)}}" class="btn btn-success mr-2">Show</a>
