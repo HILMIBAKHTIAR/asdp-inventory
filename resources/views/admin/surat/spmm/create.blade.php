@@ -8,7 +8,6 @@
         <div class="col-xl-12 col-lg-12">
             <div class="card mb-4">
                 <div class="card-footer">
-
                     <!-- judul form-->
 
                     <div class="text-center">
