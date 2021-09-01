@@ -84,13 +84,69 @@
             <h6 class="m-0 font-weight-bold text-primary">Chart</h6>
         </div>
         <div class="card-body">
-            <div class="panel">
-
+            <div class="form-row justify-content-center">
+                <div class="panel col-lg-8">
+                    <canvas id="userChart" class="rounded shadow"></canvas>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <!-- chart -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script>
+    var ctx = document.getElementById('userChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'bar',
+        // The data for our dataset
+        data: {
+            labels: {!!json_encode($chart -> labels) !!},
+            datasets: [{
+                label: 'Grafik Umur Karyawan PT.ASDP',
+                backgroundColor: {!!json_encode($chart -> colours) !!},
+                data: {!!json_encode($chart -> dataset) !!},
+            }, ]
+        },
+        // Configuration options go here
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        callback: function(value) {
+                            if (value % 1 === 0) {
+                                return value;
+                            }
+                        }
+                    },
+                    scaleLabel: {
+                        display: false
+                    }
+                }]
+            },
+            legend: {
+                labels: {
+                    // This more specific font property overrides the global property
+                    fontColor: '#122C4B',
+                    fontFamily: "'Muli', sans-serif",
+                    padding: 25,
+                    boxWidth: 25,
+                    fontSize: 14,
+                }
+            },
+            layout: {
+                padding: {
+                    left: 10,
+                    right: 10,
+                    top: 0,
+                    bottom: 10
+                }
+            }
+        }
+    });
+</script>
 
 @endsection

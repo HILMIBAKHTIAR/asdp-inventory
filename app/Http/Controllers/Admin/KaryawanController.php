@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Karyawan;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class KaryawanController extends Controller
 {
@@ -21,9 +22,23 @@ class KaryawanController extends Controller
     }
     public function index()
     {
+        // Get users grouped by age
+        $groups = DB::table('karyawans')
+            ->select('usia', DB::raw('count(*) as total'))
+            ->groupBy('usia')
+            ->pluck('total', 'usia')->all();
+        // Generate random colours for the groups
+        for ($i = 0; $i <= count($groups); $i++) {
+            $colours[] = '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6);
+        }
+        // Prepare the data for returning with the view
+        $chart = new Karyawan;
+        $chart->labels = (array_keys($groups));
+        $chart->dataset = (array_values($groups));
+        $chart->colours = $colours;
         //
         $data = Karyawan::all();
-        return view('admin.karyawan.index', compact('data'));
+        return view('admin.karyawan.index', compact('data', 'chart'));
     }
 
     /**
