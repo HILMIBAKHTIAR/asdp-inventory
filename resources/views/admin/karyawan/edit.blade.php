@@ -4,24 +4,13 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Content Row -->
+    <div class="mb-2 d-flex justify-content-start">
+        <a href="{{url('admin/karyawan')}}" class="btn btn-success"> Kembali</a>
+    </div>
     <div class="row">
         <div class="col-xl-12 col-lg-12">
             <div class="card mb-4">
                 <div class="card-footer">
-
-                    {{-- @if($errors->any())
-
-                        <div class="alert alert-danger">
-                            <div class="list-group">
-                                @foreach($errors->all() as $error)
-                                <li class="list-group-item">
-                                    {{$error}}
-                                </li>
-                                @endforeach
-                            </div>
-                        </div>
-
-                        @endif --}}
 
                     <!-- judul form-->
 
@@ -30,7 +19,8 @@
                     </div>
 
                     <!-- Form Data Pribbadi -->
-                    <form action="{{route('karyawan.store')}}" method="post">
+                    <form action="{{route('karyawan.update', $karyawan->id)}}" method="post">
+                        @method('PATCH')
                         @csrf
                         <div class="form-group">
                             <div class="form-row">
@@ -52,14 +42,18 @@
                                     @enderror
                                     <label>Pendidikan</label>
                                     <select name="pendidikan" id="" class="form-control @error('pendidikan') is-invalid @enderror" data-live-search=" true">
-                                        <option value="SD" @if (old('pendidikan')=='SD') selected="selected" @endif>SD</option>
-                                        <option value="SMP"@if (old('pendidikan')=='SMP') selected="selected" @endif>SMP</option>
-                                        <option value="SMA"@if (old('pendidikan')=='SMA') selected="selected" @endif>SMA</option>
-                                        <option value="D3" @if (old('pendidikan')=='D3') selected="selected" @endif>D3</option>
-                                        <option value="D4" @if (old('pendidikan')=='D4') selected="selected" @endif>D4</option>
-                                        <option value="S1" @if (old('pendidikan')=='S1') selected="selected" @endif>S1</option>
-                                        <option value="S2" @if (old('pendidikan')=='S2') selected="selected" @endif>S2</option>
-                                        <option value="S3" @if (old('pendidikan')=='S3') selected="selected" @endif>S3</option>
+                                        @foreach([
+                                        "SD" => "SD",
+                                        "SMP" => "SMP",
+                                        "SMA" => "SMA",
+                                        "D3" => "D3",
+                                        "D4" => "D4",
+                                        "S1" => "S1",
+                                        "S2" => "S2",
+                                        "S3" => "S3",
+                                        ] AS $item => $itempendidikan)
+                                        <option value="{{ $item }}" {{ old("pendidikan", $karyawan->pendidikan) == $item ? "selected" : "" }}>{{ $itempendidikan }}</option>
+                                        @endforeach
                                     </select>
                                     @error('pendidikan')
                                     <div class="invalid-feedback">{{$message}}</div>
@@ -68,11 +62,15 @@
                                 <div class="col-md-6 search_select_box">
                                     <label>Status Keluarga</label>
                                     <select name="status_keluarga" class="form-control @error('status_keluarga') is-invalid @enderror" data-live-search=" true">
-                                        <option value="K/0" @if (old('status_keluarga')=='K/0' ) selected="selected" @endif>K/0</option>
-                                        <option value="K/1" @if (old('status_keluarga')=='K/1' ) selected="selected" @endif>K/1</option>
-                                        <option value="K/2" @if (old('status_keluarga')=='K/2' ) selected="selected" @endif>K/2</option>
-                                        <option value="K/3" @if (old('status_keluarga')=='K/3' ) selected="selected" @endif>K/3</option>
-                                        <option value="K/4" @if (old('status_keluarga')=='K/4' ) selected="selected" @endif>K/4</option>
+                                        @foreach([
+                                        "K/0" => "K/0",
+                                        "K/1" => "K/1",
+                                        "K/2" => "K/2",
+                                        "K/3" => "K/3",
+                                        "K/4" => "K/4",
+                                        ] AS $item => $itemstatus)
+                                        <option value="{{ $item }}" {{ old("status_keluarga", $karyawan->status_keluarga) == $item ? "selected" : "" }}>{{ $itemstatus }}</option>
+                                        @endforeach
                                     </select>
                                     @error('status_keluarga')
                                     <div class="invalid-feedback">{{$message}}</div>
@@ -108,16 +106,18 @@
                                     @enderror
                                     <label>Jabatan</label>
                                     <select name="jabatan" id="" class="form-control">
-                                        <option value="">-Pilih-</option>
-                                        <option value="Manager SDM & Umum" @if (old('jabatan')=='Manager SDM & Umum' ) selected="selected" @endif>Manager SDM & Umum</option>
-                                        <option value="Manager Usaha Ketapang" @if (old('jabatan')=='Manager Usaha Ketapang' ) selected="selected" @endif>Manager Usaha Ketapang</option>
-                                        <option value="Manager Usaha Gilimanuk" @if (old('jabatan')=='Manager Usaha Gilimanuk' ) selected="selected" @endif>Manager Usaha Gilimanuk</option>
-                                        <option value="Manager Keuangan" @if (old('jabatan')=='Manager Keuangan' ) selected="selected" @endif>Manager Keuangan</option>
-                                        <option value="Manager Teknik" @if (old('jabatan')=='Manager Teknik' ) selected="selected" @endif>Manager Teknik</option>
-                                        <option value="Staf SDM & Umum" @if (old('jabatan')=='Staf SDM & Umum' ) selected="selected" @endif>Staf SDM & Umum</option>
-                                        <option value="Verifikator" @if (old('jabatan')=='Verifikator' ) selected="selected" @endif>Verifikator</option>
-                                        <option value="Staf Teknik Ketapang" @if (old('jabatan')=='Staf Teknik Ketapang' ) selected="selected" @endif>Staf Teknik Ketapang</option>
-                                        <option value="Staf Usaha" @if (old('jabatan')=='Staf Usaha' ) selected="selected" @endif>Staf Usaha</option>
+                                        @foreach([
+                                        "Manager SDM & Umum" => "Manager SDM & Umum",
+                                        "Manager Usaha Ketapang" => "Manager Usaha Ketapang",
+                                        "Manager Usaha Gilimanuk" => "Manager Usaha Gilimanuk",
+                                        "Manager Keuangan" => "Manager Keuangan",
+                                        "Manager Teknik" => "Manager Teknik",
+                                        "Staf SDM & Umum" => "Staf SDM & Umum",
+                                        "Staf Teknik Ketapang" => "Staf Teknik Ketapang",
+                                        "Staf Usaha" => "Staf Usaha",
+                                        ] AS $item => $itemjabatan)
+                                        <option value="{{ $item }}" {{ old("jabatan", $karyawan->jabatan) == $item ? "selected" : "" }}>{{ $itemjabatan }}</option>
+                                        @endforeach
                                     </select>
 
                                     <label>Tanggal Masuk Kerja</label>
