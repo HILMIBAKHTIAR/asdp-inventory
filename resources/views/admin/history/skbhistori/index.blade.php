@@ -21,25 +21,25 @@
                     <thead>
                         <tr>
                             <th>NO</th>
-                            <th>Nomor Surat</th>
+                            <th>Peminta</th>
                             <th>Tanggal Surat</th>
-                            <th>Nama Pengadaan</th>
-                            <th>Nama Peminta</th>
-                            <th>Pembuat</th>
+                            <th>Alamat Tujuan</th>
+                            <th>Nomor Telp</th>
+                            <th>User Id</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($data_skb as $item)
                         <tr>
-                            @foreach($data_sppbj as $item)
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$item->nomor_surat}}</td>
+                            <td>{{$item->sp2bj->karyawan->nama_karyawan}}</td>
                             <td>{{$item->tanggal_surat}}</td>
-                            <td>{{$item->nama_pengadaan}}</td>
-                            <td>{{$item->karyawan->jabatan}} - {{$item->karyawan->nama_karyawan}}</td>
+                            <td>{{$item->alamat_tujuan}}</td>
+                            <td>{{$item->no_telp}}</td>
                             <td>{{$item->user->name}}</td>
                             <td class="d-flex">
-                                <a href="{{route('sppbjhistori.show',$item->id)}}" class="btn btn-success mr-2">Show</a>
+                                <a href="{{route('skbhistori.show',$item->id)}}" class="btn btn-success mr-2">Show</a>
                                 <a href="" class="btn btn-primary mr-2">Edit</a>
                                 <form action="" method="post">
                                     @method('DELETE')
@@ -47,8 +47,8 @@
                                     <button class="ml-5 btn btn-danger" type="submit">Hapus</button>
                                 </form>
                             </td>
-                            @endforeach
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

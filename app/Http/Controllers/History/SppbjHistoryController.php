@@ -56,7 +56,7 @@ class SppbjHistoryController extends Controller
             ->map(function ($el) {
                 return $el->harga_satuan * $el->jumlah;
             })->sum();
-        return view('admin.sppbjhistori.showsppbj', compact('sp2bj', 'subtotal'));
+        return view('admin.history.sppbjhistori.showsppbj', compact('sp2bj', 'subtotal'));
     }
 
     /**

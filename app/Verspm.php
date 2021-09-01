@@ -9,6 +9,10 @@ class Verspm extends Model
     //
     protected $fillable = [
         'user_id',
+        'sp2bj_id',
+        'skb_id',
+        'berita_id',
+        'spm_id',
         'karyawan_id',
         'ttd1',
         'ttd2',
@@ -20,12 +24,33 @@ class Verspm extends Model
 
     public function user()
     {
-        return $this->belongsTo('App/User');
+        return $this->belongsTo(User::class);
     }
     public function karyawan()
     {
         return $this->belongsTo(Karyawan::class);
     }
+
+    public function sp2bj()
+    {
+        return $this->belongsTo(Sppbj::class, 'sp2bj_id', 'id');
+    }
+
+    public function skb()
+    {
+        return $this->belongsTo(Skb::class, 'skb_id', 'id');
+    }
+
+    public function berita()
+    {
+        return $this->belongsTo(Berita::class, 'berita_id', 'id');
+    }
+
+    public function spmId()
+    {
+        return $this->belongsTo(Spm::class, 'spm_id', 'id');
+    }
+
     public function verif()
     {
         return $this->belongsTo(Karyawan::class, 'verifikator', 'id');

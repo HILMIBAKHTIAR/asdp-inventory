@@ -58,7 +58,11 @@ class VerspmController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sp2bj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
+        $skb = Skb::where('user_id', auth()->user()->id)->first();
+        $berita = Berita::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
+        $spm = Spm::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
+
         $request->validate([
             'karyawan_id'       => 'required',
             'verifikator'       => 'required',
@@ -79,6 +83,10 @@ class VerspmController extends Controller
 
         $data_verspm = Verspm::create([
             'user_id'           => auth()->user()->id,
+            'sp2bj_id'          => $sp2bj->id,
+            'skb_id'            => $skb->id,
+            'berita_id'         => $berita->id,
+            'spm_id'            => $spm->id,
             'karyawan_id'       => $request->karyawan_id,
             'verifikator'       => $request->verifikator,
             'uraian_pekerjaan'  => $request->uraian_pekerjaan,
@@ -102,7 +110,6 @@ class VerspmController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
