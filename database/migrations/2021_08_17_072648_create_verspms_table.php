@@ -34,7 +34,7 @@ class CreateVerspmsTable extends Migration
             $table->foreign('ttd1')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('ttd2')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('sp2bj_id')->references('id')->on('sppbjs')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('skb_id')->references('id')->on('skbs')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('skb_id')->nullable()->references('id')->on('skbs')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('berita_id')->references('id')->on('beritas')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('spm_id')->references('id')->on('spms')->onDelete('cascade')->onUpdate('cascade');
         });

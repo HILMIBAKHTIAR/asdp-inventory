@@ -10,6 +10,7 @@ use App\Sppbj;
 use App\Berita;
 use App\Skb;
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 
 class VerspmController extends Controller
 {
@@ -66,9 +67,10 @@ class VerspmController extends Controller
         $request->validate([
             'karyawan_id'       => 'required',
             'verifikator'       => 'required',
+            'skb_id'            => 'nullable',
             'uraian_pekerjaan'  => 'required',
             'tahun_anggaran'    => 'required',
-            'tanggal_surat'    => 'required',
+            'tanggal_surat'     => 'required',
             'ttd1'              => 'required',
             'ttd2'              => 'required',
         ], [
@@ -81,20 +83,37 @@ class VerspmController extends Controller
             'ttd2.required'              => 'pembuat verifikator harus diisi',
         ]);
 
-        $data_verspm = Verspm::create([
-            'user_id'           => auth()->user()->id,
-            'sp2bj_id'          => $sp2bj->id,
-            'skb_id'            => $skb->id,
-            'berita_id'         => $berita->id,
-            'spm_id'            => $spm->id,
-            'karyawan_id'       => $request->karyawan_id,
-            'verifikator'       => $request->verifikator,
-            'uraian_pekerjaan'  => $request->uraian_pekerjaan,
-            'tahun_anggaran'    => $request->tahun_anggaran,
-            'tanggal_surat'     => $request->tanggal_surat,
-            'ttd1'              => $request->ttd1,
-            'ttd2'              => $request->ttd2,
-        ]);
+        if ($skb === null) {
+            $data_verspm = Verspm::create([
+                'user_id'           => auth()->user()->id,
+                'sp2bj_id'          => $sp2bj->id,
+                'berita_id'         => $berita->id,
+                'spm_id'            => $spm->id,
+                'karyawan_id'       => $request->karyawan_id,
+                'verifikator'       => $request->verifikator,
+                'uraian_pekerjaan'  => $request->uraian_pekerjaan,
+                'tahun_anggaran'    => $request->tahun_anggaran,
+                'tanggal_surat'     => $request->tanggal_surat,
+                'ttd1'              => $request->ttd1,
+                'ttd2'              => $request->ttd2,
+            ]);
+        } else {
+
+            $data_verspm = Verspm::create([
+                'user_id'           => auth()->user()->id,
+                'sp2bj_id'          => $sp2bj->id,
+                'skb_id'            => $skb->id,
+                'berita_id'         => $berita->id,
+                'spm_id'            => $spm->id,
+                'karyawan_id'       => $request->karyawan_id,
+                'verifikator'       => $request->verifikator,
+                'uraian_pekerjaan'  => $request->uraian_pekerjaan,
+                'tahun_anggaran'    => $request->tahun_anggaran,
+                'tanggal_surat'     => $request->tanggal_surat,
+                'ttd1'              => $request->ttd1,
+                'ttd2'              => $request->ttd2,
+            ]);
+        }
 
         $data_verspm->save();
         return redirect('admin/verspm');
