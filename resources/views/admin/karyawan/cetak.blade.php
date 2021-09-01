@@ -155,7 +155,7 @@
     <div class="container-lg text-center mt-4 mb-4">
         <button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary"
             style="margin-right: 4cm;">cetak</button>
-        <a href="{{ url('admin/spm/create') }}" name="Selanjutnya" class="btn btn-success">Selanjutnya</a>
+        <a href="{{ url('admin/karyawan') }}"class="btn btn-success">Kembali</a>
     </div>
 
     <script>
