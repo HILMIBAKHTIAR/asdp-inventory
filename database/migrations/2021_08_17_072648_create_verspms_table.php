@@ -17,7 +17,7 @@ class CreateVerspmsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('sp2bj_id');
-            $table->unsignedBigInteger('skb_id');
+            $table->unsignedBigInteger('skb_id')->nullable();
             $table->unsignedBigInteger('berita_id');
             $table->unsignedBigInteger('spm_id');
             $table->unsignedBigInteger('karyawan_id');
@@ -34,7 +34,7 @@ class CreateVerspmsTable extends Migration
             $table->foreign('ttd1')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('ttd2')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('sp2bj_id')->references('id')->on('sppbjs')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('skb_id')->references('id')->on('skbs')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('skb_id')->nullable()->references('id')->on('skbs')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('berita_id')->references('id')->on('beritas')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('spm_id')->references('id')->on('spms')->onDelete('cascade')->onUpdate('cascade');
         });

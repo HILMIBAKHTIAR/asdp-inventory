@@ -31,8 +31,8 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($data_spm as $item)
                         <tr>
-                            @foreach($data_spm as $item)
                             <td>{{$loop->iteration}}</td>
                             <td>{{$item->nomor_surat_spm}}</td>
                             <td>{{$item->tanggal}}</td>
@@ -49,8 +49,8 @@
                                     <button class="ml-5 btn btn-danger" type="submit">Hapus</button>
                                 </form>
                             </td>
-                            @endforeach
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

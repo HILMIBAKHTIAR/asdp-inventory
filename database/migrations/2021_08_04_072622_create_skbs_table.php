@@ -14,7 +14,7 @@ class CreateSkbsTable extends Migration
     public function up()
     {
         Schema::create('skbs', function (Blueprint $table) {
-            $table->id();
+            $table->id()->nullable();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('sp2bj_id');
             $table->unsignedBigInteger('ttd1');
