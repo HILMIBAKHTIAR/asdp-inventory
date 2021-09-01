@@ -11,9 +11,17 @@
 
             @endif
             <h6 class="m-0 font-weight-bold text-primary">Data Karyawan</h6>
-            <div class="d-flex justify-content-end">
+        <div class="form-row mt-4">
+            <div class="col-md-3 justify-content-start">
+                <a href="{{url('/admin/karyawan/cetak')}}" class="btn btn-warning"> Cetak Data Karyawan</a>
+            </div>
+            <div class="col-md-6">
+
+            </div>
+            <div class="col-md-3 text-right">
                 <a href="{{route('karyawan.create')}}" class="btn btn-primary"> Tambah</a>
             </div>
+        </div>
         </div>
         <div class="card-body">
             <div class="table-responsive">

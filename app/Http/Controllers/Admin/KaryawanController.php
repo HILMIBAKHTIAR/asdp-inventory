@@ -235,4 +235,12 @@ class KaryawanController extends Controller
 
         return redirect('admin\karyawan')->with('sukses', 'Karyawan berhasil dihapus');
     }
+
+    public function cetak()
+    {
+        $karyawan = Karyawan::all();
+        $today = Carbon::now();
+
+        return view('admin.karyawan.cetak', compact('karyawan', 'today'));
+    }
 }
