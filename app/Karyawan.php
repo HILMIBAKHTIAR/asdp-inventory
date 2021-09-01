@@ -20,5 +20,9 @@ class Karyawan extends Model
         'tempat_lahir',
         'sk',
         'usia',
+        'tanggal_masuk_kerja',
+        'tanggal_pilih_jabatan',
+        'masa_jabatan',
+        'masa_kerja',
     ];
 }

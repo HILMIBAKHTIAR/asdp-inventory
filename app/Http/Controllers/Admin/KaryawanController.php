@@ -60,10 +60,35 @@ class KaryawanController extends Controller
             'status_keluarga'           => 'required',
             'pendidikan'                => 'required',
             'sk'                        => 'required',
+            'tanggal_masuk_kerja'       => 'required',
+            'tanggal_pilih_jabatan'     => 'required',
+        ],[
+            'nama_karyawan'             => 'nama karyawan harus diisi',
+            'jabatan'                   => 'jabatan harus diisi',
+            'nik'                       => 'NIK harus diisi',
+            'tempat_lahir'              => 'tempat lahir harus diisi',
+            'tanggal_lahir'             => 'tanggal lahir harus diisi',
+            'nik_ktp'                   => 'NIK KTP harus diisi',
+            'no_bpjs_kesehatan'         => 'nomor BPJS harus diisi',
+            'no_bpjs_ketenagakerjaan'   => 'nomor BPJS harus diisi',
+            'no_npwp'                   => 'nomor NPWP harus diisi',
+            'status_keluarga'           => 'status keluarga harus diisi',
+            'pendidikan'                => 'pendidikan harus diisi',
+            'sk'                        => 'SK harus diisi',
+            'tanggal_masuk_kerja'       => 'tanggal masuk kerja harus diisi',
+            'tanggal_pilih_jabatan'     => 'tanggal dipilih jabatan harus diisi',
         ]);
-
+        
+        //calculate umur
         $tanggal_lahir = Carbon::parse($request['tanggal_lahir']);
-        $usia = $tanggal_lahir->age;
+        $usia = $tanggal_lahir->age(\Carbon\Carbon::now())->format('%y Tahun');
+
+        //calculate masa kerja
+        $tanggal_masuk_kerja = Carbon::parse($request['tanggal_masuk_kerja']);
+        $masa_kerja = $tanggal_masuk_kerja->diff(\Carbon\Carbon::now())->format('%y Tahun, %m Bulan');
+        //calculate masa jabatan
+        $tanggal_pilih_jabatan = Carbon::parse($request['tanggal_pilih_jabatan']);
+        $masa_jabatan = $tanggal_pilih_jabatan->diff(\Carbon\Carbon::now())->format('%y Tahun, %m Bulan');
 
         $data_karyawan = Karyawan::create([
             'nama_karyawan'             => $request->nama_karyawan,
@@ -79,6 +104,10 @@ class KaryawanController extends Controller
             'status_keluarga'           => $request->status_keluarga,
             'pendidikan'                => $request->pendidikan,
             'sk'                        => $request->sk,
+            'tanggal_masuk_kerja'       => $tanggal_masuk_kerja,
+            'tanggal_pilih_jabatan'     => $tanggal_pilih_jabatan,
+            'masa_kerja'                => $masa_kerja,
+            'masa_jabatan'              => $masa_jabatan,
 
         ]);
 
@@ -126,16 +155,52 @@ class KaryawanController extends Controller
     {
         // dd($request->all());
         $request->validate([
-            'nama_karyawan'       => 'required',
-            'jabatan'             => 'required',
-            'nik'                 => 'required',
+            'nama_karyawan'             => 'required',
+            'jabatan'                   => 'required',
+            'nik'                       => 'required',
+            'tempat_lahir'              => 'required',
+            'tanggal_lahir'             => 'required',
+            'nik_ktp'                   => 'required',
+            'no_bpjs_kesehatan'         => 'required',
+            'no_bpjs_ketenagakerjaan'   => 'required',
+            'no_npwp'                   => 'required',
+            'status_keluarga'           => 'required',
+            'pendidikan'                => 'required',
+            'sk'                        => 'required',
+            'tanggal_masuk_kerja'       => 'required',
+            'tanggal_pilih_jabatan'     => 'required',
         ]);
+
+         //calculate umur
+         $tanggal_lahir = Carbon::parse($request['tanggal_lahir']);
+         $usia = $tanggal_lahir->age(\Carbon\Carbon::now())->format('%y Tahun');
+ 
+         //calculate masa kerja
+         $tanggal_masuk_kerja = Carbon::parse($request['tanggal_masuk_kerja']);
+         $masa_kerja = $tanggal_masuk_kerja->diff(\Carbon\Carbon::now())->format('%y Tahun, %m Bulan');
+         //calculate masa jabatan
+         $tanggal_pilih_jabatan = Carbon::parse($request['tanggal_pilih_jabatan']);
+         $masa_jabatan = $tanggal_pilih_jabatan->diff(\Carbon\Carbon::now())->format('%y Tahun, %m Bulan');
 
         $karyawan = Karyawan::find($id);
 
-        $karyawan->nama_karyawan    = $request->get('nama_karyawan');
-        $karyawan->jabatan          = $request->get('jabatan');
-        $karyawan->nik              = $request->get('nik');
+        $karyawan->nama_karyawan            = $request->get('nama_karyawan');
+        $karyawan->jabatan                  = $request->get('jabatan');
+        $karyawan->nik                      = $request->get('nik');
+        $karyawan->tempat_lahir             = $request->get('tempat_lahir');
+        $karyawan->tanggal_lahir            = $tanggal_lahir->get($tanggal_lahir);
+        $karyawan->usia                     = $usia;
+        $karyawan->nik_ktp                  = $request->get('nik_ktp');
+        $karyawan->no_bpjs_kesehatan        = $request->get('no_bpjs_kesehatan');
+        $karyawan->no_bpjs_ketenagakerjaan  = $request->get('no_bpjs_ketenagakerjaan');
+        $karyawan->no_npwp                  = $request->get('no_npwp');
+        $karyawan->status_keluarga          = $request->get('status_keluarga');
+        $karyawan->pendidikan               = $request->get('pendidikan');
+        $karyawan->sk                       = $request->get('sk');
+        $karyawan->tanggal_masuk_kerja      = $tanggal_masuk_kerja->get($tanggal_masuk_kerja);
+        $karyawan->tanggal_pilih_jabatan    = $tanggal_pilih_jabatan->get($tanggal_pilih_jabatan);
+        $karyawan->masa_kerja               = $masa_kerja;
+        $karyawan->masa_jabatan             = $masa_jabatan;
 
         $karyawan->save();
         return redirect('admin\karyawan')->with('sukses', 'Karyawan berhasil diupdate');

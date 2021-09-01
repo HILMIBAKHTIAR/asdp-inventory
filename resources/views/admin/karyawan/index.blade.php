@@ -33,6 +33,10 @@
                             <th>Nomor NPWP</th>
                             <th>Status Keluarga</th>
                             <th>Pendidikan</th>
+                            <th>Tanggal Masuk Kerja</th>
+                            <th>Tanggal Dipilih Jabatan</th>
+                            <th>Masa Kerja</th>
+                            <th>Masa Jabatan</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -52,6 +56,10 @@
                             <td>{{$row->no_npwp}}</td>
                             <td>{{$row->status_keluarga}}</td>
                             <td>{{$row->pendidikan}}</td>
+                            <td>{{$row->tanggal_masuk_kerja}}</td>
+                            <td>{{$row->tanggal_pilih_jabatan}}</td>
+                            <td>{{$row->masa_kerja}}</td>
+                            <td>{{$row->masa_jabatan}}</td>
 
                             <td class="d-flex">
                                 <a href="{{route('karyawan.show',$row->id)}}" class="btn btn-success mr-2">Show</a>
