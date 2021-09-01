@@ -110,6 +110,20 @@
             <div class="card mb-4">
                 <div class="card-footer">
 
+                    {{-- @if($errors->any())
+
+                        <div class="alert alert-danger">
+                            <div class="list-group">
+                                @foreach($errors->all() as $error)
+                                <li class="list-group-item">
+                                    {{$error}}
+                                </li>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        @endif --}}
+
                     <!-- judul form-->
 
                     <div class="text-center">
@@ -138,14 +152,29 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                     <label>Pendidikan</label>
-                                    <input name="pendidikan" type="text" class="form-control @error('pendidikan') is-invalid @enderror" value="{{old('pendidikan')}}" />
+                                    <select name="pendidikan" class="form-control @error('pendidikan') is-invalid @enderror" data-live-search=" true">
+                                        <option value="SD" @if (old('pendidikan')=='SD' ) selected="selected" @endif>SD</option>
+                                        <option value="SMP" @if (old('pendidikan')=='SMP' ) selected="selected" @endif>SMP</option>
+                                        <option value="SMA" @if (old('pendidikan')=='SMA' ) selected="selected" @endif>SMA</option>
+                                        <option value="D3" @if (old('pendidikan')=='D3' ) selected="selected" @endif>D3</option>
+                                        <option value="D4" @if (old('pendidikan')=='D4' ) selected="selected" @endif>D4</option>
+                                        <option value="S1" @if (old('pendidikan')=='S1' ) selected="selected" @endif>S1</option>
+                                        <option value="S2" @if (old('pendidikan')=='S2' ) selected="selected" @endif>S2</option>
+                                        <option value="S3" @if (old('pendidikan')=='S3' ) selected="selected" @endif>S3</option>
+                                    </select>
                                     @error('pendidikan')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                 </div>
                                 <div class="col-md-6 search_select_box">
                                     <label>Status Keluarga</label>
-                                    <input name="status_keluarga" type="text" class="form-control @error('status_keluarga') is-invalid @enderror" value="{{old('status_keluarga')}}" />
+                                    <select name="status_keluarga" class="form-control @error('status_keluarga') is-invalid @enderror" data-live-search=" true">
+                                        <option value="K/0" @if (old('status_keluarga')=='K/0' ) selected="selected" @endif>K/0</option>
+                                        <option value="K/1" @if (old('status_keluarga')=='K/1' ) selected="selected" @endif>K/1</option>
+                                        <option value="K/2" @if (old('status_keluarga')=='K/2' ) selected="selected" @endif>K/2</option>
+                                        <option value="K/3" @if (old('status_keluarga')=='K/3' ) selected="selected" @endif>K/3</option>
+                                        <option value="K/4" @if (old('status_keluarga')=='K/4' ) selected="selected" @endif>K/4</option>
+                                    </select>
                                     @error('status_keluarga')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
@@ -192,6 +221,12 @@
                                         <option value="Staf Usaha" @if (old('jabatan')=='Staf Usaha' ) selected="selected" @endif>Staf Usaha</option>
                                     </select>
 
+                                    <label>Tanggal Masuk Kerja</label>
+                                    <input name="tanggal_masuk_kerja" type="date" class="form-control @error('tanggal_masuk_kerja') is-invalid @enderror" value="{{old('tanggal_masuk_kerja')}}" />
+                                    @error('tanggal_masuk_kerja')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+
 
                                 </div>
 
@@ -204,6 +239,11 @@
                                     <label>SK.Capeg</label>
                                     <input name="sk" type="text" class="form-control @error('sk') is-invalid @enderror" value="{{old('sk')}}" />
                                     @error('sk')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                    <label>Tanggal Dipilih jabatan</label>
+                                    <input name="tanggal_pilih_jabatan" type="date" class="form-control @error('tanggal_pilih_jabatan') is-invalid @enderror" value="{{old('tanggal_pilih_jabatan')}}" />
+                                    @error('tanggal_pilih_jabatan')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                 </div>
@@ -225,44 +265,4 @@
     </div>
 
 </div>
-<!-- /.container-fluid -->
-{{-- <script>
-    $(document).ready(function() {
-        var x = 1;
-        $("#tambah").click(function() {
-            $("#tabelData").append(`<thead>
-                                        <tr>
-                                            <th>Nama</th>
-                                            <td><input name="nama_karyawan[]" type="text" class="form-control"></td>
-                                            <td class=""><input href="" class="btn btn-danger mr-2" type="button" name="hapus" id="hapus" value="Hapus"></input></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Jabatan</th>
-                                            <td>
-                                                <select name="jabatan[]" id="" class="form-control">
-                                                    <option value="">-Pilih-</option>
-                                                    <option value="Manager SDM & Umum">Manager SDM & Umum</option>
-                                                    <option value="Manager Usaha Ketapang">Manager Usaha Ketapang</option>
-                                                    <option value="Manager Usaha Gilimanuk">Manager Usaha Gilimanuk</option>
-                                                    <option value="Manager Keuangan">Manager Keuangan</option>
-                                                    <option value="Manager Teknik">Manager Teknik</option>
-                                                    <option value="Staf SDM & Umum">Staf SDM & Umum</option>
-                                                    <option value="Verifikator">Verifikator</option>
-                                                    <option value="Staf Teknik Ketapang">Staf Teknik Ketapang</option>
-                                                    <option value="Staf Usaha">Staf Usaha</option>
-                                                </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Nik</th>
-                                            <td><input name="nik[]" type="text" class="form-control"></td>
-                                        </tr>
-                                    </thead>`);
-            $("#tabelData").on('click', '#hapus', function() {
-                $(this).closest('thead').remove();
-            })
-        });
-    });
-</script> --}}
-
 @endsection

@@ -24,10 +24,29 @@ class CreateKaryawansTable extends Migration
             $table->string('no_bpjs_kesehatan');
             $table->string('no_bpjs_ketenagakerjaan');
             $table->string('no_npwp');
-            $table->string('status_keluarga');
-            $table->string('pendidikan');
+            $table->enum('status_keluarga',[
+                        'K/0',
+                        'K/1',
+                        'K/2',
+                        'K/3',
+                        'K/4'
+                    ]);
+            $table->enum('pendidikan',[
+                        'SD',
+                        'SMP',
+                        'SMA',
+                        'D3',
+                        'D4',
+                        'S1',
+                        'S2',
+                        'S3',
+                    ]);
             $table->string('sk');
             $table->string('usia');
+            $table->date('tanggal_masuk_kerja');
+            $table->date('tanggal_pilih_jabatan');
+            $table->string('masa_kerja');
+            $table->string('masa_jabatan');
             $table->timestamps();
         });
     }
