@@ -22,21 +22,22 @@
                         <tr>
                             <th>NO</th>
                             <th>Nama</th>
-                            <th>Jabatan</th>
                             <th>Nik</th>
                             <th>tempat lahir</th>
                             <th>tanggal lahir</th>
                             <th>Usia</th>
-                            <th>Nik KTP</th>
-                            <th>Nomor BPJS Kesehatan</th>
-                            <th>Nomor BPJS Ketenagakerjaan</th>
-                            <th>Nomor NPWP</th>
                             <th>Status Keluarga</th>
-                            <th>Pendidikan</th>
                             <th>Tanggal Masuk Kerja</th>
-                            <th>Tanggal Dipilih Jabatan</th>
                             <th>Masa Kerja</th>
+                            <th>SK. Capeg</th>
+                            <th>Jabatan</th>
+                            <th>Tanggal Dipilih Jabatan</th>
                             <th>Masa Jabatan</th>
+                            <th>Pendidikan</th>
+                            <th>Nik KTP</th>
+                            <th>Nomor BPJS Ketenagakerjaan</th>
+                            <th>Nomor BPJS Kesehatan</th>
+                            <th>Nomor NPWP</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -45,21 +46,22 @@
                         <tr>
                             <td>{{++$i}}</td>
                             <td>{{$row->nama_karyawan}}</td>
-                            <td>{{$row->jabatan}}</td>
                             <td>{{$row->nik}}</td>
                             <td>{{$row->tempat_lahir}}</td>
                             <td>{{$row->tanggal_lahir}}</td>
                             <td>{{$row->usia}}</td>
-                            <td>{{$row->nik_ktp}}</td>
-                            <td>{{$row->no_bpjs_kesehatan}}</td>
-                            <td>{{$row->no_bpjs_ketenagakerjaan}}</td>
-                            <td>{{$row->no_npwp}}</td>
                             <td>{{$row->status_keluarga}}</td>
-                            <td>{{$row->pendidikan}}</td>
                             <td>{{$row->tanggal_masuk_kerja}}</td>
-                            <td>{{$row->tanggal_pilih_jabatan}}</td>
                             <td>{{$row->masa_kerja}}</td>
+                            <td>{{$row->sk}}</td>
+                            <td>{{$row->jabatan}}</td>
+                            <td>{{$row->tanggal_pilih_jabatan}}</td>
                             <td>{{$row->masa_jabatan}}</td>
+                            <td>{{$row->pendidikan}}</td>
+                            <td>{{$row->nik_ktp}}</td>
+                            <td>{{$row->no_bpjs_ketenagakerjaan}}</td>
+                            <td>{{$row->no_bpjs_kesehatan}}</td>
+                            <td>{{$row->no_npwp}}</td>
 
                             <td class="d-flex">
                                 <a href="{{route('karyawan.show',$row->id)}}" class="btn btn-success mr-2">Show</a>
@@ -77,5 +79,18 @@
             </div>
         </div>
     </div>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Chart</h6>
+        </div>
+        <div class="card-body">
+            <div class="panel">
+
+            </div>
+        </div>
+    </div>
 </div>
+
+<!-- chart -->
+
 @endsection

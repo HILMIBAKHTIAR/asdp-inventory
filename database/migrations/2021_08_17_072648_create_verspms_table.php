@@ -17,7 +17,7 @@ class CreateVerspmsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('sp2bj_id');
-            $table->unsignedBigInteger('skb_id');
+            $table->unsignedBigInteger('skb_id')->nullable();
             $table->unsignedBigInteger('berita_id');
             $table->unsignedBigInteger('spm_id');
             $table->unsignedBigInteger('karyawan_id');
