@@ -33,7 +33,7 @@
                             <th>Devisi</th>
                             <th>Tahun Anggaran</th>
                             <th>Jenis Transaksi</th>
-                            <th>Created at</th>
+                            <th>User/Pembuat</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -46,7 +46,7 @@
                             <td>{{$item->devisi}}</td>
                             <td>{{$item->tahun_anggaran}}</td>
                             <td>{{$item->jenis_transaksi}}</td>
-                            <td>{{$item->created_at}}</td>
+                            <td>{{$item->user->name}}</td>
 
                             <td class="d-flex">
                                 @can('umum-show')

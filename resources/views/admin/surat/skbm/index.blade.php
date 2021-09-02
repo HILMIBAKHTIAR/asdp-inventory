@@ -30,7 +30,7 @@
                             <th>Tanggal Surat</th>
                             <th>Alamat Tujuan</th>
                             <th>Nomor Telp</th>
-                            <th>Created at</th>
+                            <th>User/Pembuat</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -43,7 +43,7 @@
                             <td>{{tanggal_indonesia($item->tanggal_surat)}}</td>
                             <td>{{$item->alamat_tujuan}}</td>
                             <td>{{$item->no_telp}}</td>
-                            <td>{{$item->created_at}}</td>
+                            <td>{{$item->user->name}}</td>
 
                             <td class="d-flex">
                                 @can('umum-show')

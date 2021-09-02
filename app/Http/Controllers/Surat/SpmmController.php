@@ -19,16 +19,15 @@ class SpmmController extends Controller
     {
         // $this->middleware(['role:admin','role:UMUM']);
 
-        $this->middleware('permission:umum-list',['only'=>['index']]);
-        $this->middleware('permission:umum-create',['only'=>['create','store']]);
-        $this->middleware('permission:umum-edit',['only'=>['edit','update']]);
-        $this->middleware('permission:umum-delete',['only'=>['destroy']]);
-
+        $this->middleware('permission:umum-list', ['only' => ['index']]);
+        $this->middleware('permission:umum-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:umum-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:umum-delete', ['only' => ['destroy']]);
     }
     public function index()
     {
 
-        $data_spmm = SpmM::where('user_id', auth()->user()->id)->get();
+        $data_spmm = SpmM::all();
         return view('admin.surat.spmm.index', compact('data_spmm'));
     }
 
