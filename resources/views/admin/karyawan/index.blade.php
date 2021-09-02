@@ -11,24 +11,23 @@
             @endif
 
             <h6 class="m-0 font-weight-bold text-primary">Data Karyawan</h6>
-            <div class="d-flex justify-content-end">
                 
-                <div class="form-row mt-4">
-             <div class="col-md-3 justify-content-start">
-                <a href="{{url('/admin/karyawan/cetak')}}" class="btn btn-warning"> Cetak Data Karyawan</a>
-            </div>
-            <div class="col-md-6">
+            <div class="form-row mt-4">
+                <div class="col-md-3 justify-content-start">
+                    <a href="{{url('/admin/karyawan/cetak')}}" class="btn btn-warning"> Cetak Data Karyawan</a>
+                </div>
+
+                <div class="col-md-6">
+                    
+                </div>
+
                 
+                <div class="col-md-3 text-right">
+                    @can('sdm-create')
+                    <a href="{{route('karyawan.create')}}" class="btn btn-primary"> Tambah</a>
+                    @endcan
+                </div>
             </div>
-
-            <div class="col-md-3 text-right">
-                @can('sdm-create')
-                <a href="{{route('karyawan.create')}}" class="btn btn-primary"> Tambah</a>
-                @endcan
-            </div>
-
-        </div>
-        </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -84,7 +83,7 @@
                                 @can('sdm-edit')    
                                 <a href="{{route('karyawan.edit',$row->id)}}" class="btn btn-primary mr-2">Edit</a>
                                 @endcan
-                                @can('sdm-destroy')    
+                                @can('sdm-delete')    
                                 <form action="{{route('karyawan.destroy', $row->id)}}" method="post">
                                     @method('DELETE')
                                     @csrf
