@@ -16,6 +16,15 @@ class SppbjmController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        // $this->middleware(['role:admin']);
+
+        $this->middleware('permission:umum-list',['only'=>['index']]);
+        $this->middleware('permission:umum-create',['only'=>['create','store']]);
+        $this->middleware('permission:umum-edit',['only'=>['edit','update']]);
+        $this->middleware('permission:umum-delete',['only'=>['destroy']]);
+    }
     public function index()
     {
         //
