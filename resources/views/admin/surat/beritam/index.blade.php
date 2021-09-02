@@ -30,7 +30,7 @@
                             <th>Surat ditujukan</th>
                             <th>Tanggal Surat</th>
                             <th>Alamat Tujuan</th>
-                            <th>Created at</th>
+                            <th>User/Pembuat</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -42,7 +42,7 @@
                             <td>{{$item->karyawanBerita->jabatan}}</td>
                             <td>{{$item->tanggal_surat}}</td>
                             <td>{{$item->alamat_tujuan}}</td>
-                            <td>{{$item->created_at}}</td>
+                            <td>{{$item->user->name}}</td>
 
                             <td class="d-flex">
                                 @can('umum-show')

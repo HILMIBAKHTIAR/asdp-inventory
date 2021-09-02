@@ -20,15 +20,15 @@ class SppbjmController extends Controller
     {
         // $this->middleware(['role:admin']);
 
-        $this->middleware('permission:umum-list',['only'=>['index']]);
-        $this->middleware('permission:umum-create',['only'=>['create','store']]);
-        $this->middleware('permission:umum-edit',['only'=>['edit','update']]);
-        $this->middleware('permission:umum-delete',['only'=>['destroy']]);
+        $this->middleware('permission:umum-list', ['only' => ['index']]);
+        $this->middleware('permission:umum-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:umum-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:umum-delete', ['only' => ['destroy']]);
     }
     public function index()
     {
         //
-        $sppbjm = SppbjM::where('user_id', auth()->user()->id)->get();
+        $sppbjm = SppbjM::all();
         return view('admin.surat.sppbjm.index', compact('sppbjm'));
     }
 

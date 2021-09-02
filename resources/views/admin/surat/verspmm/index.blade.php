@@ -31,7 +31,7 @@
                             <th>Tanggal Surat Dibuat</th>
                             <th>Uraian Pekerjaan</th>
                             <th>Divisi</th>
-                            <th>Created at</th>
+                            <th>User/Pembuat</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -45,7 +45,7 @@
                             <td>{{ $item->tanggal_surat }}</td>
                             <td>{{ $item->uraian_pekerjaan }}</td>
                             <td>{{ $item->devisi}}</td>
-                            <td>{{ $item->created_at}}</td>
+                            <td>{{ $item->user->name}}</td>
 
                             <td class="d-flex">
                                 @can('umum-show')
