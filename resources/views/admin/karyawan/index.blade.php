@@ -93,7 +93,7 @@
         </div>
         <div class="card-body">
             <div class="form-row justify-content-center">
-                <div class="panel col-lg-8">
+                <div class="panel col-lg-10">
                     <canvas id="userChart" class="rounded shadow"></canvas>
                 </div>
             </div>
