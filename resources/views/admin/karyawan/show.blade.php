@@ -33,12 +33,6 @@
                         </div>
                     </div>
                     <div class="form-row mt-2">
-                        <div class="col-md-2">
-                            <h6>Jabatan</h6>
-                        </div>
-                        <div class="col-md-3">
-                            <h6> : {{ $model->jabatan }}</h6>
-                        </div>
 
                         <div class="col-md-2">
                             <h6>Usia</h6>
@@ -46,20 +40,46 @@
                         <div class="col-md-3">
                             <h6> : {{ $model->usia }}</h6>
                         </div>
-                    </div>
-                    <div class="form-row mt-2">
+
                         <div class="col-md-2">
-                            <h6>Nik</h6>
+                            <h6>Nik KTP</h6>
                         </div>
                         <div class="col-md-3">
-                            <h6> : {{ $model->nik }}</h6>
+                            <h6> : {{ $model->nik_ktp }}</h6>
                         </div>
+                    </div>
+
+                    <div class="form-row mt-2">
 
                         <div class="col-md-2">
                             <h6>Status Keluarga</h6>
                         </div>
                         <div class="col-md-3">
                             <h6> : {{ $model->status_keluarga }}</h6>
+                        </div>
+
+                        <div class="col-md-2">
+                            <h6>Pendidikan Terakhir</h6>
+                        </div>
+                        <div class="col-md-3">
+                            <h6> : {{ $model->pendidikan }}</h6>
+                        </div>
+
+                    </div>
+
+                    <div class="form-row mt-2">
+                        <div class="col-md-2">
+                            <h6>No BPJS Ketenagakerjaan</h6>
+                        </div>
+                        <div class="col-md-3">
+                            <h6> : {{ $model->no_bpjs_ketenagakerjaan }}</h6>
+                        </div>
+
+                        <div class="col-md-2">
+                            <h6>No BPJS Kesehatan</h6>
+                        </div>
+                        <div class="col-md-3">
+                            <h6> : {{$model->no_bpjs_kesehatan}}</h6>
                         </div>
                     </div>
 
@@ -78,10 +98,10 @@
                         </div>
 
                         <div class="col-md-2">
-                            <h6>Pendidikan Terakhir</h6>
+                            <h6>No Induk Kepegawaian</h6>
                         </div>
                         <div class="col-md-3">
-                            <h6> : {{ $model->pendidikan }}</h6>
+                            <h6> : {{ $model->nik }}</h6>
                         </div>
                     </div>
 
@@ -122,7 +142,7 @@
                             <h6>Sk. Capeg</h6>
                         </div>
                         <div class="col-md-3">
-                            <h6> : {{ $model->sk }}</h6>
+                            <h6> : SK. {{ $model->sk }}</h6>
                         </div>
 
                         <div class="col-md-2">
@@ -130,22 +150,6 @@
                         </div>
                         <div class="col-md-3">
                             <h6> : {{$model->no_npwp}}</h6>
-                        </div>
-                    </div>
-
-                    <div class="form-row mt-2">
-                        <div class="col-md-2">
-                            <h6>No BPJS Ketenagakerjaan</h6>
-                        </div>
-                        <div class="col-md-3">
-                            <h6> : {{ $model->no_bpjs_ketenagakerjaan }}</h6>
-                        </div>
-
-                        <div class="col-md-2">
-                            <h6>No BPJS Kesehatan</h6>
-                        </div>
-                        <div class="col-md-3">
-                            <h6> : {{$model->no_bpjs_kesehatan}}</h6>
                         </div>
                     </div>
 
