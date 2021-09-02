@@ -40,11 +40,14 @@
                             <td>{{$item->user->name}}</td>
                             <td class="d-flex">
                                 <a href="{{route('sppbjhistori.show',$item->id)}}" class="btn btn-success mr-2">Show</a>
+                               
+                                @can('umum-delete')   
                                 <form action="{{route('sppbjhistori.destroy', $item->id)}}" method="post">
                                     @method('DELETE')
                                     @csrf
                                     <button class="ml-5 btn btn-danger" type="submit">Hapus</button>
                                 </form>
+                                @endcan
                             </td>
                         </tr>
                         @endforeach

@@ -39,7 +39,7 @@
                                 @can('sdm-edit')
                                 <a href="{{route('mataanggaran.edit',$row->id)}}" class="btn btn-primary mr-2">Edit</a>
                                 @endcan
-                                @can('sdm-destroy')
+                                @can('sdm-delete')
                                 <form action="{{route('mataanggaran.destroy', $row->id)}}" method="post">
                                     @method('DELETE')
                                     @csrf
