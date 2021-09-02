@@ -9,6 +9,7 @@ class Spm extends Model
     //
     protected $fillable = [
         'user_id',
+        'sppbj_id',
         'ttd1',
         'ttd2',
         'ttd3',
@@ -27,12 +28,12 @@ class Spm extends Model
 
     public function user()
     {
-        return $this->belongsTo('App/User');
+        return $this->belongsTo(User::class);
     }
 
-    public function itemspm()
+    public function sppbj()
     {
-        return $this->hasMany(ItemSpm::class);
+        return $this->belongsTo(Sppbj::class);
     }
 
     public function karyawan()

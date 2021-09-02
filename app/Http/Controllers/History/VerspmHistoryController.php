@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\History;
 
+use App\Berita;
 use App\Http\Controllers\Controller;
+use App\Skb;
+use App\Spm;
+use App\Sppbj;
 use App\Verspm;
 use Illuminate\Http\Request;
 
@@ -48,7 +52,18 @@ class VerspmHistoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $verspm = Verspm::findOrFail($id);
+        $skb = Skb::find($id);
+        $spm = Spm::findOrFail($id);
+        $sp2bj = Sppbj::findOrFail($id);
+        $berita = Berita::findOrFail($id);
+        $subtotal = $sp2bj->barang->map(
+            function ($el) {
+                return $el->harga_satuan * $el->jumlah;
+            }
+        )->sum();
+
+        return view('admin.history.verspmhistori.showverspm', compact('verspm', 'spm', 'sp2bj', 'berita', 'subtotal', 'skb'));
     }
 
     /**

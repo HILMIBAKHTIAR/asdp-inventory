@@ -9,6 +9,7 @@ class Berita extends Model
     protected $fillable = [
         'user_id',
         'karyawan_berita_id',
+        'sppbj_id',
         'ttd1',
         'ttd2',
         'ttd3',
@@ -18,7 +19,12 @@ class Berita extends Model
 
     public function user()
     {
-        return $this->belongsTo('App/User');
+        return $this->belongsTo(User::class);
+    }
+
+    public function sppbj()
+    {
+        return $this->belongsTo(Sppbj::class);
     }
 
     public function barang()

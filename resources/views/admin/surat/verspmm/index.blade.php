@@ -15,7 +15,9 @@
             @endif
             <h6 class="m-0 font-weight-bold text-primary">Verifikasi Spm Manual</h6>
             <div class="d-flex justify-content-end">
+                @can('umum-create')
                 <a href="{{ route('verspmm.create') }}" class="btn btn-primary"> Tambah</a>
+                @endcan
             </div>
         </div>
         <div class="card-body">
@@ -46,13 +48,19 @@
                             <td>{{ $item->created_at}}</td>
 
                             <td class="d-flex">
+                                @can('umum-show')
                                 <a href="{{ route('verspmm.show',$item->id) }}" class="btn btn-success mr-2">Show</a>
+                                @endcan
+                                @can('umum-edit')
                                 <a href="{{ route('verspmm.edit',$item->id) }}" class="btn btn-primary mr-2">Edit</a>
+                                @endcan
+                                @can('umum-delete')
                                 <form action="{{route('verspmm.destroy', $item->id)}}" method="post">
                                     @method('DELETE')
                                     @csrf
                                     <button class="ml-5 btn btn-danger" type="submit">Hapus</button>
                                 </form>
+                                @endcan
                             </td>
                         </tr>
 

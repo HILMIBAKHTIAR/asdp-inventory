@@ -14,6 +14,15 @@ class VerspmmController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        // $this->middleware(['role:admin']);
+
+        $this->middleware('permission:umum-list',['only'=>['index']]);
+        $this->middleware('permission:umum-create',['only'=>['create','store']]);
+        $this->middleware('permission:umum-edit',['only'=>['edit','update']]);
+        $this->middleware('permission:umum-delete',['only'=>['destroy']]);
+    }
     public function index()
     {
         $verspmm = VerspmM::where('user_id', auth()->user()->id)->get();
@@ -153,7 +162,6 @@ class VerspmmController extends Controller
             'ttd2'                  => 'required',
             'tanggal_sppbj'         => 'required',
             'tanggal_berita_acara'  => 'required',
-            'jumlah_harga_skb'      => 'required',
             'jumlah_harga_berita'   => 'required',
             'jumlah_harga_sppbj'    => 'required',
             'no_sppbj'              => 'required',
@@ -171,7 +179,6 @@ class VerspmmController extends Controller
 
             'tanggal_sppbj.required'         => 'harus diisi',
             'tanggal_berita_acara.required'  => 'harus diisi',
-            'jumlah_harga_skb.required'      => 'harus diisi',
             'jumlah_harga_berita.required'   => 'harus diisi',
             'jumlah_harga_sppbj.required'    => 'harus diisi',
             'no_sppbj.required'              => 'harus diisi',
@@ -199,6 +206,8 @@ class VerspmmController extends Controller
 
         $data_verspmm->save();
         return redirect('admin/verspmm')->with('Sukses', 'Data Berhasil Diupdate');
+
+        // return dd($data_verspmm);
     }
 
     /**

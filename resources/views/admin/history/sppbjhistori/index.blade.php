@@ -25,7 +25,7 @@
                             <th>Tanggal Surat</th>
                             <th>Nama Pengadaan</th>
                             <th>Nama Peminta</th>
-                            <th>Pembuat</th>
+                            <th>User/Pembuat</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -40,12 +40,14 @@
                             <td>{{$item->user->name}}</td>
                             <td class="d-flex">
                                 <a href="{{route('sppbjhistori.show',$item->id)}}" class="btn btn-success mr-2">Show</a>
-                                <a href="" class="btn btn-primary mr-2">Edit</a>
-                                <form action="" method="post">
+                               
+                                @can('umum-delete')   
+                                <form action="{{route('sppbjhistori.destroy', $item->id)}}" method="post">
                                     @method('DELETE')
                                     @csrf
                                     <button class="ml-5 btn btn-danger" type="submit">Hapus</button>
                                 </form>
+                                @endcan
                             </td>
                         </tr>
                         @endforeach

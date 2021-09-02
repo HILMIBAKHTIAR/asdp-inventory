@@ -15,7 +15,10 @@ class MataAnggaranController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['role:admin']);
+        $this->middleware('permission:sdm-list',['only'=>['index']]);
+        $this->middleware('permission:sdm-create',['only'=>['create','store']]);
+        $this->middleware('permission:sdm-edit',['only'=>['edit','update']]);
+        $this->middleware('permission:sdm-delete',['only'=>['destroy']]);
     }
     
     public function index()

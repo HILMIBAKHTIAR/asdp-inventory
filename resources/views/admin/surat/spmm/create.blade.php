@@ -4,6 +4,9 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Content Row -->
+    <div class="mb-2 d-flex justify-content-start">
+        <a href="{{url('admin/spmm')}}" class="btn btn-success"> Kembali</a>
+    </div>
     <div class="row">
         <div class="col-xl-12 col-lg-12">
             <div class="card mb-4">
@@ -33,7 +36,7 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
 
-                                    
+
 
 
                                 </div>
@@ -50,7 +53,7 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
 
-                                    
+
                                 </div>
                             </div>
 
@@ -58,7 +61,7 @@
 
                                 <div class="col-md-4">
                                     <label>Tahun Anggaran</label>
-                                    <input name="tahun_anggaran" type="date" class="form-control @error('tahun_anggaran') is-invalid @enderror" value="{{old('tahun_anggaran')}}" />
+                                    <input type="date" name="tahun_anggaran" class="form-control @error('tahun_anggaran') is-invalid @enderror" value="{{old('tahun_anggaran')}}" />
                                     @error('tahun_anggaran')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
@@ -129,7 +132,7 @@
 
                                 <div class="col-md-3">
                                     <label>Keterangan</label>
-                                    <input name="keterangan" type="text" class="form-control @error('keterangan') is-invalid @enderror" value="{{old('keterangan')}}" placeholder="Boleh tidak diisi"/>
+                                    <input name="keterangan" type="text" class="form-control @error('keterangan') is-invalid @enderror" value="{{old('keterangan')}}" placeholder="Boleh tidak diisi" />
                                     @error('keterangan')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
@@ -212,10 +215,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div>
-                            <center>
-                                <input type="submit" class="btn btn-primary" name="selanjutnya" id="selanjutnya" value="Selanjutnya">
-                            </center>
+                        <div class="col text-center">
+                            <input type="submit" class="btn btn-success btn-lg" name="selanjutnya" id="selanjutnya" value="Buat" style="padding: 5px 50px; margin-top: 10px;">
                         </div>
                     </form>
                 </div>

@@ -14,22 +14,36 @@ class PermissionTableSeeder extends Seeder
     {
         //
         $permissions = [
-            'role-list',
-            'role-edit',
-            'role-create',
-            'role-delete',
-            'user-list',
-            'user-edit',
-            'user-create',
-            'user-delete',
-            'karyawan-list',
-            'karyawan-edit',
-            'karyawan-create',
-            'karyawan-delete',
-            'mataanggaran-list',
-            'mataanggaran-edit',
-            'mataanggaran-create',
-            'mataanggaran-delete',
+            //SDM
+            'sdm-create',
+            'sdm-edit',
+            'sdm-list',
+            'sdm-delete',
+            'sdm-show',
+            //UMUM
+            'umum-create',
+            'umum-edit',
+            'umum-list',
+            'umum-delete',
+            'umum-show',
+            //Role&User
+            'admin-create',
+            'admin-edit',
+            'admin-list',
+            'admin-delete',
+            'admin-show',
+            //History
+            'history-create',
+            'history-edit',
+            'history-list',
+            'history-delete',
+            'history-show',
+            //inventory
+            'inventory-create',
+            'inventory-edit',
+            'inventory-list',
+            'inventory-delete',
+            'inventory-show',
         ];
         
         foreach ($permissions as $permission) {

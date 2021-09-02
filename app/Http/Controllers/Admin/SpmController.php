@@ -69,6 +69,8 @@ class SpmController extends Controller
 
         $nomorSurat = Spm::whereYear("created_at", Carbon::now()->year)->count();
 
+        $sp2bj = Sppbj::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->first();
+
         $data_spm = Spm::create([
             'user_id'           => auth()->id(),
             'ttd1'              => $request->ttd1,
@@ -82,6 +84,7 @@ class SpmController extends Controller
             'penerima_dana'     => $request->penerima_dana,
             'nomor_rekening'    => $request->nomor_rekening,
             'bank'              => $request->bank,
+            'sppbj_id'          => $sp2bj->id,
             'nomor_surat_spm'   => $nomorSurat + 1,
         ]);
 

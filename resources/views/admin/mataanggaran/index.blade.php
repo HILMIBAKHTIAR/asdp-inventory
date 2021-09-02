@@ -12,7 +12,9 @@
             @endif
             <h6 class="m-0 font-weight-bold text-primary">Data Mata Anggaran</h6>
             <div class="d-flex justify-content-end">
+                @can('sdm-create')
                 <a href="{{route('mataanggaran.create')}}" class="btn btn-primary"> Tambah</a>
+                @endcan
             </div>
         </div>
         <div class="card-body">
@@ -34,12 +36,16 @@
                             <td>{{$row->keterangan}}</td>
 
                             <td class="d-flex">
+                                @can('sdm-edit')
                                 <a href="{{route('mataanggaran.edit',$row->id)}}" class="btn btn-primary mr-2">Edit</a>
+                                @endcan
+                                @can('sdm-delete')
                                 <form action="{{route('mataanggaran.destroy', $row->id)}}" method="post">
                                     @method('DELETE')
                                     @csrf
                                     <button class="btn btn-danger" type="submit">Hapus</button>
                                 </form>
+                                @endcan
                             </td>
                         </tr>
                         @endforeach

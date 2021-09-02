@@ -25,16 +25,16 @@
     }
 
     .right-border {
-            border: 1px solid black;
-            border-right: none;
-            border-collapse: collapse;
-        }
+      border: 1px solid black;
+      border-right: none;
+      border-collapse: collapse;
+    }
 
-        .left-border {
-            border: 1px solid black;
-            border-left: none;
-            border-collapse: collapse;
-        }
+    .left-border {
+      border: 1px solid black;
+      border-left: none;
+      border-collapse: collapse;
+    }
   </style>
 
 </head>
@@ -67,7 +67,7 @@
         margin-top: 0;
         margin-bottom: 0;
       }
-      
+
 
       body {
         padding-top: 60px;
@@ -221,10 +221,10 @@
             <td style="width: 229.711px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Terbilang</td>
             <td style="width: 847.289px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">
               <i id="terbilangPpn" style="text-transform: capitalize; display:none;">
-                :&nbsp; {{terbilang($subtotal + ($subtotal * 10/100)) }} Rupiah
+                :&nbsp; {{terbilang($subtotal + ($subtotal * 10/100)) }} rupiah
               </i>
               <i id="noTerbilangPpn" style="text-transform: capitalize;">
-                :&nbsp; {{terbilang($subtotal) }} Rupiah
+                :&nbsp; {{terbilang($subtotal) }} rupiah
               </i>
             </td>
           </tr>
@@ -286,7 +286,7 @@
 
   <div class="container-lg text-center mt-4 mb-4">
     <button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary" style="margin-right: 4cm;">cetak</button>
-    <a href="{{url('admin/verspm/create')}}" name="Selanjutnya" class="btn btn-success">Selanjutnya</a>
+    <a href="{{route('spmhistori.index')}}" class="btn btn-success">Kembali</a>
 
   </div>
 
@@ -297,7 +297,7 @@
       var noPpnAwal = document.getElementById("noPpnAwal");
       var terbilangPpn = document.getElementById("terbilangPpn");
       var noTerbilangPpn = document.getElementById("noTerbilangPpn");
-      if (checkBox.checked == true){
+      if (checkBox.checked == true) {
         ppnAwal.style.display = "block";
         terbilangPpn.style.display = "block";
         noPpnAwal.style.display = "none";

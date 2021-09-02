@@ -8,20 +8,23 @@
         </div>
         {{-- <div class="sidebar-brand-text mx-3">asdp</div> --}}
     </a>
-
+    
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
-
+    
     <!-- Nav Item - Dashboard -->
-
+    
     <li class="nav-item active ">
         <a class="nav-link" href="{{url('/admin')}}">
             <i style="color: #e64614" class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dasboard</span></a>
-    </li>
-    <!-- Divider -->
-    <hr class="sidebar-divider">
+        </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
+    
+    @hasanyrole('admin|umum')
+    
     <!-- Heading Umum -->
     <div class="sidebar-heading">
         Umum
@@ -37,15 +40,20 @@
         <div id="pengadaan" class="collapse" aria-labelledby="pengadaann" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Pengadaan:</h6>
+                @can('umum-create')
                 <a class="collapse-item" href="{{route('sp2bj.create')}}">Sppbj</a>
+                @endcan
+                @can('umum-list')
                 <a class="collapse-item" href="{{route('surat.index')}}">Sppbj Manual</a>
+                @endcan
                 <a class="collapse-item" href="">Pembelian Dengan Pesanan</a>
                 <a class="collapse-item" href="">Penunjukan Langsung</a>
                 <a class="collapse-item" href="">Lelang Pemilihan Langsung</a>
             </div>
         </div>
     </li>
-
+    @endhasanyrole
+    @hasanyrole('admin|umum')
     <!--Nav pemeliharaan -->
     <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pemeliharaan" aria-expanded="true" aria-controls="pemeliharaan">
@@ -61,7 +69,8 @@
             </div>
         </div>
     </li>
-
+    @endhasanyrole
+    @hasanyrole('admin|umum')
     <!--Nav aset -->
     <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#aset" aria-expanded="true" aria-controls="aset">
@@ -77,11 +86,13 @@
             </div>
         </div>
     </li>
-
-    @role('admin')
+    
     <!-- Divider -->
+    @endhasanyrole
+    @role('admin')
     <hr class="sidebar-divider">
-
+    @endrole
+    @hasanyrole('admin|sdm')
     <!-- Heading SDM -->
     <div class="sidebar-heading">
         SDM
@@ -89,20 +100,28 @@
 
     <!--Nav karyawan -->
     <li class="nav-item active">
+        @can('sdm-list')
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#colkaryawan" aria-expanded="true" aria-controls="colkaryawan">
             <i style="color: #e64614" class="fas fa-fw fa fa-user-tie"></i>
             <span>Data Karyawan</span>
         </a>
+        @endcan
 
         <div id="colkaryawan" class="collapse" aria-labelledby="collkaryawan" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Data Karyawan:</h6>
+                @can('sdm-list')
                 <a class="collapse-item" href="{{route('karyawan.index')}}">Karyawan</a>
+                @endcan
+                @can('sdm-list')
                 <a class="collapse-item" href="{{route('mataanggaran.index')}}">Mataanggaran</a>
+                @endcan
                 <a class="collapse-item" href="">Nominatif</a>
             </div>
         </div>
     </li>
+    @endhasanyrole
+    @hasanyrole('admin|sdm')
     <!--Nav Cuti -->
     <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#cuti" aria-expanded="true" aria-controls="cuti">
@@ -119,6 +138,8 @@
             </div>
         </div>
     </li>
+    @endhasanyrole
+    @hasanyrole('admin|sdm')
     <!-- Nav Pemutakhiran Data -->
     <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pemutakhiran" aria-expanded="true" aria-controls="pemutakhiran">
@@ -135,6 +156,8 @@
             </div>
         </div>
     </li>
+    @endhasanyrole
+    @hasanyrole('admin|sdm')
     <!-- Nav Pay Pall -->
     <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#gaji" aria-expanded="true" aria-controls="gaji">
@@ -150,7 +173,47 @@
             </div>
         </div>
     </li>
+    @endhasanyrole
+    @role('admin')
+    <!-- Divider -->
+    <hr class="sidebar-divider">
 
+    <!-- Heading Admin Page -->
+    <div class="sidebar-heading">
+        Inventory
+    </div>
+
+    <li class="nav-item active">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#stokgudang" aria-expanded="true" aria-controls="paypal">
+            <i style="color: #e64614" class="fas fa-fw fa fa-archive"></i>
+            <span>Stok Gudang</span>
+        </a>
+
+        <div id="stokgudang" class="collapse" aria-labelledby="stokgudang" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Stok Gudang:</h6>
+                <a class="collapse-item" href="">Data Barang</a>
+                <a class="collapse-item" href="">Laporan Rekap</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item active">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#spj" aria-expanded="true" aria-controls="paypal">
+            <i style="color: #e64614" class="fas fa-fw fa  fa-plane"></i>
+            <span>SPJ(Perjalanan Dinas)</span>
+        </a>
+
+        <div id="spj" class="collapse" aria-labelledby="spj" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Spj:</h6>
+                <a class="collapse-item" href="">PPD</a>
+                <a class="collapse-item" href="">SPPD</a>
+            </div>
+        </div>
+    </li>
+    @endrole
+    @hasanyrole('admin|umum')
     <!-- Divider -->
     <hr class="sidebar-divider">
 
@@ -175,6 +238,8 @@
             </div>
         </div>
     </li>
+    @endhasanyrole
+    @role('admin')
 
     <!-- Divider -->
     <hr class="sidebar-divider">
@@ -206,5 +271,4 @@
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
     @endrole
-
 </ul>

@@ -91,7 +91,9 @@
         </tbody>
       </table>
 
+
       <br>
+
 
       <table width="910" align="center" cellpadding="0" cellspacing="0" style="width: 1011px;">
         <tbody>
@@ -107,7 +109,7 @@
         <tbody>
           <tr>
             <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 249px;">Nama</td>
-            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">:&nbsp;{{$data_verspmm->karyawan->nama_karyawan}}</td>
+            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">:&nbsp;{{$verspm->karyawan->nama_karyawan}}</td>
           </tr>
           <tr>
             <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 249px;">Jenis Pekerjaan</td>
@@ -115,19 +117,19 @@
           </tr>
           <tr>
             <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 249px;">Uraian Pekerjaan</td>
-            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">: {{$data_verspmm->uraian_pekerjaan}}</td>
+            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">: {{$verspm->uraian_pekerjaan}}</td>
           </tr>
           <tr>
             <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 249px;">Anggaran Tahun</td>
-            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">: {{ date('Y', strtotime($data_verspmm->tahun_anggaran)) }}</td>
+            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">: {{ date('Y', strtotime($verspm->tahun_anggaran)) }}</td>
           </tr>
           <tr>
             <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 249px;">Penanggung Jawab Anggaran</td>
-            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">: Divisi {{$data_verspmm->devisi}}</td>
+            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">: Divisi {{$spm->devisi}}</td>
           </tr>
           <tr>
             <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 249px;">Verifikator</td>
-            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">:&nbsp;{{$data_verspmm->verif->nama_karyawan}}</td>
+            <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 1043.74px;">:&nbsp;{{$verspm->verif->nama_karyawan}}</td>
           </tr>
         </tbody>
       </table>
@@ -152,14 +154,14 @@
               <p style="margin: 12px;">Dokumen Yang mendasari Biaya</p>
             </td>
             <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 25%; height: 23px;">
-              <p style="margin: 12px;">SPPBJ.{{$data_verspmm->no_sppbj}}/UM/ASDP-KTP/<?= date('Y') ?></p>
+              <p style="margin: 12px;">SPPBJ.{{$sp2bj->nomor_surat}}/UM/ASDP-KTP/<?= date('Y') ?></p>
             </td>
             <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 267.051px; height: 23px;">
-              <p style="margin: 12px;">{{tanggal_indonesia($data_verspmm->tanggal_sppbj)}}</p>
+              <p style="margin: 12px;">{{tanggal_indonesia($sp2bj->tanggal_surat)}}</p>
             </td>
             <td class="no-bottom-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 284.949px; height: 23px;">
-              <p id="sppbjPpn" style="margin: 12px; display:none;">Rp.{{number_format($data_verspmm->jumlah_harga_sppbj + ($data_verspmm->jumlah_harga_sppbj * 10/100))}},00</p>
-              <p id="noSppbjPpn" style="margin: 12px; ">Rp.{{number_format($data_verspmm->jumlah_harga_sppbj)}},00</p>
+              <p id="sppbjPpn" style="margin: 12px; display:none;">Rp.{{number_format($subtotal + ($subtotal * 10/100), 0,',','.')}},00</p>
+              <p id="noSppbjPpn" style="margin: 12px;">Rp.{{number_format($subtotal, 0,',','.')}},00</p>
             </td>
             <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 421px; height: 23px;">
               <p style="margin: 12px;"></p>
@@ -173,14 +175,13 @@
               <p style="margin: 12px;">BUKTI PENERIMAAN BARANG/JASA (BPB/J)</p>
             </td>
             <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;">
-              <p style="margin: 12px;"></p>&nbsp;&nbsp;&nbsp;SPBJ.{{$data_verspmm->no_berita}}/UM/ASDP-KTP/<?= date('Y') ?>
+              <p style="margin: 12px;"></p>&nbsp;&nbsp;&nbsp;SPBJ.{{$sp2bj->nomor_surat}}/UM/ASDP-KTP/<?= date('Y') ?>
             </td>
             <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;">
-              <p style="margin: 12px;">{{tanggal_indonesia($data_verspmm->tanggal_berita_acara)}}</p>
+              <p style="margin: 12px;">{{tanggal_indonesia($berita->tanggal_surat)}}</p>
             </td>
             <td class="no-bottom-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 284.949px; height: 23px;">
-              <p id="beritaPpn" style="margin: 12px;display:none;">Rp.{{number_format($data_verspmm->jumlah_harga_berita + ($data_verspmm->jumlah_harga_berita * 10/100))}},00</p>
-              <p id="noBeritaPpn" style="margin: 12px;">Rp.{{number_format($data_verspmm->jumlah_harga_berita)}},00</p>
+              <p style="margin: 12px;"></p>
             </td>
             <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;">
               <p style="margin: 12px"></p>
@@ -199,17 +200,16 @@
               <p style="margin: 12px;"></p>
             </td>
             <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;">
-              @if (isset($data_verspmm->tanggal_skb))
+              @if (isset($skb->tanggal_surat))
               <p style="margin: 12px;">
-                {{tanggal_indonesia($data_verspmm->tanggal_skb)}}
+                {{tanggal_indonesia($skb->tanggal_surat)}}
               </p>
               @else
               <p style="margin: 12px;"></p>
               @endif
             </td>
             <td class="no-bottom-border text-end" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; width: 284.949px; height: 23px;">
-              <p id="skbPpn" style="margin: 12px;display:none;">Rp.{{number_format($data_verspmm->jumlah_harga_skb + ($data_verspmm->jumlah_harga_skb * 10/100))}},00</p>
-              <p id="noSkbPpn" style="margin: 12px;">Rp.{{number_format($data_verspmm->jumlah_harga_skb)}},00</p>
+              <p style="margin: 12px;"></p>
             </td>
             <td class="no-bottom-border" style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black; margin-bottom:60px;">
               <p style="margin: 12px"></p>
@@ -252,7 +252,7 @@
       <table width="910" align="center" cellpadding="0" cellspacing="0" style="width: 1011px;">
         <tbody>
           <tr>
-            <td style="font-size: 14.0pt; font-family: FrutigerExt-Normal; color: black; width: 622.938px;">KETAPANG, {{tanggal_indonesia($data_verspmm->tanggal_surat)}}</td>
+            <td style="font-size: 14.0pt; font-family: FrutigerExt-Normal; color: black; width: 622.938px;">KETAPANG, {{tanggal_indonesia($verspm->tanggal_surat)}}</td>
             <td style="width: 651.062px;">&nbsp;</td>
           </tr>
           <tr>
@@ -262,7 +262,7 @@
               <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
               <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
               <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US">&nbsp;</span></p>
-              <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">{{$data_verspmm->tanda1->nama_karyawan}}</span></p>
+              <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">{{$verspm->tanda1->nama_karyawan}}</span></p>
             </td>
             <td style="width: 651.062px;">
               <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Pembuat,</span></p>
@@ -270,7 +270,7 @@
               <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
               <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">&nbsp;</span></p>
               <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US">&nbsp;</span></p>
-              <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">{{$data_verspmm->tanda2->nama_karyawan}}</span></p>
+              <p style="margin: 0cm; text-align: center;" align="center"><span lang="EN-US" style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">{{$verspm->tanda2->nama_karyawan}}</span></p>
             </td>
           </tr>
         </tbody>
@@ -284,7 +284,7 @@
 
   <div class="container-lg text-center mt-4 mb-4">
     <button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary" style="margin-right: 4cm;">cetak</button>
-    <a href="{{url('admin/verspmm')}}" name="Selanjutnya" class="btn btn-success">Kembali</a>
+    <a href="{{url('admin/sp2bj/create')}}" name="Selanjutnya" class="btn btn-success">Selesai</a>
   </div>
 
   <script>
@@ -292,24 +292,12 @@
       var checkBox = document.getElementById("ppn");
       var sppbjPpn = document.getElementById("sppbjPpn");
       var noSppbjPpn = document.getElementById("noSppbjPpn");
-      var skbPpn = document.getElementById("skbPpn");
-      var noSkbPpn = document.getElementById("noSkbPpn");
-      var beritaPpn = document.getElementById("beritaPpn");
-      var noBeritaPpn = document.getElementById("noBeritaPpn");
-      if (checkBox.checked == true) {
+      if (checkBox.checked == true){
         sppbjPpn.style.display = "block";
-        skbPpn.style.display = "block";
-        beritaPpn.style.display = "block";
         noSppbjPpn.style.display = "none";
-        noSkbPpn.style.display = "none";
-        noBeritaPpn.style.display = "none";
       } else {
         sppbjPpn.style.display = "none";
-        skbPpn.style.display = "none";
-        beritaPpn.style.display = "none";
         noSppbjPpn.style.display = "block";
-        noSkbPpn.style.display = "block";
-        noBeritaPpn.style.display = "block";
       }
     }
   </script>

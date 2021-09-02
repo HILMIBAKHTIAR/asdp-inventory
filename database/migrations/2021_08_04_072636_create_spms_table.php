@@ -16,6 +16,7 @@ class CreateSpmsTable extends Migration
         Schema::create('spms', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('sppbj_id');
             $table->unsignedBigInteger('ttd1');
             $table->unsignedBigInteger('ttd2');
             $table->unsignedBigInteger('ttd3');
@@ -36,6 +37,7 @@ class CreateSpmsTable extends Migration
             $table->integer('nomor_surat_spm');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('sppbj_id')->references('id')->on('sppbjs')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('ttd1')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('ttd2')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('ttd3')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');

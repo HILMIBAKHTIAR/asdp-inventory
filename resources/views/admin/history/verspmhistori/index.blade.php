@@ -21,34 +21,28 @@
                     <thead>
                         <tr>
                             <th>NO</th>
-                            <th>Nomor Surat</th>
-                            <th>Tanggal Surat</th>
-                            <th>Nama Pengadaan</th>
-                            <th>Nama Peminta</th>
-                            <th>Pembuat</th>
+                            <th>Verifikator</th>
+                            <th>Tanggal Surat Dibuat</th>
+                            <th>Uraian Pekerjaan</th>
+                            <th>Divisi</th>
+                            <th>User/Pembuat</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($data_verspm as $item)
                         <tr>
-                            @foreach($data_sppbj as $item)
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$item->nomor_surat}}</td>
+                            <td>{{$item->verif->nama_karyawan}}</td>
                             <td>{{$item->tanggal_surat}}</td>
-                            <td>{{$item->nama_pengadaan}}</td>
-                            <td>{{$item->karyawan->jabatan}} - {{$item->karyawan->nama_karyawan}}</td>
+                            <td>{{$item->sp2bj->nama_pengadaan}}</td>
+                            <td>{{$item->spm->devisi}}</td>
                             <td>{{$item->user->name}}</td>
                             <td class="d-flex">
-                                <a href="{{route('sppbjhistori.show',$item->id)}}" class="btn btn-success mr-2">Show</a>
-                                <a href="" class="btn btn-primary mr-2">Edit</a>
-                                <form action="" method="post">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button class="ml-5 btn btn-danger" type="submit">Hapus</button>
-                                </form>
+                                <a href="{{route('verspmhistori.show',$item->id)}}" class="btn btn-success">Show</a>
                             </td>
-                            @endforeach
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

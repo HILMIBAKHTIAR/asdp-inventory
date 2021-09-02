@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\History;
 
 use App\Berita;
+use App\Sppbj;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -49,6 +50,14 @@ class BeritaHistoryController extends Controller
     public function show($id)
     {
         //
+        $sp2bj = Sppbj::findOrFail($id);
+        $berita = Berita::findOrFail($id);
+        $subtotal = $sp2bj
+            ->barang
+            ->map(function ($el) {
+                return $el->harga_satuan * $el->jumlah;
+            })->sum();
+        return view('admin.history.beritahistori.showberita', compact('sp2bj', 'berita', 'subtotal'));
     }
 
     /**
