@@ -4,6 +4,9 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Content Row -->
+    <div class="mb-2 d-flex justify-content-start">
+        <a href="{{route('berita.create')}}" class="btn btn-success"> Kembali</a>
+    </div>
     <div class="row">
         <div class="col-xl-12 col-lg-12">
             <div class="card mb-4">
@@ -51,9 +54,9 @@
                                     <div class="form-group">
                                         <label>Satuan</label>
                                         <select name="satuan[]" type="text" class="form-control">
-                                            <option value="roll">roll</option>
-                                            <option value="pcs">pcs</option>
-                                            <option value="unit">unit</option>
+                                            <option value="Roll">Roll</option>
+                                            <option value="Unit">Unit</option>
+                                            <option value="Pcs">Pcs</option>
                                             <option value="Pack">Pack</option>
                                             <option value="Set">Set</option>
                                             <option value="Batang">Batang</option>
@@ -143,12 +146,13 @@
                                             <td>
                                                 <select name="satuan[]" type="text" class="form-control">
                                                     @foreach([
-                                                        "roll" => "roll",
-                                                        "pcs" => "pcs",
-                                                        "unit" => "unit",
+                                                        "Roll" => "Roll",
+                                                        "Unit" => "Unit",
+                                                        "Pcs" => "Pcs",
                                                         "Pack" => "Pack",
                                                         "Set" => "Set",
                                                         "Batang" => "Batang",
+                                                        "Lusin" => "Lusin",
                                                         "Botol" => "Botol",
                                                         "Kotak" => "Kotak",
                                                         "Gross" => "Gross",

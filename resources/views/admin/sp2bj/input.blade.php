@@ -121,10 +121,10 @@
                                                 </td>
                                                 <td>
                                                     <select class="form-control" name="satuan[]">
-                                                        <option value="roll" {{old('satuan')[$i] == 'roll' ? 'selected' : '' }}>roll</option>
-                                                        <option value="pcs" {{old('satuan')[$i] == 'pcs' ? 'selected' : '' }}>pcs</option>
-                                                        <option value="unit" {{old('satuan')[$i] == 'unit' ? 'selected' : '' }}>unit</option>
-                                                        <option value="pack" {{old('satuan')[$i] == 'pack' ? 'selected' : '' }}>Pack</option>
+                                                        <option value="Roll" {{old('satuan')[$i] == 'Roll' ? 'selected' : '' }}>roll</option>
+                                                        <option value="Unit" {{old('satuan')[$i] == 'Unit' ? 'selected' : '' }}>unit</option>
+                                                        <option value="Pcs" {{old('satuan')[$i] == 'Pcs' ? 'selected' : '' }}>pcs</option>
+                                                        <option value="Pack" {{old('satuan')[$i] == 'Pack' ? 'selected' : '' }}>Pack</option>
                                                         <option value="Set" {{old('satuan')[$i] == 'Set' ? 'selected' : '' }}>Set</option>
                                                         <option value="Batang" {{old('satuan')[$i] == 'Batang' ? 'selected' : '' }}>Batang</option>
                                                         <option value="Lusin" {{old('satuan')[$i] == 'Lusin' ? 'selected' : '' }}>Lusin</option>
@@ -185,9 +185,9 @@
                                                 </td>
                                                 <td>
                                                     <select class="form-control" name="satuan[]">
-                                                        <option value="roll">roll</option>
-                                                        <option value="pcs">pcs</option>
-                                                        <option value="unit">unit</option>
+                                                       <option value="Roll">Roll</option>
+                                                        <option value="Unit">Unit</option>
+                                                        <option value="Pcs">Pcs</option>
                                                         <option value="Pack">Pack</option>
                                                         <option value="Set">Set</option>
                                                         <option value="Batang">Batang</option>
@@ -337,32 +337,32 @@
                 </td>
                 <td>
                     <select class="form-control" name="satuan[]">
-                        <option value="roll">roll</option>
-                                                <option value="pcs">pcs</option>
-                                                <option value="unit">unit</option>
-                                                <option value="Pack">Pack</option>
-                                                <option value="Set">Set</option>
-                                                <option value="Batang">Batang</option>
-                                                <option value="Lusin">Lusin</option>
-                                                <option value="Botol">Botol</option>
-                                                <option value="Kotak">Kotak</option>
-                                                <option value="Gross">Gross</option>
-                                                <option value="Rim">Rim</option>
-                                                <option value="Kodi">Kodi</option>
-                                                <option value="Dus">Dus</option>
-                                                <option value="Bal">Bal</option>
-                                                <option value="Ls">Ls</option>
-                                                <option value="Meter">Meter</option>
-                                                <option value="Gram">Gram</option>
-                                                <option value="Cm">Cm</option>
-                                                <option value="M2">M2</option>
-                                                <option value="M3">M3</option>
-                                                <option value="Liter">Liter</option>
-                                                <option value="Kg">Kg</option>
-                                                <option value="Ton">Ton</option>
-                                                <option value="Ons">Ons</option>
-                                                <option value="Lembar">Lembar</option>
-                                                <option value="Orang">Orang</option>
+                        <option value="Roll">Roll</option>
+                        <option value="Unit">Unit</option>
+                        <option value="Pcs">Pcs</option>
+                        <option value="Pack">Pack</option>
+                        <option value="Set">Set</option>
+                        <option value="Batang">Batang</option>
+                        <option value="Lusin">Lusin</option>
+                        <option value="Botol">Botol</option>
+                        <option value="Kotak">Kotak</option>
+                        <option value="Gross">Gross</option>
+                        <option value="Rim">Rim</option>
+                        <option value="Kodi">Kodi</option>
+                        <option value="Dus">Dus</option>
+                        <option value="Bal">Bal</option>
+                        <option value="Ls">Ls</option>
+                        <option value="Meter">Meter</option>
+                        <option value="Gram">Gram</option>
+                        <option value="Cm">Cm</option>
+                        <option value="M2">M2</option>
+                        <option value="M3">M3</option>
+                        <option value="Liter">Liter</option>
+                        <option value="Kg">Kg</option>
+                        <option value="Ton">Ton</option>
+                        <option value="Ons">Ons</option>
+                        <option value="Lembar">Lembar</option>
+                        <option value="Orang">Orang</option>
                     </select>
                 </td>
                 <td>

@@ -95,10 +95,10 @@
                                                 </td>
                                                 <td>
                                                     <select class="form-control" name="satuan[]">
-                                                        <option value="roll" {{old('satuan')[$i] == 'roll' ? 'selected' : '' }}>roll</option>
-                                                        <option value="pcs" {{old('satuan')[$i] == 'pcs' ? 'selected' : '' }}>pcs</option>
-                                                        <option value="unit" {{old('satuan')[$i] == 'unit' ? 'selected' : '' }}>unit</option>
-                                                        <option value="pack" {{old('satuan')[$i] == 'pack' ? 'selected' : '' }}>Pack</option>
+                                                        <option value="Roll" {{old('satuan')[$i] == 'Roll' ? 'selected' : '' }}>roll</option>
+                                                        <option value="Unit" {{old('satuan')[$i] == 'Unit' ? 'selected' : '' }}>unit</option>
+                                                        <option value="Pcs" {{old('satuan')[$i] == 'Pcs' ? 'selected' : '' }}>pcs</option>
+                                                        <option value="Pack" {{old('satuan')[$i] == 'Pack' ? 'selected' : '' }}>Pack</option>
                                                         <option value="Set" {{old('satuan')[$i] == 'Set' ? 'selected' : '' }}>Set</option>
                                                         <option value="Batang" {{old('satuan')[$i] == 'Batang' ? 'selected' : '' }}>Batang</option>
                                                         <option value="Lusin" {{old('satuan')[$i] == 'Lusin' ? 'selected' : '' }}>Lusin</option>
@@ -159,9 +159,9 @@
                                                 </td>
                                                 <td>
                                                     <select class="form-control" name="satuan[]">
-                                                        <option value="roll">roll</option>
-                                                        <option value="pcs">pcs</option>
-                                                        <option value="unit">unit</option>
+                                                        <option value="Roll">Roll</option>
+                                                        <option value="Unit">Unit</option>
+                                                        <option value="Pcs">Pcs</option>
                                                         <option value="Pack">Pack</option>
                                                         <option value="Set">Set</option>
                                                         <option value="Batang">Batang</option>
@@ -276,9 +276,9 @@
                                                 </td>
                                                 <td>
                                                     <select class="form-control" name="satuan[]">
-                                                        <option value="roll">roll</option>
-                                                        <option value="pcs">pcs</option>
-                                                        <option value="unit">unit</option>
+                                                        <option value="Roll">Roll</option>
+                                                        <option value="Unit">Unit</option>
+                                                        <option value="Pcs">Pcs</option>
                                                         <option value="Pack">Pack</option>
                                                         <option value="Set">Set</option>
                                                         <option value="Batang">Batang</option>
