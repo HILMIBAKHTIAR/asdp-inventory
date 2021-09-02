@@ -221,10 +221,10 @@
             <td style="width: 229.711px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Terbilang</td>
             <td style="width: 847.289px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">
               <i id="terbilangPpn" style="text-transform: capitalize; display:none;">
-                :&nbsp; {{terbilang($subtotal + ($subtotal * 10/100)) }} rupiah
+                :&nbsp; {{terbilang($subtotal + ($subtotal * 10/100)) }} Rupiah
               </i>
               <i id="noTerbilangPpn" style="text-transform: capitalize;">
-                :&nbsp; {{terbilang($subtotal) }} rupiah
+                :&nbsp; {{terbilang($subtotal) }} Rupiah
               </i>
             </td>
           </tr>

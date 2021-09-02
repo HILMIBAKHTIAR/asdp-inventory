@@ -22,6 +22,8 @@ function terbilang($angka)
         $terbilang = terbilang($angka / 1000) . " ribu" . terbilang($angka % 1000);
     } else if ($angka < 1000000000) {
         $terbilang = terbilang($angka / 1000000) . " juta" . terbilang($angka % 1000000);
+    } else if ($angka < 1000000000000) {
+        $terbilang = terbilang($angka / 1000000000) . " miliar" . terbilang($angka % 1000000000);
     }
     return $terbilang;
 }
