@@ -96,6 +96,9 @@
                             
                             <div class="form-row">
                                 <div class="table-responsive">
+                                    <div class="text-right">
+                                        <input class="btn btn-primary mr-2 mb-2" type="button" name="tambah" id="tambah" value="Tambah">
+                                    </div>
                                     <table class="table table-bordered" id="tableSppbj" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
@@ -108,7 +111,72 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @forelse (old('jumlah', []) as $i => $name_progress)
                                             <tr>
+                                                <td>
+                                                    <input name="jumlah[]" type="number" class="form-control @error('jumlah.*') is-invalid @enderror" value="{{$name_progress}}">
+                                                    @error('jumlah.*')
+                                                    <div class="invalid-feedback">{{$message}}</div>
+                                                    @enderror
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" name="satuan[]">
+                                                        <option value="roll" {{old('satuan')[$i] == 'roll' ? 'selected' : '' }}>roll</option>
+                                                        <option value="pcs" {{old('satuan')[$i] == 'pcs' ? 'selected' : '' }}>pcs</option>
+                                                        <option value="unit" {{old('satuan')[$i] == 'unit' ? 'selected' : '' }}>unit</option>
+                                                        <option value="pack" {{old('satuan')[$i] == 'pack' ? 'selected' : '' }}>Pack</option>
+                                                        <option value="Set" {{old('satuan')[$i] == 'Set' ? 'selected' : '' }}>Set</option>
+                                                        <option value="Batang" {{old('satuan')[$i] == 'Batang' ? 'selected' : '' }}>Batang</option>
+                                                        <option value="Lusin" {{old('satuan')[$i] == 'Lusin' ? 'selected' : '' }}>Lusin</option>
+                                                        <option value="Botol" {{old('satuan')[$i] == 'Botol' ? 'selected' : '' }}>Botol</option>
+                                                        <option value="Kotak" {{old('satuan')[$i] == 'Kotak' ? 'selected' : '' }}>Kotak</option>
+                                                        <option value="Gross" {{old('satuan')[$i] == 'Gross' ? 'selected' : '' }}>Gross</option>
+                                                        <option value="Rim" {{old('satuan')[$i] == 'Rim' ? 'selected' : '' }}>Rim</option>
+                                                        <option value="Kodi" {{old('satuan')[$i] == 'Kodi' ? 'selected' : '' }}>Kodi</option>
+                                                        <option value="Dus" {{old('satuan')[$i] == 'Dus' ? 'selected' : '' }}>Dus</option>
+                                                        <option value="Bal" {{old('satuan')[$i] == 'Bal' ? 'selected' : '' }}>Bal</option>
+                                                        <option value="Ls" {{old('satuan')[$i] == 'Ls' ? 'selected' : '' }}>Ls</option>
+                                                        <option value="Meter" {{old('satuan')[$i] == 'Meter' ? 'selected' : '' }}>Meter</option>
+                                                        <option value="Gram" {{old('satuan')[$i] == 'Gram' ? 'selected' : '' }}>Gram</option>
+                                                        <option value="Cm" {{old('satuan')[$i] == 'Cm' ? 'selected' : '' }}>Cm</option>
+                                                        <option value="M2" {{old('satuan')[$i] == 'M2' ? 'selected' : '' }}>M2</option>
+                                                        <option value="M3" {{old('satuan')[$i] == 'M3' ? 'selected' : '' }}>M3</option>
+                                                        <option value="Liter" {{old('satuan')[$i] == 'Liter' ? 'selected' : '' }}>Liter</option>
+                                                        <option value="Kg" {{old('satuan')[$i] == 'Kg' ? 'selected' : '' }}>Kg</option>
+                                                        <option value="Ton" {{old('satuan')[$i] == 'Ton' ? 'selected' : '' }}>Ton</option>
+                                                        <option value="Ons" {{old('satuan')[$i] == 'Ons' ? 'selected' : '' }}>Ons</option>
+                                                        <option value="Lembar" {{old('satuan')[$i] == 'Lembar' ? 'selected' : '' }}>Lembar</option>
+                                                        <option value="Orang" {{old('satuan')[$i] == 'Orang' ? 'selected' : '' }}>Orang</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input name="nama_barang[]" type="text" class="form-control @error('nama_barang.*') is-invalid @enderror" value="{{old('nama_barang')[$i]}}">
+                                                    @error('nama_barang.*')
+                                                    <div class="invalid-feedback">{{$message}}</div>
+                                                    @enderror
+                                                </td>
+                                                <td>
+                                                    <input name="spesifikasi[]" type="text" class="form-control @error('spesifikasi.*') is-invalid @enderror" value="{{old('spesifikasi')[$i]}}">
+                                                    @error('spesifikasi.*')
+                                                    <div class="invalid-feedback">{{$message}}</div>
+                                                    @enderror
+                                                </td>
+                                                <td>
+                                                    <input name="harga_satuan[]" type="number" class="form-control @error('harga_satuan.*') is-invalid @enderror" value="{{old('harga_satuan')[$i]}}">
+                                                    @error('harga_satuan.*')
+                                                    <div class="invalid-feedback">{{$message}}</div>
+                                                    @enderror
+                                                </td>
+                                               <td>
+                                                   
+                                                   <input class="hapus btn btn-danger mr-2" type="button" name="hapus" id="hapus" value="Hapus">
+                                            </td>
+                                            </tr>
+
+                                            {{-- empty value original --}}
+                                            @empty
+
+                                             <tr>
                                                 <td>
                                                     <input name="jumlah[]" type="number" class="form-control @error('jumlah.*') is-invalid @enderror">
                                                     @error('jumlah.*')
@@ -163,8 +231,10 @@
                                                     <div class="invalid-feedback">{{$message}}</div>
                                                     @enderror
                                                 </td>
-                                                <td><input class="btn btn-primary mr-2" type="button" name="tambah" id="tambah" value="Tambah"></td>
+                                                <td><input class="hapus btn btn-danger mr-2" type="button" name="hapus" id="hapus" value="Hapus"></td>
                                             </tr>
+                                            @endforelse
+                                            
                                         </tbody>
                                     </table>
                                 </div>
