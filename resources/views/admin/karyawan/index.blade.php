@@ -8,14 +8,26 @@
             <div class="alert alert-success">
                 {{session()->get('sukses')}}
             </div>
-
             @endif
+
             <h6 class="m-0 font-weight-bold text-primary">Data Karyawan</h6>
             <div class="d-flex justify-content-end">
+                
+                <div class="form-row mt-4">
+             <div class="col-md-3 justify-content-start">
+                <a href="{{url('/admin/karyawan/cetak')}}" class="btn btn-warning"> Cetak Data Karyawan</a>
+            </div>
+            <div class="col-md-6">
+                
+            </div>
+
+            <div class="col-md-3 text-right">
                 @can('sdm-create')
                 <a href="{{route('karyawan.create')}}" class="btn btn-primary"> Tambah</a>
                 @endcan
             </div>
+
+        </div>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -88,17 +100,165 @@
         </div>
     </div>
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Chart</h6>
+        <div class="card-body">
+            <div class="form-row justify-content-center">
+                <div class="panel col-lg-10">
+                    <h4 class="text-center">Grafik Usia Karyawan PT.ASDP</h4>
+                    <canvas id="usia" class="rounded shadow"></canvas>
+                </div>
+            </div>
         </div>
         <div class="card-body">
-            <div class="panel">
-
+            <div class="form-row justify-content-center">
+                <div class="panel col-lg-10">
+                    <h4 class="text-center">Grafik Masa Kerja Karyawan PT.ASDP</h4>
+                    <canvas id="masakerja" class="rounded shadow"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="form-row justify-content-center">
+                <div class="panel col-lg-10">
+                    <h4 class="text-center">Grafik Masa Jabatan Karyawan PT.ASDP</h4>
+                    <canvas id="masajabatan" class="rounded shadow"></canvas>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <!-- chart -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+{{-- chart usia --}}
+<script>
+    var ctx = document.getElementById('usia').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'bar',
+        // The data for our dataset
+        data: {
+            labels: {!!json_encode($grafikUsia -> labels) !!},
+            datasets: [{
+                label: 'Usia',
+                backgroundColor: {!!json_encode($grafikUsia -> warnaGrafikUsia) !!},
+                data: {!!json_encode($grafikUsia -> dataset) !!},
+            }, ]
+        },
+        // Configuration options go here
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        callback: function(value) {
+                            if (value % 1 === 0) {
+                                return value;
+                            }
+                        }
+                    },
+                    scaleLabel: {
+                        display: false
+                    }
+                }]
+            },
+            legend: {
+                labels: {
+                    // This more specific font property overrides the global property
+                    fontColor: '#122C4B',
+                    fontFamily: "'Muli', sans-serif",
+                    padding: 25,
+                    boxWidth: 25,
+                    fontSize: 14,
+                }
+            },
+            layout: {
+                padding: {
+                    left: 10,
+                    right: 10,
+                    top: 0,
+                    bottom: 10
+                }
+            }
+        }
+    });
+</script>
+
+{{-- chart masa kerja --}}
+<script>
+    var ctx = document.getElementById('masakerja').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'pie',
+        // The data for our dataset
+        data: {
+            labels: {!!json_encode($grafikMasaKerja -> labels) !!},
+            datasets: [{
+                label: 'Grafik Masa Kerja Karyawan PT.ASDP',
+                backgroundColor: {!!json_encode($grafikMasaKerja -> warnaGrafikMasaKerja) !!},
+                data: {!!json_encode($grafikMasaKerja -> dataset) !!},
+            }, ]
+        },
+        // Configuration options go here
+        options: {
+            legend: {
+                labels: {
+                    // This more specific font property overrides the global property
+                    fontColor: '#122C4B',
+                    fontFamily: "'Muli', sans-serif",
+                    padding: 25,
+                    boxWidth: 25,
+                    fontSize: 14,
+                }
+            },
+            layout: {
+                padding: {
+                    left: 10,
+                    right: 10,
+                    top: 0,
+                    bottom: 10
+                }
+            }
+        }
+    });
+</script>
+
+{{-- chart masa Jabatan --}}
+<script>
+    var ctx = document.getElementById('masajabatan').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'doughnut',
+        // The data for our dataset
+        data: {
+            labels: {!!json_encode($grafikMasaJabatan -> labels) !!},
+            datasets: [{
+                label: 'Grafik Masa Kerja Karyawan PT.ASDP',
+                backgroundColor: {!!json_encode($grafikMasaJabatan -> warnaGrafikMasaJabatan) !!},
+                data: {!!json_encode($grafikMasaJabatan -> dataset) !!},
+            }, ]
+        },
+        // Configuration options go here
+        options: {
+            legend: {
+                labels: {
+                    // This more specific font property overrides the global property
+                    fontColor: '#122C4B',
+                    fontFamily: "'Muli', sans-serif",
+                    padding: 25,
+                    boxWidth: 25,
+                    fontSize: 14,
+                }
+            },
+            layout: {
+                padding: {
+                    left: 10,
+                    right: 10,
+                    top: 0,
+                    bottom: 10
+                }
+            }
+        }
+    });
+</script>
 
 @endsection

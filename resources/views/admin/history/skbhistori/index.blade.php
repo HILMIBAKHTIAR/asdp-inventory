@@ -25,7 +25,7 @@
                             <th>Tanggal Surat</th>
                             <th>Alamat Tujuan</th>
                             <th>Nomor Telp</th>
-                            <th>User Id</th>
+                            <th>User/Pembuat</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -39,13 +39,7 @@
                             <td>{{$item->no_telp}}</td>
                             <td>{{$item->user->name}}</td>
                             <td class="d-flex">
-                                <a href="{{route('skbhistori.show',$item->id)}}" class="btn btn-success mr-2">Show</a>
-                                <a href="" class="btn btn-primary mr-2">Edit</a>
-                                <form action="" method="post">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button class="ml-5 btn btn-danger" type="submit">Hapus</button>
-                                </form>
+                                <a href="{{route('skbhistori.show',$item->id)}}" class="btn btn-success">Show</a>
                             </td>
                         </tr>
                         @endforeach
