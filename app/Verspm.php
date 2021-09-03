@@ -38,17 +38,17 @@ class Verspm extends Model
 
     public function skb()
     {
-        return $this->belongsTo(Skb::class, 'skb_id', 'id');
+        return $this->belongsTo(Skb::class);
     }
 
     public function berita()
     {
-        return $this->belongsTo(Berita::class, 'berita_id', 'id');
+        return $this->belongsTo(Berita::class);
     }
 
     public function spmId()
     {
-        return $this->belongsTo(Spm::class, 'spm_id', 'id');
+        return $this->belongsTo(Spm::class);
     }
 
     public function verif()
