@@ -25,7 +25,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-secondary">
 
     <div class="container">
 
@@ -38,7 +38,7 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block"> <center> <img src="https://i.ibb.co/dQW93Xn/logo-asdp.jpg" alt="" style="margin-left: 55px;"></center></div>
+                            <div class="col-lg-6 d-none d-lg-block text-center">  <img src="https://i.ibb.co/dQW93Xn/logo-asdp.jpg" alt="" style="margin-left: 55px;"></div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
