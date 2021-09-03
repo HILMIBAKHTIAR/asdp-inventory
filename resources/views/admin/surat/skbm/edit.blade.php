@@ -44,9 +44,9 @@
                                     <div class="form-group">
                                         <label>Satuan</label>
                                         <select name="satuan[]" type="text" class="form-control">
-                                            <option value="roll">roll</option>
-                                            <option value="pcs">pcs</option>
-                                            <option value="unit">unit</option>
+                                            <option value="Roll">Roll</option>
+                                            <option value="Unit">Unit</option>
+                                            <option value="Pcs">Pcs</option>
                                             <option value="Pack">Pack</option>
                                             <option value="Set">Set</option>
                                             <option value="Batang">Batang</option>
@@ -194,32 +194,36 @@
                                                 @enderror
                                                 <td>
                                                     <select name="satuan[]" type="text" class="form-control">
-                                                        <option value="roll">roll</option>
-                                                        <option value="pcs">pcs</option>
-                                                        <option value="unit">unit</option>
-                                                        <option value="Pack">Pack</option>
-                                                        <option value="Set">Set</option>
-                                                        <option value="Batang">Batang</option>
-                                                        <option value="Lusin">Lusin</option>
-                                                        <option value="Botol">Botol</option>
-                                                        <option value="Kotak">Kotak</option>
-                                                        <option value="Gross">Gross</option>
-                                                        <option value="Rim">Rim</option>
-                                                        <option value="Kodi">Kodi</option>
-                                                        <option value="Dus">Dus</option>
-                                                        <option value="Bal">Bal</option>
-                                                        <option value="Ls">Ls</option>
-                                                        <option value="Meter">Meter</option>
-                                                        <option value="Gram">Gram</option>
-                                                        <option value="Cm">Cm</option>
-                                                        <option value="M2">M2</option>
-                                                        <option value="M3">M3</option>
-                                                        <option value="Liter">Liter</option>
-                                                        <option value="Kg">Kg</option>
-                                                        <option value="Ton">Ton</option>
-                                                        <option value="Ons">Ons</option>
-                                                        <option value="Lembar">Lembar</option>
-                                                        <option value="Orang">Orang</option>
+                                                        @foreach([
+                                                        "Roll" => "Roll",
+                                                        "Unit" => "Unit",
+                                                        "Pcs" => "Pcs",
+                                                        "Pack" => "Pack",
+                                                        "Set" => "Set",
+                                                        "Batang" => "Batang",
+                                                        "Lusin" => "Lusin",
+                                                        "Botol" => "Botol",
+                                                        "Kotak" => "Kotak",
+                                                        "Gross" => "Gross",
+                                                        "Rim" => "Rim",
+                                                        "Kodi" => "Kodi",
+                                                        "Dus" => "Dus",
+                                                        "Bal" => "Bal",
+                                                        "Ls" => "Ls",
+                                                        "Meter" => "Meter",
+                                                        "Gram" => "Gram",
+                                                        "Cm" => "Cm",
+                                                        "M2" => "M2",
+                                                        "M3" => "M3",
+                                                        "Liter" => "Liter",
+                                                        "Kg" => "Kg",
+                                                        "Ton" => "Ton",
+                                                        "Ons" => "Ons",
+                                                        "Lembar" => "Lembar",
+                                                        "Orang" => "Orang",
+                                                        ] AS $i => $satuans)
+                                                        <option value="{{ $i }}" {{ old("satuan", $item->satuan) == $i ? "selected" : "" }}>{{ $satuans }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </td>
                                                 <td><input name="jumlah[]" type="text" value="{{$item->jumlah}}" class="form-control @error('jumlah.*') is-invalid @enderror">

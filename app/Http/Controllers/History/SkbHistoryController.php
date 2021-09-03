@@ -50,7 +50,7 @@ class SkbHistoryController extends Controller
     public function show($id)
     {
         $skb = Skb::findOrFail($id);
-        $sp2bj = Sppbj::findOrFail($id);
+        $sp2bj = Sppbj::findOrFail($skb->sp2bj_id);
         $subtotal = $sp2bj
             ->barang
             ->map(function ($el) {

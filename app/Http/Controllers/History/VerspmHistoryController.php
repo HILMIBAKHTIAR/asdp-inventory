@@ -53,10 +53,10 @@ class VerspmHistoryController extends Controller
     public function show($id)
     {
         $verspm = Verspm::findOrFail($id);
-        $skb = Skb::find($id);
-        $spm = Spm::findOrFail($id);
-        $sp2bj = Sppbj::findOrFail($id);
-        $berita = Berita::findOrFail($id);
+        $skb = Skb::find($verspm->skb_id);
+        $spm = Spm::findOrFail($verspm->spm_id);
+        $sp2bj = Sppbj::findOrFail($verspm->sp2bj_id);
+        $berita = Berita::findOrFail($verspm->berita_id);
         $subtotal = $sp2bj->barang->map(
             function ($el) {
                 return $el->harga_satuan * $el->jumlah;

@@ -50,8 +50,8 @@ class BeritaHistoryController extends Controller
     public function show($id)
     {
         //
-        $sp2bj = Sppbj::findOrFail($id);
         $berita = Berita::findOrFail($id);
+        $sp2bj = Sppbj::findOrFail($berita->sppbj_id);
         $subtotal = $sp2bj
             ->barang
             ->map(function ($el) {
