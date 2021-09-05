@@ -13,12 +13,12 @@
             <h6 class="m-0 font-weight-bold text-primary">Data Karyawan</h6>
                 
             <div class="form-row mt-4">
-                <div class="col-md-3 justify-content-start">
+                <div class="col-md-2 justify-content-start">
                     <a href="{{url('/admin/karyawan/cetak')}}" class="btn btn-warning"> Cetak Data Karyawan</a>
                 </div>
 
-                <div class="col-md-6">
-                    
+                <div class="col-md-7 ">
+                    <a class="btn btn-success" href="{{ url('admin/file-export') }}">Export Excel</a>
                 </div>
 
                 
