@@ -13,7 +13,7 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
               <img src="{{url('backend/img/ketapang1.png')}}" class="d-block w-100" alt="...">
-              <h1 class="centered text-center">Selamat Datang di Pengadaan ASDP</h1>
+              <h1 class="centered text-center">Selamat Datang di ASDP Procurement</h1>
           </div>
           <div class="carousel-item">
             <img src="{{url('backend/img/ketapang2.jpg')}}" class="d-block w-100" alt="...">
