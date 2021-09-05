@@ -259,6 +259,7 @@ class SppbjmController extends Controller
         return redirect('admin\sppbjm')->with('sukses', 'data sppbj berhasil dihapus');
     }
 
+
     public function tambahBarang(Request $request)
     {
         BarangSppbjM::create($request->only([

@@ -45,7 +45,7 @@
                                         <label>Satuan</label>
                                         <select class="form-control" name="satuan_id" required>
                                             @foreach($satuan as $item)
-                                            <option value="{{$item->id == $data_sppbjm->barangSp2bj->satuan_id}} ">
+                                            <option value="{{$item->id}} ">
                                                 {{$item->nama_satuan}}
                                             </option>
                                             @endforeach
@@ -203,7 +203,8 @@
                                                 @enderror
                                                 <td>
                                                     <select name="satuan_id[]" id="" class="form-control @error('satuan_id') is-invalid @enderror" data-live-search=" true">
-                                                            @foreach($satuan as $itemSatuan)
+                                                        @if(isset($item->satuan->id))    
+                                                        @foreach($satuan as $itemSatuan)
                                                             <option value={{$itemSatuan->id}} @if($itemSatuan->id == $item->satuan->id)
                                                                 selected
                                                                 @endif
@@ -212,6 +213,9 @@
                                                                 {{$itemSatuan->nama_satuan}}
                                                         </option>
                                                         @endforeach
+                                                        @else
+                                                        <option value="">Data Kosong</option>
+                                                        @endif
                                                     </select>
                                                 </td>
                                                 <td><input name="jumlah[]" type="text" value="{{$item->jumlah}}" class="form-control @error('jumlah.*') is-invalid @enderror">
@@ -342,7 +346,7 @@
                 _token: '{{csrf_token()}}',
                 sppbjm_id: $('input[name=sppbjm_id]').val(),
                 jumlah: $('input[name=jumlah]').val(),
-                satuan_id: $('input[name=satuan_id]').val(),
+                satuan_id: $('select[name=satuan_id]').val(),
                 nama_barang: $('input[name=nama_barang]').val(),
                 spesifikasi: $('input[name=spesifikasi]').val(),
                 harga_satuan: $('input[name=harga_satuan]').val()
