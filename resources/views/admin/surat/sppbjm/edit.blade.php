@@ -43,33 +43,12 @@
 
                                     <div class="form-group">
                                         <label>Satuan</label>
-                                        <select name="satuan[]" type="text" class="form-control">
-                                            <option value="Roll">Roll</option>
-                                            <option value="Unit">Unit</option>
-                                            <option value="Pcs">Pcs</option>
-                                            <option value="Pack">Pack</option>
-                                            <option value="Set">Set</option>
-                                            <option value="Batang">Batang</option>
-                                            <option value="Lusin">Lusin</option>
-                                            <option value="Botol">Botol</option>
-                                            <option value="Kotak">Kotak</option>
-                                            <option value="Gross">Gross</option>
-                                            <option value="Rim">Rim</option>
-                                            <option value="Kodi">Kodi</option>
-                                            <option value="Dus">Dus</option>
-                                            <option value="Bal">Bal</option>
-                                            <option value="Ls">Ls</option>
-                                            <option value="Meter">Meter</option>
-                                            <option value="Gram">Gram</option>
-                                            <option value="Cm">Cm</option>
-                                            <option value="M2">M2</option>
-                                            <option value="M3">M3</option>
-                                            <option value="Liter">Liter</option>
-                                            <option value="Kg">Kg</option>
-                                            <option value="Ton">Ton</option>
-                                            <option value="Ons">Ons</option>
-                                            <option value="Lembar">Lembar</option>
-                                            <option value="Orang">Orang</option>
+                                        <select class="form-control" name="satuan_id" required>
+                                            @foreach($satuan as $item)
+                                            <option value="{{$item->id == $data_sppbjm->barangSp2bj->satuan_id}} ">
+                                                {{$item->nama_satuan}}
+                                            </option>
+                                            @endforeach
                                         </select>
                                     </div>
 
@@ -223,39 +202,17 @@
                                                 <div class="invalid-feedback">{{$message}}</div>
                                                 @enderror
                                                 <td>
-                                                    <select name="satuan[]" type="text" class="form-control">
-                                                        @foreach([
-                                                        "Roll" => "Roll",
-                                                        "Unit" => "Unit",
-                                                        "Pcs" => "Pcs",
-                                                        "Pack" => "Pack",
-                                                        "Set" => "Set",
-                                                        "Batang" => "Batang",
-                                                        "Lusin" => "Lusin",
-                                                        "Botol" => "Botol",
-                                                        "Kotak" => "Kotak",
-                                                        "Gross" => "Gross",
-                                                        "Rim" => "Rim",
-                                                        "Kodi" => "Kodi",
-                                                        "Dus" => "Dus",
-                                                        "Bal" => "Bal",
-                                                        "Ls" => "Ls",
-                                                        "Meter" => "Meter",
-                                                        "Gram" => "Gram",
-                                                        "Cm" => "Cm",
-                                                        "M2" => "M2",
-                                                        "M3" => "M3",
-                                                        "Liter" => "Liter",
-                                                        "Kg" => "Kg",
-                                                        "Ton" => "Ton",
-                                                        "Ons" => "Ons",
-                                                        "Lembar" => "Lembar",
-                                                        "Orang" => "Orang",
-                                                        ] AS $i => $satuans)
-                                                        <option value="{{ $i }}" {{ old("satuan", $item->satuan) == $i ? "selected" : "" }}>{{ $satuans }}</option>
+                                                    <select name="satuan_id[]" id="" class="form-control @error('satuan_id') is-invalid @enderror" data-live-search=" true">
+                                                            @foreach($satuan as $itemSatuan)
+                                                            <option value={{$itemSatuan->id}} @if($itemSatuan->id == $item->satuan->id)
+                                                                selected
+                                                                @endif
+
+                                                                >
+                                                                {{$itemSatuan->nama_satuan}}
+                                                        </option>
                                                         @endforeach
                                                     </select>
-                                                    
                                                 </td>
                                                 <td><input name="jumlah[]" type="text" value="{{$item->jumlah}}" class="form-control @error('jumlah.*') is-invalid @enderror">
                                                     @error('jumlah.*')
@@ -385,7 +342,7 @@
                 _token: '{{csrf_token()}}',
                 sppbjm_id: $('input[name=sppbjm_id]').val(),
                 jumlah: $('input[name=jumlah]').val(),
-                satuan: $('input[name=satuan]').val(),
+                satuan_id: $('input[name=satuan_id]').val(),
                 nama_barang: $('input[name=nama_barang]').val(),
                 spesifikasi: $('input[name=spesifikasi]').val(),
                 harga_satuan: $('input[name=harga_satuan]').val()
@@ -403,7 +360,7 @@
             url: '{{url("/")}}' + '/admin/sppbjm/' + $(this).data('id') + '/hapus',
             dataType: 'json',
             success() {
-                alert('Data Berhasil Dihapus');
+                // alert('Data Berhasil Dihapus');
                 window.location.reload();
             }
         });
