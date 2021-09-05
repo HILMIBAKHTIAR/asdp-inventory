@@ -202,8 +202,7 @@
                                                 <div class="invalid-feedback">{{$message}}</div>
                                                 @enderror
                                                 <td>
-                                                    <select name="satuan_id[]" id="" class="form-control @error('satuan_id') is-invalid @enderror" data-live-search=" true">
-                                                        @if(isset($item->satuan->id))    
+                                                    <select name="satuan_id[]" id="" class="form-control @error('satuan_id') is-invalid @enderror" data-live-search=" true">  
                                                         @foreach($satuan as $itemSatuan)
                                                             <option value={{$itemSatuan->id}} @if($itemSatuan->id == $item->satuan->id)
                                                                 selected
@@ -213,9 +212,6 @@
                                                                 {{$itemSatuan->nama_satuan}}
                                                         </option>
                                                         @endforeach
-                                                        @else
-                                                        <option value="">Data Kosong</option>
-                                                        @endif
                                                     </select>
                                                 </td>
                                                 <td><input name="jumlah[]" type="text" value="{{$item->jumlah}}" class="form-control @error('jumlah.*') is-invalid @enderror">

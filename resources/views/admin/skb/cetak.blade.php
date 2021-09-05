@@ -188,7 +188,7 @@
                             </td>
                             <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;"
                                 class="border1">
-                                <p style="margin: 4px;">{{ $item->satuan }}</p>
+                                <p style="margin: 4px;">{{ $item->satuan->nama_satuan }}</p>
                             </td>
                             <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;"
                                 class="border1">

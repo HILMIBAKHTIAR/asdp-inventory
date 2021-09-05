@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\Surat;
 
-use App\Barang;
-use App\BarangSkbM;
 use App\BarangSppbjM;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
