@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Karyawan;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use App\Exports\KaryawanExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class KaryawanController extends Controller
 {
@@ -20,11 +22,11 @@ class KaryawanController extends Controller
     {
         // $this->middleware(['role:admin']);
 
-        $this->middleware('permission:sdm-list',['only'=>['index']]);
-        $this->middleware('permission:sdm-create',['only'=>['create','store']]);
-        $this->middleware('permission:sdm-edit',['only'=>['edit','update']]);
-        $this->middleware('permission:sdm-delete',['only'=>['destroy']]);
-        $this->middleware('permission:sdm-show',['only'=>['show']]);
+        $this->middleware('permission:sdm-list', ['only' => ['index']]);
+        $this->middleware('permission:sdm-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:sdm-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:sdm-delete', ['only' => ['destroy']]);
+        $this->middleware('permission:sdm-show', ['only' => ['show']]);
     }
     public function index()
     {
@@ -278,5 +280,10 @@ class KaryawanController extends Controller
         $today = Carbon::now();
 
         return view('admin.karyawan.cetak', compact('karyawan', 'today'));
+    }
+
+    public function fileExport()
+    {
+        return Excel::download(new KaryawanExport, 'data-karyawan.xlsx');
     }
 }

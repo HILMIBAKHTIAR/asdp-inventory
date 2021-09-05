@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Admin\KaryawanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('/skb', 'Admin\SkbController');
     Route::resource('/spm', 'Admin\SpmController');
     Route::resource('/verspm', 'Admin\VerspmController');
+    Route::get('file-export', [KaryawanController::class, 'fileExport'])->name('file-export');
     Route::get('/karyawan/cetak', 'Admin\KaryawanController@cetak');
     Route::resource('/karyawan', 'Admin\KaryawanController');
     Route::resource('/mataanggaran', 'Admin\MataAnggaranController');
