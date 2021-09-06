@@ -140,7 +140,7 @@
                 data: {
                     labels: {!! json_encode($grafikUsia->labels) !!},
                     datasets: [{
-                        label: 'Grafik usia',
+                        label: 'jumlah usia',
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.5)',
                             'rgba(255, 159, 64, 0.5)',
