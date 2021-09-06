@@ -128,7 +128,6 @@
                                                         <option value={{$itemSatuan->id}} @if($itemSatuan->id == $item->satuan->id)
                                                             selected
                                                             @endif
-
                                                             >
                                                             {{$itemSatuan->nama_satuan}}
                                                     </option>

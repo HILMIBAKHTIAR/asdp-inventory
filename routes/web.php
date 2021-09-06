@@ -34,6 +34,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('/mataanggaran', 'Admin\MataAnggaranController');
     Route::resource('/roles', 'Admin\RoleController');
     Route::resource('/users', 'Admin\UserController');
+    Route::resource('/satuan', 'Admin\SatuanController');
+    Route::post('/satuan/tambah', 'Admin\SatuanController@tambahSatuan');
 
     Route::post('/berita/tambah', 'Admin\BeritaController@tambahBarang');
     Route::get('/berita/{berita}/hapus', 'Admin\BeritaController@hapusBarang');
