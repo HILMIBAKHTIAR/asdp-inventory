@@ -4,9 +4,10 @@ namespace App\Exports;
 
 use App\Karyawan;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class KaryawanExport implements FromCollection, WithHeadings
+class KaryawanExport implements FromCollection, WithHeadings, ShouldAutoSize
 {
     /**
      * @return \Illuminate\Support\Collection

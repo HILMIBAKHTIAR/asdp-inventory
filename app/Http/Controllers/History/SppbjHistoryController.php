@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\History;
 
-use App\Exports\SppbjExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Sppbj;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\SppbjExport;
 
 class SppbjHistoryController extends Controller
 {
@@ -101,6 +101,6 @@ class SppbjHistoryController extends Controller
 
     public function fileExport()
     {
-        return Excel::download(new SppbjExport, 'data-karyawan.xlsx');
+        return Excel::download(new SppbjExport, 'data-sppbj.xlsx');
     }
 }
