@@ -8,7 +8,7 @@ class Karyawan extends Model
 {
     protected $fillable = [
         'nama_karyawan',
-        'jabatan',
+        'jabatan_id',
         'nik',
         'nik_ktp',
         'no_bpjs_kesehatan',
@@ -26,4 +26,9 @@ class Karyawan extends Model
         'masa_kerja',
         'jurusan',
     ];
+
+    public function jabatan()
+    {
+        return $this->belongsTo(Jabatan::class,);
+    }
 }

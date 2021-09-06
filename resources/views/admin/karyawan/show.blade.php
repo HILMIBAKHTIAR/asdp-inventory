@@ -94,7 +94,7 @@
                             <h6>Jabatan</h6>
                         </div>
                         <div class="col-md-3">
-                            <h6> : {{ $model->jabatan }}</h6>
+                            <h6> : {{ $model->jabatan->nama_jabatan }}</h6>
                         </div>
 
                         <div class="col-md-2">

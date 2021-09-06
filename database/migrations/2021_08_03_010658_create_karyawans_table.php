@@ -30,7 +30,7 @@ class CreateKaryawansTable extends Migration
             $table->date('tanggal_masuk_kerja');
             $table->string('masa_kerja');
             $table->string('sk');
-            $table->enum('jabatan', ['Manager SDM & Umum', 'Manager Usaha Ketapang', 'Manager Usaha Gilimanuk', 'Manager Keuangan', 'Manager Teknik', 'Staf SDM & Umum', 'Verifikator', 'Staf Teknik Ketapang', 'Staf Usaha']);
+            $table->unsignedBigInteger('jabatan_id');
             $table->date('tanggal_pilih_jabatan');
             $table->string('masa_jabatan');
             $table->enum('pendidikan', [
@@ -49,6 +49,7 @@ class CreateKaryawansTable extends Migration
             $table->string('no_bpjs_kesehatan');
             $table->string('no_npwp');
             $table->timestamps();
+            $table->foreign('jabatan_id')->references('id')->on('jabatans')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
