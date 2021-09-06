@@ -43,7 +43,7 @@ class CreateKaryawansTable extends Migration
                 'S2',
                 'S3',
             ]);
-            $table->string('jurusan');
+            $table->string('jurusan')->nullable();
             $table->string('nik_ktp');
             $table->string('no_bpjs_ketenagakerjaan');
             $table->string('no_bpjs_kesehatan');
