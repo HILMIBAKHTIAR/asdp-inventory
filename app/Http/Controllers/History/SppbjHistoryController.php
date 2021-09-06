@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\History;
 
+use App\Exports\SppbjExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Sppbj;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SppbjHistoryController extends Controller
 {
@@ -95,5 +97,10 @@ class SppbjHistoryController extends Controller
         $data_sppbj->delete();
 
         return redirect('admin\sppbjhistori')->with('sukses', 'data sppbj berhasil dihapus');
+    }
+
+    public function fileExport()
+    {
+        return Excel::download(new SppbjExport, 'data-karyawan.xlsx');
     }
 }
