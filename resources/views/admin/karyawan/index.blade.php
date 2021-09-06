@@ -70,7 +70,7 @@
                             <td>{{$row->jabatan}}</td>
                             <td>{{$row->tanggal_pilih_jabatan}}</td>
                             <td>{{$row->masa_jabatan}}</td>
-                            <td>{{$row->pendidikan}} - {{$row->jurusan}}</td>
+                            <td>{{$row->pendidikan}} {{$row->jurusan}}</td>
                             <td>{{$row->nik_ktp}}</td>
                             <td>{{$row->no_bpjs_ketenagakerjaan}}</td>
                             <td>{{$row->no_bpjs_kesehatan}}</td>
@@ -107,22 +107,6 @@
                 </div>
             </div>
         </div>
-        <div class="card-body">
-            <div class="form-row justify-content-center">
-                <div class="panel col-lg-10">
-                    <h4 class="text-center">Grafik Masa Kerja Karyawan PT.ASDP</h4>
-                    <canvas id="masakerja" class="rounded shadow"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="card-body">
-            <div class="form-row justify-content-center">
-                <div class="panel col-lg-10">
-                    <h4 class="text-center">Grafik Masa Jabatan Karyawan PT.ASDP</h4>
-                    <canvas id="masajabatan" class="rounded shadow"></canvas>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -137,11 +121,17 @@
         // The data for our dataset
         data: {
             labels: {!!json_encode($grafikUsia -> labels) !!},
-            datasets: [{
-                label: 'Usia',
-                backgroundColor: {!!json_encode($grafikUsia -> warnaGrafikUsia) !!},
+            datasets: [
+                {
+                label: 'Grafik Usia',
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(255, 159, 64, 0.5)',
+                    'rgba(255, 205, 86, 0.5)',
+                ],
                 data: {!!json_encode($grafikUsia -> dataset) !!},
-            }, ]
+            }
+         ]
         },
         // Configuration options go here
         options: {
@@ -182,82 +172,5 @@
     });
 </script>
 
-{{-- chart masa kerja --}}
-<script>
-    var ctx = document.getElementById('masakerja').getContext('2d');
-    var chart = new Chart(ctx, {
-        // The type of chart we want to create
-        type: 'pie',
-        // The data for our dataset
-        data: {
-            labels: {!!json_encode($grafikMasaKerja -> labels) !!},
-            datasets: [{
-                label: 'Grafik Masa Kerja Karyawan PT.ASDP',
-                backgroundColor: {!!json_encode($grafikMasaKerja -> warnaGrafikMasaKerja) !!},
-                data: {!!json_encode($grafikMasaKerja -> dataset) !!},
-            }, ]
-        },
-        // Configuration options go here
-        options: {
-            legend: {
-                labels: {
-                    // This more specific font property overrides the global property
-                    fontColor: '#122C4B',
-                    fontFamily: "'Muli', sans-serif",
-                    padding: 25,
-                    boxWidth: 25,
-                    fontSize: 14,
-                }
-            },
-            layout: {
-                padding: {
-                    left: 10,
-                    right: 10,
-                    top: 0,
-                    bottom: 10
-                }
-            }
-        }
-    });
-</script>
-
-{{-- chart masa Jabatan --}}
-<script>
-    var ctx = document.getElementById('masajabatan').getContext('2d');
-    var chart = new Chart(ctx, {
-        // The type of chart we want to create
-        type: 'doughnut',
-        // The data for our dataset
-        data: {
-            labels: {!!json_encode($grafikMasaJabatan -> labels) !!},
-            datasets: [{
-                label: 'Grafik Masa Kerja Karyawan PT.ASDP',
-                backgroundColor: {!!json_encode($grafikMasaJabatan -> warnaGrafikMasaJabatan) !!},
-                data: {!!json_encode($grafikMasaJabatan -> dataset) !!},
-            }, ]
-        },
-        // Configuration options go here
-        options: {
-            legend: {
-                labels: {
-                    // This more specific font property overrides the global property
-                    fontColor: '#122C4B',
-                    fontFamily: "'Muli', sans-serif",
-                    padding: 25,
-                    boxWidth: 25,
-                    fontSize: 14,
-                }
-            },
-            layout: {
-                padding: {
-                    left: 10,
-                    right: 10,
-                    top: 0,
-                    bottom: 10
-                }
-            }
-        }
-    });
-</script>
 
 @endsection

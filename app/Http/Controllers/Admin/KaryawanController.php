@@ -31,52 +31,27 @@ class KaryawanController extends Controller
     public function index()
     {
         // Get users grouped by usia
-        $groupsUsia = DB::table('karyawans')
-            ->select('usia', DB::raw('count(*) as total'))
-            ->groupBy('usia')
-            ->pluck('total', 'usia')->all();
-        // Generate random colours for the groupsUsia
-        for ($i = 0; $i <= count($groupsUsia); $i++) {
-            $warnaGrafikUsia[] = '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6);
-        }
-        // Prepare the data for returning with the view
+        $groupsUsia = [
+            'Usia 17 - 25' =>  Karyawan::select('usia')
+                ->where('usia', '>=', 17)
+                ->where('usia', '<=', 25)
+                ->count(),
+
+            'Usia 26 - 45' => Karyawan::select('usia')
+                ->where('usia', '>=', 26)
+                ->where('usia', '<=', 45)
+                ->count(),
+
+            'Usia 45 keatas' => Karyawan::select('usia')
+                ->where('usia', '>=', 46)
+                ->count(),
+        ];
         $grafikUsia = new Karyawan;
         $grafikUsia->labels = (array_keys($groupsUsia));
         $grafikUsia->dataset = (array_values($groupsUsia));
-        $grafikUsia->warnaGrafikUsia = $warnaGrafikUsia;
 
-        // Get users grouped by masa kerja
-        $groupsMasaKerja = DB::table('karyawans')
-            ->select('masa_kerja', DB::raw('count(*) as total'))
-            ->groupBy('masa_kerja')
-            ->pluck('total', 'masa_kerja')->all();
-        // Generate random colours for the groups
-        for ($i = 0; $i <= count($groupsMasaKerja); $i++) {
-            $warnaGrafikMasaKerja[] = '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6);
-        }
-        // Prepare the data for returning with the view
-        $grafikMasaKerja = new Karyawan;
-        $grafikMasaKerja->labels = (array_keys($groupsMasaKerja));
-        $grafikMasaKerja->dataset = (array_values($groupsMasaKerja));
-        $grafikMasaKerja->warnaGrafikMasaKerja = $warnaGrafikMasaKerja;
-
-        // Get users grouped by masa jabatan
-        $groupsMasaJabatan = DB::table('karyawans')
-            ->select('masa_jabatan', DB::raw('count(*) as total'))
-            ->groupBy('masa_jabatan')
-            ->pluck('total', 'masa_jabatan')->all();
-        // Generate random colours for the groups
-        for ($i = 0; $i <= count($groupsMasaJabatan); $i++) {
-            $warnaGrafikMasaJabatan[] = '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6);
-        }
-        // Prepare the data for returning with the view
-        $grafikMasaJabatan = new Karyawan;
-        $grafikMasaJabatan->labels = (array_keys($groupsMasaJabatan));
-        $grafikMasaJabatan->dataset = (array_values($groupsMasaJabatan));
-        $grafikMasaJabatan->warnaGrafikMasaJabatan = $warnaGrafikMasaJabatan;
-        //
         $data = Karyawan::all();
-        return view('admin.karyawan.index', compact('data', 'grafikUsia', 'grafikMasaKerja', 'grafikMasaJabatan'));
+        return view('admin.karyawan.index', compact('data', 'grafikUsia'));
     }
 
     /**
@@ -286,6 +261,7 @@ class KaryawanController extends Controller
 
     public function fileExport()
     {
+
         return Excel::download(new KaryawanExport, 'data-karyawan.xlsx');
     }
 }
