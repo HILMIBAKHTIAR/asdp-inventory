@@ -121,7 +121,6 @@
                                                 </td>
                                                 <td>
                                                     <select class="form-control" name="satuan_id[]">
-                                                        <option value="">-Pilih Satuan-</option>
                                                         @foreach($satuan as $item)
                                                         <option value="{{$item->id}}" {{old('satuan_id')[$i] == $item->id ? 'selected' : '' }}>{{$item->nama_satuan}}</option>
                                                         @endforeach
@@ -163,7 +162,6 @@
                                                 </td>
                                                 <td>
                                                     <select class="form-control" name="satuan_id[]">
-                                                        <option value="">-Pilih Satuan-</option>
                                                         @foreach($satuan as $item)
                                                         <option value="{{$item->id}}">
                                                             {{$item->nama_satuan}}
@@ -295,7 +293,6 @@
                                                 </td>
                                                 <td>
                                                     <select class="form-control" name="satuan_id[]">
-                                                        <option value="">-Pilih Satuan-</option>
                                                         @foreach($satuan as $item)
                                                         <option value="{{$item->id}}">
                                                             {{$item->nama_satuan}}

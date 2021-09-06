@@ -112,6 +112,7 @@ class KaryawanController extends Controller
             'no_npwp'                   => 'required',
             'status_keluarga'           => 'required',
             'pendidikan'                => 'required',
+            'jurusan'                => 'required',
             'sk'                        => 'required',
             'tanggal_masuk_kerja'       => 'required',
             'tanggal_pilih_jabatan'     => 'required',
@@ -127,6 +128,7 @@ class KaryawanController extends Controller
             'no_npwp.required'                   => 'nomor NPWP harus diisi',
             'status_keluarga.required'           => 'status keluarga harus diisi',
             'pendidikan.required'                => 'pendidikan harus diisi',
+            'jurusan.required'                   => 'jurusan harus diisi',
             'sk.required'                        => 'SK harus diisi',
             'tanggal_masuk_kerja.required'       => 'tanggal masuk kerja harus diisi',
             'tanggal_pilih_jabatan.required'     => 'tanggal dipilih jabatan harus diisi',
@@ -156,6 +158,7 @@ class KaryawanController extends Controller
             'no_npwp'                   => $request->no_npwp,
             'status_keluarga'           => $request->status_keluarga,
             'pendidikan'                => $request->pendidikan,
+            'jurusan'                   => $request->jurusan,
             'sk'                        => $request->sk,
             'tanggal_masuk_kerja'       => $tanggal_masuk_kerja,
             'tanggal_pilih_jabatan'     => $tanggal_pilih_jabatan,
@@ -219,6 +222,7 @@ class KaryawanController extends Controller
             'no_npwp'                   => 'required',
             'status_keluarga'           => 'required',
             'pendidikan'                => 'required',
+            'jurusan'                   => 'required',
             'sk'                        => 'required',
             'tanggal_masuk_kerja'       => 'required',
             'tanggal_pilih_jabatan'     => 'required',
@@ -249,6 +253,7 @@ class KaryawanController extends Controller
         $karyawan->no_npwp                  = $request->get('no_npwp');
         $karyawan->status_keluarga          = $request->get('status_keluarga');
         $karyawan->pendidikan               = $request->get('pendidikan');
+        $karyawan->jurusan                  = $request->get('jurusan');
         $karyawan->sk                       = $request->get('sk');
         $karyawan->tanggal_masuk_kerja      = $tanggal_masuk_kerja;
         $karyawan->tanggal_pilih_jabatan    = $tanggal_pilih_jabatan;
