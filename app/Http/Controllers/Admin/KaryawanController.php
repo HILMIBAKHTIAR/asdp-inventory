@@ -30,7 +30,7 @@ class KaryawanController extends Controller
     }
     public function index()
     {
-        // Get users grouped by usia
+        // grafik usia
         $groupsUsia = [
             'Usia 17 - 25' =>  Karyawan::select('usia')
                 ->where('usia', '>=', 17)
@@ -50,8 +50,56 @@ class KaryawanController extends Controller
         $grafikUsia->labels = (array_keys($groupsUsia));
         $grafikUsia->dataset = (array_values($groupsUsia));
 
+        //grafik masa kerja
+
+        $groupsMasaKerja =
+            [
+                'Kurang dari 5 Tahun' =>  Karyawan::select('masa_kerja')
+                    ->where('masa_kerja', '>=', 0)
+                    ->where('masa_kerja', '<=', 5)
+                    ->count(),
+
+                '6 sampai 10 Tahun' => Karyawan::select('masa_kerja')
+                    ->where('masa_kerja', '>=', 6)
+                    ->where('masa_kerja', '<=', 10)
+                    ->count(),
+
+                'Lebih dari 11 Tahun' => Karyawan::select('masa_kerja')
+                    ->where('masa_kerja', '>=', 11)
+                    ->count(),
+            ];
+
+        // Prepare the data for returning with the view
+        $grafikMasaKerja = new Karyawan;
+        $grafikMasaKerja->labels = (array_keys($groupsMasaKerja));
+        $grafikMasaKerja->dataset = (array_values($groupsMasaKerja));
+
+        //grafik masa jabatan
+
+        $groupsMasaJabatan =
+            [
+                'Kurang dari 5 Tahun' =>  Karyawan::select('masa_jabatan')
+                    ->where('masa_jabatan', '>=', 0)
+                    ->where('masa_jabatan', '<=', 5)
+                    ->count(),
+
+                '6 sampai 10 Tahun' => Karyawan::select('masa_jabatan')
+                    ->where('masa_jabatan', '>=', 6)
+                    ->where('masa_jabatan', '<=', 10)
+                    ->count(),
+
+                'Lebih dari 11 Tahun' => Karyawan::select('masa_jabatan')
+                    ->where('masa_jabatan', '>=', 11)
+                    ->count(),
+            ];
+
+        // Prepare the data for returning with the view
+        $grafikMasaJabatan = new Karyawan;
+        $grafikMasaJabatan->labels = (array_keys($groupsMasaJabatan));
+        $grafikMasaJabatan->dataset = (array_values($groupsMasaJabatan));
+
         $data = Karyawan::all();
-        return view('admin.karyawan.index', compact('data', 'grafikUsia'));
+        return view('admin.karyawan.index', compact('data', 'grafikUsia', 'grafikMasaKerja', 'grafikMasaJabatan'));
     }
 
     /**
