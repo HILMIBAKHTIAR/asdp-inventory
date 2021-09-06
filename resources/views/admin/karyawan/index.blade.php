@@ -98,13 +98,13 @@
             </div>
         </div>
     </div>
-    <div class="card shadow mb-4">
-        <div class="card-body">
-            <div class="form-row justify-content-center">
-                <div class="panel col-lg-10">
-                    <h4 class="text-center">Grafik Usia Karyawan PT.ASDP</h4>
-                    <canvas id="usia" class="rounded shadow"></canvas>
-                </div>
+</div>
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="form-row justify-content-center">
+            <div class="panel col-lg-10">
+                <h4 class="text-center">Grafik Usia Karyawan PT.ASDP</h4>
+                <canvas id="usia" class="rounded shadow"></canvas>
             </div>
         </div>
     </div>
