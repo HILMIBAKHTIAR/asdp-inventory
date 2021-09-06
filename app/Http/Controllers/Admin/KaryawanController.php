@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Karyawan;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use App\Exports\KaryawanExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class KaryawanController extends Controller
 {
@@ -20,11 +22,11 @@ class KaryawanController extends Controller
     {
         // $this->middleware(['role:admin']);
 
-        $this->middleware('permission:sdm-list',['only'=>['index']]);
-        $this->middleware('permission:sdm-create',['only'=>['create','store']]);
-        $this->middleware('permission:sdm-edit',['only'=>['edit','update']]);
-        $this->middleware('permission:sdm-delete',['only'=>['destroy']]);
-        $this->middleware('permission:sdm-show',['only'=>['show']]);
+        $this->middleware('permission:sdm-list', ['only' => ['index']]);
+        $this->middleware('permission:sdm-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:sdm-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:sdm-delete', ['only' => ['destroy']]);
+        $this->middleware('permission:sdm-show', ['only' => ['show']]);
     }
     public function index()
     {
@@ -110,6 +112,7 @@ class KaryawanController extends Controller
             'no_npwp'                   => 'required',
             'status_keluarga'           => 'required',
             'pendidikan'                => 'required',
+            'jurusan'                => 'required',
             'sk'                        => 'required',
             'tanggal_masuk_kerja'       => 'required',
             'tanggal_pilih_jabatan'     => 'required',
@@ -125,6 +128,7 @@ class KaryawanController extends Controller
             'no_npwp.required'                   => 'nomor NPWP harus diisi',
             'status_keluarga.required'           => 'status keluarga harus diisi',
             'pendidikan.required'                => 'pendidikan harus diisi',
+            'jurusan.required'                   => 'jurusan harus diisi',
             'sk.required'                        => 'SK harus diisi',
             'tanggal_masuk_kerja.required'       => 'tanggal masuk kerja harus diisi',
             'tanggal_pilih_jabatan.required'     => 'tanggal dipilih jabatan harus diisi',
@@ -154,6 +158,7 @@ class KaryawanController extends Controller
             'no_npwp'                   => $request->no_npwp,
             'status_keluarga'           => $request->status_keluarga,
             'pendidikan'                => $request->pendidikan,
+            'jurusan'                   => $request->jurusan,
             'sk'                        => $request->sk,
             'tanggal_masuk_kerja'       => $tanggal_masuk_kerja,
             'tanggal_pilih_jabatan'     => $tanggal_pilih_jabatan,
@@ -217,6 +222,7 @@ class KaryawanController extends Controller
             'no_npwp'                   => 'required',
             'status_keluarga'           => 'required',
             'pendidikan'                => 'required',
+            'jurusan'                   => 'required',
             'sk'                        => 'required',
             'tanggal_masuk_kerja'       => 'required',
             'tanggal_pilih_jabatan'     => 'required',
@@ -247,6 +253,7 @@ class KaryawanController extends Controller
         $karyawan->no_npwp                  = $request->get('no_npwp');
         $karyawan->status_keluarga          = $request->get('status_keluarga');
         $karyawan->pendidikan               = $request->get('pendidikan');
+        $karyawan->jurusan                  = $request->get('jurusan');
         $karyawan->sk                       = $request->get('sk');
         $karyawan->tanggal_masuk_kerja      = $tanggal_masuk_kerja;
         $karyawan->tanggal_pilih_jabatan    = $tanggal_pilih_jabatan;
@@ -278,5 +285,10 @@ class KaryawanController extends Controller
         $today = Carbon::now();
 
         return view('admin.karyawan.cetak', compact('karyawan', 'today'));
+    }
+
+    public function fileExport()
+    {
+        return Excel::download(new KaryawanExport, 'data-karyawan.xlsx');
     }
 }

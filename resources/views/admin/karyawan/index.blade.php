@@ -13,12 +13,12 @@
             <h6 class="m-0 font-weight-bold text-primary">Data Karyawan</h6>
                 
             <div class="form-row mt-4">
-                <div class="col-md-3 justify-content-start">
+                <div class="col-md-2 justify-content-start">
                     <a href="{{url('/admin/karyawan/cetak')}}" class="btn btn-warning"> Cetak Data Karyawan</a>
                 </div>
 
-                <div class="col-md-6">
-                    
+                <div class="col-md-7 ">
+                    <a class="btn btn-success" href="{{ url('admin/file-export') }}">Export Excel</a>
                 </div>
 
                 
@@ -35,19 +35,19 @@
                         <tr>
                             <th>NO</th>
                             <th>Nama</th>
-                            <th>Nik</th>
+                            <th>Nomor Induk kepegawaian</th>
                             <th>tempat lahir</th>
                             <th>tanggal lahir</th>
                             <th>Usia</th>
                             <th>Status Keluarga</th>
                             <th>Tanggal Masuk Kerja</th>
                             <th>Masa Kerja</th>
-                            <th>SK. Capeg</th>
+                            <th>No. Sk</th>
                             <th>Jabatan</th>
                             <th>Tanggal Dipilih Jabatan</th>
                             <th>Masa Jabatan</th>
                             <th>Pendidikan</th>
-                            <th>Nik KTP</th>
+                            <th>Nomor Induk Kependudukan</th>
                             <th>Nomor BPJS Ketenagakerjaan</th>
                             <th>Nomor BPJS Kesehatan</th>
                             <th>Nomor NPWP</th>
@@ -62,7 +62,7 @@
                             <td>{{$row->nik}}</td>
                             <td>{{$row->tempat_lahir}}</td>
                             <td>{{$row->tanggal_lahir}}</td>
-                            <td>{{$row->usia}}</td>
+                            <td>{{$row->usia}} Tahun</td>
                             <td>{{$row->status_keluarga}}</td>
                             <td>{{$row->tanggal_masuk_kerja}}</td>
                             <td>{{$row->masa_kerja}}</td>
@@ -70,7 +70,7 @@
                             <td>{{$row->jabatan}}</td>
                             <td>{{$row->tanggal_pilih_jabatan}}</td>
                             <td>{{$row->masa_jabatan}}</td>
-                            <td>{{$row->pendidikan}}</td>
+                            <td>{{$row->pendidikan}} - {{$row->jurusan}}</td>
                             <td>{{$row->nik_ktp}}</td>
                             <td>{{$row->no_bpjs_ketenagakerjaan}}</td>
                             <td>{{$row->no_bpjs_kesehatan}}</td>
