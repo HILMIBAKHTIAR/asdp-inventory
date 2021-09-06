@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Admin\KaryawanController;
+use App\Http\Controllers\History\SppbjHistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +36,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('/mataanggaran', 'Admin\MataAnggaranController');
     Route::resource('/roles', 'Admin\RoleController');
     Route::resource('/users', 'Admin\UserController');
+    Route::resource('/satuan', 'Admin\SatuanController');
+    Route::post('/satuan/tambah', 'Admin\SatuanController@tambahSatuan');
 
     Route::post('/berita/tambah', 'Admin\BeritaController@tambahBarang');
     Route::get('/berita/{berita}/hapus', 'Admin\BeritaController@hapusBarang');
@@ -66,4 +70,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     // Barang skb manual
     Route::post('/skbm/tambah', 'Surat\SkbmController@tambahBarang');
     Route::get('/skbm/{skbm}/hapus', 'Surat\SkbmController@hapusBarang');
+
+    //export excel
+    Route::get('file-export', [KaryawanController::class, 'fileExport'])->name('file-export');
+    Route::get('file-exportSppbj', [SppbjHistoryController::class, 'fileExport'])->name('file-exportSppbj');
 });

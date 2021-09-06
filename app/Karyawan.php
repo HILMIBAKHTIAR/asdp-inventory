@@ -24,5 +24,6 @@ class Karyawan extends Model
         'tanggal_pilih_jabatan',
         'masa_jabatan',
         'masa_kerja',
+        'jurusan',
     ];
 }

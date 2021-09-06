@@ -18,39 +18,13 @@ class CreateBarangsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('sppbj_id');
             $table->integer('jumlah');
-            $table->enum('satuan', [
-                'Roll',
-                'Unit',
-                'Pcs',
-                'Pack',
-                'Set',
-                'Batang',
-                'Lusin',
-                'Botol',
-                'Kotak',
-                'Gross',
-                'Rim',
-                'Kodi',
-                'Dus',
-                'Bal',
-                'Ls',
-                'Meter',
-                'Gram',
-                'Cm',
-                'M2',
-                'M3',
-                'Liter',
-                'Kg',
-                'Ton',
-                'Ons',
-                'Lembar',
-                'Orang',
-            ]);
+            $table->unsignedBigInteger('satuan_id');
             $table->string('nama_barang');
             $table->string('spesifikasi');
             $table->integer('harga_satuan');
             $table->timestamps();
             $table->foreign('sppbj_id')->references('id')->on('sppbjs')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('satuan_id')->references('id')->on('satuans')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

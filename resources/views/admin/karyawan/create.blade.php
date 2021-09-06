@@ -68,6 +68,7 @@
                             <div class="invalid-feedback">{{$message}}</div>
                             @enderror
                         </div>
+                        
                         <div class="col-md-6 search_select_box">
                             <label>Status Keluarga</label>
                             <select name="status_keluarga" class="form-control @error('status_keluarga') is-invalid @enderror" data-live-search=" true">
@@ -97,6 +98,17 @@
                             @enderror
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class="row justify-content-md-center">
+                            <div class="col-md-6 text-center">
+                                <label>Jurusan</label>
+                                <input name="jurusan" type="text" class="form-control @error('jurusan') is-invalid @enderror" value="{{old('jurusan')}}" />
+                                @error('jurusan')
+                                <div class="invalid-feedback">{{$message}}</div>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- Form Data Pegawai -->
                     <div class="text-center mt-4">
@@ -104,7 +116,7 @@
                     </div>
                     <div class="form-row">
                         <div class="col-md-6">
-                            <label>NIK</label>
+                            <label>Nomor Induk Kepegawaian</label>
                             <input name="nik" type="text" class="form-control @error('nik') is-invalid @enderror" value="{{old('nik')}}" />
                             @error('nik')
                             <div class="invalid-feedback">{{$message}}</div>
@@ -138,7 +150,7 @@
                             @error('no_npwp')
                             <div class="invalid-feedback">{{$message}}</div>
                             @enderror
-                            <label>SK.Capeg</label>
+                            <label>No. Sk</label>
                             <input name="sk" type="text" class="form-control @error('sk') is-invalid @enderror" value="{{old('sk')}}" />
                             @error('sk')
                             <div class="invalid-feedback">{{$message}}</div>

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Mataanggaran;
 use App\SppbjM;
 use App\Karyawan;
+use App\Satuan;
 
 class SppbjmController extends Controller
 {
@@ -40,9 +41,10 @@ class SppbjmController extends Controller
     public function create()
     {
         //
+        $satuan = Satuan::all();
         $mataanggaran = Mataanggaran::all();
         $karyawan = Karyawan::all();
-        return view('admin.surat.sppbjm.create', compact('mataanggaran', 'karyawan'));
+        return view('admin.surat.sppbjm.create', compact('mataanggaran', 'karyawan', 'satuan'));
     }
 
     /**
@@ -63,6 +65,8 @@ class SppbjmController extends Controller
             'bulan_dibutuhkan'      => 'required',
             'jumlah'                => 'required|array',
             'jumlah.*'              => 'required',
+            'satuan_id'            => 'required|array',
+            'satuan_id.*'             => 'required',
             'nama_barang'           => 'required|array',
             'nama_barang.*'         => 'required',
             'spesifikasi'           => 'required|array',
@@ -81,9 +85,10 @@ class SppbjmController extends Controller
             'nomor_surat.required'          => "nomor surat harus diisi",
             'bulan_dibutuhkan.required'     => "Bulan dibutuhkan harus diisi",
             'jumlah.*.required'             => "jumlah barang harus diisi",
+            'satuan_id.required'            => "Pilih satuan Barang",
             'nama_barang.*.required'        => "nama barang harus diisi",
             'spesifikasi.*.required'        => "spesifikasi barang harus diisi",
-            'harga_satuan.*.required'       => "harga satuan barang harus diisi",
+            'harga_satuan.*.required'       => "Masukkan harga satuan Berupa Angka",
             'ttd1.required'                 => "nama peminta barang harus diisi ",
             'ttd2.required'                 => "nama manager cabang harus diisi",
             'ttd3.required'                 => "nama manager keuangan harus diisi",
@@ -112,7 +117,7 @@ class SppbjmController extends Controller
             BarangSppbjM::create([
                 'sppbjm_id'      => $data_sppbjm->id,
                 'jumlah'        => $request->jumlah[$i],
-                'satuan'        => $request->satuan[$i],
+                'satuan_id'        => $request->satuan_id[$i],
                 'nama_barang'   => $request->nama_barang[$i],
                 'spesifikasi'   => $request->spesifikasi[$i],
                 'harga_satuan'  => $request->harga_satuan[$i]
@@ -131,7 +136,7 @@ class SppbjmController extends Controller
      */
     public function show($id)
     {
-        //
+
         $data_sppbjm = SppbjM::findOrFail($id);
         $subtotal = $data_sppbjm
             ->barangSp2bj
@@ -149,11 +154,11 @@ class SppbjmController extends Controller
      */
     public function edit($id)
     {
-        //
+        $satuan = Satuan::all();
         $karyawan = Karyawan::all();
         $mataanggaran = Mataanggaran::all();
         $data_sppbjm = SppbjM::find($id);
-        return view('admin.surat.sppbjm.edit', compact('karyawan', 'mataanggaran', 'data_sppbjm', 'id'));
+        return view('admin.surat.sppbjm.edit', compact('karyawan', 'mataanggaran', 'data_sppbjm', 'id', 'satuan'));
         // return dd($data_sppbjm);
     }
 
@@ -223,7 +228,7 @@ class SppbjmController extends Controller
             foreach ($request->id as $key => $item) {
                 $array_barang = array(
                     'jumlah' => $request->jumlah[$key],
-                    'satuan' => $request->satuan[$key],
+                    'satuan_id' => $request->satuan_id[$key],
                     'nama_barang' => $request->nama_barang[$key],
                     'spesifikasi' => $request->spesifikasi[$key],
                     'harga_satuan' => $request->harga_satuan[$key]
@@ -252,10 +257,16 @@ class SppbjmController extends Controller
         return redirect('admin\sppbjm')->with('sukses', 'data sppbj berhasil dihapus');
     }
 
+
     public function tambahBarang(Request $request)
     {
         BarangSppbjM::create($request->only([
-            'sppbjm_id', 'jumlah', 'satuan', 'nama_barang', 'spesifikasi', 'harga_satuan'
+            'sppbjm_id',
+            'jumlah',
+            'satuan_id',
+            'nama_barang',
+            'spesifikasi',
+            'harga_satuan'
         ]));
 
         return response()->json(['status' => 'sukses']);

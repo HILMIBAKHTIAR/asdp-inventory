@@ -6,6 +6,7 @@ use App\Barang;
 use App\Http\Controllers\Controller;
 use App\Karyawan;
 use App\Berita;
+use App\Satuan;
 use App\Sppbj;
 use Illuminate\Http\Request;
 
@@ -105,9 +106,10 @@ class BeritaController extends Controller
      */
     public function edit($id)
     {
+        $satuan = Satuan::all();
         $data_barang = Sppbj::find($id);
         // return dd($id);
-        return view('admin.berita.edit', compact('data_barang', 'id'));
+        return view('admin.berita.edit', compact('satuan', 'data_barang', 'id'));
     }
 
     /**
@@ -125,11 +127,13 @@ class BeritaController extends Controller
 
             'jumlah.*'                   => 'required',
             'nama_barang.*'               => 'required',
+            'satuan_id.*'              => 'required',
             'spesifikasi.*'                 => 'required',
             'harga_satuan.*'               => 'required',
 
         ], [
             'jumlah.*.required'                       => 'kepada yth harus diisi',
+            'satuan_id.*.required'              => "Pilih satuan barang",
             'nama_barang.*.required'                  => 'nama barang atau alat harus diisi',
             'spesifikasi.*.required'                  => 'spesifikasi harus diisi',
             'harga_satuan.*.required'                  => 'harga satuan harus diisi',
@@ -139,7 +143,7 @@ class BeritaController extends Controller
             foreach ($request->id as $key => $item) {
                 $array_barang = array(
                     'jumlah' => $request->jumlah[$key],
-                    'satuan' => $request->satuan[$key],
+                    'satuan_id' => $request->satuan_id[$key],
                     'nama_barang' => $request->nama_barang[$key],
                     'spesifikasi' => $request->spesifikasi[$key],
                     'harga_satuan' => $request->harga_satuan[$key]
@@ -166,7 +170,7 @@ class BeritaController extends Controller
     public function tambahBarang(Request $request)
     {
         Barang::create($request->only([
-            'sppbj_id', 'jumlah', 'satuan', 'nama_barang', 'spesifikasi', 'harga_satuan'
+            'sppbj_id', 'jumlah', 'satuan_id', 'nama_barang', 'spesifikasi', 'harga_satuan'
         ]));
 
         return response()->json(['status' => 'sukses']);

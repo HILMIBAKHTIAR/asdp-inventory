@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Surat;
 use App\BarangSkbM;
 use App\Http\Controllers\Controller;
 use App\Karyawan;
+use App\Satuan;
 use App\SkbM;
 use Illuminate\Http\Request;
 
@@ -37,13 +38,14 @@ class SkbmController extends Controller
      */
     public function create()
     {
+        $satuan = Satuan::all();
         $karyawan = Karyawan::all();
-        return view('admin.surat.skbm.create', compact('karyawan'));
+        return view('admin.surat.skbm.create', compact('satuan', 'karyawan'));
     }
 
     /**
      * Store a newly created resource in storage.
-     *
+     *W
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -55,6 +57,8 @@ class SkbmController extends Controller
             'no_telp'           => 'required|max:12',
             'jumlah'                => 'required|array',
             'jumlah.*'              => 'required',
+            'satuan_id'                => 'required|array',
+            'satuan_id.*'              => 'required',
             'nama_barang'           => 'required|array',
             'nama_barang.*'         => 'required',
             'spesifikasi'           => 'required|array',
@@ -72,6 +76,7 @@ class SkbmController extends Controller
             'tanggal_surat.required'        => "tanggal surat harus diisi",
             'bulan_dibutuhkan.required'     => "Bulan dibutuhkan harus diisi",
             'jumlah.*.required'             => "jumlah barang harus diisi",
+            'satuan_id.*.required'              => "Pilih satuan barang",
             'nama_barang.*.required'        => "nama barang harus diisi",
             'spesifikasi.*.required'        => "spesifikasi barang harus diisi",
             'harga_satuan.*.required'       => "harga satuan barang harus diisi",
@@ -95,7 +100,7 @@ class SkbmController extends Controller
             BarangSkbM::create([
                 'skbm_id'      => $skbm->id,
                 'jumlah'        => $request->jumlah[$i],
-                'satuan'        => $request->satuan[$i],
+                'satuan_id'        => $request->satuan_id[$i],
                 'nama_barang'   => $request->nama_barang[$i],
                 'spesifikasi'   => $request->spesifikasi[$i],
                 'harga_satuan'  => $request->harga_satuan[$i]
@@ -132,9 +137,10 @@ class SkbmController extends Controller
      */
     public function edit($id)
     {
+        $satuan = Satuan::all();
         $karyawan = Karyawan::all();
         $skbm = SkbM::find($id);
-        return view('admin.surat.skbm.edit', compact('karyawan', 'skbm', 'id'));
+        return view('admin.surat.skbm.edit', compact('karyawan', 'satuan', 'skbm', 'id'));
     }
 
     /**
@@ -147,27 +153,31 @@ class SkbmController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'alamat_tujuan'         => 'required',
-            'karyawan_id'           => 'required',
-            'no_telp'               => 'required|max:12',
-            'tanggal_surat'         => 'required',
+            'alamat_tujuan'     => 'required',
+            'karyawan_id'       => 'required',
+            'no_telp'           => 'required|max:12',
             'jumlah'                => 'required|array',
             'jumlah.*'              => 'required',
+            'satuan_id'                => 'required|array',
+            'satuan_id.*'              => 'required',
             'nama_barang'           => 'required|array',
             'nama_barang.*'         => 'required',
             'spesifikasi'           => 'required|array',
             'spesifikasi.*'         => 'required',
             'harga_satuan'          => 'required|array',
             'harga_satuan.*'        => 'required',
-            'ttd1'                  => 'required',
-            'ttd2'                  => 'required',
+            'tanggal_surat'     => 'required',
+            'ttd1'              => 'required',
+            'ttd2'              => 'required',
 
         ], [
             'alamat_tujuan.required'        => 'alamat tujuan harus diisi',
             'karyawan_id.required'          => 'peminta barang harus diisi',
             'no_telp.required'              => 'nomor telpon harus diisi',
             'tanggal_surat.required'        => "tanggal surat harus diisi",
+            'bulan_dibutuhkan.required'     => "Bulan dibutuhkan harus diisi",
             'jumlah.*.required'             => "jumlah barang harus diisi",
+            'satuan_id.*.required'              => "Pilih satuan barang",
             'nama_barang.*.required'        => "nama barang harus diisi",
             'spesifikasi.*.required'        => "spesifikasi barang harus diisi",
             'harga_satuan.*.required'       => "harga satuan barang harus diisi",
@@ -189,7 +199,7 @@ class SkbmController extends Controller
             foreach ($request->id as $key => $item) {
                 $array_barang = array(
                     'jumlah' => $request->jumlah[$key],
-                    'satuan' => $request->satuan[$key],
+                    'satuan_id' => $request->satuan_id[$key],
                     'nama_barang' => $request->nama_barang[$key],
                     'spesifikasi' => $request->spesifikasi[$key],
                     'harga_satuan' => $request->harga_satuan[$key]
@@ -222,7 +232,7 @@ class SkbmController extends Controller
     public function tambahBarang(Request $request)
     {
         BarangSkbM::create($request->only([
-            'skbm_id', 'jumlah', 'satuan', 'nama_barang', 'spesifikasi', 'harga_satuan'
+            'skbm_id', 'jumlah', 'satuan_id', 'nama_barang', 'spesifikasi', 'harga_satuan'
         ]));
 
         return response()->json(['status' => 'sukses']);

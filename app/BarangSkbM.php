@@ -9,9 +9,14 @@ class BarangSkbM extends Model
     protected $fillable = [
         'skbm_id',
         'jumlah',
-        'satuan',
+        'satuan_id',
         'nama_barang',
         'spesifikasi',
         'harga_satuan',
     ];
+
+    public function satuan()
+    {
+        return $this->belongsTo(Satuan::class, 'satuan_id', 'id');
+    }
 }

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Karyawan;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use App\Exports\KaryawanExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class KaryawanController extends Controller
 {
@@ -20,59 +22,82 @@ class KaryawanController extends Controller
     {
         // $this->middleware(['role:admin']);
 
-        $this->middleware('permission:sdm-list',['only'=>['index']]);
-        $this->middleware('permission:sdm-create',['only'=>['create','store']]);
-        $this->middleware('permission:sdm-edit',['only'=>['edit','update']]);
-        $this->middleware('permission:sdm-delete',['only'=>['destroy']]);
-        $this->middleware('permission:sdm-show',['only'=>['show']]);
+        $this->middleware('permission:sdm-list', ['only' => ['index']]);
+        $this->middleware('permission:sdm-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:sdm-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:sdm-delete', ['only' => ['destroy']]);
+        $this->middleware('permission:sdm-show', ['only' => ['show']]);
     }
     public function index()
     {
-        // Get users grouped by usia
-        $groupsUsia = DB::table('karyawans')
-            ->select('usia', DB::raw('count(*) as total'))
-            ->groupBy('usia')
-            ->pluck('total', 'usia')->all();
-        // Generate random colours for the groupsUsia
-        for ($i = 0; $i <= count($groupsUsia); $i++) {
-            $warnaGrafikUsia[] = '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6);
-        }
-        // Prepare the data for returning with the view
+        // grafik usia
+        $groupsUsia = [
+            'Usia 17 - 25' =>  Karyawan::select('usia')
+                ->where('usia', '>=', 17)
+                ->where('usia', '<=', 25)
+                ->count(),
+
+            'Usia 26 - 45' => Karyawan::select('usia')
+                ->where('usia', '>=', 26)
+                ->where('usia', '<=', 45)
+                ->count(),
+
+            'Usia 45 keatas' => Karyawan::select('usia')
+                ->where('usia', '>=', 46)
+                ->count(),
+        ];
         $grafikUsia = new Karyawan;
         $grafikUsia->labels = (array_keys($groupsUsia));
         $grafikUsia->dataset = (array_values($groupsUsia));
-        $grafikUsia->warnaGrafikUsia = $warnaGrafikUsia;
 
-        // Get users grouped by masa kerja
-        $groupsMasaKerja = DB::table('karyawans')
-            ->select('masa_kerja', DB::raw('count(*) as total'))
-            ->groupBy('masa_kerja')
-            ->pluck('total', 'masa_kerja')->all();
-        // Generate random colours for the groups
-        for ($i = 0; $i <= count($groupsMasaKerja); $i++) {
-            $warnaGrafikMasaKerja[] = '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6);
-        }
+        //grafik masa kerja
+
+        $groupsMasaKerja =
+            [
+                'Kurang dari 5 Tahun' =>  Karyawan::select('masa_kerja')
+                    ->where('masa_kerja', '>=', 0)
+                    ->where('masa_kerja', '<=', 5)
+                    ->count(),
+
+                '6 sampai 10 Tahun' => Karyawan::select('masa_kerja')
+                    ->where('masa_kerja', '>=', 6)
+                    ->where('masa_kerja', '<=', 10)
+                    ->count(),
+
+                'Lebih dari 11 Tahun' => Karyawan::select('masa_kerja')
+                    ->where('masa_kerja', '>=', 11)
+                    ->count(),
+            ];
+
         // Prepare the data for returning with the view
         $grafikMasaKerja = new Karyawan;
         $grafikMasaKerja->labels = (array_keys($groupsMasaKerja));
         $grafikMasaKerja->dataset = (array_values($groupsMasaKerja));
-        $grafikMasaKerja->warnaGrafikMasaKerja = $warnaGrafikMasaKerja;
 
-        // Get users grouped by masa jabatan
-        $groupsMasaJabatan = DB::table('karyawans')
-            ->select('masa_jabatan', DB::raw('count(*) as total'))
-            ->groupBy('masa_jabatan')
-            ->pluck('total', 'masa_jabatan')->all();
-        // Generate random colours for the groups
-        for ($i = 0; $i <= count($groupsMasaJabatan); $i++) {
-            $warnaGrafikMasaJabatan[] = '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6);
-        }
+        //grafik masa jabatan
+
+        $groupsMasaJabatan =
+            [
+                'Kurang dari 5 Tahun' =>  Karyawan::select('masa_jabatan')
+                    ->where('masa_jabatan', '>=', 0)
+                    ->where('masa_jabatan', '<=', 5)
+                    ->count(),
+
+                '6 sampai 10 Tahun' => Karyawan::select('masa_jabatan')
+                    ->where('masa_jabatan', '>=', 6)
+                    ->where('masa_jabatan', '<=', 10)
+                    ->count(),
+
+                'Lebih dari 11 Tahun' => Karyawan::select('masa_jabatan')
+                    ->where('masa_jabatan', '>=', 11)
+                    ->count(),
+            ];
+
         // Prepare the data for returning with the view
         $grafikMasaJabatan = new Karyawan;
         $grafikMasaJabatan->labels = (array_keys($groupsMasaJabatan));
         $grafikMasaJabatan->dataset = (array_values($groupsMasaJabatan));
-        $grafikMasaJabatan->warnaGrafikMasaJabatan = $warnaGrafikMasaJabatan;
-        //
+
         $data = Karyawan::all();
         return view('admin.karyawan.index', compact('data', 'grafikUsia', 'grafikMasaKerja', 'grafikMasaJabatan'));
     }
@@ -154,6 +179,7 @@ class KaryawanController extends Controller
             'no_npwp'                   => $request->no_npwp,
             'status_keluarga'           => $request->status_keluarga,
             'pendidikan'                => $request->pendidikan,
+            'jurusan'                   => $request->jurusan,
             'sk'                        => $request->sk,
             'tanggal_masuk_kerja'       => $tanggal_masuk_kerja,
             'tanggal_pilih_jabatan'     => $tanggal_pilih_jabatan,
@@ -247,6 +273,7 @@ class KaryawanController extends Controller
         $karyawan->no_npwp                  = $request->get('no_npwp');
         $karyawan->status_keluarga          = $request->get('status_keluarga');
         $karyawan->pendidikan               = $request->get('pendidikan');
+        $karyawan->jurusan                  = $request->get('jurusan');
         $karyawan->sk                       = $request->get('sk');
         $karyawan->tanggal_masuk_kerja      = $tanggal_masuk_kerja;
         $karyawan->tanggal_pilih_jabatan    = $tanggal_pilih_jabatan;
@@ -278,5 +305,11 @@ class KaryawanController extends Controller
         $today = Carbon::now();
 
         return view('admin.karyawan.cetak', compact('karyawan', 'today'));
+    }
+
+    public function fileExport()
+    {
+
+        return Excel::download(new KaryawanExport, 'data-karyawan.xlsx');
     }
 }

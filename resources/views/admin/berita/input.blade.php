@@ -92,7 +92,7 @@
                                                     <p style="margin: 4px;">{{$item->spesifikasi}}</p>
                                                 </td>
                                                 <td>
-                                                    <p style="margin: 4px;">{{$item->satuan}}</p>
+                                                    <p style="margin: 4px;">{{$item->satuan->nama_satuan}}</p>
                                                 </td>
                                                 <td>
                                                     <p style="margin: 4px;">{{$item->jumlah}}</p>

@@ -259,6 +259,7 @@
                 <h6 class="collapse-header">Admin Page:</h6>
                 <a class="collapse-item" href="{{route('roles.index')}}">Roles</a>
                 <a class="collapse-item" href="{{route('users.index')}}">Users</a>
+                <a class="collapse-item" href="{{route('satuan.index')}}">Satuan</a>
             </div>
         </div>
     </li>

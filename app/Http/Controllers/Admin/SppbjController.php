@@ -8,6 +8,7 @@ use App\Sppbj;
 use App\Barang;
 use App\Karyawan;
 use App\Mataanggaran;
+use App\Satuan;
 use Illuminate\Support\Carbon;
 
 class SppbjController extends Controller
@@ -22,10 +23,10 @@ class SppbjController extends Controller
     {
         // $this->middleware(['role:admin']);   
 
-        $this->middleware('permission:umum-list',['only'=>['index']]);
-        $this->middleware('permission:umum-create',['only'=>['create','store']]);
-        $this->middleware('permission:umum-edit',['only'=>['edit','update']]);
-        $this->middleware('permission:umum-delete',['only'=>['destroy']]);
+        $this->middleware('permission:umum-list', ['only' => ['index']]);
+        $this->middleware('permission:umum-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:umum-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:umum-delete', ['only' => ['destroy']]);
     }
     public function index()
     {
@@ -48,9 +49,10 @@ class SppbjController extends Controller
      */
     public function create()
     {
+        $satuan = Satuan::all();
         $mataanggaran = Mataanggaran::all();
         $karyawan = Karyawan::all();
-        return view('admin.sp2bj.input', compact('karyawan', 'mataanggaran'));
+        return view('admin.sp2bj.input', compact('satuan', 'karyawan', 'mataanggaran'));
     }
 
     /**
@@ -70,6 +72,8 @@ class SppbjController extends Controller
             'bulan_dibutuhkan'      => 'required',
             'jumlah'                => 'required|array',
             'jumlah.*'              => 'required',
+            'satuan_id'             => 'required|array',
+            'satuan_id.*'           => 'required',
             'nama_barang'           => 'required|array',
             'nama_barang.*'         => 'required',
             'spesifikasi'           => 'required|array',
@@ -87,6 +91,7 @@ class SppbjController extends Controller
             'tanggal_surat.required'        => "tanggal surat harus diisi",
             'bulan_dibutuhkan.required'     => "Bulan dibutuhkan harus diisi",
             'jumlah.*.required'             => "jumlah barang harus diisi",
+            'satuan_id.*.required'              => "Pilih satuan barang",
             'nama_barang.*.required'        => "nama barang harus diisi",
             'spesifikasi.*.required'        => "spesifikasi barang harus diisi",
             'harga_satuan.*.required'       => "harga satuan barang harus diisi",
@@ -125,7 +130,7 @@ class SppbjController extends Controller
             Barang::create([
                 'sppbj_id'      => $data_sp2bj->id,
                 'jumlah'        => $request->jumlah[$i],
-                'satuan'        => $request->satuan[$i],
+                'satuan_id'     => $request->satuan_id[$i],
                 'nama_barang'   => $request->nama_barang[$i],
                 'spesifikasi'   => $request->spesifikasi[$i],
                 'harga_satuan'  => $request->harga_satuan[$i]

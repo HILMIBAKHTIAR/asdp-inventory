@@ -180,7 +180,7 @@
                             </td>
                             <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;"
                                 class="border1 text-center">
-                                <p style="margin: 2px;">{{ $item->satuan }}</p>
+                                <p style="margin: 2px;">{{ $item->satuan->nama_satuan }}</p>
                             </td>
                             <td style="font-size: 12.0pt; font-family: FrutigerExt-Normal; color: black;"
                                 class="border1 text-center">
@@ -392,6 +392,20 @@
             for (i = 0; i < x.length; i++) {
                 x[i].style.visibility = "hidden";
             }
+            var css = '@page { size: portrait; }',
+            head = document.head || document.getElementsByTagName('head')[0],
+            style = document.createElement('style');
+
+            style.type = 'text/css';
+            style.media = 'print';
+
+            if (style.styleSheet){
+            style.styleSheet.cssText = css;
+            } else {
+            style.appendChild(document.createTextNode(css));
+            }
+
+            head.appendChild(style);
             window.print();
             alert("Jangan di tekan tombol Selanjutnya sebelum dokumen selesai tercetak!");
             for (i = 0; i < x.length; i++) {

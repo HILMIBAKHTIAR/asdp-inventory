@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\BeritaM;
 use App\Karyawan;
 use App\BarangBeritaM;
+use App\Satuan;
 
 class BeritamController extends Controller
 {
@@ -37,9 +38,9 @@ class BeritamController extends Controller
      */
     public function create()
     {
-        //
+        $satuan = Satuan::all();
         $karyawan = Karyawan::all();
-        return view('admin.surat.beritam.create', compact('karyawan'));
+        return view('admin.surat.beritam.create', compact('karyawan', 'satuan'));
     }
 
     /**
@@ -61,6 +62,8 @@ class BeritamController extends Controller
             'nomor_surat_berita'    => 'required',
             'jumlah'                => 'required|array',
             'jumlah.*'              => 'required',
+            'satuan_id'             => 'required|array',
+            'satuan_id.*'           => 'required',
             'nama_barang'           => 'required|array',
             'nama_barang.*'         => 'required',
             'spesifikasi'           => 'required|array',
@@ -68,17 +71,18 @@ class BeritamController extends Controller
             'harga_satuan'          => 'required|array',
             'harga_satuan.*'        => 'required',
         ], [
-            'karyawan_berita_id.required'    => 'kepada yth harus diisi',
-            'ttd1.required'                  => 'staf umum harus diisi',
-            'ttd2.required'                  => 'manager sdm & umum harus diisi',
-            'ttd3.required'                  => 'staf sdm & umum harus diisi',
-            'alamat_tujuan.required'         => 'alamat tujuan harus diisi',
-            'tanggal_surat.required'         => 'tanggal surat harus diisi',
-            'nomor_surat_berita.required'    => 'nomor surat harus diisi',
-            'jumlah.*.required'             => "jumlah barang harus diisi",
-            'nama_barang.*.required'        => "nama barang harus diisi",
-            'spesifikasi.*.required'        => "spesifikasi barang harus diisi",
-            'harga_satuan.*.required'       => "harga satuan barang harus diisi",
+            'karyawan_berita_id.required'       => 'kepada yth harus diisi',
+            'ttd1.required'                     => 'staf umum harus diisi',
+            'ttd2.required'                     => 'manager sdm & umum harus diisi',
+            'ttd3.required'                     => 'staf sdm & umum harus diisi',
+            'alamat_tujuan.required'                => 'alamat tujuan harus diisi',
+            'tanggal_surat.required'            => 'tanggal surat harus diisi',
+            'nomor_surat_berita.required'       => 'nomor surat harus diisi',
+            'jumlah.*.required'                 => "jumlah barang harus diisi",
+            'satuan_id.*.required'              => "Pilih satuan barang",
+            'nama_barang.*.required'            => "nama barang harus diisi",
+            'spesifikasi.*.required'            => "spesifikasi barang harus diisi",
+            'harga_satuan.*.required'           => "harga satuan barang harus diisi",
         ]);
 
         $data_beritam = BeritaM::create([
@@ -96,7 +100,7 @@ class BeritamController extends Controller
             BarangBeritaM::create([
                 'beritam_id'     => $data_beritam->id,
                 'jumlah'        => $request->jumlah[$i],
-                'satuan'        => $request->satuan[$i],
+                'satuan_id'        => $request->satuan_id[$i],
                 'nama_barang'   => $request->nama_barang[$i],
                 'spesifikasi'   => $request->spesifikasi[$i],
                 'harga_satuan'  => $request->harga_satuan[$i]
@@ -136,9 +140,10 @@ class BeritamController extends Controller
     public function edit($id)
     {
         //
+        $satuan = Satuan::all();
         $karyawan = Karyawan::all();
         $data_beritam = BeritaM::find($id);
-        return view('admin.surat.beritam.edit', compact('karyawan', 'data_beritam', 'id'));
+        return view('admin.surat.beritam.edit', compact('satuan', 'karyawan', 'data_beritam', 'id'));
     }
 
     /**
@@ -161,6 +166,8 @@ class BeritamController extends Controller
             'nomor_surat_berita'    => 'required',
             'jumlah'                => 'required|array',
             'jumlah.*'              => 'required',
+            'satuan_id'             => 'required|array',
+            'satuan_id.*'           => 'required',
             'nama_barang'           => 'required|array',
             'nama_barang.*'         => 'required',
             'spesifikasi'           => 'required|array',
@@ -168,17 +175,18 @@ class BeritamController extends Controller
             'harga_satuan'          => 'required|array',
             'harga_satuan.*'        => 'required',
         ], [
-            'karyawan_berita_id.required'    => 'kepada yth harus diisi',
-            'ttd1.required'                  => 'staf umum harus diisi',
-            'ttd2.required'                  => 'manager sdm & umum harus diisi',
-            'ttd3.required'                  => 'staf sdm & umum harus diisi',
-            'alamat_tujuan.required'         => 'alamat tujuan harus diisi',
-            'tanggal_surat.required'         => 'tanggal surat harus diisi',
-            'nomor_surat_berita.required'    => 'nomor surat harus diisi',
-            'jumlah.*.required'             => "jumlah barang harus diisi",
-            'nama_barang.*.required'        => "nama barang harus diisi",
-            'spesifikasi.*.required'        => "spesifikasi barang harus diisi",
-            'harga_satuan.*.required'       => "harga satuan barang harus diisi",
+            'karyawan_berita_id.required'       => 'kepada yth harus diisi',
+            'ttd1.required'                     => 'staf umum harus diisi',
+            'ttd2.required'                     => 'manager sdm & umum harus diisi',
+            'ttd3.required'                     => 'staf sdm & umum harus diisi',
+            'alamat_tujuan.required'            => 'alamat tujuan harus diisi',
+            'tanggal_surat.required'            => 'tanggal surat harus diisi',
+            'nomor_surat_berita.required'       => 'nomor surat harus diisi',
+            'jumlah.*.required'                 => "jumlah barang harus diisi",
+            'satuan_id.*.required'              => "Pilih satuan barang",
+            'nama_barang.*.required'            => "nama barang harus diisi",
+            'spesifikasi.*.required'            => "spesifikasi barang harus diisi",
+            'harga_satuan.*.required'           => "harga satuan barang harus diisi",
         ]);
         $data_beritamm = BeritaM::find($id);
 
@@ -194,7 +202,7 @@ class BeritamController extends Controller
             foreach ($request->id as $key => $item) {
                 $array_barang = array(
                     'jumlah' => $request->jumlah[$key],
-                    'satuan' => $request->satuan[$key],
+                    'satuan_id' => $request->satuan_id[$key],
                     'nama_barang' => $request->nama_barang[$key],
                     'spesifikasi' => $request->spesifikasi[$key],
                     'harga_satuan' => $request->harga_satuan[$key]
@@ -226,7 +234,7 @@ class BeritamController extends Controller
     public function tambahBarang(Request $request)
     {
         BarangBeritaM::create($request->only([
-            'beritam_id', 'jumlah', 'satuan', 'nama_barang', 'spesifikasi', 'harga_satuan'
+            'beritam_id', 'jumlah', 'satuan_id', 'nama_barang', 'spesifikasi', 'harga_satuan'
         ]));
 
         return response()->json(['status' => 'sukses']);
