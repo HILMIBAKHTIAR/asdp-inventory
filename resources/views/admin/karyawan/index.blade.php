@@ -70,7 +70,7 @@
                             <td>{{$row->jabatan}}</td>
                             <td>{{$row->tanggal_pilih_jabatan}}</td>
                             <td>{{$row->masa_jabatan}}</td>
-                            <td>{{$row->pendidikan}} - {{$row->jurusan}}</td>
+                            <td>{{$row->pendidikan}} {{$row->jurusan}}</td>
                             <td>{{$row->nik_ktp}}</td>
                             <td>{{$row->no_bpjs_ketenagakerjaan}}</td>
                             <td>{{$row->no_bpjs_kesehatan}}</td>

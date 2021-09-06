@@ -286,6 +286,7 @@ class KaryawanController extends Controller
 
     public function fileExport()
     {
+
         return Excel::download(new KaryawanExport, 'data-karyawan.xlsx');
     }
 }
