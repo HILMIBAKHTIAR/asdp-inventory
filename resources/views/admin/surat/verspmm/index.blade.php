@@ -44,7 +44,7 @@
                             <td>{{ $item->karyawan->jabatan->nama_jabatan }}-{{ $item->karyawan->nama_karyawan }}</td>
                             <td>{{ $item->tanggal_surat }}</td>
                             <td>{{ $item->uraian_pekerjaan }}</td>
-                            <td>{{ $item->devisi}}</td>
+                            <td>{{ $item->divisi->nama_divisi}}</td>
                             <td>{{ $item->user->name}}</td>
 
                             <td class="d-flex">

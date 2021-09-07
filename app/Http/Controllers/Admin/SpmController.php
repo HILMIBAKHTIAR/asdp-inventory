@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Divisi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Sppbj;
@@ -36,9 +37,10 @@ class SpmController extends Controller
      */
     public function create()
     {
+        $divisi = Divisi::all();
         $karyawan = Karyawan::all();
         $mataanggaran = Mataanggaran::all();
-        return view('admin.spm.input', compact('karyawan', 'mataanggaran'));
+        return view('admin.spm.input', compact('karyawan', 'mataanggaran', 'divisi'));
     }
 
     /**
@@ -53,7 +55,7 @@ class SpmController extends Controller
             'ttd1'              => 'required',
             'ttd2'              => 'required',
             'ttd3'              => 'required',
-            'devisi'            => 'required',
+            'divisi_id'            => 'required',
             'tanggal'           => 'required',
             'tahun_anggaran'    => 'required',
             'jenis_transaksi'   => 'required',
@@ -61,7 +63,7 @@ class SpmController extends Controller
             'ttd1.required'                 => "general manager harus diisi",
             'ttd2.required'                 => "manager sdm & umum harus diisi",
             'ttd3.required'                 => "staf sdm & umum harus diisi",
-            'devisi.required'               => "penanggung jawab peminta harus diisi",
+            'divisi_id.required'               => "penanggung jawab peminta harus diisi",
             'tanggal.required'              => "tanggal harus diisi",
             'tahun_anggaran.required'       => "tahun anggaran harus diisi",
             'jenis_transaksi.required'      => "jenis transaksi harus diisi",
@@ -76,7 +78,7 @@ class SpmController extends Controller
             'ttd1'              => $request->ttd1,
             'ttd2'              => $request->ttd2,
             'ttd3'              => $request->ttd3,
-            'devisi'            => $request->devisi,
+            'divisi_id'         => $request->divisi_id,
             'tanggal'           => $request->tanggal,
             'tahun_anggaran'    => $request->tahun_anggaran,
             'jenis_transaksi'   => $request->jenis_transaksi,

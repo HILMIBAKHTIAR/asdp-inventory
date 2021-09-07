@@ -58,15 +58,12 @@
 
                                     <div class="col-md-12 search_select_box">
                                         <label>Penangung Jawab</label>
-                                        <select name="devisi" id=""
-                                            class="form-control @error('devisi') is-invalid @enderror"
-                                            data-live-search=" true">
-                                            <option value="SDM & Umum" @if (old('devisi') == 'SDM & Umum') selected="selected" @endif>SDM & Umum</option>
-                                            <option value="Usaha" @if (old('devisi') == 'Usaha') selected="selected" @endif>Usaha</option>
-                                            <option value="Teknik" @if (old('devisi') == 'Teknik') selected="selected" @endif>Teknik</option>
-                                            <option value="Teknik Ketapang" @if (old('devisi') == 'Teknik Ketapang') selected="selected" @endif>Teknik Ketapang
+                                        <select name="divisi_id" id="" class="form-control @error('devisi') is-invalid @enderror" data-live-search=" true">
+                                            @foreach($divisi as $item)
+                                            <option value="{{$item->id}}" {{old('divisi_id') == $item->id ? 'selected' : null}}>
+                                                {{$item->nama_divisi}}
                                             </option>
-                                            <option value="Keuangan" @if (old('devisi') == 'Keuangan') selected="selected" @endif>Keuangan</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

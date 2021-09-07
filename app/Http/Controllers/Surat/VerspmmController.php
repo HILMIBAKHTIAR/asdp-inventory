@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Surat;
 
+use App\Divisi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Karyawan;
@@ -36,9 +37,9 @@ class VerspmmController extends Controller
      */
     public function create()
     {
-        //
+        $divisi = Divisi::all();
         $karyawan = Karyawan::all();
-        return view('admin.surat.verspmm.create', compact('karyawan'));
+        return view('admin.surat.verspmm.create', compact('karyawan', 'divisi'));
     }
 
     /**
@@ -53,7 +54,7 @@ class VerspmmController extends Controller
         $request->validate([
             'karyawan_id'           => 'required',
             'verifikator'           => 'required',
-            'devisi'                => 'required',
+            'divisi_id'                => 'required',
             'uraian_pekerjaan'      => 'required',
             'tahun_anggaran'        => 'required',
             'tanggal_surat'         => 'required',
@@ -72,7 +73,7 @@ class VerspmmController extends Controller
             'karyawan_id.required'       => 'nama Verifikator harus diisi',
             'uraian_pekerjaan.required'  => 'uraian pekerjaan harus diisi',
             'verifikator.required'       => 'verifikator harus diisi',
-            'devisi.required'            => 'Devisi harus diisi',
+            'divisi_id.required'            => 'Devisi harus diisi',
             'tahun_anggaran.required'    => 'tahun anggaran harus diisi',
             'tanggal_surat.required'     => 'tanggal surat harus diisi',
             'ttd1.required'              => 'manager sdm & umum harus diisi',
@@ -91,7 +92,7 @@ class VerspmmController extends Controller
             'user_id'               => auth()->user()->id,
             'karyawan_id'           => $request->karyawan_id,
             'verifikator'           => $request->verifikator,
-            'devisi'                => $request->devisi,
+            'divisi_id'                => $request->divisi_id,
             'uraian_pekerjaan'      => $request->uraian_pekerjaan,
             'tahun_anggaran'        => $request->tahun_anggaran,
             'tanggal_surat'         => $request->tanggal_surat,
@@ -136,9 +137,10 @@ class VerspmmController extends Controller
     public function edit($id)
     {
         //
+        $divisi = Divisi::all();
         $karyawan = Karyawan::all();
         $data_verspmm = VerspmM::find($id);
-        return view('admin.surat.verspmm.edit', compact('karyawan', 'data_verspmm'));
+        return view('admin.surat.verspmm.edit', compact('karyawan', 'data_verspmm', 'divisi'));
     }
 
     /**
@@ -154,7 +156,7 @@ class VerspmmController extends Controller
         $request->validate([
             'karyawan_id'           => 'required',
             'verifikator'           => 'required',
-            'devisi'                => 'required',
+            'divisi_id'                => 'required',
             'uraian_pekerjaan'      => 'required',
             'tahun_anggaran'        => 'required',
             'tanggal_surat'         => 'required',
@@ -171,7 +173,7 @@ class VerspmmController extends Controller
             'karyawan_id.required'       => 'nama Verifikator harus diisi',
             'uraian_pekerjaan.required'  => 'uraian pekerjaan harus diisi',
             'verifikator.required'       => 'verifikator harus diisi',
-            'devisi.required'            => 'devisi harus diisi',
+            'divisi_id.required'            => 'divisi harus diisi',
             'tahun_anggaran.required'    => 'tahun anggaran harus diisi',
             'tanggal_surat.required'     => 'tanggal surat harus diisi',
             'ttd1.required'              => 'manager sdm & umum harus diisi',
@@ -189,7 +191,7 @@ class VerspmmController extends Controller
 
         $data_verspmm->karyawan_id          =     $request->get('karyawan_id');
         $data_verspmm->verifikator          =     $request->get('verifikator');
-        $data_verspmm->devisi               =     $request->get('devisi');
+        $data_verspmm->divisi_id            =     $request->get('divisi_id');
         $data_verspmm->uraian_pekerjaan     =     $request->get('uraian_pekerjaan');
         $data_verspmm->tahun_anggaran       =     $request->get('tahun_anggaran');
         $data_verspmm->tanggal_surat        =     $request->get('tanggal_surat');

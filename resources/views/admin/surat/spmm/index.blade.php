@@ -43,7 +43,7 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$item->nomor_surat_spm}}</td>
                             <td>{{$item->tanggal_surat}}</td>
-                            <td>{{$item->devisi}}</td>
+                            <td>{{$item->divisi->nama_divisi}}</td>
                             <td>{{$item->tahun_anggaran}}</td>
                             <td>{{$item->jenis_transaksi}}</td>
                             <td>{{$item->user->name}}</td>

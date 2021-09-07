@@ -13,7 +13,7 @@ class Spm extends Model
         'ttd1',
         'ttd2',
         'ttd3',
-        'devisi',
+        'divisi_id',
         'tanggal',
         'tahun_anggaran',
         'jenis_transaksi',
@@ -34,6 +34,11 @@ class Spm extends Model
     public function sppbj()
     {
         return $this->belongsTo(Sppbj::class);
+    }
+
+    public function divisi()
+    {
+        return $this->belongsTo(Divisi::class);
     }
 
     public function karyawan()
