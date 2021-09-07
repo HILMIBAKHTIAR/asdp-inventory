@@ -96,7 +96,7 @@ class JabatanController extends Controller
         $data_jabatan = Jabatan::find($id);
         $data_jabatan->delete();
 
-        return redirect('admin\jabatan')->with('sukses', 'Satuan berhasil dihapus');
+        return redirect('admin\jabatan')->with('sukses', 'jabatan berhasil dihapus');
     }
 
     public function tambahJabatan(Request $request)
