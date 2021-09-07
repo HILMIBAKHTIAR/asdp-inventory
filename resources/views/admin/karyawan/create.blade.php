@@ -122,17 +122,12 @@
                             <div class="invalid-feedback">{{$message}}</div>
                             @enderror
                             <label>Jabatan</label>
-                            <select name="jabatan" id="" class="form-control">
-                                <option value="">-Pilih-</option>
-                                <option value="Manager SDM & Umum" @if (old('jabatan')=='Manager SDM & Umum' ) selected="selected" @endif>Manager SDM & Umum</option>
-                                <option value="Manager Usaha Ketapang" @if (old('jabatan')=='Manager Usaha Ketapang' ) selected="selected" @endif>Manager Usaha Ketapang</option>
-                                <option value="Manager Usaha Gilimanuk" @if (old('jabatan')=='Manager Usaha Gilimanuk' ) selected="selected" @endif>Manager Usaha Gilimanuk</option>
-                                <option value="Manager Keuangan" @if (old('jabatan')=='Manager Keuangan' ) selected="selected" @endif>Manager Keuangan</option>
-                                <option value="Manager Teknik" @if (old('jabatan')=='Manager Teknik' ) selected="selected" @endif>Manager Teknik</option>
-                                <option value="Staf SDM & Umum" @if (old('jabatan')=='Staf SDM & Umum' ) selected="selected" @endif>Staf SDM & Umum</option>
-                                <option value="Verifikator" @if (old('jabatan')=='Verifikator' ) selected="selected" @endif>Verifikator</option>
-                                <option value="Staf Teknik Ketapang" @if (old('jabatan')=='Staf Teknik Ketapang' ) selected="selected" @endif>Staf Teknik Ketapang</option>
-                                <option value="Staf Usaha" @if (old('jabatan')=='Staf Usaha' ) selected="selected" @endif>Staf Usaha</option>
+                            <select name="jabatan_id" id="" class="form-control">
+                                @foreach($jabatan as $item)
+                                        <option value="{{$item->id}}" {{old('jabatan_id') == $item->id ? 'selected' : null}}>
+                                            {{$item->nama_jabatan}}
+                                        </option>
+                                        @endforeach
                             </select>
 
                             <label>Tanggal Masuk Kerja</label>

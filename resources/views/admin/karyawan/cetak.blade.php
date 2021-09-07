@@ -123,7 +123,7 @@
                         <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{$row->status_keluarga}}</p></td>
                         <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{$row->masa_kerja}}</p></td>
                         <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">SK. {{$row->sk}}</p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{$row->jabatan}}</p></td>
+                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{$row->jabatan->nama_jabatan}}</p></td>
                         <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{$row->masa_jabatan}}</p></td>
                         <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{$row->pendidikan}}</p></td>
                         <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{$row->nik_ktp}}</p></td>

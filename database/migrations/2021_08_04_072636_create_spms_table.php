@@ -20,13 +20,7 @@ class CreateSpmsTable extends Migration
             $table->unsignedBigInteger('ttd1');
             $table->unsignedBigInteger('ttd2');
             $table->unsignedBigInteger('ttd3');
-            $table->enum('devisi', [
-                'SDM & Umum',
-                'Usaha',
-                'Teknik',
-                'Teknik Ketapang',
-                'Keuangan',
-            ]);
+            $table->unsignedBigInteger('divisi_id');
             $table->date('tanggal');
             $table->date('tahun_anggaran');
             $table->string('jenis_transaksi');
@@ -41,6 +35,7 @@ class CreateSpmsTable extends Migration
             $table->foreign('ttd1')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('ttd2')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('ttd3')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('divisi_id')->references('id')->on('divisis')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -18,13 +18,7 @@ class CreateVerspmMSTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('karyawan_id');
             $table->unsignedBigInteger('verifikator');
-            $table->enum('devisi', [
-                'SDM & Umum',
-                'Usaha',
-                'Teknik',
-                'Teknik Ketapang',
-                'Keuangan',
-            ]);
+            $table->unsignedBigInteger('divisi_id');
             $table->unsignedBigInteger('ttd1');
             $table->unsignedBigInteger('ttd2');
             $table->string('uraian_pekerjaan');
@@ -47,6 +41,7 @@ class CreateVerspmMSTable extends Migration
             $table->foreign('verifikator')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('ttd1')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('ttd2')->references('id')->on('karyawans')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('divisi_id')->references('id')->on('divisis')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

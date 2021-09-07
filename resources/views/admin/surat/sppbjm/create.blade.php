@@ -29,7 +29,7 @@
                                         <option value="">-Pilih-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}" {{old('karyawan_id') == $item->id ? 'selected' : null}}>
-                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                            {{$item->jabatan->nama_jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
@@ -217,7 +217,7 @@
                                         <option value="">-Pilih Peminta Barang/Jasa-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}" {{old('ttd1') == $item->id ? 'selected' : null}}>
-                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                            {{$item->jabatan->nama_jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
@@ -229,7 +229,7 @@
                                         <option value="">-Pilih Nama General Manager Cabang-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}" {{old('ttd2') == $item->id ? 'selected' : null}}>
-                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                            {{$item->jabatan->nama_jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
@@ -241,7 +241,7 @@
                                         <option value="">-Pilih Manager Keuangan-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}" {{old('ttd3') == $item->id ? 'selected' : null}}>
-                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                            {{$item->jabatan->nama_jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
@@ -255,7 +255,7 @@
                                         <option value="">-Pilih Manager SDM & Umum-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}" {{old('ttd4') == $item->id ? 'selected' : null}}>
-                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                            {{$item->jabatan->nama_jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
