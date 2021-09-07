@@ -16,6 +16,7 @@ class VerspmMExport implements FromCollection, ShouldAutoSize, WithMapping, With
     public function headings(): array
     {
         return [
+            'No',
             'Verifikator',
             'Pembuat Verifikator',
             'Tanggal Surat',
@@ -30,6 +31,7 @@ class VerspmMExport implements FromCollection, ShouldAutoSize, WithMapping, With
     public function map($data_verspmm): array
     {
         return [
+            $data_verspmm->id,
             $data_verspmm->verif->nama_karyawan,
             $data_verspmm->karyawan->nama_karyawan,
             $data_verspmm->tanggal_surat,

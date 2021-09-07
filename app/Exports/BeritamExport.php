@@ -16,6 +16,7 @@ class BeritamExport implements FromCollection, ShouldAutoSize, WithMapping, With
     public function headings(): array
     {
         return [
+            'No',
             'No Surat',
             'Surat Ditu jukan',
             'Tanggal Surat',
@@ -29,6 +30,7 @@ class BeritamExport implements FromCollection, ShouldAutoSize, WithMapping, With
     public function map($data_beritamm): array
     {
         return [
+            $data_beritamm->id,
             $data_beritamm->nomor_surat_berita,
             $data_beritamm->karyawanBerita->jabatan->nama_jabatan,
             $data_beritamm->tanggal_surat,
