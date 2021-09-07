@@ -16,6 +16,7 @@ class SppbjmExport implements FromCollection, ShouldAutoSize, WithMapping, WithH
     public function headings(): array
     {
         return [
+            'No',
             'Nomor Surat',
             'Tanggal Surat',
             'Nama Pengadaan',
@@ -29,6 +30,7 @@ class SppbjmExport implements FromCollection, ShouldAutoSize, WithMapping, WithH
     public function map($data_sppbjmm): array
     {
         return [
+            $data_sppbjmm->id,
             $data_sppbjmm->nomor_surat,
             $data_sppbjmm->tanggal_surat,
             $data_sppbjmm->nama_pengadaan,

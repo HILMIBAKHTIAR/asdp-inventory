@@ -16,6 +16,7 @@ class SkbmExport implements FromCollection, ShouldAutoSize, WithMapping, WithHea
     public function headings(): array
     {
         return [
+            'No',
             'peminta',
             'Alamat Tujuan',
             'No Telp',
@@ -29,6 +30,7 @@ class SkbmExport implements FromCollection, ShouldAutoSize, WithMapping, WithHea
     public function map($skbmm): array
     {
         return [
+            $skbmm->id,
             $skbmm->karyawan->nama_karyawan,
             $skbmm->alamat_tujuan,
             $skbmm->no_telp,

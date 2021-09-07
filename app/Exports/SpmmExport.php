@@ -16,6 +16,7 @@ class SpmmExport implements FromCollection, ShouldAutoSize, WithMapping, WithHea
     public function headings(): array
     {
         return [
+            'No',
             'No Surat',
             'Tanggal Surat',
             'Divisi',
@@ -31,6 +32,7 @@ class SpmmExport implements FromCollection, ShouldAutoSize, WithMapping, WithHea
     public function map($data_spmm_m): array
     {
         return [
+            $data_spmm_m->id,
             $data_spmm_m->nomor_surat_spm,
             $data_spmm_m->tanggal_surat,
             $data_spmm_m->divisi->nama_divisi,
