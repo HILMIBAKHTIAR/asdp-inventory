@@ -5,6 +5,7 @@
     <div class="mb-2 d-flex justify-content-start">
         <a href="{{url('admin/surat/')}}" class="btn btn-success"> Kembali</a>
     </div>
+    <a class="btn btn-warning" href="{{ url('admin/file-exportVerspmM') }}">Export Excel</a>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             @if(session()->get('sukses'))
@@ -18,6 +19,7 @@
                 @can('umum-create')
                 <a href="{{ route('verspmm.create') }}" class="btn btn-primary"> Tambah</a>
                 @endcan
+                
             </div>
         </div>
         <div class="card-body">
@@ -44,7 +46,7 @@
                             <td>{{ $item->karyawan->jabatan->nama_jabatan }}-{{ $item->karyawan->nama_karyawan }}</td>
                             <td>{{ $item->tanggal_surat }}</td>
                             <td>{{ $item->uraian_pekerjaan }}</td>
-                            <td>{{ $item->devisi}}</td>
+                            <td>{{ $item->divisi->nama_divisi}}</td>
                             <td>{{ $item->user->name}}</td>
 
                             <td class="d-flex">

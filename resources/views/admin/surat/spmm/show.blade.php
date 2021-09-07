@@ -127,7 +127,7 @@
           </tr>
           <tr style="height: 23px;">
             <td style="width: 228.93px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Penanggung Jawab Unit Fungsi</td>
-            <td style="width: 845.07px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">:&nbsp;{{$data_spmm->devisi}}</td>
+            <td style="width: 845.07px; height: 23px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">:&nbsp;{{$data_spmm->divisi->nama_divisi}}</td>
           </tr>
           <tr style="height: 23.293px;">
             <td style="width: 228.93px; height: 23.293px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">Pembebanan Anggaran</td>

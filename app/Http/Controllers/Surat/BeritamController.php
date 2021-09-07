@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use App\BeritaM;
 use App\Karyawan;
 use App\BarangBeritaM;
+use App\Exports\BeritamExport;
 use App\Satuan;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BeritamController extends Controller
 {
@@ -245,5 +247,9 @@ class BeritamController extends Controller
         $barang = BarangBeritaM::where('id', $barang)->delete();
 
         return response()->json(['status' => $barang]);
+    }
+    public function fileExport()
+    {
+        return Excel::download(new BeritamExport, 'data-Berita.xlsx');
     }
 }

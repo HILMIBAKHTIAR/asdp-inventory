@@ -48,13 +48,13 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6 search_select_box">
-                                    <label>Penangung Jawab Anggaran</label>
-                                    <select name="devisi" class="form-control @error('devisi') is-invalid @enderror" data-live-search=" true">
-                                        <option value="SDM & Umum" @if (old('devisi')=='SDM & Umum' ) selected="selected" @endif>SDM & Umum</option>
-                                        <option value="Usaha" @if (old('devisi')=='Usaha' ) selected="selected" @endif>Usaha</option>
-                                        <option value="Teknik" @if (old('devisi')=='Teknik' ) selected="selected" @endif>Teknik</option>
-                                        <option value="Teknik Ketapang" @if (old('devisi')=='Teknik Ketapang' ) selected="selected" @endif>Teknik Ketapang</option>
-                                        <option value="Keuangan" @if (old('devisi')=='Keuangan' ) selected="selected" @endif>Keuangan</option>
+                                    <label>Penangung Jawab</label>
+                                    <select name="divisi_id" id="" class="form-control @error('devisi') is-invalid @enderror" data-live-search=" true">
+                                        @foreach($divisi as $item)
+                                        <option value="{{$item->id}}" {{old('divisi_id') == $item->id ? 'selected' : null}}>
+                                            {{$item->nama_divisi}}
+                                        </option>
+                                        @endforeach
                                     </select>
                                     @error('devisi')
                                     <div class="invalid-feedback">{{$message}}</div>

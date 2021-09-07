@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Surat;
 
 use App\BarangSppbjM;
+use App\Exports\SppbjmExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Mataanggaran;
 use App\SppbjM;
 use App\Karyawan;
 use App\Satuan;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SppbjmController extends Controller
 {
@@ -277,5 +279,9 @@ class SppbjmController extends Controller
         $barang = BarangSppbjM::where('id', $barang)->delete();
 
         return response()->json(['status' => $barang]);
+    }
+    public function fileExport()
+    {
+        return Excel::download(new SppbjmExport, 'data-sppbj-Manual.xlsx');
     }
 }

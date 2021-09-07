@@ -5,6 +5,7 @@
     <div class="mb-2 d-flex justify-content-start">
         <a href="{{url('admin/surat/')}}" class="btn btn-success"> Kembali</a>
     </div>
+    <a class="btn btn-warning" href="{{ url('admin/file-exportSpmM') }}">Export Excel</a>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             @if(session()->get('sukses'))
@@ -43,7 +44,7 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$item->nomor_surat_spm}}</td>
                             <td>{{$item->tanggal_surat}}</td>
-                            <td>{{$item->devisi}}</td>
+                            <td>{{$item->divisi->nama_divisi}}</td>
                             <td>{{$item->tahun_anggaran}}</td>
                             <td>{{$item->jenis_transaksi}}</td>
                             <td>{{$item->user->name}}</td>

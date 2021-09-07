@@ -14,7 +14,7 @@ class SpmM extends Model
         'jenis_transaksi',
         'program',
         'tahun_anggaran',
-        'devisi',
+        'divisi_id',
         'pembebanan_anggaran',
 
         'uraian_kegiatan',
@@ -40,6 +40,11 @@ class SpmM extends Model
     public function karyawan()
     {
         return $this->belongsTo(Karyawan::class);
+    }
+
+    public function divisi()
+    {
+        return $this->belongsTo(Divisi::class);
     }
 
     public function mataanggaran()

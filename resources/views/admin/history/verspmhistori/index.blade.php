@@ -36,7 +36,7 @@
                             <td>{{$item->verif->nama_karyawan}}</td>
                             <td>{{$item->tanggal_surat}}</td>
                             <td>{{$item->sp2bj->nama_pengadaan}}</td>
-                            <td>{{$item->spm->devisi}}</td>
+                            <td>{{$item->spm->divisi->nama_divisi}}</td>
                             <td>{{$item->user->name}}</td>
                             <td class="d-flex">
                                 <a href="{{route('verspmhistori.show',$item->id)}}" class="btn btn-success">Show</a>
