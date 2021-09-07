@@ -38,6 +38,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('/users', 'Admin\UserController');
     Route::resource('/satuan', 'Admin\SatuanController');
     Route::post('/satuan/tambah', 'Admin\SatuanController@tambahSatuan');
+    Route::resource('/jabatan', 'Admin\JabatanController');
+    Route::post('/jabatan/tambah', 'Admin\JabatanController@tambahJabatan');
 
     Route::post('/berita/tambah', 'Admin\BeritaController@tambahBarang');
     Route::get('/berita/{berita}/hapus', 'Admin\BeritaController@hapusBarang');

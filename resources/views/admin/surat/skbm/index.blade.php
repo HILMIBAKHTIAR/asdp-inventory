@@ -39,7 +39,7 @@
                         @foreach ($skbm as $item)
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$item->karyawan->jabatan}} - {{$item->karyawan->nama_karyawan}}</td>
+                            <td>{{$item->karyawan->jabatan->nama_jabatan}} - {{$item->karyawan->nama_karyawan}}</td>
                             <td>{{tanggal_indonesia($item->tanggal_surat)}}</td>
                             <td>{{$item->alamat_tujuan}}</td>
                             <td>{{$item->no_telp}}</td>

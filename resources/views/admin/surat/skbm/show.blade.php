@@ -136,7 +136,7 @@
                                 : {{ $skbm->karyawan->nama_karyawan }}</p>
                             <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">
                                 Jabatan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
-                                {{ $skbm->karyawan->jabatan }}
+                                {{ $skbm->karyawan->jabatan->nama_jabatan }}
                             </p>
                             <p style="font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">
                                 Nik&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -93,7 +93,7 @@
                                             @endif
 
                                             >
-                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                            {{$item->jabatan->nama_jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
@@ -207,7 +207,7 @@
                                             @endif
 
                                             >
-                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                            {{$item->jabatan->nama_jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
@@ -225,7 +225,7 @@
                                             @endif
 
                                             >
-                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                            {{$item->jabatan->nama_jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
@@ -243,7 +243,7 @@
                                             @endif
 
                                             >
-                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                            {{$item->jabatan->nama_jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>

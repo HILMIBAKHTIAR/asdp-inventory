@@ -114,6 +114,9 @@
                 <a class="collapse-item" href="{{route('karyawan.index')}}">Karyawan</a>
                 @endcan
                 @can('sdm-list')
+                <a class="collapse-item" href="{{route('jabatan.index')}}">Jabatan</a>
+                @endcan
+                @can('sdm-list')
                 <a class="collapse-item" href="{{route('mataanggaran.index')}}">Mataanggaran</a>
                 @endcan
                 <a class="collapse-item" href="">Nominatif</a>

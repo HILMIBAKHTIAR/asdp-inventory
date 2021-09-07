@@ -29,7 +29,7 @@
                                         <option value="">-Pilih-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}" {{old('karyawan_id') == $item->id ? 'selected' : null}}>
-                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                            {{$item->jabatan->nama_jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
@@ -64,7 +64,7 @@
                                         <option value="">-Pilih-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}" {{old('karyawan_id') == $item->id ? 'selected' : null}}>
-                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                            {{$item->jabatan->nama_jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
@@ -183,7 +183,7 @@
                                         <option value="">-Pilih-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}" {{old('ttd1') == $item->id ? 'selected' : null}}>
-                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                            {{$item->jabatan->nama_jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
@@ -197,7 +197,7 @@
                                         <option value="">-Pilih-</option>
                                         @foreach($karyawan as $item)
                                         <option value="{{$item->id}}" {{old('ttd2') == $item->id ? 'selected' : null}}>
-                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                            {{$item->jabatan->nama_jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>

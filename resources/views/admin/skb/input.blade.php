@@ -58,7 +58,7 @@
                                         <option value="">-Pilih-</option>
                                         @foreach ($karyawan as $item)
                                         <option value="{{$item->id}}">
-                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                            {{$item->jabatan->nama_jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
@@ -72,7 +72,7 @@
                                         <option value="">-Pilih-</option>
                                         @foreach ($karyawan as $item)
                                         <option value="{{$item->id}}">
-                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                            {{$item->jabatan->nama_jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
