@@ -117,18 +117,15 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                     <label>Jabatan</label>
-                                    <select name="jabatan" id="" class="form-control">
-                                        @foreach([
-                                        "Manager SDM & Umum" => "Manager SDM & Umum",
-                                        "Manager Usaha Ketapang" => "Manager Usaha Ketapang",
-                                        "Manager Usaha Gilimanuk" => "Manager Usaha Gilimanuk",
-                                        "Manager Keuangan" => "Manager Keuangan",
-                                        "Manager Teknik" => "Manager Teknik",
-                                        "Staf SDM & Umum" => "Staf SDM & Umum",
-                                        "Staf Teknik Ketapang" => "Staf Teknik Ketapang",
-                                        "Staf Usaha" => "Staf Usaha",
-                                        ] AS $item => $itemjabatan)
-                                        <option value="{{ $item }}" {{ old("jabatan", $karyawan->jabatan) == $item ? "selected" : "" }}>{{ $itemjabatan }}</option>
+                                    <select name="jabatan_id" id="" class="form-control">
+                                        @foreach($jabatan as $item)
+                                        <option value={{$item->id}} @if($item->id==$karyawan->jabatan_id)
+                                            selected
+                                            @endif
+
+                                            >
+                                            {{$item->nama_jabatan}}
+                                        </option>
                                         @endforeach
                                     </select>
 

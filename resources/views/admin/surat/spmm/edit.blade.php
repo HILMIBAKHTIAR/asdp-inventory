@@ -68,15 +68,14 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label>Penangung Jawab</label>
-                                    <select name="devisi" id="" class="form-control @error('devisi') is-invalid @enderror" data-live-search=" true">
-                                        @foreach([
-                                        "SDM & Umum" => "SDM & Umum",
-                                        "Usaha" => "Usaha",
-                                        "Teknik" => "Teknik",
-                                        "Teknik Ketapang" => "Teknik Ketapang",
-                                        "Keuangan" => "Keuangan"
-                                        ] AS $item => $itemDevisi)
-                                        <option value="{{ $item }}" {{ old("devisi", $data_spmm->devisi) == $item ? "selected" : "" }}>{{ $itemDevisi }}</option>
+                                    <select name="divisi_id" id="" class="form-control @error('devisi') is-invalid @enderror" data-live-search=" true">
+                                        @foreach($divisi as $item)
+                                        <option value={{$item->id}} @if($item->id==$data_spmm->divisi_id)
+                                            selected
+                                            @endif
+                                            >
+                                            {{$item->nama_divisi}}
+                                        </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -186,7 +185,7 @@
                                             @endif
 
                                             >
-                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                            {{$item->jabatan->nama_jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
@@ -205,7 +204,7 @@
                                             @endif
 
                                             >
-                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                            {{$item->jabatan->nama_jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>
@@ -224,7 +223,7 @@
                                             @endif
 
                                             >
-                                            {{$item->jabatan}} - {{$item->nama_karyawan}}
+                                            {{$item->jabatan->nama_jabatan}} - {{$item->nama_karyawan}}
                                         </option>
                                         @endforeach
                                     </select>

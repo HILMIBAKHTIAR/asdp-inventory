@@ -42,11 +42,11 @@
 
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->verif->jabatan }}-{{ $item->verif->nama_karyawan }}</td>
-                            <td>{{ $item->karyawan->jabatan }}-{{ $item->karyawan->nama_karyawan }}</td>
+                            <td>{{ $item->verif->jabatan->nama_jabatan }}-{{ $item->verif->nama_karyawan }}</td>
+                            <td>{{ $item->karyawan->jabatan->nama_jabatan }}-{{ $item->karyawan->nama_karyawan }}</td>
                             <td>{{ $item->tanggal_surat }}</td>
                             <td>{{ $item->uraian_pekerjaan }}</td>
-                            <td>{{ $item->devisi}}</td>
+                            <td>{{ $item->divisi->nama_divisi}}</td>
                             <td>{{ $item->user->name}}</td>
 
                             <td class="d-flex">

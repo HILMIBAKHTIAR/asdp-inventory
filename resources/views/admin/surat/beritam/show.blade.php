@@ -119,7 +119,7 @@
                     <tr class="border1" style="height: 30px;">
                         <td class="border1" style="width: 378.812px; height: 30px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">
                             &nbsp;Kepada Yth&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                            :&nbsp;{{ $data_beritam->karyawanBerita->jabatan }}</td>
+                            :&nbsp;{{ $data_beritam->karyawanBerita->jabatan->nama_jabatan }}</td>
                         <td class="border1" style="width: 436.188px; height: 30px; font-size: 11.0pt; font-family: FrutigerExt-Normal; color: black;">
                             &nbsp;Nomor&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                             :&nbsp;SPBJ.{{ $data_beritam->nomor_surat_berita }}/UM/ASDP-KTP/2021</td>

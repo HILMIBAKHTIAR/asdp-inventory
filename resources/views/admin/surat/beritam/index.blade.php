@@ -41,7 +41,7 @@
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$item->nomor_surat_berita}}</td>
-                            <td>{{$item->karyawanBerita->jabatan}}</td>
+                            <td>{{$item->karyawanBerita->jabatan->nama_jabatan}}</td>
                             <td>{{$item->tanggal_surat}}</td>
                             <td>{{$item->alamat_tujuan}}</td>
                             <td>{{$item->user->name}}</td>

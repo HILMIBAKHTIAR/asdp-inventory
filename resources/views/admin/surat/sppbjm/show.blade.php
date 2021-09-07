@@ -129,7 +129,7 @@
                     <tr style="height: 23px;">
                         <td class="right-border" style="width: 273.719px; height: 23px;"><strong>Dari</strong></td>
                         <td class="left-border" style="width: 474.281px; height: 23px;">
-                            <strong>&nbsp;{{ $data_sppbjm->karyawan->jabatan }}</strong>
+                            <strong>&nbsp;{{ $data_sppbjm->karyawan->jabatan->nama_jabatan }}</strong>
                         </td>
                         <td class="border1" style="width: 313px; height: 23px;">
                             <strong>Tanggal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :

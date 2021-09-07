@@ -67,7 +67,7 @@
                                         <td>{{ $row->tanggal_masuk_kerja }}</td>
                                         <td>{{ $row->masa_kerja }}</td>
                                         <td>{{ $row->sk }}</td>
-                                        <td>{{ $row->jabatan }}</td>
+                                        <td>{{ $row->jabatan->nama_jabatan }}</td>
                                         <td>{{ $row->tanggal_pilih_jabatan }}</td>
                                         <td>{{ $row->masa_jabatan }}</td>
                                         <td>{{ $row->pendidikan }} {{ $row->jurusan }}</td>

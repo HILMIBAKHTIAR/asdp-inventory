@@ -12,7 +12,7 @@ class VerspmM extends Model
         'karyawan_id',
         'ttd1',
         'ttd2',
-        'devisi',
+        'divisi_id',
         'verifikator',
         'uraian_pekerjaan',
         'tahun_anggaran',
@@ -39,6 +39,12 @@ class VerspmM extends Model
     {
         return $this->belongsTo(Karyawan::class, 'verifikator', 'id');
     }
+
+    public function divisi()
+    {
+        return $this->belongsTo(Divisi::class);
+    }
+
     public function tanda1()
     {
         return $this->belongsTo(Karyawan::class, 'ttd1', 'id');

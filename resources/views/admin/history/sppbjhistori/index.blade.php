@@ -41,7 +41,7 @@
                                     <td>{{ $item->nomor_surat }}</td>
                                     <td>{{ $item->tanggal_surat }}</td>
                                     <td>{{ $item->nama_pengadaan }}</td>
-                                    <td>{{ $item->karyawan->jabatan }} - {{ $item->karyawan->nama_karyawan }}</td>
+                                    <td>{{ $item->karyawan->jabatan->nama_jabatan }} - {{ $item->karyawan->nama_karyawan }}</td>
                                     <td>{{ $item->user->name }}</td>
                                     <td class="d-flex">
                                         <a href="{{ route('sppbjhistori.show', $item->id) }}"

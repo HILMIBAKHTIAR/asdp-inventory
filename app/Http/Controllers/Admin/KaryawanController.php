@@ -8,6 +8,7 @@ use App\Karyawan;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Exports\KaryawanExport;
+use App\Jabatan;
 use Maatwebsite\Excel\Facades\Excel;
 
 class KaryawanController extends Controller
@@ -109,9 +110,9 @@ class KaryawanController extends Controller
      */
     public function create()
     {
-        //
+        $jabatan = Jabatan::all();
         $data = Karyawan::all();
-        return view('admin.karyawan.create', compact('data'));
+        return view('admin.karyawan.create', compact('data', 'jabatan'));
     }
 
     /**
@@ -125,7 +126,7 @@ class KaryawanController extends Controller
         //dd($request);
         $request->validate([
             'nama_karyawan'             => 'required',
-            'jabatan'                   => 'required',
+            'jabatan_id'                   => 'required',
             'nik'                       => 'required',
             'tempat_lahir'              => 'required',
             'tanggal_lahir'             => 'required',
@@ -140,7 +141,7 @@ class KaryawanController extends Controller
             'tanggal_pilih_jabatan'     => 'required',
         ], [
             'nama_karyawan.required'             => 'nama karyawan harus diisi',
-            'jabatan.required'                   => 'jabatan harus diisi',
+            'jabatan_id.required'                   => 'jabatan harus diisi',
             'nik.required'                       => 'NIK harus diisi',
             'tempat_lahir.required'              => 'tempat lahir harus diisi',
             'tanggal_lahir.required'             => 'tanggal lahir harus diisi',
@@ -168,7 +169,7 @@ class KaryawanController extends Controller
 
         $data_karyawan = Karyawan::create([
             'nama_karyawan'             => $request->nama_karyawan,
-            'jabatan'                   => $request->jabatan,
+            'jabatan_id'                => $request->jabatan_id,
             'nik'                       => $request->nik,
             'tempat_lahir'              => $request->tempat_lahir,
             'tanggal_lahir'             => $tanggal_lahir,
@@ -216,9 +217,9 @@ class KaryawanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $jabatan = Jabatan::all();
         $karyawan = Karyawan::findOrFail($id);
-        return view('admin.karyawan.edit', compact('karyawan', 'id'));
+        return view('admin.karyawan.edit', compact('karyawan', 'id', 'jabatan'));
     }
 
     /**
@@ -233,7 +234,7 @@ class KaryawanController extends Controller
         // dd($request->all());
         $request->validate([
             'nama_karyawan'             => 'required',
-            'jabatan'                   => 'required',
+            'jabatan_id'                   => 'required',
             'nik'                       => 'required',
             'tempat_lahir'              => 'required',
             'tanggal_lahir'             => 'required',
@@ -262,7 +263,7 @@ class KaryawanController extends Controller
         $karyawan = Karyawan::find($id);
 
         $karyawan->nama_karyawan            = $request->get('nama_karyawan');
-        $karyawan->jabatan                  = $request->get('jabatan');
+        $karyawan->jabatan_id               = $request->get('jabatan_id');
         $karyawan->nik                      = $request->get('nik');
         $karyawan->tempat_lahir             = $request->get('tempat_lahir');
         $karyawan->tanggal_lahir            = $tanggal_lahir;
