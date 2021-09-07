@@ -20,12 +20,12 @@ class VerspmMExport implements FromCollection, ShouldAutoSize, WithMapping, With
             'Pembuat Verifikator',
             'Tanggal Surat',
             'Uraian Pekerjaan',
-            'Devisi',
+            'Divisi',
         ];
     }
     public function collection()
     {
-        return VerspmM::with('verif','karyawan')->get();
+        return VerspmM::with('verif','karyawan','divisi')->get();
     }
     public function map($data_verspmm): array
     {
@@ -34,7 +34,7 @@ class VerspmMExport implements FromCollection, ShouldAutoSize, WithMapping, With
             $data_verspmm->karyawan->nama_karyawan,
             $data_verspmm->tanggal_surat,
             $data_verspmm->uraian_pekerjaan,
-            $data_verspmm->devisi,
+            $data_verspmm->divisi->nama_divisi,
         ];
     }
 }

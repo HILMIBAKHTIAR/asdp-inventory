@@ -32,6 +32,10 @@ class BeritaM extends Model
     {
         return $this->belongsTo(Karyawan::class, 'karyawan_berita_id', 'id');
     }
+    public function jabatan()
+    {
+        return $this->belongsTo(jabatan::class);
+    }
 
     public function tanda1()
     {

@@ -18,7 +18,7 @@ class SpmmExport implements FromCollection, ShouldAutoSize, WithMapping, WithHea
         return [
             'No Surat',
             'Tanggal Surat',
-            'Devisi',
+            'Divisi',
             'Tahun Anggaran',
             'Jenis Tranksaksi',
             'Permohonan Dana',
@@ -26,14 +26,14 @@ class SpmmExport implements FromCollection, ShouldAutoSize, WithMapping, WithHea
     }
     public function collection()
     {
-        return SpmM::get();
+        return SpmM::with('divisi')->get();
     }
     public function map($data_spmm_m): array
     {
         return [
             $data_spmm_m->nomor_surat_spm,
             $data_spmm_m->tanggal_surat,
-            $data_spmm_m->devisi,
+            $data_spmm_m->divisi->nama_divisi,
             $data_spmm_m->tahun_anggaran,
             $data_spmm_m->jenis_transaksi,
             $data_spmm_m->permohonan_dana,

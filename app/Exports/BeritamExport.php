@@ -24,13 +24,13 @@ class BeritamExport implements FromCollection, ShouldAutoSize, WithMapping, With
     }
     public function collection()
     {
-        return BeritaM::with('karyawanBerita')->get();
+        return BeritaM::with('karyawanBerita','jabatan')->get();
     }
     public function map($data_beritamm): array
     {
         return [
             $data_beritamm->nomor_surat_berita,
-            $data_beritamm->karyawanBerita->jabatan,
+            $data_beritamm->karyawanBerita->jabatan->nama_jabatan,
             $data_beritamm->tanggal_surat,
             $data_beritamm->alamat_tujuan,
         ];
