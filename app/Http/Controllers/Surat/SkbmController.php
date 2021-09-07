@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Surat;
 
 use App\BarangSkbM;
+use App\Exports\SkbmExport;
 use App\Http\Controllers\Controller;
 use App\Karyawan;
 use App\Satuan;
 use App\SkbM;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SkbmController extends Controller
 {
@@ -243,5 +245,9 @@ class SkbmController extends Controller
         $barang = BarangSkbM::where('id', $barang)->delete();
 
         return response()->json(['status' => $barang]);
+    }
+    public function fileExport()
+    {
+        return Excel::download(new SkbmExport, 'data-Skb.xlsx');
     }
 }

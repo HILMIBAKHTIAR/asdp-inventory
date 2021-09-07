@@ -5,6 +5,7 @@
     <div class="mb-2 d-flex justify-content-start">
         <a href="{{url('admin/surat/')}}" class="btn btn-success"> Kembali</a>
     </div>
+    <a class="btn btn-warning" href="{{ url('admin/file-exportBeritaM') }}">Export Excel</a>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             @if(session()->get('sukses'))
@@ -18,6 +19,7 @@
                 @can('umum-create')
                 <a href="{{route('beritam.create')}}" class="btn btn-primary"> Tambah</a>
                 @endcan
+                
             </div>
         </div>
         <div class="card-body">

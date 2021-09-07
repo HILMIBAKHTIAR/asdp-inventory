@@ -4,6 +4,11 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\KaryawanController;
 use App\Http\Controllers\History\SppbjHistoryController;
+use App\Http\Controllers\Surat\BeritamController;
+use App\Http\Controllers\Surat\SkbmController;
+use App\Http\Controllers\Surat\SpmmController;
+use App\Http\Controllers\Surat\SppbjmController;
+use App\Http\Controllers\Surat\VerspmmController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,4 +79,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     //export excel
     Route::get('file-export', [KaryawanController::class, 'fileExport'])->name('file-export');
     Route::get('file-exportSppbj', [SppbjHistoryController::class, 'fileExport'])->name('file-exportSppbj');
+    Route::get('file-exportVerspmM', [VerspmmController::class, 'fileExport'])->name('file-exportVerspmM');
+    Route::get('file-exportSppbjM', [SppbjmController::class, 'fileExport'])->name('file-exportSppbjM');
+    Route::get('file-exportSkbM', [SkbmController::class, 'fileExport'])->name('file-exportSkbM');
+    Route::get('file-exportBeritaM', [BeritamController::class, 'fileExport'])->name('file-exportBeritaM');
+    Route::get('file-exportSpmM', [SpmmController::class, 'fileExport'])->name('file-exportSpmM');
 });

@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Surat;
 
+use App\Exports\SpmmExport;
+use App\Exports\SppbjmExport;
 use App\Http\Controllers\Controller;
 use App\Karyawan;
 use App\Mataanggaran;
 use App\SpmM;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SpmmController extends Controller
 {
@@ -225,5 +228,9 @@ class SpmmController extends Controller
         $data_spmm->delete();
 
         return redirect('admin\spmm')->with('sukses', 'data spmm berhasil dihapus');
+    }
+    public function fileExport()
+    {
+        return Excel::download(new SpmmExport, 'data-Spm.xlsx');
     }
 }

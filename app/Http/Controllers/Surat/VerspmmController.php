@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Surat;
 
+use App\Exports\VerspmMExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Karyawan;
 use App\VerspmM;
+use Maatwebsite\Excel\Facades\Excel;
 
 class VerspmmController extends Controller
 {
@@ -223,5 +225,9 @@ class VerspmmController extends Controller
         $verspmm->delete();
 
         return redirect()->route('verspmm.index')->with('sukses', 'surat VerSpm berhasil di hapus');
+    }
+    public function fileExport()
+    {
+        return Excel::download(new VerspmMExport, 'data-Verspm-Manual.xlsx');
     }
 }
