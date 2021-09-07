@@ -31,6 +31,6 @@ class Karyawan extends Model
 
     public function jabatan()
     {
-        return $this->belongsTo(Jabatan::class,);
+        return $this->belongsTo(Jabatan::class);
     }
 }
