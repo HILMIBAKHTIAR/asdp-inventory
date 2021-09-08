@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Divisi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Karyawan;
@@ -110,9 +111,10 @@ class KaryawanController extends Controller
      */
     public function create()
     {
+        $data_divisi = Divisi::all();
         $jabatan = Jabatan::all();
         $data = Karyawan::all();
-        return view('admin.karyawan.create', compact('data', 'jabatan'));
+        return view('admin.karyawan.create', compact('data', 'data_divisi', 'jabatan'));
     }
 
     /**
@@ -126,34 +128,38 @@ class KaryawanController extends Controller
         //dd($request);
         $request->validate([
             'nama_karyawan'             => 'required',
-            'jabatan_id'                   => 'required',
+            'jabatan_id'                => 'required',
+            'divisi_id'                 => 'required',
+            'status_jabatan'            => 'required',
             'nik'                       => 'required',
             'tempat_lahir'              => 'required',
             'tanggal_lahir'             => 'required',
-            'nik_ktp'                   => 'required',
-            'no_bpjs_kesehatan'         => 'required',
-            'no_bpjs_ketenagakerjaan'   => 'required',
             'no_npwp'                   => 'required',
             'status_keluarga'           => 'required',
             'pendidikan'                => 'required',
-            'sk'                        => 'required',
             'tanggal_masuk_kerja'       => 'required',
             'tanggal_pilih_jabatan'     => 'required',
+            'darat_laut'                => 'required',
+            'jenis_kelamin'             => 'required',
+            'segmen'                    => 'required',
+            'no_rek'                    => 'required',
         ], [
             'nama_karyawan.required'             => 'nama karyawan harus diisi',
-            'jabatan_id.required'                   => 'jabatan harus diisi',
+            'jabatan_id.required'                => 'jabatan harus diisi',
+            'divisi_id.required'                 => 'sub unker harus diisi',
+            'status_jabatan.required'            => 'status Jabatan harus diisi',
             'nik.required'                       => 'NIK harus diisi',
             'tempat_lahir.required'              => 'tempat lahir harus diisi',
             'tanggal_lahir.required'             => 'tanggal lahir harus diisi',
-            'nik_ktp.required'                   => 'NIK KTP harus diisi',
-            'no_bpjs_kesehatan.required'         => 'nomor BPJS harus diisi',
-            'no_bpjs_ketenagakerjaan.required'   => 'nomor BPJS harus diisi',
             'no_npwp.required'                   => 'nomor NPWP harus diisi',
             'status_keluarga.required'           => 'status keluarga harus diisi',
             'pendidikan.required'                => 'pendidikan harus diisi',
-            'sk.required'                        => 'SK harus diisi',
             'tanggal_masuk_kerja.required'       => 'tanggal masuk kerja harus diisi',
             'tanggal_pilih_jabatan.required'     => 'tanggal dipilih jabatan harus diisi',
+            'darat_laut.required'                => 'darat laut harus diisi',
+            'jenis_kelamin.required'             => 'jenis kelamin harus diisi',
+            'segmen.required'                    => 'segmen harus diisi',
+            'no_rek.required'                    => 'nomor rekening harus diisi',
         ]);
 
         //calculate umur
@@ -170,6 +176,8 @@ class KaryawanController extends Controller
         $data_karyawan = Karyawan::create([
             'nama_karyawan'             => $request->nama_karyawan,
             'jabatan_id'                => $request->jabatan_id,
+            'divisi_id'                 => $request->divisi_id,
+            'status_jabatan'            => $request->status_jabatan,
             'nik'                       => $request->nik,
             'tempat_lahir'              => $request->tempat_lahir,
             'tanggal_lahir'             => $tanggal_lahir,
@@ -186,6 +194,22 @@ class KaryawanController extends Controller
             'tanggal_pilih_jabatan'     => $tanggal_pilih_jabatan,
             'masa_kerja'                => $masa_kerja,
             'masa_jabatan'              => $masa_jabatan,
+            'darat_laut'                => $request->darat_laut,
+            'jenis_kelamin'             => $request->jenis_kelamin,
+            'gol_skala_tht'             => $request->gol_skala_tht,
+            'skala_tht'                 => $request->skala_tht,
+            'gol_phdp'                  => $request->gol_phdp,
+            'gol_skala_phdp'            => $request->gol_skala_phdp,
+            'gol_gaji'                  => $request->gol_gaji,
+            'gol_skala_gaji'            => $request->gol_skala_gaji,
+            'no_hp'                     => $request->no_hp,
+            'no_inhealth'               => $request->no_inhealth,
+            'no_rek'                    => $request->no_rek,
+            'email'                     => $request->email,
+            'alamat'                    => $request->alamat,
+            'uk_sepatu'                 => $request->uk_sepatu,
+            'uk_kaos'                   => $request->uk_kaos,
+            'segmen'                    => $request->segmen,
 
         ]);
 
@@ -217,9 +241,10 @@ class KaryawanController extends Controller
      */
     public function edit($id)
     {
+        $data_divisi = Divisi::all();
         $jabatan = Jabatan::all();
         $karyawan = Karyawan::findOrFail($id);
-        return view('admin.karyawan.edit', compact('karyawan', 'id', 'jabatan'));
+        return view('admin.karyawan.edit', compact('karyawan', 'id', 'jabatan', 'data_divisi'));
     }
 
     /**
@@ -234,19 +259,21 @@ class KaryawanController extends Controller
         // dd($request->all());
         $request->validate([
             'nama_karyawan'             => 'required',
-            'jabatan_id'                   => 'required',
+            'jabatan_id'                => 'required',
+            'divisi_id'                 => 'required',
+            'status_jabatan'            => 'required',
             'nik'                       => 'required',
             'tempat_lahir'              => 'required',
             'tanggal_lahir'             => 'required',
-            'nik_ktp'                   => 'required',
-            'no_bpjs_kesehatan'         => 'required',
-            'no_bpjs_ketenagakerjaan'   => 'required',
             'no_npwp'                   => 'required',
             'status_keluarga'           => 'required',
             'pendidikan'                => 'required',
-            'sk'                        => 'required',
             'tanggal_masuk_kerja'       => 'required',
             'tanggal_pilih_jabatan'     => 'required',
+            'darat_laut'                => 'required',
+            'jenis_kelamin'             => 'required',
+            'segmen'                    => 'required',
+            'no_rek'                    => 'required',
         ]);
 
         //calculate umur
@@ -264,6 +291,8 @@ class KaryawanController extends Controller
 
         $karyawan->nama_karyawan            = $request->get('nama_karyawan');
         $karyawan->jabatan_id               = $request->get('jabatan_id');
+        $karyawan->divisi_id                = $request->get('divisi_id');
+        $karyawan->status_jabatan           = $request->get('status_jabatan');
         $karyawan->nik                      = $request->get('nik');
         $karyawan->tempat_lahir             = $request->get('tempat_lahir');
         $karyawan->tanggal_lahir            = $tanggal_lahir;
@@ -280,6 +309,22 @@ class KaryawanController extends Controller
         $karyawan->tanggal_pilih_jabatan    = $tanggal_pilih_jabatan;
         $karyawan->masa_kerja               = $masa_kerja;
         $karyawan->masa_jabatan             = $masa_jabatan;
+        $karyawan->darat_laut               = $request->get('darat_laut');
+        $karyawan->jenis_kelamin            = $request->get('jenis_kelamin');
+        $karyawan->gol_skala_tht            = $request->get('gol_skala_tht');
+        $karyawan->skala_tht                = $request->get('skala_tht');
+        $karyawan->gol_phdp                 = $request->get('gol_phdp');
+        $karyawan->gol_skala_phdp           = $request->get('gol_skala_phdp');
+        $karyawan->gol_gaji                 = $request->get('gol_gaji');
+        $karyawan->gol_skala_gaji           = $request->get('gol_skala_gaji');
+        $karyawan->no_hp                    = $request->get('no_hp');
+        $karyawan->no_inhealth              = $request->get('no_inhealth');
+        $karyawan->no_rek                   = $request->get('no_rek');
+        $karyawan->email                    = $request->get('email');
+        $karyawan->alamat                   = $request->get('alamat');
+        $karyawan->uk_sepatu                = $request->get('uk_sepatu');
+        $karyawan->uk_kaos                  = $request->get('uk_kaos');
+        $karyawan->segmen                   = $request->get('segmen');
 
         $karyawan->save();
         return redirect('admin\karyawan')->with('sukses', 'Karyawan berhasil diupdate');
