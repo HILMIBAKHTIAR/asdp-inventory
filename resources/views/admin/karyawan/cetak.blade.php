@@ -63,12 +63,14 @@
             #ppn {
                 visibility: hidden;
             }
+
             .print-area * {
                 visibility: visible;
             }
+
             th {
                 background-color: antiquewhite;
-                -webkit-print-color-adjust: exact; 
+                -webkit-print-color-adjust: exact;
             }
         }
 
@@ -89,75 +91,204 @@
 
         <form>
 
-                <p style="font-size: 9.0pt; font-family: FrutigerExt-Normal; color: black; margin:auto;">
-                    Daftar Nominatif Karyawan Pt Asdp Indonesia Ferry (Persero) <br>
-                    Cabang KETAPANG <br>
-                    Bulan : {{date('M-y', strtotime($today))}} <br>
-                </p>
+            <p style="font-size: 9.0pt; font-family: FrutigerExt-Normal; color: black; margin:auto;">
+                Daftar Nominatif Karyawan Pt Asdp Indonesia Ferry (Persero) <br>
+                Cabang KETAPANG <br>
+                Bulan : {{ date('M-y', strtotime($today)) }} <br>
+            </p>
             <table class="border1" align="center" cellpadding="0" cellspacing="0" style="width: 1380px; ">
                 <thead>
                     <tr>
-                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1 text-center warna"><p style="margin: 2px;">NO</p></th>
-                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1 text-center warna"><p style="margin: 2px;">Nama Karyawan/<br>Nik</p></th>
-                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1 text-center warna"><p style="margin: 2px;">Tempat/Tgl<br>Lahir</p></th>
-                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1 text-center warna"><p style="margin: 2px;">Usia<br>(Th)</p></th>
-                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1 text-center warna"><p style="margin: 2px;">Status<br>Keluarga</p></th>
-                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1 text-center warna"><p style="margin: 2px;">MKE/TMT Kerja</p></th>
-                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1 text-center warna"><p style="margin: 2px;">SK.Capeg</p></th>
-                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1 text-center warna"><p style="margin: 2px;">Jabatan</p></th>
-                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1 text-center warna"><p style="margin: 2px;">Masa Kerja Jabatan/<br>TMT Jabatan</p></th>
-                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1 text-center warna"><p style="margin: 2px;">Pendidikan<br>Terakhir</p></th>
-                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1 text-center warna"><p style="margin: 2px;">No.Induk<br>Kependudukan</p></th>
-                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1 text-center warna"><p style="margin: 2px;">No.BPJS<br>Ketenagakerjaan</p></th>
-                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1 text-center warna"><p style="margin: 2px;">No.BPJS<br>Kesehatan</p></th>
-                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;" class="border1 text-center warna"><p style="margin: 2px;">No.Peserta Wajib Pajak<br>(NPWP)</p></th>
+                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"
+                            class="border1 text-center warna">
+                            <p style="margin: 2px;">NO</p>
+                        </th>
+                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"
+                            class="border1 text-center warna">
+                            <p style="margin: 2px;">Nama Karyawan/<br>Nik</p>
+                        </th>
+                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"
+                            class="border1 text-center warna">
+                            <p style="margin: 2px;">Tempat/Tgl<br>Lahir</p>
+                        </th>
+                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"
+                            class="border1 text-center warna">
+                            <p style="margin: 2px;">Usia<br>(Th)</p>
+                        </th>
+                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"
+                            class="border1 text-center warna">
+                            <p style="margin: 2px;">Status<br>Keluarga</p>
+                        </th>
+                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"
+                            class="border1 text-center warna">
+                            <p style="margin: 2px;">MKE/TMT Kerja</p>
+                        </th>
+                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"
+                            class="border1 text-center warna">
+                            <p style="margin: 2px;">SK.Capeg</p>
+                        </th>
+                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"
+                            class="border1 text-center warna">
+                            <p style="margin: 2px;">Jabatan</p>
+                        </th>
+                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"
+                            class="border1 text-center warna">
+                            <p style="margin: 2px;">Masa Kerja Jabatan/<br>TMT Jabatan</p>
+                        </th>
+                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"
+                            class="border1 text-center warna">
+                            <p style="margin: 2px;">Pendidikan<br>Terakhir</p>
+                        </th>
+                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"
+                            class="border1 text-center warna">
+                            <p style="margin: 2px;">No.Induk<br>Kependudukan</p>
+                        </th>
+                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"
+                            class="border1 text-center warna">
+                            <p style="margin: 2px;">No.BPJS<br>Ketenagakerjaan</p>
+                        </th>
+                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"
+                            class="border1 text-center warna">
+                            <p style="margin: 2px;">No.BPJS<br>Kesehatan</p>
+                        </th>
+                        <th style="background-color: antiquewhite;font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"
+                            class="border1 text-center warna">
+                            <p style="margin: 2px;">No.Peserta Wajib Pajak<br>(NPWP)</p>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($karyawan as $i=>$row)
-                    <tr>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{++$i}}</p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 2px;">{{$row->nama_karyawan}}</p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{$row->tempat_lahir}}</p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{$row->usia}}</p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{$row->status_keluarga}}</p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{$row->masa_kerja}}</p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">SK. {{$row->sk}}</p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{$row->jabatan->nama_jabatan}}</p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{$row->masa_jabatan}}</p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{$row->pendidikan}}</p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{$row->nik_ktp}}</p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{$row->no_bpjs_ketenagakerjaan}}</p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{$row->no_bpjs_kesehatan}}</p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{$row->no_npwp}}</p></td>
-                    </tr>
-                    <tr>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 2px;"></p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 2px;">{{$row->nik}}</p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{tanggal_indonesia($row->tanggal_lahir)}}</p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 2px;"></p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 2px;"></p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{tanggal_indonesia($row->tanggal_masuk_kerja)}}</p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 2px;"></p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 2px;"></p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{tanggal_indonesia($row->tanggal_pilih_jabatan)}}</p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p class="text-center" style="margin: 2px;">{{$row->jurusan}}</p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 2px;"></p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 2px;"></p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 2px;"></p></td>
-                        <td class="border1" style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;"><p style="margin: 2px;"></p></td>
-                    </tr>
+                    @foreach ($karyawan as $i => $row)
+                        <tr>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p class="text-center" style="margin: 2px;">{{ ++$i }}</p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p style="margin: 2px;">{{ $row->nama_karyawan }}</p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p class="text-center" style="margin: 2px;">{{ $row->tempat_lahir }}</p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p class="text-center" style="margin: 2px;">{{ $row->usia }}</p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p class="text-center" style="margin: 2px;">{{ $row->status_keluarga }}</p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p class="text-center" style="margin: 2px;">{{ $row->masa_kerja }}</p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p class="text-center" style="margin: 2px;">{{ $row->sk }}</p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p class="text-center" style="margin: 2px;">{{ $row->jabatan->nama_jabatan }}</p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p class="text-center" style="margin: 2px;">{{ $row->masa_jabatan }}</p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p class="text-center" style="margin: 2px;">{{ $row->pendidikan }}</p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p class="text-center" style="margin: 2px;">{{ $row->nik_ktp }}</p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p class="text-center" style="margin: 2px;">{{ $row->no_bpjs_ketenagakerjaan }}</p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p class="text-center" style="margin: 2px;">{{ $row->no_bpjs_kesehatan }}</p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p class="text-center" style="margin: 2px;">{{ $row->no_npwp }}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p style="margin: 2px;"></p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p style="margin: 2px;">{{ $row->nik }}</p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p class="text-center" style="margin: 2px;">
+                                    {{ tanggal_indonesia($row->tanggal_lahir) }}</p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p style="margin: 2px;"></p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p style="margin: 2px;"></p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p class="text-center" style="margin: 2px;">
+                                    {{ tanggal_indonesia($row->tanggal_masuk_kerja) }}</p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p style="margin: 2px;"></p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p style="margin: 2px;"></p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p class="text-center" style="margin: 2px;">
+                                    {{ tanggal_indonesia($row->tanggal_pilih_jabatan) }}</p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p class="text-center" style="margin: 2px;">{{ $row->jurusan }}</p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p style="margin: 2px;"></p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p style="margin: 2px;"></p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p style="margin: 2px;"></p>
+                            </td>
+                            <td class="border1"
+                                style="font-size: 7.0pt; font-family: FrutigerExt-Normal; color: black;">
+                                <p style="margin: 2px;"></p>
+                            </td>
+                        </tr>
                     @endforeach
             </table>
 
-            
+
         </form>
     </div>
 
     <div class="container-lg text-center mt-4 mb-4">
         <button name="cetak" type="button" id="cetak" value="Cetak" onclick="Cetakan()" class="btn btn-primary"
             style="margin-right: 4cm;">cetak</button>
-        <a href="{{ url('admin/karyawan') }}"class="btn btn-success">Kembali</a>
+        <a href="{{ url('admin/karyawan') }}" class="btn btn-success">Kembali</a>
     </div>
 
     <script>
@@ -167,16 +298,16 @@
                 x[i].style.visibility = "hidden";
             }
             var css = '@page { size: landscape; }',
-            head = document.head || document.getElementsByTagName('head')[0],
-            style = document.createElement('style');
+                head = document.head || document.getElementsByTagName('head')[0],
+                style = document.createElement('style');
 
             style.type = 'text/css';
             style.media = 'print';
 
-            if (style.styleSheet){
-            style.styleSheet.cssText = css;
+            if (style.styleSheet) {
+                style.styleSheet.cssText = css;
             } else {
-            style.appendChild(document.createTextNode(css));
+                style.appendChild(document.createTextNode(css));
             }
 
             head.appendChild(style);
