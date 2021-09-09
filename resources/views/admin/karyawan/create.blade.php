@@ -12,7 +12,7 @@
                 <div class="card mb-4">
                     <div class="card-footer">
 
-                        @if ($errors->any())
+                        {{-- @if ($errors->any())
 
                             <div class="alert alert-danger">
                                 <div class="list-group">
@@ -24,7 +24,7 @@
                                 </div>
                             </div>
 
-                        @endif
+                        @endif --}}
 
                         <!-- judul form-->
 
