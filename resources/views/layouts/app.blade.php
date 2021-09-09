@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>ASDP Procurement</title>
+    <title>ASDP HR4U</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
