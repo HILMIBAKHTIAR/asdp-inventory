@@ -13,7 +13,7 @@
             </div>
 
             @endif
-            <h6 class="m-0 font-weight-bold text-primary">Spm</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Surat Perintah Membayar</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">

@@ -18,7 +18,7 @@
                     </div>
 
                 @endif
-                <h6 class="m-0 font-weight-bold text-primary">Sppbj</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Surat Permintaan Pengadaan Barang/Jasa</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
