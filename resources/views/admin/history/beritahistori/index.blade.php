@@ -13,7 +13,7 @@
             </div>
 
             @endif
-            <h6 class="m-0 font-weight-bold text-primary">Berita Acara Serah Terima</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Surat Bukti Serah Terima Barang</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
